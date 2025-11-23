@@ -1,0 +1,83 @@
+[
+  {
+    "line_number": 1,
+    "predicted_attack_type": "",
+    "attack_type": "dnsteal",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is likely a false positive because the domain 'youtu.be' is a legitimate domain and the entropy value is only slightly above the threshold.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:33 dnsmasq[14460]: query[A] youtu.be from 192.168.128.4\"], \"Timestamps\": [1642411593], \"DetectionTimestamp\": [1642411593], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 2,
+    "predicted_attack_type": "",
+    "attack_type": "dnsteal",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is likely a false positive because the domain 'youtu.be' is a legitimate domain and the system is not in training mode, indicating no suspicious behavior.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:33 dnsmasq[14460]: forwarded youtu.be to 8.8.8.8\"], \"Timestamps\": [1642411593], \"DetectionTimestamp\": [1642411593], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 3,
+    "predicted_attack_type": "",
+    "attack_type": "dnsteal",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is likely a false positive because the training mode is still active, the detection confidence is low and no repeated suspicious behavior.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:33 dnsmasq[14522]: query[A] youtu.be from 172.17.130.196\"], \"Timestamps\": [1642411593], \"DetectionTimestamp\": [1642411593], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "line_number": 4,
+    "predicted_attack_type": "",
+    "attack_type": "dnsteal",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is likely a false positive because the domain 'youtu.be' is a legitimate domain and the entropy value is only slightly above the threshold.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:33 dnsmasq[14522]: forwarded youtu.be to 192.168.255.254\"], \"Timestamps\": [1642411593], \"DetectionTimestamp\": [1642411593], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "line_number": 5,
+    "predicted_attack_type": "",
+    "attack_type": "dnsteal",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is likely a false positive because the domain 'youtu.be' is a legitimate and commonly used domain, and there is no indication of malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:34 dnsmasq[14460]: reply youtu.be is 172.217.20.14\"], \"Timestamps\": [1642411594], \"DetectionTimestamp\": [1642411594], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 6,
+    "predicted_attack_type": "",
+    "attack_type": "dnsteal",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is likely a false positive because the domain 'youtu.be' is a legitimate domain and the entropy value is below the threshold.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:34 dnsmasq[14522]: reply youtu.be is 172.217.20.14\"], \"Timestamps\": [1642411594], \"DetectionTimestamp\": [1642411594], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "line_number": 7,
+    "predicted_attack_type": "",
+    "attack_type": "dnsteal",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is likely a false positive because the frequency of A record queries is within the expected range, and the confidence score is low.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 31, \"AnalysisComponentType\": \"EventFrequencyDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of query records in DNS logs.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"efd_dns_record\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/record\"], \"AffectedLogAtomValues\": [\"A\"]}, \"FrequencyData\": {\"ExpectedLogAtomValuesFrequency\": 1767.0217391304348, \"ExpectedLogAtomValuesFrequencyRange\": [938.0, 2596.0], \"LogAtomValuesFrequency\": 627, \"WindowSize\": 3600, \"ConfidenceFactor\": 0.25, \"Confidence\": 0.6451656557951847}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:59:49 dnsmasq[14522]: query[A] mail.price.fox.org from 10.35.35.118\"], \"Timestamps\": [1642413589], \"DetectionTimestamp\": [1642413589], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "line_number": 15,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates that a hostname could not be resolved for a given IP address, which is a common network issue and not necessarily malicious.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/no_host_found\", \"/model/fm/no_host_found/no_host_found_str\", \"/model/fm/no_host_found/ip\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-18 12:17:28 no host name found for IP address 192.168.130.77\"], \"Timestamps\": [1642508248], \"DetectionTimestamp\": [1642508248], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/exim4/mainlog\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "line_number": 17,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates that a hostname could not be resolved for a given IP address, which is a common network issue and not necessarily malicious.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/no_host_found\", \"/model/fm/no_host_found/no_host_found_str\", \"/model/fm/no_host_found/ip\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-18 12:17:28 no host name found for IP address 192.168.130.77\"], \"Timestamps\": [1642508248], \"DetectionTimestamp\": [1642508248], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/exim4/mainlog\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  }
+]

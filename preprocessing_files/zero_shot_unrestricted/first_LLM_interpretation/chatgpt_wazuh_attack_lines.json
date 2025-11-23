@@ -1,0 +1,802 @@
+[
+  {
+    "anomaly_timestamp": "2022-01-17T09:44:35.000000Z",
+    "attack_type": ["Valid Account Abuse"],
+    "mitre": ["T1078"],
+    "description": "Authentication success for user susan.gregory using dovecot; repeated success logs suggest potential account compromise or credential misuse.",
+    "tools": ["Hydra", "Metasploit", "Imap tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-17T09:44:35.000000Z",
+    "attack_type": ["Valid Account Abuse"],
+    "mitre": ["T1078"],
+    "description": "Duplicate successful login alert for susan.gregory from the same source; likely part of same session.",
+    "tools": ["Hydra", "Metasploit", "Imap tools"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-17T09:45:09.000000Z",
+    "attack_type": ["Valid Account Abuse"],
+    "mitre": ["T1078"],
+    "description": "Authentication success for user damian.jordan; rising login count indicates possible misuse of valid credentials.",
+    "tools": ["Hydra", "Metasploit", "Imap tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-17T09:45:09.000000Z",
+    "attack_type": ["Valid Account Abuse"],
+    "mitre": ["T1078"],
+    "description": "Repeat alert for damian.jordan login; likely same session and duplicate log entry.",
+    "tools": ["Hydra", "Metasploit", "Imap tools"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-17T09:45:09.000000Z",
+    "attack_type": ["Valid Account Abuse"],
+    "mitre": ["T1078"],
+    "description": "Same successful login by damian.jordan appearing again in logs; another duplicate entry.",
+    "tools": ["Hydra", "Metasploit", "Imap tools"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-17T09:58:30.000000Z",
+    "attack_type": ["Valid Account Abuse"],
+    "mitre": ["T1078"],
+    "description": "Another login success for user susan.gregory; consistent with suspicious behavior due to high firedtimes count.",
+    "tools": ["Hydra", "Metasploit", "Imap tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-17T09:58:30.000000Z",
+    "attack_type": ["Valid Account Abuse"],
+    "mitre": ["T1078"],
+    "description": "Repeated login event for susan.gregory; same timestamp and session details.",
+    "tools": ["Hydra", "Metasploit", "Imap tools"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-17T09:58:30.000000Z",
+    "attack_type": ["Valid Account Abuse"],
+    "mitre": ["T1078"],
+    "description": "Triplicate login entry for susan.gregory; no sign of variation suggesting additional activity.",
+    "tools": ["Hydra", "Metasploit", "Imap tools"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-17T09:59:56.000000Z",
+    "attack_type": ["Valid Account Abuse"],
+    "mitre": ["T1078"],
+    "description": "First login success seen for michael.davis; high firedtimes suggests this is part of a broader suspicious activity pattern.",
+    "tools": ["Hydra", "Metasploit", "Imap tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-17T09:59:56.000000Z",
+    "attack_type": ["Valid Account Abuse"],
+    "mitre": ["T1078"],
+    "description": "Second success log for michael.davis with identical context; most likely a system-level duplicate entry.",
+    "tools": ["Hydra", "Metasploit", "Imap tools"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T11:59:00.000000Z",
+    "attack_type": ["Valid Account Usage"],
+    "mitre": ["T1078"],
+    "description": "Successful IMAP login via PLAIN method for user damian.jordan. Could signal credential misuse or normal mail access.",
+    "tools": ["IMAP clients", "stolen credentials"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:00:09.000000Z",
+    "attack_type": ["Valid Account Usage"],
+    "mitre": ["T1078"],
+    "description": "IMAP login success for john.hammond from consistent IP—likely legitimate mail client use.",
+    "tools": ["IMAP clients"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:05:40.000000Z",
+    "attack_type": ["Valid Account Usage"],
+    "mitre": ["T1078"],
+    "description": "Second IMAP login for john.hammond shortly after first—consistent with client re-authentication.",
+    "tools": ["IMAP clients"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:06:41.800120Z",
+    "attack_type": ["Protocol Misuse", "Encrypted Channel Abuse"],
+    "mitre": ["T1040"],
+    "description": "Suricata flagged TLS invalid record/traffic from fast.wistia.com—suggests malformed or crafted TLS traffic.",
+    "tools": ["Custom TLS clients", "packet crafting tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:07:01.020684Z",
+    "attack_type": ["Protocol Misuse", "Encrypted Channel Abuse"],
+    "mitre": ["T1040"],
+    "description": "Suricata detected invalid TLS handshake from external state.gov—possible scanning or malformed traffic.",
+    "tools": ["ZMap", "Masscan", "custom TLS libs"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:07:01.030519Z",
+    "attack_type": ["Protocol Misuse", "Encrypted Channel Abuse"],
+    "mitre": ["T1040"],
+    "description": "Suricata alert on internal host initiating invalid TLS handshake to state.gov—likely outbound suspicion.",
+    "tools": ["custom TLS stacks", "offensive frameworks"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:07:01.030519Z",
+    "attack_type": ["Protocol Misuse"],
+    "mitre": ["T1040"],
+    "description": "Another record of Suricata invalid TLS record/traffic on same session—confirms protocol anomaly.",
+    "tools": ["packet generators", "custom TLS libs"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:07:01.030519Z",
+    "attack_type": ["Protocol Misuse"],
+    "mitre": ["T1040"],
+    "description": "Snort logged TLS invalid handshake message mirroring Suricata alert—verifies detection.",
+    "tools": ["custom TLS tools", "packet manipulation software"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:07:08.204208Z",
+    "attack_type": ["Protocol Misuse", "Encrypted Channel Abuse"],
+    "mitre": ["T1040"],
+    "description": "Suricata flagged invalid TLS record from in.hotjar.com—again showing malformed TLS traffic inbound.",
+    "tools": ["custom TLS stacks", "proxy evasion tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:07:08.204261Z",
+    "attack_type": ["Protocol Misuse"],
+    "mitre": ["T1040"],
+    "description": "Snort listed again TLS invalid handshake to hotjar.com—duplicates signal consistent protocol anomaly detection.",
+    "tools": ["packet crafting tools", "custom TLS clients"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "01/18/2022-12:07:08.204261",
+    "attack_type": ["Protocol Anomaly", "TLS Evasion"],
+    "mitre": ["T1040"],
+    "description": "SURICATA TLS invalid record/traffic and handshake message indicates malformed TLS communications potentially used to bypass inspection or probe services.",
+    "tools": ["ZTLS", "Metasploit", "Custom TLS fuzzers"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:07:08.204261+0000",
+    "attack_type": ["Protocol Anomaly", "TLS Evasion"],
+    "mitre": ["T1040"],
+    "description": "TLS handshake message is malformed, repeated multiple times from same JA3 fingerprint, could indicate use of obfuscation or evasion tools.",
+    "tools": ["ZTLS", "nmap --script ssl-enum-ciphers", "Metasploit"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:07:08.204261+0000",
+    "attack_type": ["Protocol Anomaly", "TLS Evasion"],
+    "mitre": ["T1040"],
+    "description": "Identical repeated invalid TLS record alerts suggest active reconnaissance or malformed client attempts to evade detection.",
+    "tools": ["ZTLS", "sslsplit", "Ettercap"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "01/18/2022-12:07:10.140387",
+    "attack_type": ["Protocol Anomaly", "Suspicious SSL Communication"],
+    "mitre": ["T1040"],
+    "description": "Invalid TLS handshake from external IP suggests either misconfiguration or potentially malicious scanning/probing.",
+    "tools": ["ZMap", "Masscan", "SSLyze"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:08:38.000000Z",
+    "attack_type": ["Valid Account Usage"],
+    "mitre": ["T1078"],
+    "description": "Legitimate authentication to Dovecot IMAP using known account; could be lateral movement or persistence.",
+    "tools": ["Outlook", "Thunderbird", "Evilginx (if captured)"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:11:08.000000Z",
+    "attack_type": ["Valid Account Usage"],
+    "mitre": ["T1078"],
+    "description": "Repeated Dovecot IMAP successful logins from same source could indicate use of compromised credentials.",
+    "tools": ["IMAP clients", "Hydra (if brute forced)", "Python IMAP libraries"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:05.000000Z",
+    "attack_type": ["Valid Account Usage"],
+    "mitre": ["T1078"],
+    "description": "Ongoing logins by same user at various times may indicate persistent access by an attacker.",
+    "tools": ["Thunderbird", "Roundcube", "scripting for automated access"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:15.000000Z",
+    "attack_type": ["Reconnaissance", "SSH Scan"],
+    "mitre": ["T1046", "T1021.004"],
+    "description": "SSH daemon received connection without identification string, common in scanning or brute-force pre-checks.",
+    "tools": ["Masscan", "nmap", "ssh_scan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:15.000000Z",
+    "attack_type": ["Reconnaissance", "SSH Scan"],
+    "mitre": ["T1046", "T1021.004"],
+    "description": "Inbound SSH with missing identification string on firewall; behavior consistent with probing.",
+    "tools": ["Masscan", "nmap", "shodan scan client"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:15.000000Z",
+    "attack_type": ["Reconnaissance", "SSH Scan"],
+    "mitre": ["T1046", "T1021.004"],
+    "description": "SSH connection lacking proper protocol handshake often occurs during automated scans or fingerprinting.",
+    "tools": ["Metasploit", "Masscan", "nmap"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:15.000000Z",
+    "attack_type": ["Reconnaissance", "Lateral Movement"],
+    "mitre": ["T1046", "T1021.004"],
+    "description": "SSH connection attempt without proper identification string suggests a potential scan or reconnaissance attempt over SSH.",
+    "tools": ["Nmap", "Masscan", "Netcat"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:21.000000Z",
+    "attack_type": ["Web Application Scanning"],
+    "mitre": ["T1595.002"],
+    "description": "HTTP 403 error from GET request to root path indicates possible probing or misconfigured access, though limited info.",
+    "tools": ["Nikto", "Dirb"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:27.242838Z",
+    "attack_type": ["Command and Control", "Protocol Misuse"],
+    "mitre": ["T1090.001"],
+    "description": "Invalid SMTP reply detected by Suricata, indicating protocol misuse or potential tunneling attempt.",
+    "tools": ["Metasploit", "Custom C2"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:27.713538Z",
+    "attack_type": ["Initial Access", "Directory Traversal Attempt"],
+    "mitre": ["T1190", "T1087.001"],
+    "description": "Client denied access to web root by server config; could indicate probing for misconfigured or exposed directories.",
+    "tools": ["Dirb", "Gobuster"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:29.000000Z",
+    "attack_type": ["Reconnaissance", "Web Application Scanning"],
+    "mitre": ["T1595.002"],
+    "description": "GET request with Nmap scripting engine in user-agent string targeting a known detection path shows automated scanning.",
+    "tools": ["Nmap NSE"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:29.000000Z",
+    "attack_type": ["Reconnaissance", "Web Application Scanning"],
+    "mitre": ["T1595.002"],
+    "description": "POST request to /sdk path using Nmap scripting engine strongly suggests web app enumeration.",
+    "tools": ["Nmap NSE"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:29.661150Z",
+    "attack_type": ["Initial Access", "Web Application Scanning"],
+    "mitre": ["T1190", "T1595.002"],
+    "description": "Access denied to web root; similar repeated pattern as part of reconnaissance or vulnerability detection.",
+    "tools": ["Dirb", "Nikto"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:29.671199Z",
+    "attack_type": ["Initial Access", "Web Application Scanning"],
+    "mitre": ["T1190", "T1595.002"],
+    "description": "Attempted access to a file typically created by Nmap scan scripts; clearly part of automated scan.",
+    "tools": ["Nmap NSE"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:58.000000Z",
+    "attack_type": ["Reconnaissance", "Plugin Enumeration"],
+    "mitre": ["T1595.002", "T1505.003"],
+    "description": "HEAD request with WPScan user-agent probing for plugin paths suggests CMS enumeration attempt.",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:58.000000Z",
+    "attack_type": ["Reconnaissance", "Plugin Enumeration"],
+    "mitre": ["T1595.002", "T1505.003"],
+    "description": "Multiple 404 responses from HEAD requests to plugin paths using WPScan; typical plugin reconnaissance.",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:58.000000Z",
+    "attack_type": ["Web Plugin Enumeration", "Reconnaissance"],
+    "mitre": ["T1595.002"],
+    "description": "HEAD request for /click-to-chat-for-whatsapp/ with WPScan user-agent; indicative of plugin enumeration.",
+    "tools": ["WPScan", "Nikto", "wpscan.py"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:58.000000Z",
+    "attack_type": ["Web Plugin Enumeration", "Reconnaissance"],
+    "mitre": ["T1595.002"],
+    "description": "Probe for /cloudflare/ directory using WPScan; part of systematic plugin discovery.",
+    "tools": ["WPScan", "Burp Suite", "Nikto"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:58.000000Z",
+    "attack_type": ["Web Plugin Enumeration", "Reconnaissance"],
+    "mitre": ["T1595.002"],
+    "description": "Use of HEAD against /cloudflare-flexible-ssl/ pattern; automated plugin scan identified.",
+    "tools": ["WPScan", "wpscan.py"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:58.000000Z",
+    "attack_type": ["Web Plugin Enumeration", "Reconnaissance"],
+    "mitre": ["T1595.002"],
+    "description": "Batch of HEAD requests for multiple plugins (complianz, companion-auto-update, comet-cache, etc.); systematic enumeration by WPScan.",
+    "tools": ["WPScan", "wpscan.py", "Metasploit"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:58.000000Z",
+    "attack_type": ["Web Plugin Enumeration", "Reconnaissance"],
+    "mitre": ["T1595.002"],
+    "description": "HEAD request targeting /constant-contact-forms/ with high frequency noted; indicates automated scanning.",
+    "tools": ["WPScan", "Nikto"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:58.000000Z",
+    "attack_type": ["Web Plugin Enumeration", "Reconnaissance"],
+    "mitre": ["T1595.002"],
+    "description": "HEAD request for /bing-webmaster-tools/ plugin; further evidence of plugin discovery scan.",
+    "tools": ["WPScan", "Burp Suite"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:58.000000Z",
+    "attack_type": ["Web Plugin Enumeration", "Reconnaissance"],
+    "mitre": ["T1595.002"],
+    "description": "Scan for /better-wp-security/ plugin directory via WPScan; consistent enumeration behavior.",
+    "tools": ["WPScan", "wpscan.py"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:17:59.000000Z",
+    "attack_type": ["Web Plugin Enumeration", "Reconnaissance"],
+    "mitre": ["T1595.002"],
+    "description": "HEAD request for /easy-login-woocommerce/ plugin; part of continued automated enumeration.",
+    "tools": ["WPScan", "wpscan.py"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:18:01.000000Z",
+    "attack_type": ["Web Plugin Enumeration", "Reconnaissance"],
+    "mitre": ["T1595.002"],
+    "description": "HEAD request for /redis-cache/ plugin; systematic head probes indicate automated plugin scanning.",
+    "tools": ["WPScan", "Nikto"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:18:01.000000Z",
+    "attack_type": ["Web Plugin Enumeration", "Reconnaissance"],
+    "mitre": ["T1595.002"],
+    "description": "HEAD request for /amp/ plugin directory; consistent enumeration across many common WP plugins.",
+    "tools": ["WPScan", "wpscan.py"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:18:01.000000Z",
+    "attack_type": ["Web Application Scanning"],
+    "mitre": ["T1595.002"],
+    "description": "HEAD request to known WP plugin path with WPScan user-agent – scanning for vulnerabilities",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:18:13.000000Z",
+    "attack_type": ["Web Application Scanning"],
+    "mitre": ["T1595.002"],
+    "description": "HEAD request probing attachment endpoint using WPScan user-agent",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:18:13.000000Z",
+    "attack_type": ["File Enumeration", "Web Application Scanning"],
+    "mitre": ["T1595.002", "T1083"],
+    "description": "HEAD access to wp-config.php with WPScan – probing for sensitive config file",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:18:16.000000Z",
+    "attack_type": ["Web Application Scanning"],
+    "mitre": ["T1595.002"],
+    "description": "HEAD request to another attachment ID via WPScan – continued enumeration",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:18:21.000000Z",
+    "attack_type": ["Valid Accounts"],
+    "mitre": ["T1078"],
+    "description": "Dovecot authentication success for user – could be legitimate login activity",
+    "tools": ["Dovecot"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:18:31.000000Z",
+    "attack_type": ["Web Application Scanning"],
+    "mitre": ["T1595.002"],
+    "description": "GET to /academics – non-standard path scan likely probing for hidden pages",
+    "tools": ["Nikto", "Burp Suite", "Custom scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:18:31.000000Z",
+    "attack_type": ["Web Application Scanning", "Log File Enumeration"],
+    "mitre": ["T1595.002", "T1083"],
+    "description": "GET /access-log.1 – probing for server log files",
+    "tools": ["Nikto", "Burp Suite"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:18:31.000000Z",
+    "attack_type": ["Web Application Scanning"],
+    "mitre": ["T1595.002"],
+    "description": "GET /accountants – sequential path scan for common endpoints",
+    "tools": ["Nikto", "Burp Suite"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:18:31.000000Z",
+    "attack_type": ["Web Application Scanning"],
+    "mitre": ["T1595.002"],
+    "description": "GET /advancedsearch – scanning for advanced search functionality",
+    "tools": ["Nikto", "Burp Suite"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:18:31.000000Z",
+    "attack_type": ["Web Application Scanning"],
+    "mitre": ["T1595.002"],
+    "description": "GET /advert – probing for advertisement endpoint/page",
+    "tools": ["Nikto", "Burp Suite"],
+    "classification": "TP"
+  }, 
+    {
+    "anomaly_timestamp": "2022-01-18T12:18:32.000000Z",
+    "attack_type": ["Web Scanning"],
+    "mitre": ["T1595.002"],
+    "description": "Multiple 404 errors for similar paths suggest automated probing of web directories",
+    "tools": ["Nikto", "Dirb", "Dirbuster"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:18:32.000000Z",
+    "attack_type": ["Web Scanning"],
+    "mitre": ["T1595.002"],
+    "description": "Request to /beheer, likely part of localized admin scanning attempts",
+    "tools": ["Nikto", "Burp Suite", "custom scripts"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:21:18.000000Z",
+    "attack_type": ["Web Application Discovery"],
+    "mitre": ["T1595.002"],
+    "description": "Access attempt to /wp-admin/user/webcalendar, probing for WordPress plugins or sensitive paths",
+    "tools": ["wpscan", "Nikto"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:21:18.000000Z",
+    "attack_type": ["Web Application Discovery"],
+    "mitre": ["T1595.002"],
+    "description": "Access to /wp-admin/user/webcart suggests probing for e-commerce functionality in WordPress",
+    "tools": ["wpscan", "Dirb", "Burp Suite"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:21:18.815338Z",
+    "attack_type": ["Unauthorized Access Attempt"],
+    "mitre": ["T1595.002", "T1203"],
+    "description": "Attempt to access restricted file (.htpasswd_) in plugin directory; potentially trying to enumerate or exploit misconfigured access controls",
+    "tools": ["wpscan", "Burp Suite", "Nikto"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:21:19.000000Z",
+    "attack_type": ["Web Application Discovery", "Vulnerability Scanning"],
+    "mitre": ["T1595.002", "T1190"],
+    "description": "Request to deprecated or uncommon FrontPage extension endpoint (author.dll) on WordPress; indicates probing for legacy vulnerability",
+    "tools": ["Nikto", "Metasploit", "custom scripts"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:36:39.000000Z",
+    "attack_type": ["Web Scanning"],
+    "mitre": ["T1595.002"],
+    "description": "Attempt to access partial/incomplete WordPress paths; likely automated guessing of valid resource paths",
+    "tools": ["Dirb", "wpscan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:36:39.000000Z",
+    "attack_type": ["Web Scanning"],
+    "mitre": ["T1595.002"],
+    "description": "Multiple 404s in rapid succession for paths under /wp-includes/js/tinymce/skins/wordpress; dictionary attack against known file names",
+    "tools": ["wpscan", "Dirb", "Dirbuster"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:36:39.000000Z",
+    "attack_type": ["Web Application Fingerprinting"],
+    "mitre": ["T1592", "T1595.002"],
+    "description": "Targeting WordPress JavaScript resource paths for plugin enumeration or fingerprinting",
+    "tools": ["wpscan", "WhatWeb"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:36:39.000000Z",
+    "attack_type": ["Reconnaissance", "Web Scanning"],
+    "mitre": ["T1595.002"],
+    "description": "Access attempts to numerous similar files in WordPress paths indicate automated reconnaissance",
+    "tools": ["wpscan", "Nikto"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:37:55.000000Z",
+    "attack_type": ["Valid Account Use"],
+    "mitre": ["T1078"],
+    "description": "Successful authentication using a valid user account (megan.johnson) via Dovecot IMAP service with repeated logins from the same IP, suggesting automated or repeated account usage.",
+    "tools": ["Outlook", "Thunderbird", "Horde", "Roundcube", "Python IMAP libraries"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:37:55.000000Z",
+    "attack_type": ["Valid Account Use"],
+    "mitre": ["T1078"],
+    "description": "Same login as previous, duplicated across multiple logs (possibly due to log forwarding or central aggregation). Indicates a valid but possibly scripted login behavior.",
+    "tools": ["Roundcube", "IMAP CLI tools"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:37:55.000000Z",
+    "attack_type": ["Valid Account Use"],
+    "mitre": ["T1078"],
+    "description": "Another duplicate of the same login attempt by megan.johnson from identical IP and session ID, suggesting log duplication rather than repeated behavior.",
+    "tools": ["Generic IMAP clients"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:38:44.000000Z",
+    "attack_type": ["Valid Account Use"],
+    "mitre": ["T1078"],
+    "description": "New login session by same user (megan.johnson), new timestamp and session ID. Indicates continued use of valid credentials, possibly legitimate or compromised.",
+    "tools": ["IMAP client tools", "Email apps"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:38:44.000000Z",
+    "attack_type": ["Valid Account Use"],
+    "mitre": ["T1078"],
+    "description": "Repeated log of the same new login (megan.johnson) from same session, indicating a log mirror rather than a distinct event.",
+    "tools": ["Same as previous"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:38:44.000000Z",
+    "attack_type": ["Valid Account Use"],
+    "mitre": ["T1078"],
+    "description": "Third record of same login (session ID and timestamp match), suggesting central logging of one event.",
+    "tools": ["IMAP client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:39:03.000000Z",
+    "attack_type": ["Valid Account Use"],
+    "mitre": ["T1078"],
+    "description": "Different user (damian.jordan) logging in successfully to another mail server (taylorcruz-mail). Consistent with legitimate usage, but also fits lateral movement via valid credentials.",
+    "tools": ["Thunderbird", "Mutt", "Command-line IMAP"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:39:06.764682Z",
+    "attack_type": ["Protocol Exploitation", "Application Layer Anomaly"],
+    "mitre": ["T1040"],
+    "description": "Suricata flagged HTTP protocol inconsistency - response without matching request, which may indicate malformed traffic, probing, or evasion attempts.",
+    "tools": ["Metasploit", "Scapy", "curl with malformed headers"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:39:06.764682Z",
+    "attack_type": ["Protocol Exploitation", "Application Layer Anomaly"],
+    "mitre": ["T1040"],
+    "description": "Snort/Suricata duplication of previous anomaly showing TCP traffic anomaly — typical of fuzzing or malformed requests to identify parsing vulnerabilities.",
+    "tools": ["Burp Suite", "Metasploit", "Fuzzers"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:42:33.000000Z",
+    "attack_type": ["Valid Account Use"],
+    "mitre": ["T1078"],
+    "description": "Authentication success from user john.hammond with valid credentials on whittaker-mail. Repeated behavior pattern seen across multiple users may suggest compromised accounts or normal use.",
+    "tools": ["Mail clients", "Python IMAP"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:42:38.585827+0000",
+    "attack_type": ["TLS invalid handshake"],
+    "mitre": ["T1040"],
+    "description": "Suricata detected a TLS handshake message that does not conform to expected protocol behavior, indicating potential malformed or malicious TLS traffic.",
+    "tools": ["Suricata"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:42:38.585827",
+    "attack_type": ["TLS invalid record"],
+    "mitre": ["T1040"],
+    "description": "TLS traffic had an invalid record or structure, pointing to possible protocol manipulation or malformed packet inspection evasion.",
+    "tools": ["Suricata"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:51:27.000000Z",
+    "attack_type": ["Valid Accounts"],
+    "mitre": ["T1078"],
+    "description": "Successful authentication using IMAP protocol via dovecot suggests possible use of valid credentials. May be benign or initial access via stolen credentials.",
+    "tools": ["Dovecot"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:53:18.000000Z",
+    "attack_type": ["Brute Force"],
+    "mitre": ["T1110.001"],
+    "description": "PAM login failure indicates potential password guessing or brute force attempt for user christopher.friedman.",
+    "tools": ["PAM"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T12:53:19.840644+0000",
+    "attack_type": ["TLS invalid handshake"],
+    "mitre": ["T1040"],
+    "description": "Malformed TLS handshake detected from external IP insight.adsrvr.org, indicating suspicious or tampered SSL session initiation.",
+    "tools": ["Suricata"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T13:09:45.716306",
+    "attack_type": ["TLS invalid handshake"],
+    "mitre": ["T1040"],
+    "description": "Suricata detected outbound TLS connection with invalid handshake to 3.219.152.16, possibly indicative of anomalous or malicious encrypted traffic.",
+    "tools": ["Suricata"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T13:09:45.834229+0000",
+    "attack_type": ["TLS invalid record"],
+    "mitre": ["T1040"],
+    "description": "Inbound traffic from 94.245.192.25 flagged for malformed TLS records—suggests evasion attempt or poorly implemented TLS library.",
+    "tools": ["Suricata"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T13:09:49.481579+0000",
+    "attack_type": ["TLS invalid record"],
+    "mitre": ["T1040"],
+    "description": "TLS traffic from internal host to feed.theplatform.com shows invalid records, indicating possible misuse or data exfiltration over encrypted channel.",
+    "tools": ["Suricata"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T13:09:49.481579",
+    "attack_type": ["TLS invalid handshake"],
+    "mitre": ["T1040"],
+    "description": "Internal host attempted TLS connection to 199.27.170.188 with a malformed handshake, raising suspicion of potential command and control or obfuscated traffic.",
+    "tools": ["Suricata"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-18T13:09:49.481579",
+    "attack_type": ["TLS invalid record"],
+    "mitre": ["T1040"],
+    "description": "Malformed TLS records from internal to external destination suggest anomaly, possibly due to evasion techniques or encrypted data exfiltration.",
+    "tools": ["Suricata"],
+    "classification": "TP"
+  },
+    {
+    "anomaly_timestamp": "Jan 18 13:14:31",
+    "attack_type": ["Privilege Escalation", "Initial Access"],
+    "mitre": ["T1078"],
+    "description": "User www-data successfully changed UID to phopkins via su command, indicating potential account impersonation or privilege escalation.",
+    "tools": ["su"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "Jan 18 13:14:31",
+    "attack_type": ["Privilege Escalation", "Initial Access"],
+    "mitre": ["T1078"],
+    "description": "PAM session opened for user phopkins by UID 33, confirming successful login session initiation after UID change.",
+    "tools": ["pam"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "Jan 18 13:14:31",
+    "attack_type": ["Privilege Escalation", "Initial Access"],
+    "mitre": ["T1078"],
+    "description": "Systemd opened a PAM login session for user phopkins by root (UID 0), indicating elevated privileges granted or maintained.",
+    "tools": ["systemd", "pam"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "Jan 18 13:14:41",
+    "attack_type": ["Privilege Escalation", "Defense Evasion"],
+    "mitre": ["T1548.003"],
+    "description": "User phopkins executed sudo command as root with command 'list', showing privilege escalation using sudo.",
+    "tools": ["sudo"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "Jan 18 13:14:43",
+    "attack_type": ["Privilege Escalation", "Initial Access"],
+    "mitre": ["T1078"],
+    "description": "PAM login session opened for root user by UID 0 after sudo execution, confirming elevated root session.",
+    "tools": ["pam", "sudo"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "Jan 18 13:14:43",
+    "attack_type": ["Privilege Escalation", "Defense Evasion"],
+    "mitre": [],
+    "description": "PAM login session closed for root user, indicating end of sudo session.",
+    "tools": ["pam", "sudo"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "Jan 18 13:14:43",
+    "attack_type": ["Privilege Escalation", "Defense Evasion"],
+    "mitre": ["T1548.003"],
+    "description": "User phopkins executed sudo to run recursive ls on /root, accessing sensitive root directory contents.",
+    "tools": ["sudo"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "Jan 18 13:14:49",
+    "attack_type": ["Privilege Escalation", "Defense Evasion"],
+    "mitre": ["T1548.003"],
+    "description": "User phopkins executed sudo command to read /etc/shadow, attempting to access password hashes of all system users.",
+    "tools": ["sudo"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "Jan 18 13:14:49",
+    "attack_type": ["Privilege Escalation", "Initial Access"],
+    "mitre": ["T1078"],
+    "description": "PAM session opened for root user by UID 0 following sudo command, confirming active root session after privilege escalation.",
+    "tools": ["pam", "sudo"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "Jan 18 13:14:49",
+    "attack_type": ["Privilege Escalation", "Defense Evasion"],
+    "mitre": [],
+    "description": "PAM login session closed for root user, indicating end of elevated session.",
+    "tools": ["pam", "sudo"],
+    "classification": "TP"
+  }
+]

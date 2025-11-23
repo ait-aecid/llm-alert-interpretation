@@ -1,0 +1,802 @@
+[
+  {
+    "anomaly_timestamp": "2022-01-15T06:44:51.000000Z",
+    "attack_type": ["Credential Access"],
+    "mitre": ["T1078"],
+    "description": "Repeated authentication success for samantha.thornton using PLAIN over TLS from same IP, could indicate use of valid compromised credentials.",
+    "tools": ["Hydra", "Medusa", "Metasploit"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:44:51.000000Z",
+    "attack_type": ["Credential Access"],
+    "mitre": ["T1078"],
+    "description": "Repeated login for the same user and IP within the same second; abnormal behavior for human-driven access; likely automation or credential abuse.",
+    "tools": ["Hydra", "Metasploit"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:44:51.000000Z",
+    "attack_type": ["Credential Access"],
+    "mitre": ["T1078"],
+    "description": "Same user and IP successfully logging in multiple times across different logs with close timestamp; likely credential abuse.",
+    "tools": ["CrackMapExec", "Hydra"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:44:51.000000Z",
+    "attack_type": ["Credential Access"],
+    "mitre": ["T1078"],
+    "description": "Multiple successful logins using the same user and IP within one second indicates brute force or automated credential validation.",
+    "tools": ["Medusa", "Metasploit"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:44:51.000000Z",
+    "attack_type": ["Credential Access"],
+    "mitre": ["T1078"],
+    "description": "Sustained login activity from same IP and user with incrementing firedtimes count strongly suggests automated credential use.",
+    "tools": ["Hydra", "Impacket"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:44:52.000000Z",
+    "attack_type": ["Credential Access"],
+    "mitre": ["T1078"],
+    "description": "Continuation of login pattern by same user/IP confirms suspicious persistence, likely valid account exploitation.",
+    "tools": ["Hydra", "CrackMapExec"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:44:52.000000Z",
+    "attack_type": ["Credential Access"],
+    "mitre": ["T1078"],
+    "description": "Identical login details repeated in multiple logs—possible persistence or lateral movement using valid credentials.",
+    "tools": ["Metasploit", "RDP tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:44:52.000000Z",
+    "attack_type": ["Credential Access"],
+    "mitre": ["T1078"],
+    "description": "High frequency of identical successful logins with consistent metadata suggests possible malicious session reuse.",
+    "tools": ["Impacket", "CrackMapExec"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:46:10.000000Z",
+    "attack_type": ["System Maintenance"],
+    "mitre": [],
+    "description": "ClamAV update routine; not an attack, standard antivirus database update.",
+    "tools": ["ClamAV"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:40.000000Z",
+    "attack_type": ["Credential Access"],
+    "mitre": ["T1078"],
+    "description": "Login success from a different IP/user but matching suspicious pattern seen earlier; likely additional compromised account.",
+    "tools": ["Hydra", "Metasploit", "Impacket"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:40.000000Z",
+    "attack_type": ["Valid Account Use"],
+    "mitre": ["T1078"],
+    "description": "Multiple successful logins for user damian.jordan using IMAP with method PLAIN and source IP 192.168.128.195. Indicates possible use of compromised credentials.",
+    "tools": ["Outlook", "Thunderbird", "Horde", "Hydra (if brute forced before compromise)"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:40.000000Z",
+    "attack_type": ["Valid Account Use"],
+    "mitre": ["T1078"],
+    "description": "Same user (damian.jordan) logging in again at same timestamp with identical session details. Possibly repeated log entries across log sources or rapid session reuse.",
+    "tools": ["Outlook", "Thunderbird", "Horde", "Hydra"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:40.000000Z",
+    "attack_type": ["Valid Account Use"],
+    "mitre": ["T1078"],
+    "description": "Same session and login details as previous line, appearing in another log file (/var/log/syslog). Indicates log duplication rather than unique events.",
+    "tools": ["Outlook", "Thunderbird"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:40.000000Z",
+    "attack_type": ["Valid Account Use"],
+    "mitre": ["T1078"],
+    "description": "New login session for damian.jordan with different session ID and process ID, occurring at the same second. Pattern may indicate automation or script use.",
+    "tools": ["Custom script", "Thunderbird"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:40.000000Z",
+    "attack_type": ["Valid Account Use"],
+    "mitre": ["T1078"],
+    "description": "Duplicate of the previous login but from a different log file. No new activity seen. Repeated logging across different log sinks.",
+    "tools": ["Thunderbird"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:40.000000Z",
+    "attack_type": ["Valid Account Use"],
+    "mitre": ["T1078"],
+    "description": "Repeat of previous login with same session ID and credentials across another log file. No new attack vector indicated.",
+    "tools": ["Thunderbird"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:40.000000Z",
+    "attack_type": ["Valid Account Use"],
+    "mitre": ["T1078"],
+    "description": "Identical login seen again in syslog; multiple log sources reporting the same event.",
+    "tools": ["Thunderbird"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:41.000000Z",
+    "attack_type": ["Valid Account Use"],
+    "mitre": ["T1078"],
+    "description": "New login by damian.jordan with new session ID at a later timestamp (06:52:41), which shows persistent usage of a valid account shortly after prior events.",
+    "tools": ["Thunderbird", "Outlook"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:41.000000Z",
+    "attack_type": ["Valid Account Use"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log of the login at 06:52:41 from different log file. No new malicious activity.",
+    "tools": ["Thunderbird"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:41.000000Z",
+    "attack_type": ["Valid Account Use"],
+    "mitre": ["T1078"],
+    "description": "Same login event recorded multiple times, supporting earlier conclusion of account being reused or monitored across multiple log files.",
+    "tools": ["Thunderbird", "IMAP client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:41.000000Z",
+    "attack_type": ["Valid Account Usage"],
+    "mitre": ["T1078"],
+    "description": "Dovecot IMAP login success indicates use of a valid email account, possibly leveraging stolen credentials.",
+    "tools": ["Outlook", "Thunderbird", "Hydra"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:53:50.000000Z",
+    "attack_type": ["Valid Account Usage", "Remote Access"],
+    "mitre": ["T1078", "T1021"],
+    "description": "SSH login using a public key suggests remote access via valid credentials, potential lateral movement.",
+    "tools": ["SSH", "Plink", "Mimikatz (to steal keys)"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:53:50.000000Z",
+    "attack_type": ["Valid Account Usage"],
+    "mitre": ["T1078"],
+    "description": "Session opened for user phopkins with root UID; likely indicating privilege escalation or persistent access using valid credentials.",
+    "tools": ["SSH", "sudo", "Mimikatz"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:53:50.000000Z",
+    "attack_type": ["Valid Account Usage"],
+    "mitre": ["T1078"],
+    "description": "Systemd user session opened under root context for phopkins; consistent with valid account usage and potential persistence.",
+    "tools": ["SSH", "systemd", "sudo"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:54:41.000000Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Session closed for user phopkins, indicates logout; part of normal behavior after previous login.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:54:41.000000Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "SSH session closed for user phopkins, consistent with expected logout after a session; not anomalous alone.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:01:47.882369Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Outbound APT request to archive.ubuntu.com detected; matches software update behavior and not indicative of attack.",
+    "tools": ["apt", "wget", "curl"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:01:47.882369Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Snort rule fired on outbound Debian APT user-agent; this is consistent with legitimate update traffic.",
+    "tools": ["apt"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:01:47.882948Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Snort rule triggered again for same user-agent pattern from a different host; indicates normal system update behavior.",
+    "tools": ["apt"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:01:47.882948Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Suricata IDS alert for apt user-agent; regular update process for Python3 package from trusted repo.",
+    "tools": ["apt"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:01:48.017549+0000",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Outbound APT User-Agent used for downloading legitimate Ubuntu packages; matches policy rule but is benign system behavior.",
+    "tools": ["apt", "wget", "curl"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:01:48.017549",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Snort log duplicate of previous Suricata event showing legitimate package update via Debian APT; no malicious behavior detected.",
+    "tools": ["apt"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:01:48.018014+0000",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Another host performing APT HTTP GET request for a system package; normal behavior for system updates.",
+    "tools": ["apt", "dpkg"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:01:48.018014",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Snort log duplicate showing the same legitimate outbound traffic to Ubuntu servers as previous entry.",
+    "tools": ["apt"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:02:07.889619+0000",
+    "attack_type": [],
+    "mitre": [],
+    "description": "APT User-Agent detected during a download from archive.ubuntu.com; system performing legitimate update operation.",
+    "tools": ["apt"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:02:07.889619",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Snort duplicate alert showing the same benign system update behavior over HTTP to Ubuntu repositories.",
+    "tools": ["apt"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:02:07.890025+0000",
+    "attack_type": [],
+    "mitre": [],
+    "description": "APT package download using standard user-agent string; matches policy rule but behavior is expected for system updates.",
+    "tools": ["apt"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:02:07.890025",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Snort log confirming standard package manager communication with public repositories; no evidence of attack.",
+    "tools": ["apt"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:04:36.000000Z",
+    "attack_type": ["Credential Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Successful IMAP login detected via Dovecot; could be part of normal activity, but repeated logins may indicate valid account usage by an attacker.",
+    "tools": ["Thunderbird", "Outlook", "IMAP clients"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:04:36.000000Z",
+    "attack_type": ["Credential Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Repeated successful authentication detected for the same user in a short time span; could indicate compromised account.",
+    "tools": ["IMAP clients", "roundcube"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:04:36.000000Z",
+    "attack_type": ["Valid Accounts"],
+    "mitre": ["T1078"],
+    "description": "Successful IMAP login (user=samantha.thornton) over TLS indicates valid credential use; could signal unauthorized account access.",
+    "tools": ["Hydra", "Metasploit", "ImapTester"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:04:53.000000Z",
+    "attack_type": ["Defense Evasion"],
+    "mitre": ["T1562.001"],
+    "description": "AppArmor profile_replace operation on nm-dhcp-client.action suggests policy alteration or tampering.",
+    "tools": ["appamor_parser", "auditctl"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:04:53.000000Z",
+    "attack_type": ["Defense Evasion"],
+    "mitre": ["T1562.001"],
+    "description": "AppArmor profile_replace on nm-dhcp-helper indicates repeated policy modifications—could be systematic tampering.",
+    "tools": ["apparmor_parser", "auditctl"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:04:53.000000Z",
+    "attack_type": ["Defense Evasion"],
+    "mitre": ["T1562.001"],
+    "description": "AppArmor policy replacement for dhclient – another instance of defense mechanism modification.",
+    "tools": ["apparmor_parser", "auditctl"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:04:53.000000Z",
+    "attack_type": ["Defense Evasion"],
+    "mitre": ["T1562.001"],
+    "description": "AppArmor profile change for connman dhclient script hints at script-level persistence or evasion.",
+    "tools": ["apparmor_parser", "auditctl"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:09:46.000000Z",
+    "attack_type": ["Valid Accounts", "Remote Services"],
+    "mitre": ["T1078", "T1021"],
+    "description": "SSH publickey authentication for phopkins from remote IP indicates remote account access or lateral movement.",
+    "tools": ["ssh", "PuTTY", "Paramiko"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:09:46.000000Z",
+    "attack_type": ["Valid Accounts"],
+    "mitre": ["T1078"],
+    "description": "PAM session opened for phopkins via sshd (uid=0) — confirms session establishment.",
+    "tools": ["ssh", "PAM utilities"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:09:46.000000Z",
+    "attack_type": ["Valid Accounts"],
+    "mitre": ["T1078"],
+    "description": "systemd-user session opened for phopkins — usual follow-up to successful login.",
+    "tools": ["systemd", "PAM utilities"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:10:08.000000Z",
+    "attack_type": ["Privilege Escalation"],
+    "mitre": ["T1548.003"],
+    "description": "User phopkins runs sudo for first time to tail syslog — indicates local privilege escalation attempt.",
+    "tools": ["sudo", "bash", "tail"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:10:08.000000Z",
+    "attack_type": ["Valid Accounts"],
+    "mitre": ["T1078"],
+    "description": "PAM session opened for root by phopkins via sudo — confirms elevated session as root.",
+    "tools": ["sudo", "PAM utilities"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:10:08.000000Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "sudo session closed for user root, normal PAM event",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.327729Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Outbound HTTP request with legitimate APT user-agent related to package management",
+    "tools": ["apt", "apt-get", "dpkg"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.327729Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Same as above, IDS event showing package management traffic with no suspicious characteristics",
+    "tools": ["apt", "apt-get", "dpkg"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.328372Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Outbound HTTP request with Debian APT user-agent for package updates, normal traffic",
+    "tools": ["apt", "apt-get", "dpkg"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.328372Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "IDS event logging normal package management outbound traffic, no malicious activity",
+    "tools": ["apt", "apt-get", "dpkg"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.328895Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Outbound HTTP traffic with Debian APT User-Agent to known Ubuntu PPA server, typical update request",
+    "tools": ["apt", "apt-get", "dpkg"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.328895Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Normal package management related IDS event with legitimate User-Agent, no attack",
+    "tools": ["apt", "apt-get", "dpkg"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.329539Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Outbound HTTP request for Ubuntu security updates with legit Debian APT user-agent, normal behavior",
+    "tools": ["apt", "apt-get", "dpkg"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.329539Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Suricata alert showing normal package update request, no suspicious indicators",
+    "tools": ["apt", "apt-get", "dpkg"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.333703Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Typical outbound HTTP traffic with Debian APT user-agent to Ubuntu archive server for updates",
+    "tools": ["apt", "apt-get", "dpkg"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "01/15/2022-07:11:33.333703",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Outbound HTTP traffic with User-Agent matching GNU/Linux APT package manager, typical for OS updates; classified as Not Suspicious Traffic",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.334828Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "HTTP GET request to archive.ubuntu.com with Debian APT-HTTP user agent, normal package update activity, not suspicious",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.334828Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Same as above, normal APT outbound package management traffic flagged by IDS as not suspicious",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.360543Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "HTTP GET request with APT user-agent to official Ubuntu repository, typical package update traffic",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.360543Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "IDS alert matches normal outbound APT package management traffic, classified as Not Suspicious Traffic",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.361735Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Suricata alert on HTTP GET with Debian APT user-agent, standard OS package manager activity",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.361735Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Multiple IDS alerts for repeated APT outbound traffic; no indication of attack, normal update process",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.496520Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "APT HTTP GET request to Ubuntu backports repository, user-agent corresponds to legitimate Debian package manager",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.496520Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "IDS Snort alert of normal outbound APT traffic, classified as not suspicious",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.497791Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Suricata alert on Debian APT HTTP outbound traffic, legitimate software update operation",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "01/15/2022-07:11:33.497791",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Outbound HTTP traffic with User-Agent matching Linux package management, labeled Not Suspicious",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:34.002313Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "HTTP GET request using Debian APT User-Agent to known Ubuntu repository, likely legitimate package update",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "01/15/2022-07:11:34.002313",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Outbound HTTP traffic with User-Agent string for Linux package management, classified Not Suspicious",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "01/15/2022-07:11:34.003454",
+    "attack_type": [],
+    "mitre": [],
+    "description": "Similar outbound HTTP APT User-Agent traffic to Ubuntu security repository, expected behavior",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:34.003454Z",
+    "attack_type": [],
+    "mitre": [],
+    "description": "HTTP traffic with Debian APT User-Agent accessing Ubuntu repo, normal package management",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "Jan 15 07:13:47",
+    "attack_type": ["Privilege Escalation", "Defense Evasion"],
+    "mitre": ["T1548.003"],
+    "description": "User phopkins successfully runs sudo to root, executing a system command",
+    "tools": ["sudo"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "Jan 15 07:13:47",
+    "attack_type": [],
+    "mitre": [],
+    "description": "PAM session closed for root user, normal session termination",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "Jan 15 07:13:47",
+    "attack_type": ["Privilege Escalation", "Defense Evasion", "Persistence", "Initial Access"],
+    "mitre": ["T1078"],
+    "description": "PAM session opened for root by user phopkins (uid=0), indicating valid account use",
+    "tools": ["sudo", "PAM"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "Jan 15 07:16:26",
+    "attack_type": ["Privilege Escalation", "Defense Evasion", "Persistence", "Initial Access"],
+    "mitre": ["T1078"],
+    "description": "Successful IMAP login to mail server with valid user credentials",
+    "tools": ["Dovecot", "IMAP client"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "Jan 15 07:16:26",
+    "attack_type": ["Privilege Escalation", "Defense Evasion", "Persistence", "Initial Access"],
+    "mitre": ["T1078"],
+    "description": "Another successful IMAP login to mail server with valid user credentials",
+    "tools": ["Dovecot", "IMAP client"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Successful authentication via Dovecot IMAP using valid user 'meghan.morris' with PLAIN method over TLS, multiple logins from same IP indicating account use or abuse",
+    "tools": ["Dovecot", "IMAP client tools", "Credential stuffing tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Repeated Dovecot authentication success entries for user 'meghan.morris' from IP 172.17.131.81, showing multiple sessions using PLAIN method with TLS, possible attacker using stolen credentials or authorized user activity",
+    "tools": ["Dovecot", "IMAP clients", "Automated login scripts"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Successful IMAP login with valid credentials repeatedly logged for user 'meghan.morris' via PLAIN authentication, consistent IP address, potential credential compromise or normal user behavior",
+    "tools": ["Dovecot", "IMAP clients", "Credential brute force or reuse tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Repeated authentication successes for user 'meghan.morris' via Dovecot IMAP login, PLAIN method, same source IP and different session IDs, possible automated login or credential misuse",
+    "tools": ["Dovecot", "IMAP clients", "Scripting tools for automated login"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Multiple successful logins for the same user and IP address, consistent use of plain authentication and TLS, suggests legitimate or automated usage of valid credentials",
+    "tools": ["Dovecot", "IMAP clients"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Repeated successful authentication events for user 'meghan.morris' from the same IP, showing valid account access pattern, could be attacker using compromised credentials or authorized user sessions",
+    "tools": ["Dovecot", "IMAP clients", "Automated login tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Continuous authentication successes using PLAIN method over TLS by user 'meghan.morris', multiple sessions from same IP, indicating valid credentials usage, possibly automated or scripted access",
+    "tools": ["Dovecot", "IMAP clients", "Credential stuffing tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Repeated Dovecot IMAP login successes for user 'meghan.morris' with same IP and PLAIN method, multiple session IDs, consistent with valid account use or compromised account access",
+    "tools": ["Dovecot", "IMAP clients", "Brute force or credential replay tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Multiple successful logins by same user and IP, using PLAIN authentication over TLS in Dovecot IMAP, indicates valid credentials use, could be legitimate or attacker with stolen credentials",
+    "tools": ["Dovecot", "IMAP clients"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Repeated successful authentication entries for user 'meghan.morris' via Dovecot IMAP login from same IP and method, possibly automated access or legitimate user activity",
+    "tools": ["Dovecot", "IMAP clients", "Automation or scripting tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:24.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access"],
+    "mitre": ["T1078"],
+    "description": "Successful login via IMAP with valid user daniel.morgan from IP 172.17.131.81 using PLAIN method over TLS; indicates possible legitimate or attacker access using valid credentials.",
+    "tools": ["Dovecot IMAP server", "Password spray/brute force tools (if attack)"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:24.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access"],
+    "mitre": ["T1078"],
+    "description": "Successful login via IMAP with valid user daniel.morgan from IP 172.17.131.81 using PLAIN method over TLS; repeated logins may indicate session reuse or automated access.",
+    "tools": ["Dovecot IMAP server", "Credential stuffing tools"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:24.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access"],
+    "mitre": ["T1078"],
+    "description": "Successful login via IMAP with valid user daniel.morgan from IP 172.17.131.81 using PLAIN method over TLS; appears normal but high frequency might warrant further monitoring.",
+    "tools": ["Dovecot IMAP server"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:24.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access"],
+    "mitre": ["T1078"],
+    "description": "Successful login via IMAP with valid user daniel.morgan from IP 172.17.131.81 using PLAIN method over TLS; multiple sessions started almost simultaneously.",
+    "tools": ["Dovecot IMAP server"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:24.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access"],
+    "mitre": ["T1078"],
+    "description": "Successful login via IMAP with valid user daniel.morgan from IP 172.17.131.81 using PLAIN method over TLS; repeated success could indicate automated process or benign user activity.",
+    "tools": ["Dovecot IMAP server"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:24.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access"],
+    "mitre": ["T1078"],
+    "description": "Successful login via IMAP with valid user daniel.morgan from IP 172.17.131.81 using PLAIN method over TLS; session reuse or multiple parallel sessions.",
+    "tools": ["Dovecot IMAP server"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:25.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access"],
+    "mitre": ["T1078"],
+    "description": "Successful login via IMAP with valid user daniel.morgan from IP 172.17.131.81 using PLAIN method over TLS; new session shortly after previous logins, possibly benign.",
+    "tools": ["Dovecot IMAP server"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:25.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access"],
+    "mitre": ["T1078"],
+    "description": "Successful login via IMAP with valid user daniel.morgan from IP 172.17.131.81 using PLAIN method over TLS; normal user activity or automated mailbox checks.",
+    "tools": ["Dovecot IMAP server"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:25.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access"],
+    "mitre": ["T1078"],
+    "description": "Successful login via IMAP with valid user daniel.morgan from IP 172.17.131.81 using PLAIN method over TLS; could be automated system or user session refresh.",
+    "tools": ["Dovecot IMAP server"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:25.000000Z",
+    "attack_type": ["Valid Account Use", "Initial Access"],
+    "mitre": ["T1078"],
+    "description": "Successful login via IMAP with valid user daniel.morgan from IP 172.17.131.81 using PLAIN method over TLS; frequent successful authentications noted, further context needed for attack confirmation.",
+    "tools": ["Dovecot IMAP server"],
+    "classification": "FP"
+  }
+]

@@ -1,0 +1,731 @@
+[
+  {
+    "line_number": 1,
+    "predicted_attack_type": "",
+    "attack_type": "dnsteal",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates high entropy in the DNS domain 'youtu.be'. However, 'youtu.be' is a legitimate domain for YouTube, and its entropy is not necessarily indicative of malicious activity. The provided context logs show normal DNS activity, further supporting this is a false positive.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:33 dnsmasq[14460]: query[A] youtu.be from 192.168.128.4\"], \"Timestamps\": [1642411593], \"DetectionTimestamp\": [1642411593], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 3,
+    "predicted_attack_type": "",
+    "attack_type": "dnsteal",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates high entropy in the DNS domain 'youtu.be'. However, 'youtu.be' is a legitimate domain used for YouTube short links. The provided context logs also show normal DNS queries for Google-related domains like 'youtube-ui.l.google.com' and 'fonts.gstatic.com', suggesting typical internet usage. Therefore, this is likely a false positive.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:33 dnsmasq[14522]: query[A] youtu.be from 172.17.130.196\"], \"Timestamps\": [1642411593], \"DetectionTimestamp\": [1642411593], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "line_number": 4,
+    "predicted_attack_type": "",
+    "attack_type": "dnsteal",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates high entropy in the DNS domain 'youtu.be'. However, the provided context shows normal DNS queries for 'youtu.be' and other Google-related domains, suggesting this is a false positive. The entropy detector might be overly sensitive or misinterpreting legitimate domain patterns.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:33 dnsmasq[14522]: forwarded youtu.be to 192.168.255.254\"], \"Timestamps\": [1642411593], \"DetectionTimestamp\": [1642411593], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "line_number": 5,
+    "predicted_attack_type": "",
+    "attack_type": "dnsteal",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates high entropy in the DNS domain 'youtu.be'. However, the provided context shows normal DNS queries for 'youtu.be', and the alert itself is based on a statistical anomaly detector without specific malicious indicators. Therefore, it is classified as a false positive.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:34 dnsmasq[14460]: reply youtu.be is 172.217.20.14\"], \"Timestamps\": [1642411594], \"DetectionTimestamp\": [1642411594], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 6,
+    "predicted_attack_type": "",
+    "attack_type": "dnsteal",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates high entropy in the DNS domain 'youtu.be'. However, based on the provided context logs, 'youtu.be' is a legitimate domain used by YouTube. The entropy detection might be overly sensitive or misinterpreting normal DNS traffic as malicious.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:34 dnsmasq[14522]: reply youtu.be is 172.217.20.14\"], \"Timestamps\": [1642411594], \"DetectionTimestamp\": [1642411594], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "line_number": 7,
+    "predicted_attack_type": "",
+    "attack_type": "dnsteal",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates an unusual frequency of DNS queries for 'A' records. However, the provided context shows normal DNS query activity for other domains like 'fonts.googleapis.com' and 's.w.org'. Without further evidence of malicious intent or specific indicators, this is classified as a false positive.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 31, \"AnalysisComponentType\": \"EventFrequencyDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of query records in DNS logs.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"efd_dns_record\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/record\"], \"AffectedLogAtomValues\": [\"A\"]}, \"FrequencyData\": {\"ExpectedLogAtomValuesFrequency\": 1767.0217391304348, \"ExpectedLogAtomValuesFrequencyRange\": [938.0, 2596.0], \"LogAtomValuesFrequency\": 627, \"WindowSize\": 3600, \"ConfidenceFactor\": 0.25, \"Confidence\": 0.6451656557951847}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:59:49 dnsmasq[14522]: query[A] mail.price.fox.org from 10.35.35.118\"], \"Timestamps\": [1642413589], \"DetectionTimestamp\": [1642413589], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "line_number": 8,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log entry indicates a 'Disconnected (no auth attempts in 0 secs)' event from dovecot, which is a normal operational event and not malicious.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/service/dovecot/imap/imap_login/login/disconnected_str/auth/no_auth_str\"]}, \"LogData\": {\"RawLogData\": [\"Jan 18 12:17:15 taylorcruz-mail dovecot: imap-login: Disconnected (no auth attempts in 0 secs): user=<>, rip=192.168.130.77, lip=192.168.128.195, session=<hifuP9rVVNbAqIJN>\"], \"Timestamps\": [1642508235], \"DetectionTimestamp\": [1642508235], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/mail.log\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "line_number": 9,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log indicates a disconnected IMAP session due to no authentication attempts, which is a normal operational event for Dovecot and not indicative of malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/service/dovecot/imap/imap_login/login/disconnected_str/auth/no_auth_str\"]}, \"LogData\": {\"RawLogData\": [\"Jan 18 12:17:15 taylorcruz-mail dovecot: imap-login: Disconnected (no auth attempts in 0 secs): user=<>, rip=192.168.130.77, lip=192.168.128.195, session=<hifuP9rVVNbAqIJN>\"], \"Timestamps\": [1642508235], \"DetectionTimestamp\": [1642508235], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/syslog\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "line_number": 10,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log entry indicates a 'Disconnected (no auth attempts in 0 secs)' event from dovecot, which is a normal operational message when a client disconnects without authenticating. This is not indicative of malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/service/dovecot/imap/imap_login/login/disconnected_str/auth/no_auth_str\"]}, \"LogData\": {\"RawLogData\": [\"Jan 18 12:17:15 taylorcruz-mail dovecot: imap-login: Disconnected (no auth attempts in 0 secs): user=<>, rip=192.168.130.77, lip=192.168.128.195, session=<hifuP9rVVNbAqIJN>\"], \"Timestamps\": [1642508235], \"DetectionTimestamp\": [1642508235], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/mail.info\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "line_number": 11,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log indicates that a hostname could not be found for an IP address, which is a common network issue and not necessarily malicious.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/no_host_found\", \"/model/fm/no_host_found/no_host_found_str\", \"/model/fm/no_host_found/ip\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-18 12:17:15 no host name found for IP address 192.168.130.77\"], \"Timestamps\": [1642508235], \"DetectionTimestamp\": [1642508235], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/exim4/mainlog\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "line_number": 12,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log indicates that a hostname could not be found for an IP address, which is a common network issue and not necessarily malicious.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/no_host_found\", \"/model/fm/no_host_found/no_host_found_str\", \"/model/fm/no_host_found/ip\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-18 12:17:15 no host name found for IP address 192.168.130.77\"], \"Timestamps\": [1642508235], \"DetectionTimestamp\": [1642508235], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/exim4/mainlog\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "line_number": 13,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates the detection of new path types by the AMiner component. However, the log data shows an Apache error related to client access denial, which is not indicative of malicious activity or a security threat that would warrant a TP classification. This appears to be a benign event or a misconfiguration alert.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:17:27.713538 2022] [authz_core:error] [pid 25459] [client 192.168.130.77:35080] AH01630: client denied by server configuration: /var/www/html/\"], \"Timestamps\": [1642508247.71], \"DetectionTimestamp\": [1642508247.71], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-error-error.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "line_number": 14,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates the detection of new path types by the AMiner component. However, the log data shows an Apache error message related to client access denial, which is not indicative of malicious activity or a security threat that would warrant a TP classification. The detected paths are likely part of normal Apache web server operations.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:17:27.714052 2022] [authz_core:error] [pid 25371] [client 172.17.130.196:44746] AH01630: client denied by server configuration: /var/www/html/\"], \"Timestamps\": [1642508247.71], \"DetectionTimestamp\": [1642508247.71], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-error-error.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "line_number": 15,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log indicates a 'no host name found' error for an IP address, which is a common network configuration issue and not indicative of malicious activity. The surrounding logs also show TLS errors, suggesting network instability or misconfiguration rather than an attack.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/no_host_found\", \"/model/fm/no_host_found/no_host_found_str\", \"/model/fm/no_host_found/ip\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-18 12:17:28 no host name found for IP address 192.168.130.77\"], \"Timestamps\": [1642508248], \"DetectionTimestamp\": [1642508248], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/exim4/mainlog\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "line_number": 16,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates TLS errors, which are common and often benign network issues. The provided context logs also show similar TLS errors from the same IP address, suggesting a recurring network problem rather than a malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/start/remainder\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-18 12:17:28 TLS error on connection from [192.168.130.77] (gnutls_handshake): An unexpected TLS packet was received.\"], \"Timestamps\": [1642508248], \"DetectionTimestamp\": [1642508248], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/exim4/mainlog\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "line_number": 17,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log indicates a 'no host name found' error for an IP address, which is a common network configuration issue and not indicative of malicious activity. The surrounding logs also show TLS errors, suggesting network instability or misconfiguration rather than an attack.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/no_host_found\", \"/model/fm/no_host_found/no_host_found_str\", \"/model/fm/no_host_found/ip\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-18 12:17:28 no host name found for IP address 192.168.130.77\"], \"Timestamps\": [1642508248], \"DetectionTimestamp\": [1642508248], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/exim4/mainlog\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "line_number": 18,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a new status code (403 Forbidden) was detected in Apache logs. The provided context logs show multiple 403 errors, including requests from Nmap Scripting Engine, suggesting this is likely a normal response to scanning activity rather than a malicious event.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"192.168.130.77 - - [18/Jan/2022:12:17:29 +0000] \\\"GET /nmaplowercheck1642508249 HTTP/1.1\\\" 403 363 \\\"-\\\" \\\"Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)\\\"\"], \"Timestamps\": [1642508249], \"DetectionTimestamp\": [1642508249], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-access-access.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "line_number": 19,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a new status code (403) was detected in the Apache access log. However, the provided context logs show multiple instances of 403 status codes, including those generated by Nmap Scripting Engine, suggesting this is a normal occurrence and not a malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:29 +0000] \\\"POST /sdk HTTP/1.1\\\" 403 3260 \\\"-\\\" \\\"Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)\\\"\"], \"Timestamps\": [1642508249], \"DetectionTimestamp\": [1642508249], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-access-access.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "line_number": 20,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a new status code (403 Forbidden) was detected in the Apache access log. Based on the provided context logs, this status code is frequently returned for requests originating from Nmap Scripting Engine, suggesting it's a common response to scanning activity rather than a novel or malicious event.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:29 +0000] \\\"GET / HTTP/1.0\\\" 403 363 \\\"-\\\" \\\"-\\\"\"], \"Timestamps\": [1642508249], \"DetectionTimestamp\": [1642508249], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-access-access.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "line_number": 21,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a new status code (403) was detected in Apache logs. The provided context shows multiple 403 errors, many associated with Nmap user agents, suggesting a port scanning or vulnerability scanning activity. However, the alert itself is for a 'new status code', which is a benign detection of a common HTTP response code, not necessarily malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"192.168.130.77 - - [18/Jan/2022:12:17:29 +0000] \\\"POST /sdk HTTP/1.1\\\" 403 3260 \\\"-\\\" \\\"Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)\\\"\"], \"Timestamps\": [1642508249], \"DetectionTimestamp\": [1642508249], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-access-access.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "line_number": 22,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a new status code (403) was detected in the Apache access log. However, the provided context logs show multiple instances of 403 errors, often associated with Nmap scanning, which is a common benign activity. Therefore, this is likely a false positive.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:29 +0000] \\\"POST /sdk HTTP/1.1\\\" 403 363 \\\"-\\\" \\\"Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)\\\"\"], \"Timestamps\": [1642508249], \"DetectionTimestamp\": [1642508249], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-access-access.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "line_number": 23,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log entry indicates a client being denied access by server configuration, which is a common benign event related to web server access control, not a malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:17:29.873113 2022] [authz_core:error] [pid 25460] [client 192.168.130.77:43654] AH01630: client denied by server configuration: /var/www/html/HNAP1\"], \"Timestamps\": [1642508249.87], \"DetectionTimestamp\": [1642508249.87], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-error-error.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "line_number": 24,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log entry indicates a common Apache error (AH01630) where a client is denied access due to server configuration. This is a benign configuration issue, not a malicious attack.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:17:29.873517 2022] [authz_core:error] [pid 25459] [client 192.168.130.77:35160] AH01630: client denied by server configuration: /var/www/html/HNAP1\"], \"Timestamps\": [1642508249.87], \"DetectionTimestamp\": [1642508249.87], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-error-error.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "line_number": 25,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log entry indicates a client access denial by the server configuration, which is a common benign event related to web server security rules rather than a malicious attack.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:17:29.873636 2022] [authz_core:error] [pid 25454] [client 172.17.130.196:44830] AH01630: client denied by server configuration: /var/www/html/HNAP1\"], \"Timestamps\": [1642508249.87], \"DetectionTimestamp\": [1642508249.87], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-error-error.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "line_number": 26,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The IDS alert indicates a new path was detected, but the raw log data shows a common Apache error (AH01630: client denied by server configuration). This is likely a benign configuration issue and not a security threat.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:17:29.873799 2022] [authz_core:error] [pid 25202] [client 172.17.130.196:44820] AH01630: client denied by server configuration: /var/www/html/\"], \"Timestamps\": [1642508249.87], \"DetectionTimestamp\": [1642508249.87], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-error-error.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "line_number": 27,
+    "predicted_attack_type": "",
+    "attack_type": "servicescans",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log entry indicates a client access denial due to server configuration, which is a common benign event and not indicative of a security threat.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:17:29.873915 2022] [authz_core:error] [pid 25292] [client 192.168.130.77:35156] AH01630: client denied by server configuration: /var/www/html/\"], \"Timestamps\": [1642508249.87], \"DetectionTimestamp\": [1642508249.87], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-error-error.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "line_number": 29,
+    "predicted_attack_type": "",
+    "attack_type": "wpscan",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log entry indicates a WPScan tool is probing for vulnerabilities in WordPress plugins. The specific request for '/wp-content/plugins/analytics-for-wp/' resulted in a 404, which is a common response when a plugin is not installed or has been removed. This type of scanning is often benign and used for security audits or by security tools themselves. The 'new request method' alert is likely a false positive as WPScan is a known tool and its request methods are not inherently malicious.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/analytics-for-wp/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508278], \"DetectionTimestamp\": [1642508278], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 30,
+    "predicted_attack_type": "",
+    "attack_type": "wpscan",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log entry indicates a WPScan vulnerability scanner is probing for plugins. The specific request for '/wp-content/plugins/animate-it/' resulting in a 404 is a common activity for such scanners and not indicative of a true security incident.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/animate-it/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508278], \"DetectionTimestamp\": [1642508278], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 31,
+    "predicted_attack_type": "",
+    "attack_type": "wpscan",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a new request method 'HEAD' was detected, which is a common HTTP method and not inherently malicious. The log entry shows a WordPress security scanner (WPScan) probing for plugins, which is a reconnaissance activity but not necessarily an attack.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/animated-typing-effect/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508278], \"DetectionTimestamp\": [1642508278], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 32,
+    "predicted_attack_type": "",
+    "attack_type": "wpscan",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is triggered by a new request method 'HEAD' which is a false positive as it is commonly used by vulnerability scanners like WPScan.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/analytify-analytics-dashboard-widget/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508278], \"DetectionTimestamp\": [1642508278], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 33,
+    "predicted_attack_type": "",
+    "attack_type": "wpscan",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a new request method was detected, but the log entry shows a standard HEAD request to a WordPress plugin directory, which is typical behavior for a vulnerability scanner like WPScan. The 404 status code suggests the resource was not found, further indicating a scan rather than an exploit attempt.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/post-snippets/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508281], \"DetectionTimestamp\": [1642508281], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 34,
+    "predicted_attack_type": "",
+    "attack_type": "wpscan",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a new request method was detected, but the log entry shows a standard HEAD request to a WordPress plugin directory, which is typical behavior for a vulnerability scanner like WPScan. The 404 response code suggests the resource doesn't exist, further indicating a scan rather than an exploit attempt.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/post-types-order/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508281], \"DetectionTimestamp\": [1642508281], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 35,
+    "predicted_attack_type": "",
+    "attack_type": "wpscan",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a new request method was detected, but the log entry shows a standard HEAD request to a WordPress plugin directory, which is typical behavior for a vulnerability scanner like WPScan. The 404 response code further suggests the resource doesn't exist, making it unlikely to be malicious.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/post-type-switcher/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508281], \"DetectionTimestamp\": [1642508281], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 36,
+    "predicted_attack_type": "",
+    "attack_type": "wpscan",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is triggered by a new request method 'HEAD' which is a common HTTP method and not inherently malicious. The log entries provided show multiple similar requests from the same IP address using WPScan, indicating a vulnerability scan rather than an actual exploit attempt. Therefore, this is classified as a False Positive.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/postmark-approved-wordpress-plugin/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508281], \"DetectionTimestamp\": [1642508281], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 37,
+    "predicted_attack_type": "",
+    "attack_type": "wpscan",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a new request method 'HEAD' was detected. However, the accompanying log entries show that this is part of a routine WordPress vulnerability scan (WPScan) and the requests are for non-existent plugin paths, resulting in 404 errors. This is a common scanning activity and not indicative of malicious exploitation.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/postie/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508281], \"DetectionTimestamp\": [1642508281], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 38,
+    "predicted_attack_type": "",
+    "attack_type": "wpscan",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is triggered by a new request method 'HEAD' which is not unusual for web scanners. The provided logs show multiple similar requests from WPScan, indicating a vulnerability scan rather than malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:07 +0000] \\\"HEAD /wp-content/themes/ecobiz/thumb/timthumb.php HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508287], \"DetectionTimestamp\": [1642508287], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 39,
+    "predicted_attack_type": "",
+    "attack_type": "wpscan",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is classified as a False Positive because the log entry indicates a '404 Not Found' status code, suggesting a benign request for a non-existent file. The user agent 'WPScan' is a WordPress security scanner, and while it can be used for reconnaissance, a 404 response does not indicate a successful exploit or malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:07 +0000] \\\"HEAD /wp-content/themes/ecobiz//timthumb.php HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508287], \"DetectionTimestamp\": [1642508287], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 41,
+    "predicted_attack_type": "",
+    "attack_type": "wpscan",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is triggered by a new request method 'HEAD' which is a common HTTP method and not inherently malicious. The user agent 'WPScan' indicates a vulnerability scanner, but the request itself is not indicative of an exploit attempt. The provided context logs show multiple similar requests with 404 responses, suggesting a scan for potentially vulnerable files rather than an active exploit.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:07 +0000] \\\"HEAD /wp-content/themes/eCobiz/timthumb.php HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508287], \"DetectionTimestamp\": [1642508287], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 42,
+    "predicted_attack_type": "",
+    "attack_type": "wpscan",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a new request method was detected, but the provided log entry shows a standard HEAD request to a WordPress theme file, which is likely part of a vulnerability scan (WPScan) and not indicative of malicious activity. The 404 status code further suggests the file doesn't exist, making it a false positive.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:07 +0000] \\\"HEAD /wp-content/themes/ecobiz/tools/thumb/thumb.php HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508287], \"DetectionTimestamp\": [1642508287], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 44,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a new status code (403) was detected in the Apache access log. However, the provided context logs show multiple 403 errors for requests to sensitive files like .htpasswd and .htaccess, which is expected behavior for a web server and not necessarily malicious.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:19:34 +0000] \\\"GET /javascript/jquery/.htpasswd_ HTTP/1.1\\\" 403 366 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642508374], \"DetectionTimestamp\": [1642508374], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 45,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is triggered by the detection of an unusual character '@' in the request path. However, the provided context logs show similar requests with different unusual characters (e.g., '.profile', '.rhosts') also resulting in 404 errors. This suggests a pattern of scanning for potentially sensitive files or directories, but the specific alert on '@' is likely a false positive as it doesn't directly map to a known attack technique and the request returns a 404.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/javascript/jquery/@\"], \"MissingCharacters\": [\"@\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:19:34 +0000] \\\"GET /javascript/jquery/@ HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642508374], \"DetectionTimestamp\": [1642508374], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 46,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is triggered by a non-standard character '~' in the URL path. However, the provided context logs show similar requests with other non-standard characters and a 404 response, indicating this is likely a benign scanning or probing activity rather than a malicious exploit.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/javascript/jquery/~adm\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:19:34 +0000] \\\"GET /javascript/jquery/~adm HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642508374], \"DetectionTimestamp\": [1642508374], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 47,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log entry indicates a PHP error where a script was not found. This is a common benign error, especially in web server logs, and does not represent malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:23:55.653451 2022] [php7:error] [pid 28492] [client 172.17.130.196:57584] script '/var/www/intranet.price.fox.org/wp-includes/sitemaps/info.php' not found or unable to stat\"], \"Timestamps\": [1642508635.65], \"DetectionTimestamp\": [1642508635.65], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 48,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates the detection of a '+' character in a URL path, which is a common encoding for spaces in URLs. The surrounding log entries show similar requests for non-existent paths, suggesting a benign scanning or enumeration activity rather than a malicious attack.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-includes/sitemaps/lost+found\"], \"MissingCharacters\": [\"+\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:23:56 +0000] \\\"GET /wp-includes/sitemaps/lost+found HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642508636], \"DetectionTimestamp\": [1642508636], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 49,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log indicates that a script was not found, which is a common benign error and not indicative of malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:23:57.925993 2022] [php7:error] [pid 28495] [client 172.17.130.196:57602] script '/var/www/intranet.price.fox.org/wp-includes/sitemaps/phpinfo.php' not found or unable to stat\"], \"Timestamps\": [1642508637.93], \"DetectionTimestamp\": [1642508637.93], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 50,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates the detection of a '~' character in a URL path. The provided context logs show multiple similar requests with 404 responses, suggesting a common scanning or enumeration activity rather than a targeted attack. The '~' character is often used in web server configurations for user directories, and its presence alone in a 404 response is unlikely to be malicious.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-includes/js/thickbox/~webmaster\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:31:21 +0000] \\\"GET /wp-includes/js/thickbox/~webmaster HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509081], \"DetectionTimestamp\": [1642509081], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 51,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates the detection of a '~' character in a URL path. The provided context logs show multiple similar requests with 404 responses, suggesting these are likely benign attempts to access non-existent files or directories, possibly part of a vulnerability scanner or automated tool probing for weaknesses. The '~' character is not inherently malicious and its presence in this context, coupled with 404 errors, points to a false positive.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-includes/js/thickbox/~www\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:31:21 +0000] \\\"GET /wp-includes/js/thickbox/~www HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509081], \"DetectionTimestamp\": [1642509081], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 52,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log entry indicates a configuration error (AH01276) where the server cannot serve a directory because no default index file is found and directory indexing is forbidden. This is a server configuration issue, not a malicious attack.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:31:21.064827 2022] [autoindex:error] [pid 28239] [client 172.17.130.196:60640] AH01276: Cannot serve directory /var/www/intranet.price.fox.org/wp-includes/js/thickbox/: No matching DirectoryIndex (index.html,index.cgi,index.pl,index.php,index.xhtml,index.htm) found, and server-generated directory index forbidden by Options directive\"], \"Timestamps\": [1642509081.06], \"DetectionTimestamp\": [1642509081.06], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 54,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is triggered by a 301 status code, which is a standard HTTP redirect. The surrounding log entries show multiple 404 errors for similar paths, suggesting a scan for potentially vulnerable or misconfigured paths. However, a 301 itself is not malicious and is often used legitimately. Without further context indicating malicious intent, this is classified as a false positive.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"301\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:31:39 +0000] \\\"GET /wp-includes/js/tinymce/langs HTTP/1.1\\\" 301 515 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509099], \"DetectionTimestamp\": [1642509099], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 55,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is triggered by the detection of a '+' character in the URL, which is not inherently malicious. The surrounding log entries show similar requests for non-existent files, indicating a likely benign scanning or probing activity rather than a targeted attack.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-includes/js/tinymce/lost+found\"], \"MissingCharacters\": [\"+\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:31:39 +0000] \\\"GET /wp-includes/js/tinymce/lost+found HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509099], \"DetectionTimestamp\": [1642509099], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 56,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is triggered by a 301 status code, which is a standard HTTP redirect. This is not malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"301\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:31:41 +0000] \\\"GET /wp-includes/js/tinymce/plugins HTTP/1.1\\\" 301 519 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509101], \"DetectionTimestamp\": [1642509101], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 58,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a new status code (301) was detected. However, 301 is a standard HTTP redirect status code and not indicative of malicious activity. The surrounding log entries also show 404 errors for similar paths, suggesting normal web server behavior or a misconfiguration rather than an attack.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"301\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:31:43 +0000] \\\"GET /wp-includes/js/tinymce/skins HTTP/1.1\\\" 301 515 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509103], \"DetectionTimestamp\": [1642509103], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 59,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is triggered by a 301 status code, which is a standard HTTP redirect. This is not malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"301\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:31:44 +0000] \\\"GET /wp-includes/js/tinymce/themes HTTP/1.1\\\" 301 517 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509104], \"DetectionTimestamp\": [1642509104], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 60,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The IDS alert indicates a 'script not found or unable to stat' error. This is a common web server error and not indicative of malicious activity. The provided context logs also show similar 'script not found' errors, reinforcing this classification.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:35:12.988672 2022] [php7:error] [pid 28490] [client 172.17.130.196:34036] script '/var/www/intranet.price.fox.org/wp-content/themes/go/includes/classes/index.php' not found or unable to stat\"], \"Timestamps\": [1642509312.99], \"DetectionTimestamp\": [1642509312.99], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 61,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is triggered by the detection of a '+' character in the URL, which is not inherently malicious. The surrounding log entries show similar requests for non-existent files, indicating a likely benign scanning or probing activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/includes/classes/lost+found\"], \"MissingCharacters\": [\"+\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:35:13 +0000] \\\"GET /wp-content/themes/go/includes/classes/lost+found HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509313], \"DetectionTimestamp\": [1642509313], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 62,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log indicates a PHP error where a script was not found. This is likely a benign error due to a misconfiguration or a broken link, not an attack attempt.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:35:13.060355 2022] [php7:error] [pid 28567] [client 172.17.130.196:34038] script '/var/www/intranet.price.fox.org/wp-content/themes/go/includes/classes/info.php' not found or unable to stat\"], \"Timestamps\": [1642509313.06], \"DetectionTimestamp\": [1642509313.06], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 63,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log indicates a PHP error where a script was not found. This is a common benign error, often due to a typo or a missing file, and not indicative of malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:35:15.370308 2022] [php7:error] [pid 28576] [client 172.17.130.196:34054] script '/var/www/intranet.price.fox.org/wp-content/themes/go/includes/classes/phpinfo.php' not found or unable to stat\"], \"Timestamps\": [1642509315.37], \"DetectionTimestamp\": [1642509315.37], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 64,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a new status code (403 Forbidden) was detected. However, the provided context logs show multiple 404 Not Found errors for similar paths, suggesting that the 403 might be a legitimate response to a non-existent resource or a misconfiguration rather than a malicious attempt. Without further evidence of exploitation, this is classified as a false positive.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:35:19 +0000] \\\"GET /wp-includes/js/tinymce/plugins/hr/ HTTP/1.1\\\" 403 366 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509319], \"DetectionTimestamp\": [1642509319], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 65,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is triggered by the detection of a '~' character in the URL. The provided log lines show multiple similar requests with the same character, all resulting in a 404 Not Found status. This pattern suggests a common scanning or enumeration activity rather than a targeted attack, making it a likely false positive.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/dist/images/admin/~logs\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:36:58 +0000] \\\"GET /wp-content/themes/go/dist/images/admin/~logs HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509418], \"DetectionTimestamp\": [1642509418], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 66,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is triggered by the detection of a '~' character in the URL. This is likely a false positive as the provided logs show multiple similar requests with a 404 status code, indicating that these are not valid resources and the character itself is not inherently malicious in this context.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/dist/images/admin/~lp\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:36:58 +0000] \\\"GET /wp-content/themes/go/dist/images/admin/~lp HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509418], \"DetectionTimestamp\": [1642509418], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 67,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is triggered by the detection of a '~' character in the URL, which is not inherently malicious. The surrounding log entries show similar requests with 404 responses, indicating a likely scan for non-existent files or a misconfiguration rather than an active attack.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/dist/images/admin/~mail\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:36:58 +0000] \\\"GET /wp-content/themes/go/dist/images/admin/~mail HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509418], \"DetectionTimestamp\": [1642509418], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 68,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates the detection of a new character '~' in a URL path. However, the provided context logs show multiple similar requests with the same character and a 404 response, suggesting this is likely a benign scanning activity or a misconfiguration rather than a targeted attack.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/dist/images/admin/~nobody\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:36:58 +0000] \\\"GET /wp-content/themes/go/dist/images/admin/~nobody HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509418], \"DetectionTimestamp\": [1642509418], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 69,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is triggered by the detection of a '~' character in the URL, which is not inherently malicious. The provided context logs show similar requests with 404 responses, indicating these are likely benign attempts to access non-existent resources.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/dist/images/admin/~operator\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:36:58 +0000] \\\"GET /wp-content/themes/go/dist/images/admin/~operator HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509418], \"DetectionTimestamp\": [1642509418], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 70,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The IDS alert indicates a 'New path detected' which is a benign event. The log entries provided show PHP errors related to 'script not found or unable to stat', which are common and not indicative of malicious activity. The client IP is accessing paths that do not exist, likely due to misconfiguration or a typo.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:37:03.855479 2022] [php7:error] [pid 28495] [client 172.17.130.196:34832] script '/var/www/intranet.price.fox.org/wp-content/themes/go/dist/images/admin/info.php' not found or unable to stat\"], \"Timestamps\": [1642509423.86], \"DetectionTimestamp\": [1642509423.86], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 71,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The IDS detected a '+' character in the URL, which is not inherently malicious. The surrounding log entries show similar requests for non-existent files, indicating a likely benign scanning or probing activity rather than a targeted attack.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/dist/images/admin/lost+found\"], \"MissingCharacters\": [\"+\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:37:04 +0000] \\\"GET /wp-content/themes/go/dist/images/admin/lost+found HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509424], \"DetectionTimestamp\": [1642509424], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 72,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log indicates that a PHP script was not found, which is a common benign error, not indicative of a malicious attack.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:37:06.162318 2022] [php7:error] [pid 28492] [client 172.17.130.196:34850] script '/var/www/intranet.price.fox.org/wp-content/themes/go/dist/images/admin/phpinfo.php' not found or unable to stat\"], \"Timestamps\": [1642509426.16], \"DetectionTimestamp\": [1642509426.16], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 73,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a new status code '403' was detected. However, the provided context logs show multiple '404' errors for non-existent files, suggesting that the web server is functioning normally and returning expected error codes. The '403' is likely another valid HTTP status code and not indicative of malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:37:10 +0000] \\\"GET /wp-content/themes/go/dist/images/social/ HTTP/1.1\\\" 403 366 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509430], \"DetectionTimestamp\": [1642509430], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 76,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is triggered by a 403 status code, which indicates a forbidden resource. This is a common response for web servers when a requested file or directory is not accessible. The provided context logs show multiple 403 errors for similar paths, suggesting a pattern of accessing non-existent or restricted files, likely due to automated scanning or misconfiguration, rather than a targeted attack.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:37:23 +0000] \\\"GET /wp-content/themes/go/dist/js/admin/.htpasswd_ HTTP/1.1\\\" 403 366 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509443], \"DetectionTimestamp\": [1642509443], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 78,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is triggered by the detection of a '~' character in the URL, which is not inherently malicious. The surrounding log entries show similar requests with 404 responses, indicating these are likely attempts to access non-existent files or directories, possibly due to automated scanning or misconfigurations, rather than a targeted attack.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/dist/js/admin/~adm\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:37:23 +0000] \\\"GET /wp-content/themes/go/dist/js/admin/~adm HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509443], \"DetectionTimestamp\": [1642509443], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 79,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates the detection of a '~' character in the URL. However, the provided context logs show multiple similar requests with '404' status codes, suggesting these are likely benign requests for non-existent files or paths, not indicative of malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/dist/js/admin/~admin\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:37:23 +0000] \\\"GET /wp-content/themes/go/dist/js/admin/~admin HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509443], \"DetectionTimestamp\": [1642509443], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 80,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log entry indicates a client being denied access due to server configuration, specifically attempting to access a .htaccess file. This is a common security measure and not indicative of malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:37:23.345912 2022] [authz_core:error] [pid 28492] [client 172.17.130.196:34970] AH01630: client denied by server configuration: /var/www/intranet.price.fox.org/wp-content/themes/go/dist/js/admin/.htaccess\"], \"Timestamps\": [1642509443.35], \"DetectionTimestamp\": [1642509443.35], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 81,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a client being denied access to a .htaccess file, which is a common security measure in web servers and not necessarily malicious activity. The provided context logs also show similar access denied errors for configuration files.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:37:23.348442 2022] [authz_core:error] [pid 28492] [client 172.17.130.196:34970] AH01630: client denied by server configuration: /var/www/intranet.price.fox.org/wp-content/themes/go/dist/js/admin/.htaccess_\"], \"Timestamps\": [1642509443.35], \"DetectionTimestamp\": [1642509443.35], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 83,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log entry indicates a 'client denied by server configuration' error, which is a common Apache error when trying to access restricted files. The provided context logs show similar access denied errors for sensitive files like .htpasswd and .hta. This suggests a benign configuration issue or an unsuccessful attempt to access unauthorized files, rather than a malicious attack.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:37:23.360970 2022] [authz_core:error] [pid 28492] [client 172.17.130.196:34970] AH01630: client denied by server configuration: /var/www/intranet.price.fox.org/wp-content/themes/go/dist/js/admin/.htpasswd_\"], \"Timestamps\": [1642509443.36], \"DetectionTimestamp\": [1642509443.36], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 84,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The IDS alert indicates a 'New path detected' which is likely a false positive. The raw log data shows a PHP error for a non-existent script, which is a common benign error, especially when dealing with WordPress themes or plugins. The provided context logs also show similar 'script not found' and 'client denied' errors, reinforcing the likelihood of benign activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:37:24.093110 2022] [php7:error] [pid 28490] [client 172.17.130.196:34976] script '/var/www/intranet.price.fox.org/wp-content/themes/go/dist/js/admin/admin.php' not found or unable to stat\"], \"Timestamps\": [1642509444.09], \"DetectionTimestamp\": [1642509444.09], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 85,
+    "predicted_attack_type": "",
+    "attack_type": "dirb",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log indicates a 'script not found' error, which is a common benign error and not indicative of malicious activity. The provided context logs also show similar 'script not found' or 'client denied' errors.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:37:28.960093 2022] [php7:error] [pid 28408] [client 172.17.130.196:35008] script '/var/www/intranet.price.fox.org/wp-content/themes/go/dist/js/admin/index.php' not found or unable to stat\"], \"Timestamps\": [1642509448.96], \"DetectionTimestamp\": [1642509448.96], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 89,
+    "predicted_attack_type": "",
+    "attack_type": "passwordcracking",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates an unusual frequency of POST requests to '/services/ajax.php/imp/poll'. However, the provided context logs show normal POST requests to similar AJAX endpoints within the Horde webmail application, suggesting this is a normal operational pattern rather than malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 11, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of Apache Access request methods.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [[\"0\"], [\"1\"], [\"6\"]], \"AffectedLogAtomFrequencies\": [161446, 93, 4], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9911556457802094}, \"LogData\": {\"RawLogData\": [\"192.168.131.234 - - [18/Jan/2022:12:40:15 +0000] \\\"POST /services/ajax.php/imp/poll HTTP/1.1\\\" 200 463 \\\"https://mailserver.taylorcruz.fox.org/imp/dynamic.php?page=mailbox\\\" \\\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/95.0.4638.69 Safari/537.36\\\"\"], \"Timestamps\": [1642509615], \"DetectionTimestamp\": [1642509615], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/horde/horde-access-access.log\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "line_number": 90,
+    "predicted_attack_type": "",
+    "attack_type": "passwordcracking",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a deviation in CPU total normalized value. However, the provided context logs show consistent CPU usage patterns, suggesting this is a false positive due to statistical anomaly detection on normal system behavior.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 36, \"AnalysisComponentType\": \"MatchValueAverageChangeDetector\", \"AnalysisComponentName\": \"AMiner: CPU value deviates from average in monitoring logs.\", \"Message\": \"Statistical data report\", \"PersistenceFileName\": \"Default\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model\", \"/model/version\", \"/model/agent/version\", \"/model/metricset/version\", \"/model/event/version\", \"/model/time\", \"/model/service/version\", \"/model/version/0\", \"/model/version/1\", \"/model/agent/version/0\", \"/model/agent/version/1\", \"/model/agent/version/2\", \"/model/agent/version/3\", \"/model/agent/version/4\", \"/model/system/cpu/softirq/version\", \"/model/system/cpu/softirq/norm/version\", \"/model/system/cpu/iowait/version\", \"/model/system/cpu/iowait/norm/version\", \"/model/system/cpu/nice/val\", \"/model/system/cpu/nice/norm/val\", \"/model/system/cpu/val\", \"/model/system/cpu/idle/version\", \"/model/system/cpu/idle/norm/version\", \"/model/system/cpu/system/val\", \"/model/system/cpu/system/norm/val\", \"/model/system/cpu/steal/version\", \"/model/system/cpu/steal/norm/version\", \"/model/system/cpu/total/val\", \"/model/system/cpu/total/norm/val\", \"/model/system/cpu/user/version\", \"/model/system/cpu/user/norm/version\", \"/model/system/cpu/irq/version\", \"/model/system/cpu/irq/norm/version\", \"/model/metricset/version/0\", \"/model/metricset/version/1\", \"/model/event/version/0\", \"/model/event/version/1\", \"/model/event/version/2\", \"/model/ecs/version\", \"/model/host/cpu/version\", \"/model/host/version\"], \"AnomalyScores\": [{\"Path\": \"/model/system/cpu/total/norm/val\", \"AnalysisData\": {\"New\": {\"N\": 100, \"Avg\": 0.4090230000000001, \"Var\": 0.144338616132323}, \"Old\": {\"N\": 3800, \"Avg\": 0.07845189473684211, \"Var\": 0.0037339315099652274}}}], \"MinBinElements\": 100, \"MinBinTime\": 10, \"DebugMode\": false}, \"LogData\": {\"RawLogData\": [\"{\\\"@timestamp\\\":\\\"2022-01-18T12:59:54.321Z\\\",\\\"service\\\":{\\\"type\\\":\\\"system\\\"},\\\"tags\\\":[\\\"beats_input_raw_event\\\"],\\\"@version\\\":\\\"1\\\",\\\"agent\\\":{\\\"type\\\":\\\"metricbeat\\\",\\\"hostname\\\":\\\"intranet-server\\\",\\\"version\\\":\\\"7.13.2\\\",\\\"id\\\":\\\"a0c41e4e-ff4a-481f-adda-21fc96889b28\\\",\\\"name\\\":\\\"intranet-server\\\",\\\"ephemeral_id\\\":\\\"ae20c47b-0a81-4e05-a749-cbe0dacd5e36\\\"},\\\"system\\\":{\\\"cpu\\\":{\\\"softirq\\\":{\\\"pct\\\":4.0E-4,\\\"norm\\\":{\\\"pct\\\":4.0E-4}},\\\"iowait\\\":{\\\"pct\\\":0,\\\"norm\\\":{\\\"pct\\\":0}},\\\"nice\\\":{\\\"pct\\\":0.9362,\\\"norm\\\":{\\\"pct\\\":0.9362}},\\\"cores\\\":1,\\\"idle\\\":{\\\"pct\\\":0,\\\"norm\\\":{\\\"pct\\\":0}},\\\"system\\\":{\\\"pct\\\":0.0362,\\\"norm\\\":{\\\"pct\\\":0.0362}},\\\"steal\\\":{\\\"pct\\\":9.0E-4,\\\"norm\\\":{\\\"pct\\\":9.0E-4}},\\\"total\\\":{\\\"pct\\\":1,\\\"norm\\\":{\\\"pct\\\":1}},\\\"user\\\":{\\\"pct\\\":0.0262,\\\"norm\\\":{\\\"pct\\\":0.0262}},\\\"irq\\\":{\\\"pct\\\":0,\\\"norm\\\":{\\\"pct\\\":0}}}},\\\"metricset\\\":{\\\"name\\\":\\\"cpu\\\",\\\"period\\\":45000},\\\"event\\\":{\\\"duration\\\":365552,\\\"dataset\\\":\\\"system.cpu\\\",\\\"module\\\":\\\"system\\\"},\\\"ecs\\\":{\\\"version\\\":\\\"1.9.0\\\"},\\\"host\\\":{\\\"cpu\\\":{\\\"pct\\\":1},\\\"name\\\":\\\"intranet-server\\\"}}\"], \"Timestamps\": [1642510794.32], \"DetectionTimestamp\": [1642510794.32], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/logstash/intranet-server/system.cpu.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.204\"}}\n"
+  },
+  {
+    "line_number": 91,
+    "predicted_attack_type": "",
+    "attack_type": "passwordcracking",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates an unusual frequency of DNS query IPs. However, the provided context shows normal DNS activity, including queries to common services like whatsapp.net and mozaws.net. The specific IP '192.168.128.4' is seen in a legitimate query for 'mmx-ds.cdn.whatsapp.net', suggesting this is a false positive.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 33, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS query IPs.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_query_ip\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/ip\"], \"AffectedLogAtomValues\": [[\"192.168.131.228\"], [\"192.168.128.195\"], [\"192.168.128.4\"], [\"172.17.131.81\"], [\"192.168.128.170\"], [\"172.17.130.196\"], [\"10.35.35.118\"], [\"192.168.129.212\"], [\"192.168.131.118\"], [\"172.17.130.37\"], [\"192.168.131.156\"], [\"192.168.129.209\"], [\"10.35.35.206\"], [\"192.168.131.234\"], [\"192.168.130.84\"], [\"10.35.33.116\"], [\"192.168.130.110\"], [\"10.35.33.144\"]], \"AffectedLogAtomFrequencies\": [82, 343, 402, 129, 106, 372, 68, 48, 6, 2, 78, 25, 10, 27, 51, 5, 25, 26], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.5514922236233711}, \"LogData\": {\"RawLogData\": [\"Jan 18 13:00:31 dnsmasq[14460]: query[A] mmx-ds.cdn.whatsapp.net from 192.168.128.4\"], \"Timestamps\": [1642510831], \"DetectionTimestamp\": [1642510831], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 92,
+    "predicted_attack_type": "",
+    "attack_type": "passwordcracking",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates an unusual frequency of Apache Access request methods. However, the provided log line shows a standard GET request to the root directory, which is a common and benign activity. Without further context or evidence of malicious intent, this is classified as a false positive.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 11, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of Apache Access request methods.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [[\"0\"], [\"1\"]], \"AffectedLogAtomFrequencies\": [3, 16], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.7764705882352941}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:13:13:28 +0000] \\\"GET / HTTP/1.1\\\" 200 6128 \\\"-\\\" \\\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0\\\"\"], \"Timestamps\": [1642511608], \"DetectionTimestamp\": [1642511608], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 96,
+    "predicted_attack_type": "",
+    "attack_type": "privilegeescalation",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The log entry indicates a successful 'su' command execution, which is a normal administrative activity and not malicious.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/service/su\", \"/model/service/su/systemd_str\", \"/model/service/su/id\", \"/model/service/su/brack_str2\", \"/model/service/su/fm/seq\", \"/model/service/su/fm/seq/brack_str\", \"/model/service/su/fm/seq/name\", \"/model/service/su/fm/seq/session_str\", \"/model/service/su/fm/seq/status\", \"/model/service/su/fm/seq/user_str\", \"/model/service/su/fm/seq/user\", \"/model/service/su/fm/seq/uid\", \"/model/service/su/fm/seq/uid/uid\", \"/model/service/su/fm/seq/uid/uid/uid_str\", \"/model/service/su/fm/seq/uid/uid/uid\", \"/model/service/su/fm/seq/uid/uid/brack_str\"]}, \"LogData\": {\"RawLogData\": [\"Jan 18 13:14:31 intranet-server su[28816]: pam_unix(su:session): session opened for user phopkins by (uid=33)\"], \"Timestamps\": [1642511671], \"DetectionTimestamp\": [1642511671], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/auth.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 100,
+    "predicted_attack_type": "",
+    "attack_type": "privilegeescalation",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a new combination of values for a USER_START event. However, the provided context logs show that this is a normal user authentication and session opening process, specifically the user 'phopkins' logging in via '/bin/su'. This is a common and expected system behavior, not indicative of malicious activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 18, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New user_start parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_user_start\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/user_start/uid\", \"/model/type/user_start/msg2\", \"/model/type/user_start/fm/acct/acct\", \"/model/type/user_start/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"33\", \"'op=PAM:session_open\", \"\\\"phopkins\\\"\", \"\\\"/bin/su\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=USER_START msg=audit(1642511672.403:2449): pid=28816 uid=33 auid=4294967295 ses=4294967295 msg='op=PAM:session_open acct=\\\"phopkins\\\" exe=\\\"/bin/su\\\" hostname=? addr=? terminal=/dev/pts/1 res=success'\"], \"Timestamps\": [1642511672.4], \"DetectionTimestamp\": [1642511672.4], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}"
+  }
+]

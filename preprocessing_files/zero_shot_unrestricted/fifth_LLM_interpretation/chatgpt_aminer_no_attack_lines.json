@@ -1,0 +1,802 @@
+[
+  {
+    "anomaly_timestamp": "1642207297",
+    "attack_type": ["VPN Enumeration", "Reconnaissance"],
+    "mitre": ["T1040", "T1082"],
+    "description": "New OpenVPN platform information 'IV_PLAT=linux' logged; could be indicative of VPN enumeration or fingerprinting.",
+    "tools": ["nmap", "openvpn-scanner"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642208411",
+    "attack_type": ["Data Exfiltration", "DNS Tunneling"],
+    "mitre": ["T1048.003", "T1071.004"],
+    "description": "Unusually long and high-entropy DNS query suggests DNS tunneling, possibly for exfiltrating a file.",
+    "tools": ["iodine", "dnscat2"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642208476",
+    "attack_type": ["Command and Control"],
+    "mitre": ["T1071.004"],
+    "description": "Query to domain with anomalous entropy; may be used for covert communication or C2 over DNS.",
+    "tools": ["dnscat2", "Cobalt Strike"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642219160",
+    "attack_type": ["Network Discovery"],
+    "mitre": ["T1046"],
+    "description": "DNS query from internal IP (10.35.33.116) to known Ubuntu resource; could indicate a new device or lateral movement.",
+    "tools": ["nmap", "netdiscover"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227294.24",
+    "attack_type": ["Persistence"],
+    "mitre": ["T1542.001"],
+    "description": "Audit log shows start of grub-common via systemd with root UID; uncommon for runtime grub use, may indicate bootloader tampering.",
+    "tools": ["grub-mkconfig", "systemctl"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642227294.24",
+    "attack_type": ["Persistence"],
+    "mitre": ["T1542.001"],
+    "description": "Audit log shows stopping of grub-common; similar context to previous start log, unusual service activity.",
+    "tools": ["grub-mkconfig", "systemctl"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642227294.32",
+    "attack_type": ["Resource Hijacking", "Crypto Mining"],
+    "mitre": ["T1496"],
+    "description": "Slight increase in normalized CPU usage detected; while marginal, persistent shifts may indicate resource hijacking attempts.",
+    "tools": ["xmrig", "cryptominer"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227295",
+    "attack_type": ["Boot Persistence"],
+    "mitre": ["T1542.001"],
+    "description": "Syslog indicates successful GRUB boot recording; in context with other grub activity, may indicate bootloader persistence.",
+    "tools": ["grub-install", "efibootmgr"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642227620",
+    "attack_type": ["Reconnaissance", "Phishing"],
+    "mitre": ["T1592", "T1566.002"],
+    "description": "Referer URL contains internal subdomain with suspicious structure; may suggest internal phishing or reconnaissance.",
+    "tools": ["curl", "wget", "Social Engineering Toolkit (SET)"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642227620",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1592"],
+    "description": "Referer with uncommon characters detected in web access log; may indicate crafted URL for scanning or fingerprinting.",
+    "tools": ["dirb", "burpsuite"],
+    "classification": "FP"
+  },
+    {
+    "anomaly_timestamp": "1642228843",
+    "attack_type": ["Initial Access", "Command and Control"],
+    "mitre": ["T1071.004", "T1059"],
+    "description": "A new IP address (192.168.131.234) queried motd.ubuntu.com, which may indicate a new host beaconing or bootstrapping over DNS.",
+    "tools": ["curl", "wget", "systemd-resolved"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642228984",
+    "attack_type": ["Command and Control"],
+    "mitre": ["T1071.004"],
+    "description": "Spike in A-record DNS queries may indicate beaconing behavior or dynamic DNS usage by malware.",
+    "tools": ["Cobalt Strike", "Metasploit", "DNSCat2"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642492683",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1595.002"],
+    "description": "High frequency of HTTP GET requests to root path from uncommon client suggests web scanning or automated probing.",
+    "tools": ["Nmap", "Nikto", "Burp Suite"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642492841",
+    "attack_type": ["Discovery"],
+    "mitre": ["T1046"],
+    "description": "High volume of DNS queries from multiple internal IPs, especially to security domains, may indicate network discovery or data staging.",
+    "tools": ["nslookup", "dig", "recon-ng"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642495220",
+    "attack_type": ["Discovery"],
+    "mitre": ["T1046"],
+    "description": "PTR query for reverse DNS lookup suggests host or service enumeration by an internal IP.",
+    "tools": ["nslookup", "dig", "Nmap"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642483364",
+    "attack_type": ["Benign Anomaly"],
+    "mitre": [],
+    "description": "A single DNS A-record query to a known update server (motd.ubuntu.com) is normal OS behavior.",
+    "tools": ["systemd", "apt", "update-manager"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642483877",
+    "attack_type": ["Exfiltration", "Command and Control"],
+    "mitre": ["T1071.004", "T1048"],
+    "description": "Unusual AAAA (IPv6) query to internal domain may suggest covert communication or misconfigured service.",
+    "tools": ["dns2tcp", "iodine", "Cobalt Strike"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642484462",
+    "attack_type": ["Malware Beaconing", "Defense Evasion"],
+    "mitre": ["T1071.004", "T1568.002"],
+    "description": "TXT query to clamav.net may be a signature update, but could also be used for C2 over DNS.",
+    "tools": ["ClamAV", "dns2tcp", "dnscat2"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642485677",
+    "attack_type": ["Persistence", "Command and Control"],
+    "mitre": ["T1071.004", "T1059"],
+    "description": "Repeated AAAA DNS queries to internal host by the same IP is indicative of beaconing or persistence mechanism testing.",
+    "tools": ["Cobalt Strike", "Empire", "dns2tcp"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642485677",
+    "attack_type": ["Command and Control"],
+    "mitre": ["T1071.004"],
+    "description": "Elevated frequency of DNS queries from 192.168.128.195 indicates possible beaconing or automated data exfiltration.",
+    "tools": ["Metasploit", "Cobalt Strike", "dnscat2"],
+    "classification": "TP"
+  },
+    {
+    "anomaly_timestamp": "1642438805",
+    "attack_type": ["DNS Tunneling", "Command and Control"],
+    "mitre": ["T1071.004", "T1043"],
+    "description": "Unusual frequency of PTR DNS queries from internal IP 192.168.128.195 suggests possible DNS tunneling for data exfiltration or command and control.",
+    "tools": ["iodine", "dnscat2", "DNSExfiltrator"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642439486",
+    "attack_type": ["VPN Abuse", "Connection Interruption"],
+    "mitre": ["T1021.001", "T1499"],
+    "description": "TLS key negotiation failure in OpenVPN may indicate an attacker attempting to disrupt VPN connections or brute-force credentials.",
+    "tools": ["openvpn-brute", "ettercap", "responder"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642439486",
+    "attack_type": ["VPN Abuse", "Credential Access"],
+    "mitre": ["T1110.001", "T1021.001"],
+    "description": "Repeated TLS handshake failures can indicate a brute-force or misconfigured client trying to access VPN infrastructure.",
+    "tools": ["hydra", "ncrack", "openvpn-brute"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642439486",
+    "attack_type": ["VPN Session Hijacking"],
+    "mitre": ["T1563.002"],
+    "description": "Session move with reinit_src=1 suggests possible attempt to hijack or reset an active TLS VPN session.",
+    "tools": ["ettercap", "mitmproxy"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642439561",
+    "attack_type": ["VPN Abuse", "Connection Interruption"],
+    "mitre": ["T1021.001", "T1499"],
+    "description": "Second instance of TLS key negotiation failure indicates persistence or automation in attack or faulty VPN config.",
+    "tools": ["openvpn-brute", "responder"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642439561",
+    "attack_type": ["VPN Abuse", "Credential Access"],
+    "mitre": ["T1110.001", "T1021.001"],
+    "description": "Repeated TLS handshake failures could indicate scanning or brute-force against OpenVPN.",
+    "tools": ["hydra", "ncrack", "openvpn-brute"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642439637",
+    "attack_type": ["VPN Abuse", "Connection Interruption"],
+    "mitre": ["T1021.001", "T1499"],
+    "description": "Third occurrence of TLS negotiation timeout suggests active probing or denial strategy.",
+    "tools": ["responder", "ettercap", "mitmproxy"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642439637",
+    "attack_type": ["VPN Abuse", "Credential Access"],
+    "mitre": ["T1110.001", "T1021.001"],
+    "description": "Persistent TLS handshake failures imply a sustained attempt to access VPN using invalid or brute-forced credentials.",
+    "tools": ["hydra", "ncrack"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642441885",
+    "attack_type": ["Web Application Discovery"],
+    "mitre": ["T1592.002", "T1210"],
+    "description": "Use of uncommon characters in PROPFIND HTTP method to interact with WebDAV endpoint implies probing or enumeration of shared files.",
+    "tools": ["cadaver", "davtest", "curl"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642441885",
+    "attack_type": ["Web Application Discovery"],
+    "mitre": ["T1592.002", "T1210"],
+    "description": "Unusual characters in GET request for file storage stats suggest enumeration or information gathering using WebDAV interface.",
+    "tools": ["curl", "burp suite", "davtest"],
+    "classification": "TP"
+  },
+    {
+    "anomaly_timestamp": "1642441885",
+    "attack_type": ["Reconnaissance", "LFI"],
+    "mitre": ["T1595", "T1210"],
+    "description": "Suspicious characters '(', ')' in URL referer parameter, possibly used to test server behavior or inject path traversal/local file access requests.",
+    "tools": ["Burp Suite", "OWASP ZAP", "curl"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642321099.72",
+    "attack_type": ["Initial Access", "Vulnerability Scanning"],
+    "mitre": ["T1592", "T1190"],
+    "description": "Deprecated PHP constructor warning with a non-standard referer suggests automated vulnerability scanning or misconfigured application accessing legacy PHP classes.",
+    "tools": ["Nikto", "wpscan", "custom PHP scanners"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642325193",
+    "attack_type": ["Command and Control"],
+    "mitre": ["T1071.004"],
+    "description": "Slight frequency increase in TXT DNS queries may suggest use of DNS for covert C2 communication (e.g., DNS tunneling or TXT-based beaconing).",
+    "tools": ["dnscat2", "iodine", "dig"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642325193",
+    "attack_type": ["Command and Control"],
+    "mitre": ["T1071.004"],
+    "description": "Sustained abnormal TXT query frequency reinforces likelihood of DNS-based communication channel, possibly used for beaconing or data exchange.",
+    "tools": ["dnscat2", "iodine", "dig"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642325805",
+    "attack_type": ["Command and Control"],
+    "mitre": ["T1071.004"],
+    "description": "High entropy domain (i.li.ru) in DNS query indicates potential use of algorithmically generated domains (DGAs) or fast-flux infrastructure for C2.",
+    "tools": ["malware using DGA", "botnets", "Cobalt Strike"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642237203",
+    "attack_type": ["Data Exfiltration", "Command and Control"],
+    "mitre": ["T1567.001", "T1071.004"],
+    "description": "Excessively long and complex domain with structured filename hints at encoded exfiltrated data or DGA-based domain used in DNS tunneling.",
+    "tools": ["dns2tcp", "iodine", "custom malware"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642237203",
+    "attack_type": ["Data Exfiltration", "Beaconing"],
+    "mitre": ["T1041", "T1071.004"],
+    "description": "High frequency of queries from many internal IPs to anomalous DNS domain suggests potential coordinated beaconing or exfiltration attempts.",
+    "tools": ["botnets", "Cobalt Strike", "DNS tunneling tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642238170.82",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078", "T1071.001"],
+    "description": "New ssh login audit event for unknown user 'hwarren' indicates a potentially newly created or compromised account used over SSH.",
+    "tools": ["ssh", "Hydra", "Metasploit"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642235841.33",
+    "attack_type": ["Initial Access"],
+    "mitre": ["T1078"],
+    "description": "New user 'jessica.wright' authenticated via dovecot; potential sign of newly added or compromised user account being used for email access.",
+    "tools": ["IMAP brute-force tools", "custom IMAP scripts"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642235992",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1595.002"],
+    "description": "Request to WordPress admin script with uncommon characters (e.g., ',' in parameter list) may indicate plugin enumeration or probing for vulnerabilities.",
+    "tools": ["wpscan", "Burp Suite"],
+    "classification": "TP"
+  },
+    {
+    "anomaly_timestamp": "1642236003",
+    "attack_type": ["DNS Tunneling"],
+    "mitre": ["T1071.004"],
+    "description": "DNS query contains a long, obfuscated string resembling data exfiltration or command-and-control via DNS tunneling.",
+    "tools": ["iodine", "dnscat2", "dns2tcp"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642236015.19",
+    "attack_type": ["Initial Access", "Credential Access"],
+    "mitre": ["T1078", "T1110.001"],
+    "description": "Authentication event with a new combination of parameters for a privileged account using Dovecot authentication service.",
+    "tools": ["Hydra", "Metasploit", "Mimikatz"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642233668",
+    "attack_type": ["Benign", "Network Configuration"],
+    "mitre": [],
+    "description": "Query for 'ipv4only.arpa' is part of RFC 8880 for NAT64 discovery and not malicious.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642233668",
+    "attack_type": ["Benign", "Network Configuration"],
+    "mitre": [],
+    "description": "Repeated query for 'ipv4only.arpa' domain, which is expected in dual-stack networks using NAT64.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642233668",
+    "attack_type": ["Benign", "Network Configuration"],
+    "mitre": [],
+    "description": "Forwarded query for 'ipv4only.arpa', commonly used by clients for DNS64 NAT detection.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642233668",
+    "attack_type": ["Benign", "Network Configuration"],
+    "mitre": [],
+    "description": "Redundant 'ipv4only.arpa' query, likely part of a legitimate operating system DNS behavior.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642233668",
+    "attack_type": ["Benign", "Network Configuration"],
+    "mitre": [],
+    "description": "Another repeated 'ipv4only.arpa' query used for NAT64/DNS64 mechanism validation.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642233668",
+    "attack_type": ["Benign", "Network Configuration"],
+    "mitre": [],
+    "description": "Same as previous 'ipv4only.arpa' queries; legitimate usage by system resolver.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642232601",
+    "attack_type": ["Benign", "Standard DNS Reply"],
+    "mitre": [],
+    "description": "Normal DNS reply resolving a hostname to IP; entropy score is misleading.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642233340",
+    "attack_type": ["Command and Control", "Lateral Movement"],
+    "mitre": ["T1071.001", "T1210"],
+    "description": "Unusual HTTP method (REPORT) combined with WebDAV access over HTTPS, possibly for C2 or file exfiltration.",
+    "tools": ["curl", "cadaver", "Metasploit", "Cobalt Strike"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642233423",
+    "attack_type": ["Command and Control"],
+    "mitre": ["T1071.004"],
+    "description": "Unseen internal IP making DNS request to location.services.mozilla.com; potential indicator of beaconing behavior.",
+    "tools": ["Cobalt Strike", "Metasploit", "Empire"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230608.71",
+    "attack_type": ["Privilege Escalation", "Credential Access"],
+    "mitre": ["T1078", "T1548"],
+    "description": "New sudo credential refresh combination for root user; may indicate privilege escalation or lateral movement setup.",
+    "tools": ["sudo", "Linux Exploit Suggester", "pspy"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230608.71",
+    "attack_type": ["Privilege Escalation", "Persistence"],
+    "mitre": ["T1078", "T1053.003"],
+    "description": "New sudo session start as root; unusual user_start activity linked to elevated privilege.",
+    "tools": ["sudo", "cron", "systemd"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230608.72",
+    "attack_type": ["Privilege Escalation"],
+    "mitre": ["T1078"],
+    "description": "New sudo session end for root; consistent with elevated activity in prior events.",
+    "tools": ["sudo"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230608.72",
+    "attack_type": ["Credential Access"],
+    "mitre": ["T1550.002"],
+    "description": "New credential disposal (setcred) pattern for root; may be part of a credential manipulation process.",
+    "tools": ["sudo", "PAM"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230793",
+    "attack_type": ["Initial Access", "Web Exploitation"],
+    "mitre": ["T1190", "T1059.003"],
+    "description": "New characters in suspicious PHP GET request with long token-like parameters; likely probing or exploitation attempt.",
+    "tools": ["Burp Suite", "sqlmap", "curl"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230793",
+    "attack_type": ["Initial Access", "Web Exploitation"],
+    "mitre": ["T1190", "T1071.001"],
+    "description": "Unusual characters in HTTP referer to a PHP script; possibly part of phishing or scripted access.",
+    "tools": ["curl", "Python requests", "Burp Suite"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230986.07",
+    "attack_type": ["Credential Access", "Persistence"],
+    "mitre": ["T1078", "T1110.001"],
+    "description": "Authentication to dovecot service using new user (meghan.morris); possibly a newly compromised account.",
+    "tools": ["Hydra", "dovecot brute-force"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230986.07",
+    "attack_type": ["Credential Access"],
+    "mitre": ["T1078"],
+    "description": "New user account activity in dovecot service log; may relate to account misuse or lateral movement.",
+    "tools": ["dovecot", "Hydra"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230993",
+    "attack_type": ["Discovery", "Initial Access"],
+    "mitre": ["T1087.002", "T1190"],
+    "description": "New request path in web service using AJAX endpoint; could indicate probing or enum via web API.",
+    "tools": ["Burp Suite", "OWASP ZAP", "curl"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230994",
+    "attack_type": ["Application Enumeration"],
+    "mitre": ["T1595.002"],
+    "description": "The request to `/services/ajax.php/kronolith/listEvents` contains new characters indicating previously unseen request patterns, potentially probing a web calendar plugin.",
+    "tools": ["curl", "Burp Suite", "Nikto"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642227633",
+    "attack_type": ["Domain Generation Algorithm (DGA)"],
+    "mitre": ["T1568.002"],
+    "description": "High entropy in DNS domain `cdn.ampproject.org` suggests obfuscated or algorithmically generated domain use, possibly for evasion.",
+    "tools": ["Necurs", "CoreBot", "Gozi"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227633",
+    "attack_type": ["Domain Generation Algorithm (DGA)"],
+    "mitre": ["T1568.002"],
+    "description": "Duplicate high-entropy domain alert for `cdn.ampproject.org`, likely benign due to legitimate use by Google AMP.",
+    "tools": ["Necurs", "CoreBot", "Gozi"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227658",
+    "attack_type": ["Internal Reconnaissance", "Lateral Movement"],
+    "mitre": ["T1018", "T1046"],
+    "description": "New IP `192.168.130.19` making DNS queries may indicate a new host or lateral movement/reconnaissance within internal network.",
+    "tools": ["nmap", "netdiscover", "PowerView"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642227658",
+    "attack_type": ["Internal Reconnaissance"],
+    "mitre": ["T1018"],
+    "description": "New internal IP `172.17.128.63` querying DNS for Ubuntu MOTD suggests a newly active or deployed system.",
+    "tools": ["nmap", "PowerShell"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227658",
+    "attack_type": ["Internal Reconnaissance"],
+    "mitre": ["T1018"],
+    "description": "New IP `10.35.32.78` issuing DNS queries. Likely benign (e.g., boot-up query), unless corroborated by other anomalies.",
+    "tools": ["PowerView", "ping sweep"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227748",
+    "attack_type": ["Reconnaissance via Web Browsing"],
+    "mitre": ["T1592.001"],
+    "description": "Referer includes new characters like `=`, `?`, and numeric values indicating parameter probing.",
+    "tools": ["dirb", "wfuzz", "burp suite"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642227748",
+    "attack_type": ["Web Application Fingerprinting"],
+    "mitre": ["T1592.002"],
+    "description": "Request URI contains a plugin path with unfamiliar character `z`, suggesting plugin enumeration or exploitation attempts.",
+    "tools": ["wpscan", "Nikto", "Burp Suite"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642227748",
+    "attack_type": ["Web Application Reconnaissance"],
+    "mitre": ["T1592.002"],
+    "description": "Referer includes suspicious plugin-related query strings, indicating plugin fingerprinting via CSS/font requests.",
+    "tools": ["wpscan", "burp suite"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642227748",
+    "attack_type": ["Web Application Reconnaissance"],
+    "mitre": ["T1592.002"],
+    "description": "Referer includes new numeric characters possibly tied to plugin versioning, suggesting version enumeration of WordPress plugin.",
+    "tools": ["wpscan", "dirsearch"],
+    "classification": "TP"
+  },
+    {
+    "anomaly_timestamp": "1642227902",
+    "attack_type": ["Web Application Attack"],
+    "mitre": ["T1190"],
+    "description": "Suspicious POST request to a known vulnerable endpoint (/wp-admin/admin-ajax.php) with unexpected character 'x' in the request. This could be probing or exploitation of a WordPress plugin.",
+    "tools": ["curl", "wpscan", "burpsuite"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642227905",
+    "attack_type": ["DNS Tunneling", "Command and Control"],
+    "mitre": ["T1071.004", "T1095"],
+    "description": "DNS query to a high-entropy domain (taylorcruz-mail) indicating potential use of DNS for C2 communication or data exfiltration.",
+    "tools": ["iodine", "dnscat2", "dig"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642226216",
+    "attack_type": ["Command and Control"],
+    "mitre": ["T1071.004"],
+    "description": "Abnormal spike in frequency of AAAA DNS queries, potentially indicative of automated DNS-based beaconing.",
+    "tools": ["Cobalt Strike", "Empire", "dig"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642226476",
+    "attack_type": ["DNS Tunneling", "Command and Control"],
+    "mitre": ["T1071.004", "T1095"],
+    "description": "Repeated DNS query to a high-entropy domain, similar to earlier alert, reinforcing suspicion of DNS tunneling.",
+    "tools": ["iodine", "dnscat2", "dig"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642226748.74",
+    "attack_type": ["Defense Evasion"],
+    "mitre": ["T1562.001", "T1543.002"],
+    "description": "New combination of parameters in systemd audit logs for 'apt-daily-upgrade' startup could indicate attacker persistence via scheduled service modification.",
+    "tools": ["systemctl", "cron", "bash"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642226748.74",
+    "attack_type": ["Defense Evasion"],
+    "mitre": ["T1562.001", "T1543.002"],
+    "description": "New combination of parameters in systemd audit logs for 'apt-daily-upgrade' shutdown may be part of persistent service evasion or clean-up mechanism.",
+    "tools": ["systemctl", "cron", "bash"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642226944",
+    "attack_type": ["False Positive"],
+    "mitre": [],
+    "description": "Query to 'ocsp.pki.goog' is a normal OCSP certificate check for HTTPS validation and the entropy threshold is set too low.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642226944",
+    "attack_type": ["False Positive"],
+    "mitre": [],
+    "description": "Forwarding of 'ocsp.pki.goog' to 8.8.8.8 (Google DNS) is expected behavior in most HTTPS traffic using Google's PKI.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642226944",
+    "attack_type": ["False Positive"],
+    "mitre": [],
+    "description": "AAAA query for 'ocsp.pki.goog' is standard for clients requesting IPv6 OCSP responses.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642226944",
+    "attack_type": ["False Positive"],
+    "mitre": [],
+    "description": "Repetition of OCSP domain forwarded again—likely part of normal validation retry, not indicative of malicious behavior.",
+    "tools": [],
+    "classification": "FP"
+  },
+    {
+    "anomaly_timestamp": "1642226944",
+    "attack_type": ["Command and Control"],
+    "mitre": ["T1071.004", "T1568.002"],
+    "description": "High entropy DNS request to ocsp.pki.goog may indicate domain fronting or DNS tunneling used for C2 communication.",
+    "tools": ["iodine", "dnscat2", "Metasploit"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642226944",
+    "attack_type": ["Command and Control"],
+    "mitre": ["T1071.004", "T1568.002"],
+    "description": "Repeated high-entropy DNS domain response for ocsp.pki.goog, which may indicate suspicious tunneling or domain fronting, but likely benign as it relates to Google's OCSP infrastructure.",
+    "tools": ["iodine", "dnscat2", "Cobalt Strike"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642633908",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1595.001", "T1046"],
+    "description": "Unusual DNS query pattern detected (AAAA query for internal mail name), which may indicate internal reconnaissance or enumeration.",
+    "tools": ["nmap", "nslookup", "dig"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642634741",
+    "attack_type": ["System Information Discovery"],
+    "mitre": ["T1082"],
+    "description": "DNS request to motd.ubuntu.com is related to update checks, but frequency anomaly suggests potential misuse or spoofing.",
+    "tools": ["curl", "wget", "custom scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642635077",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1595.001", "T1046"],
+    "description": "Frequency anomaly for DNS queries to internal mail resource, possible lateral movement or enumeration activity.",
+    "tools": ["nmap", "dig", "recon-ng"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642635708",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1046", "T1590.002"],
+    "description": "Repeated unusual DNS queries to internal mail resource, consistent with host discovery or asset scanning.",
+    "tools": ["Masscan", "nmap"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642636516",
+    "attack_type": ["Defense Evasion", "Command and Control"],
+    "mitre": ["T1071.004", "T1070.004"],
+    "description": "TXT DNS query to ClamAV update server from local host shows low frequency anomaly; could be benign or attacker spoofing known services.",
+    "tools": ["dig", "custom malware using TXT records"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642576840",
+    "attack_type": ["Valid Accounts", "Initial Access"],
+    "mitre": ["T1078", "T1071.001"],
+    "description": "Horde webmail unauthorized access attempt detected for user megan.johnson; suggests credential abuse or brute-force attempt.",
+    "tools": ["Hydra", "Burp Suite", "Metasploit"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642578056",
+    "attack_type": ["Command and Control", "Lateral Movement"],
+    "mitre": ["T1071.004", "T1046"],
+    "description": "Unusual DNS query to mail.dmz.price.fox.org suggests either beaconing to internal server or internal lateral discovery.",
+    "tools": ["PowerShell Empire", "Cobalt Strike", "nslookup"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642578294",
+    "attack_type": ["Resource Hijacking"],
+    "mitre": ["T1496"],
+    "description": "Anomalous spike in CPU usage by system agent, possibly due to crypto-mining or unauthorized heavy computation tasks.",
+    "tools": ["XMRig", "Kinsing", "coinminer"],
+    "classification": "TP"
+  },
+    {
+    "anomaly_timestamp": "1642579240",
+    "attack_type": ["Command and Control", "DNS Tunneling"],
+    "mitre": ["T1071.004", "T1048.003"],
+    "description": "Unusual frequency of DNS queries to uncommon IPs from internal hosts may indicate data exfiltration or beaconing over DNS.",
+    "tools": ["iodine", "dnscat2"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642582562",
+    "attack_type": ["Initial Access", "Exploitation via Web Application"],
+    "mitre": ["T1190"],
+    "description": "Special characters in file download URL using uncommon user agent suggest automated or crafted request possibly exploiting file download function.",
+    "tools": ["sqlmap", "Burp Suite", "curl"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642582562",
+    "attack_type": ["Initial Access", "Exploitation via Web Application"],
+    "mitre": ["T1190"],
+    "description": "Repeat of suspicious file download with special characters in request indicates automated exploitation attempt across multiple IPs.",
+    "tools": ["sqlmap", "Burp Suite"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642582794.32",
+    "attack_type": ["Execution", "Cryptomining"],
+    "mitre": ["T1496"],
+    "description": "Sudden increase in normalized CPU usage could indicate background unauthorized computation such as cryptomining.",
+    "tools": ["XMRig", "Kinsing"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642582804",
+    "attack_type": ["Command and Control", "DNS Tunneling"],
+    "mitre": ["T1071.004", "T1048.003"],
+    "description": "High frequency of reverse DNS lookups (PTR queries) can indicate network reconnaissance or C2 beaconing activity.",
+    "tools": ["dnscat2", "dig", "iodine"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642583198",
+    "attack_type": ["Initial Access", "Exploitation via Web Application"],
+    "mitre": ["T1190"],
+    "description": "Repeated web access using complex download request with suspicious encoding and user-agent suggests automated probing or exploitation.",
+    "tools": ["curl", "Burp Suite"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642583198",
+    "attack_type": ["Initial Access", "Exploitation via Web Application"],
+    "mitre": ["T1190"],
+    "description": "Same pattern of suspicious web request as earlier, coming from a different internal IP, suggesting scripted attack or vulnerability scan.",
+    "tools": ["sqlmap", "Burp Suite"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642551108",
+    "attack_type": ["Reconnaissance", "DNS Enumeration"],
+    "mitre": ["T1046"],
+    "description": "DNS AAAA query for likely internal system name 'jonesmorgan-mail' suggests host discovery or subdomain enumeration.",
+    "tools": ["dig", "dnsenum", "Fierce"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642552908",
+    "attack_type": ["Reconnaissance", "DNS Enumeration"],
+    "mitre": ["T1046"],
+    "description": "Repeated query for the same internal domain name within short interval increases confidence of DNS-based reconnaissance.",
+    "tools": ["dnsmap", "dnsrecon"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642554077",
+    "attack_type": ["Command and Control", "DNS Tunneling"],
+    "mitre": ["T1071.004", "T1048.003"],
+    "description": "Unusual frequency of DNS queries detected, specifically AAAA query for a potentially suspicious domain ('taylorcruz-mail') from an internal IP. This can indicate data exfiltration or C2 via DNS.",
+    "tools": ["iodine", "dnscat2", "dns2tcp"],
+    "classification": "TP"
+  }
+]

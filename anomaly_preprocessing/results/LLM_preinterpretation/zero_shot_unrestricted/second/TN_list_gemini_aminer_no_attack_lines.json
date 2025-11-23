@@ -1,0 +1,103 @@
+[
+  {
+    "attack_type": [
+      "Benign",
+      "Normal Traffic"
+    ],
+    "description": "High entropy in the Apache Access referer `http://intranet.price.fox.org/` is unusual but given the context of a `style.min.css` request, it likely indicates a misconfiguration in the entropy detection model or the referer header. This is likely **benign** and **normal traffic** for a web server serving static assets.",
+    "tools": [],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 8, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in Apache Access referer.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_referer\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/combined/combined/referer\"], \"AffectedLogAtomValues\": [\"http://intranet.price.fox.org/\"], \"CriticalValue\": 0.0, \"ProbabilityThreshold\": 0.05}, \"LogData\": {\"RawLogData\": [\"10.35.35.202 - - [15/Jan/2022:06:20:20 +0000] \\\"GET /wp-includes/css/dist/block-library/style.min.css?ver=5.8.3 HTTP/1.1\\\" 200 10846 \\\"http://intranet.price.fox.org/\\\" \\\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0\\\"\"], \"Timestamps\": [1642227620], \"DetectionTimestamp\": [1642227620], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Benign",
+      "Normal Traffic"
+    ],
+    "description": "New characters detected in the Apache Access referer `http://intranet.price.fox.org/` are likely due to the training mode being set to true. These characters are part of a normal URL. This is likely a **false positive** and **normal traffic**.",
+    "tools": [],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 9, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access referer.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_referer\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/combined/combined/referer\"], \"AffectedLogAtomValues\": [\"http://intranet.price.fox.org/\"], \"MissingCharacters\": [\"a\", \"c\", \"e\", \"f\", \"g\", \"h\", \"i\", \"n\", \"/\", \"p\", \".\", \"r\", \"o\", \"t\", \"x\", \":\"]}, \"LogData\": {\"RawLogData\": [\"10.35.35.202 - - [15/Jan/2022:06:20:20 +0000] \\\"GET /wp-includes/css/dist/block-library/style.min.css?ver=5.8.3 HTTP/1.1\\\" 200 10846 \\\"http://intranet.price.fox.org/\\\" \\\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0\\\"\"], \"Timestamps\": [1642227620], \"DetectionTimestamp\": [1642227620], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Benign",
+      "Expected Behavior"
+    ],
+    "description": "High entropy in the DNS domain `cdn.ampproject.org` for a CNAME reply is likely **benign**. AMP Project domains often exhibit high entropy due to their content delivery network (CDN) nature, which involves serving content from geographically diverse and dynamically named servers. This is expected behavior for modern web content delivery.",
+    "tools": [],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"cdn.ampproject.org\"], \"CriticalValue\": 0.014549212477404979, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:20:33 dnsmasq[14460]: reply cdn.ampproject.org is <CNAME>\"], \"Timestamps\": [1642227633], \"DetectionTimestamp\": [1642227633], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Benign",
+      "Expected Behavior"
+    ],
+    "description": "High entropy in the DNS domain `cdn.ampproject.org` for a CNAME reply is likely **benign**. As noted, AMP Project domains' dynamic nature typically results in high entropy, classifying this as expected behavior.",
+    "tools": [],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"cdn.ampproject.org\"], \"CriticalValue\": 0.014599492517237666, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:20:33 dnsmasq[14460]: reply cdn.ampproject.org is <CNAME>\"], \"Timestamps\": [1642227633], \"DetectionTimestamp\": [1642227633], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Benign",
+      "Expected Behavior"
+    ],
+    "description": "High entropy in the DNS domain `ocsp.pki.goog` for an A record query from `192.168.130.84`. `ocsp.pki.goog` is a legitimate Google domain used for OCSP (Online Certificate Status Protocol) checks. The 'high entropy' is likely due to the nature of OCSP lookups, which can involve unique subdomains or frequent queries. This is generally **benign** and expected behavior for certificate validation.",
+    "tools": [],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"ocsp.pki.goog\"], \"CriticalValue\": 0.006992475701173519, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:09:04 dnsmasq[14460]: query[A] ocsp.pki.goog from 192.168.130.84\"], \"Timestamps\": [1642226944], \"DetectionTimestamp\": [1642226944], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Benign",
+      "Expected Behavior"
+    ],
+    "description": "High entropy in the DNS domain `ocsp.pki.goog` when forwarded to `8.8.8.8` (Google's DNS resolver). This further confirms the legitimate nature of the DNS activity related to OCSP checks. This is considered **benign** and expected behavior.",
+    "tools": [],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"ocsp.pki.goog\"], \"CriticalValue\": 0.0070203252738761865, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:09:04 dnsmasq[14460]: forwarded ocsp.pki.goog to 8.8.8.8\"], \"Timestamps\": [1642226944], \"DetectionTimestamp\": [1642226944], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Benign",
+      "Expected Behavior"
+    ],
+    "description": "High entropy in the DNS domain `ocsp.pki.goog` for an AAAA record query from `192.168.130.84`. This is a repeated observation of legitimate OCSP traffic, reinforcing its **benign** and expected nature.",
+    "tools": [],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"ocsp.pki.goog\"], \"CriticalValue\": 0.0070481716671763565, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:09:04 dnsmasq[14460]: query[AAAA] ocsp.pki.goog from 192.168.130.84\"], \"Timestamps\": [1642226944], \"DetectionTimestamp\": [1642226944], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Benign",
+      "Expected Behavior"
+    ],
+    "description": "High entropy in the DNS domain `ocsp.pki.goog` when forwarded to `8.8.8.8`. Consistent with previous entries, this is a **benign** observation related to routine certificate validation.",
+    "tools": [],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"ocsp.pki.goog\"], \"CriticalValue\": 0.007076014881718718, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:09:04 dnsmasq[14460]: forwarded ocsp.pki.goog to 8.8.8.8\"], \"Timestamps\": [1642226944], \"DetectionTimestamp\": [1642226944], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Benign",
+      "Expected Behavior"
+    ],
+    "description": "High entropy in the DNS domain `ocsp.pki.goog` for a CNAME reply. This is a common and legitimate behavior for Online Certificate Status Protocol (OCSP) lookups, which often involve dynamically generated subdomains for certificate validation. Therefore, this is categorized as **benign** and expected.",
+    "tools": [],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"ocsp.pki.goog\"], \"CriticalValue\": 0.007103854918147755, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:09:04 dnsmasq[14460]: reply ocsp.pki.goog is <CNAME>\"], \"Timestamps\": [1642226944], \"DetectionTimestamp\": [1642226944], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Benign",
+      "Expected Behavior"
+    ],
+    "description": "High entropy in the DNS domain `ocsp.pki.goog` for a CNAME reply, consistent with previous observations. This pattern strongly indicates routine and **benign** certificate validation traffic, and is an expected part of modern web Browse and security infrastructure.",
+    "tools": [],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"ocsp.pki.goog\"], \"CriticalValue\": 0.007146524884303124, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:09:04 dnsmasq[14460]: reply ocsp.pki.goog is <CNAME>\"], \"Timestamps\": [1642226944], \"DetectionTimestamp\": [1642226944], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Benign",
+      "Expected Behavior"
+    ],
+    "description": "Unusual occurrence frequencies of DNS log events, specifically a TXT query for `current.cvd.clamav.net` from `192.168.128.4`. This domain is legitimately used by ClamAV for updating its virus definitions. An anomalous frequency for this query is likely due to changes in ClamAV's update schedule or network conditions, and is generally considered **benign** and expected for anti-virus operations.",
+    "tools": [
+      "ClamAV"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [2, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9692307692307692}, \"LogData\": {\"RawLogData\": [\"Jan 19 23:55:16 dnsmasq[14460]: query[TXT] current.cvd.clamav.net from 192.168.128.4\"], \"Timestamps\": [1642636516], \"DetectionTimestamp\": [1642636516], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  }
+]

@@ -1,0 +1,703 @@
+[
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Successful IMAP login for user 'samantha.thornton' on 'mail' from internal IP 172.17.131.81 using PLAIN method with TLS. This is a successful authentication event. While not inherently malicious, repeated successful logins from the same user within a short timeframe, especially if accompanied by other suspicious activities, could indicate a compromised account or automated access.",
+    "tools": [
+      "Legitimate email client",
+      "Potentially automated login script or tool if part of a larger, rapid series of logins."
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:44:51\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 25, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:44:51 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9275, TLS, session=<LJuoQZnV+rmsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:44:51.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686162330.303465\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Another successful IMAP login for user 'samantha.thornton' on 'mail' from IP 172.17.131.81, occurring at the exact same timestamp but with a different MPID (9280 vs 9275). This suggests multiple concurrent or rapid login attempts for the same user, which could be normal for certain mail clients or a sign of an automated process. Investigate the number of concurrent sessions for this user.",
+    "tools": [
+      "Legitimate email client (multiple sessions)",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:44:51\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 27, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:44:51 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9280, TLS, session=<Nz6qQZnV/rmsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:44:51.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686162330.304457\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'samantha.thornton' from IP 172.17.131.81, found in '/var/log/syslog'. This event is identical to the previous one (same MPID 9280), reinforcing the occurrence of the successful login but not indicating a new or distinct incident.",
+    "tools": [
+      "Legitimate email client",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:44:51\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 30, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:44:51 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9280, TLS, session=<Nz6qQZnV/rmsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:44:51.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686162330.305941\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Another successful IMAP login for 'samantha.thornton' from IP 172.17.131.81, from '/var/log/mail.info'. This is a different MPID (9278), indicating yet another concurrent or very rapid successful login attempt for the same user. The rapid succession of successful logins for a single user could be a red flag for compromised credentials being used by an automated tool, or it could be a misconfigured legitimate mail client.",
+    "tools": [
+      "Legitimate email client (multiple sessions)",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:44:51\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 23, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:44:51 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9278, TLS, session=<2ESpQZnV/LmsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:44:51.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686162330.302471\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'samantha.thornton' from IP 172.17.131.81, found in '/var/log/syslog'. This log is identical to the previous one (MPID 9278), confirming the successful login but not adding new information about the incident.",
+    "tools": [
+      "Legitimate email client",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:44:51\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 29, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:44:51 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9278, TLS, session=<2ESpQZnV/LmsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:44:51.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686162330.305447\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Successful IMAP login for user 'samantha.thornton' on 'mail' from IP 172.17.131.81, occurring one second after the previous cluster of logins. This new MPID (9282) further highlights the persistent and rapid login activity for this user. Given the multiple successful logins within a very short timeframe, it's advisable to investigate if this is expected behavior for 'samantha.thornton' or if it indicates potential automated access to the account.",
+    "tools": [
+      "Legitimate email client (multiple sessions)",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:44:52\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 31, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:44:52 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9282, TLS, session=<DbSwQZnVALqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:44:52.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686162332.306435\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'samantha.thornton' from IP 172.17.131.81, from '/var/log/mail.log'. This log is identical to the preceding one (MPID 9282), confirming the continued login activity.",
+    "tools": [
+      "Legitimate email client",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:44:52\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 32, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:44:52 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9282, TLS, session=<DbSwQZnVALqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:44:52.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686162332.306932\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'samantha.thornton' from IP 172.17.131.81, from '/var/log/syslog'. This log is identical to the preceding ones for MPID 9282, providing redundant information about the successful login.",
+    "tools": [
+      "Legitimate email client",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:44:52\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 33, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:44:52 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9282, TLS, session=<DbSwQZnVALqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:44:52.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686162332.307428\"}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion",
+      "System Management"
+    ],
+    "description": "ClamAV database update process started on 'miller-mail'. This is a routine and expected event for antivirus software, indicating that the threat intelligence database is being updated. This is generally a benign security control. An unusual frequency of updates or failures might warrant investigation.",
+    "tools": [
+      "ClamAV antivirus software"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"miller-mail\", \"program_name\": \"freshclam\", \"timestamp\": \"Jan 15 06:46:10\"}, \"agent\": {\"ip\": \"192.168.129.212\", \"name\": \"wazuh-client\", \"id\": \"10\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"firedtimes\": 10, \"mail\": false, \"level\": 3, \"pci_dss\": [\"5.2\"], \"tsc\": [\"A1.2\"], \"description\": \"ClamAV database update\", \"groups\": [\"clamd\", \"freshclam\", \"virus\"], \"id\": \"52507\", \"nist_800_53\": [\"SI.3\"], \"gpg13\": [\"4.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"freshclam\"}, \"full_log\": \"Jan 15 06:46:10 miller-mail freshclam[28619]: Sat Jan 15 06:46:10 2022 -> ClamAV update process started at Sat Jan 15 06:46:10 2022\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:46:10.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686162410.307922\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Successful IMAP login for user 'damian.jordan' on 'taylorcruz-mail' from internal IP 192.168.128.195 using PLAIN method with TLS. This is another standard successful authentication. Similar to the 'samantha.thornton' logins, it should be monitored for any anomalous behavior in context, but by itself, it is not an indicator of compromise.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 40, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5427, TLS, session=<WC2WXZnV+qXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686162799.311347\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Successful IMAP login for user 'damian.jordan' on 'taylorcruz-mail' from internal IP 192.168.128.195 using PLAIN method with TLS. This is a successful authentication event. While not inherently malicious, a cluster of successful logins for the same user within the same second, especially with varying MPIDs, could indicate that a mail client is opening multiple concurrent connections or an automated process is accessing the account. This merits a review of expected user behavior.",
+    "tools": [
+      "Legitimate email client (potentially opening multiple sessions)",
+      "Automated login script"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 35, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5430, TLS, session=<R8mZXZnV/KXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686162799.308805\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Another successful IMAP login for user 'damian.jordan' on 'taylorcruz-mail' from IP 192.168.128.195, occurring at the exact same timestamp but with a different MPID (5432). This further reinforces the observation of multiple concurrent or rapid login attempts for 'damian.jordan'. This behavior, while potentially benign for legitimate mail clients, should be assessed against baseline activity for this user.",
+    "tools": [
+      "Legitimate email client (multiple sessions)",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 36, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5432, TLS, session=<yQicXZnV/qXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686162799.309314\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'damian.jordan' from IP 192.168.128.195, found in '/var/log/syslog'. This event is identical to the previous one (same MPID 5432), reinforcing the successful authentication but not indicating a new or distinct incident.",
+    "tools": [
+      "Legitimate email client",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 42, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5432, TLS, session=<yQicXZnV/qXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686162799.312359\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Another successful IMAP login for 'damian.jordan' from IP 192.168.128.195, recorded in '/var/log/mail.info'. This log entry has an MPID of 5427, indicating yet another distinct concurrent or very rapid successful login attempt for the same user within the same second. The clustering of multiple successful logins for a single user from the same source IP in such a short period could be an indicator of credential reuse across multiple applications/clients or an automated access tool.",
+    "tools": [
+      "Legitimate email client (multiple sessions)",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 34, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5427, TLS, session=<WC2WXZnV+qXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686162799.308296\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'damian.jordan' from IP 192.168.128.195, found in '/var/log/mail.log'. This log is identical to the preceding one (MPID 5427), confirming the successful login but not adding new information about the incident.",
+    "tools": [
+      "Legitimate email client",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 37, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5427, TLS, session=<WC2WXZnV+qXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686162799.309823\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'damian.jordan' from IP 192.168.128.195, from '/var/log/mail.log'. This log is identical to a prior one (MPID 5430), confirming the continued rapid login activity.",
+    "tools": [
+      "Legitimate email client",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 38, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5430, TLS, session=<R8mZXZnV/KXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686162799.310331\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'damian.jordan' from IP 192.168.128.195, from '/var/log/mail.log'. This log is identical to a prior one (MPID 5432), further confirming the ongoing rapid login activity.",
+    "tools": [
+      "Legitimate email client",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 39, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5432, TLS, session=<yQicXZnV/qXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686162799.310839\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'damian.jordan' from IP 192.168.128.195, from '/var/log/syslog'. This log is identical to a prior one (MPID 5430), providing redundant information about the successful login.",
+    "tools": [
+      "Legitimate email client",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 41, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5430, TLS, session=<R8mZXZnV/KXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686162799.311853\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Successful IMAP login for user 'damian.jordan' on 'taylorcruz-mail' from IP 192.168.128.195, occurring one second after the previous cluster of logins. This new MPID (5434) further highlights the persistent and rapid login activity for this user. Given the multiple successful logins within a very short timeframe, it's crucial to investigate if this is expected behavior for 'damian.jordan' (e.g., mail client configuration) or if it indicates potential automated access to the account, which could be part of an adversary's initial access or persistence efforts.",
+    "tools": [
+      "Legitimate email client (multiple sessions)",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:41\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 43, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:41 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5434, TLS, session=<2m6oXZnVAKbAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:41.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686162801.312865\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'damian.jordan' from IP 192.168.128.195, from '/var/log/mail.log'. This log is identical to the preceding one (MPID 5434), confirming the continued login activity.",
+    "tools": [
+      "Legitimate email client",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:41\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 44, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:41 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5434, TLS, session=<2m6oXZnVAKbAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:41.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686162801.313374\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'damian.jordan' from IP 192.168.128.195, found in '/var/log/syslog'. This event is identical to the previous ones (same MPID 5434), reinforcing the occurrence of the successful login but not indicating a new or distinct incident.",
+    "tools": [
+      "Legitimate email client",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:41\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 45, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:41 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5434, TLS, session=<2m6oXZnVAKbAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:41.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686162801.313882\"}\n"
+  },
+  {
+    "attack_type": [
+      "Impact",
+      "Defense Evasion"
+    ],
+    "description": "PAM login session for user 'phopkins' closed on 'mail' via systemd-user. This event indicates the termination of 'phopkins''s session on the 'mail' server. While a session closing is a normal event, given the preceding suspicious activities, it might be an attempt by the attacker to cover their tracks or conclude their operations on this server.",
+    "tools": [
+      "Legitimate system utilities (`systemd`, `pam`)"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"systemd\", \"timestamp\": \"Jan 15 06:54:41\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"dstuser\": \"phopkins\"}, \"rule\": {\"firedtimes\": 4, \"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session closed.\", \"groups\": [\"pam\", \"syslog\"], \"id\": \"5502\", \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gpg13\": [\"7.8\", \"7.9\"], \"gdpr\": [\"IV_32.2\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 06:54:41 mail systemd: pam_unix(systemd-user:session): session closed for user phopkins\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:54:41.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686162921.316228\"}\n"
+  },
+  {
+    "attack_type": [
+      "Impact",
+      "Defense Evasion"
+    ],
+    "description": "PAM login session for user 'phopkins' closed on 'mail' via SSHd. This event also indicates the termination of 'phopkins''s SSH session. Similar to the systemd session close, it should be noted in the context of the prior malicious activity.",
+    "tools": [
+      "Legitimate system utilities (`sshd`, `pam`)"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"sshd\", \"timestamp\": \"Jan 15 06:54:41\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"dstuser\": \"phopkins\"}, \"rule\": {\"firedtimes\": 3, \"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session closed.\", \"groups\": [\"pam\", \"syslog\"], \"id\": \"5502\", \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gpg13\": [\"7.8\", \"7.9\"], \"gdpr\": [\"IV_32.2\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 06:54:41 mail sshd[9296]: pam_unix(sshd:session): session closed for user phopkins\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:54:41.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686162921.315822\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 192.168.128.4 to 91.189.88.152:80. This is a duplicate alert for the same activity from the previous log. The classification 'Not Suspicious Traffic' by the IDS might understate the potential risk if the system is already compromised.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:01:47.882369\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"91.189.88.152:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 20, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:01:47.882369  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 192.168.128.4:54306 -> 91.189.88.152:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:01:47.882369Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163348.320899\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 10.35.33.111 to 91.189.88.152:80. This is another instance of the same alert, indicating that multiple internal hosts are performing APT updates at the same time. The simultaneous nature might suggest a system-wide update, but it's important to verify if this behavior is coordinated or if multiple compromised hosts are reaching out.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:01:47.882948\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.33.111\", \"dstip\": \"91.189.88.152:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 22, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:01:47.882948  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.35.33.111:54306 -> 91.189.88.152:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:01:47.882948Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163348.326051\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 192.168.128.4 to 91.189.91.39:80. This is a duplicate alert for the same system update activity. While seemingly benign, the context of prior 'phopkins' SSH activity necessitates continued vigilance.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:01:48.017549\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"91.189.91.39:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 21, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:01:48.017549  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 192.168.128.4:51264 -> 91.189.91.39:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:01:48.017549Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163348.321348\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 10.35.33.111 to 91.189.91.39:80. This is a duplicate alert for the same system update activity from the previous log.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:01:48.018014\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.33.111\", \"dstip\": \"91.189.91.39:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 23, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:01:48.018014  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.35.33.111:51264 -> 91.189.91.39:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:01:48.018014Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163348.326499\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 192.168.128.4 to 91.189.88.142:80. This is a duplicate alert for the same system update activity.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:02:07.889619\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"91.189.88.142:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 24, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:02:07.889619  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 192.168.128.4:36880 -> 91.189.88.142:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:02:07.889619Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163368.329082\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 10.35.33.111 to 91.189.88.142:80. This is a duplicate alert for the same system update activity.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:02:07.890025\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.33.111\", \"dstip\": \"91.189.88.142:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 25, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:02:07.890025  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.35.33.111:36880 -> 91.189.88.142:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:02:07.890025Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163368.331665\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Successful IMAP login for user 'samantha.thornton' on 'mail' from internal IP 172.17.131.81 using PLAIN method with TLS. This is a successful authentication, similar to previous observations for this user. Given the recurring nature, it's important to confirm if this user typically has such frequent login activity, or if it might be automated access, potentially by a compromised credential or legitimate but misconfigured client.",
+    "tools": [
+      "Legitimate email client",
+      "Potentially automated login script"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:04:36\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 47, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:04:36 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9377, TLS, session=<7qlDiJnVBLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:36.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686163517.332610\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'samantha.thornton' from IP 172.17.131.81, found in '/var/log/mail.info'. This event is identical to the previous one (same MPID 9377), reinforcing the occurrence of the successful login.",
+    "tools": [
+      "Legitimate email client",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:04:36\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 46, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:04:36 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9377, TLS, session=<7qlDiJnVBLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:36.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686163517.332113\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts Abuse"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'samantha.thornton' from IP 172.17.131.81, found in '/var/log/syslog'. This event is identical to the previous ones (same MPID 9377), reinforcing the occurrence of the successful login but not indicating a new or distinct incident.",
+    "tools": [
+      "Legitimate email client",
+      "Automated scripts"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:04:36\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 48, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:04:36 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9377, TLS, session=<7qlDiJnVBLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:36.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686163517.333106\"}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion"
+    ],
+    "description": "PAM login session for user 'root' closed on 'intranet-server'. This indicates the termination of the root session that 'phopkins' had opened via sudo. While a session closing is a normal event, given the prior privilege escalation and reconnaissance by 'phopkins', this could be an attempt to cover tracks or conclude the elevated operations on the system.",
+    "tools": [
+      "Legitimate system utilities (`sudo`, `pam`)"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:10:08\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"dstuser\": \"root\"}, \"rule\": {\"firedtimes\": 5, \"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session closed.\", \"groups\": [\"pam\", \"syslog\"], \"id\": \"5502\", \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gpg13\": [\"7.8\", \"7.9\"], \"gdpr\": [\"IV_32.2\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 07:10:08 intranet-server sudo: pam_unix(sudo:session): session closed for user root\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:10:08.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686163847.340619\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 192.168.128.4 to 91.189.95.85:80. This is a duplicate alert for the same package management activity.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.327729\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"91.189.95.85:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 26, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.327729  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 192.168.128.4:60524 -> 91.189.95.85:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.327729Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.351450\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 192.168.128.4 to 91.189.88.152:80. This is a duplicate alert for the same package management activity.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.328372\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"91.189.88.152:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 27, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.328372  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 192.168.128.4:54320 -> 91.189.88.152:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.328372Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.351897\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 10.35.33.111 to 91.189.95.85:80. This is a duplicate alert for the same package management activity.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.328895\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.33.111\", \"dstip\": \"91.189.95.85:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 32, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.328895  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.35.33.111:60524 -> 91.189.95.85:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.328895Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.366790\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 10.35.33.111 to 91.189.88.152:80. This is a duplicate alert for the same package management activity.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.329539\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.33.111\", \"dstip\": \"91.189.88.152:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 33, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.329539  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.35.33.111:54320 -> 91.189.88.152:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.329539Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.367236\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 192.168.128.4 to 91.189.88.142:80. This is a duplicate alert for the same package management activity, specifically checking for 'bionic' InRelease on archive.ubuntu.com. These repeated alerts for benign APT traffic might be noise if the systems are routinely updated, but could also indicate a pattern of reconnaissance or package manipulation if other malicious activities are detected.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.333703\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"91.189.88.142:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 28, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.333703  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 192.168.128.4:36892 -> 91.189.88.142:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.333703Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.352346\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 10.35.33.111 to 91.189.88.142:80. This is a duplicate alert for the same package management activity. The high frequency of these IDS events (rule fired 34 times) for seemingly benign activity might point to an attacker using legitimate update mechanisms as a cover, or simply generating noise.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.334828\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.33.111\", \"dstip\": \"91.189.88.142:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 34, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.334828  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.35.33.111:36892 -> 91.189.88.142:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.334828Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.367684\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 192.168.128.4 to 91.189.88.142:80. This is a duplicate alert for the same package management activity. The continuous flow of these 'policy' alerts raises the overall alert fatigue but their context with previous anomalies means they should not be ignored completely.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.360543\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"91.189.88.142:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 29, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.360543  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 192.168.128.4:36892 -> 91.189.88.142:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.360543Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.352795\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 192.168.128.4 to 91.189.88.142:80. This is a duplicate alert for the same package management activity.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.496520\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"91.189.88.142:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 30, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.496520  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 192.168.128.4:36892 -> 91.189.88.142:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.496520Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.353244\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 10.35.33.111 to 91.189.88.142:80. This is a duplicate alert for the same package management activity, specifically checking for 'bionic-backports' InRelease. The continued high volume of these benign-looking APT alerts, especially after previous alerts related to potential compromise, requires a deeper dive into the system's package manager configuration and a comparison of installed packages against a baseline.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.497791\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.33.111\", \"dstip\": \"91.189.88.142:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 35, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.497791  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.35.33.111:36892 -> 91.189.88.142:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.497791Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.368736\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 192.168.128.4 to 91.189.88.152:80. This is a duplicate alert for the same package download activity by hash. The consistent alerting pattern on APT traffic across multiple logs warrants careful examination of the actual packages being installed or updated.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:34.002313\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"91.189.88.152:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 31, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:34.002313  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 192.168.128.4:54320 -> 91.189.88.152:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:34.002313Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.353693\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 10.35.33.111 to 91.189.88.152:80. This is a duplicate alert for the same package download activity by hash. The multiple alerts for the same APT activity across different machines indicate a synchronized or automated update/download process, which could be either benign system management or malicious deployment.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:34.003454\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.33.111\", \"dstip\": \"91.189.88.152:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 36, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:34.003454  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.35.33.111:54320 -> 91.189.88.152:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:34.003454Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.369184\"}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion"
+    ],
+    "description": "PAM login session for user 'root' closed on 'intranet-server'. This indicates the termination of another root session that 'phopkins' had opened via sudo. While a session closing is normal, its occurrence directly after another sudo command by the potentially compromised 'phopkins' user suggests a pattern of elevated privilege use and then session termination, possibly to evade detection or clean up active sessions.",
+    "tools": [
+      "Legitimate system utilities (`sudo`, `pam`)"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:13:47\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"dstuser\": \"root\"}, \"rule\": {\"firedtimes\": 6, \"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session closed.\", \"groups\": [\"pam\", \"syslog\"], \"id\": \"5502\", \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gpg13\": [\"7.8\", \"7.9\"], \"gdpr\": [\"IV_32.2\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 07:13:47 intranet-server sudo: pam_unix(sudo:session): session closed for user root\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:13:47.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686164068.372932\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/mail.log'. This event is identical to the previous one (same user, source IP, method, TLS, and timestamp, though a different MPID), reinforcing the occurrence of the successful login but not indicating a new or distinct incident. The continuous successful logins from this IP suggest persistent access to the mail server.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 54, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9465, TLS, session=<68yQspnVCrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686164226.375810\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/mail.log'. This event is identical to previous ones (same user, source IP, method, TLS, and timestamp, though a different MPID), reinforcing the occurrence of the successful login but not indicating a new or distinct incident. The repeated successful logins from this IP suggest persistent access to the mail server, which, in the context of other suspicious activities, could indicate a compromised account being used for reconnaissance or data exfiltration.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 56, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9469, TLS, session=<1nCZspnVDrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686164226.376794\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/syslog'. This event is identical to previous ones, further confirming the successful login but not representing a new anomaly. The multiple log entries across different log files for the same event can lead to alert fatigue if not properly aggregated, but also confirms the widespread logging of this potentially suspicious activity.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 60, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9469, TLS, session=<1nCZspnVDrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686164226.378756\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/mail.log'. This is another identical log entry, confirming the persistent successful login of 'meghan.morris'. The continued appearance of these successful logins, especially for a new user not previously seen, warrants immediate investigation into the legitimacy of the 'meghan.morris' account and its activities.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 55, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9467, TLS, session=<gumRspnVDLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686164226.376302\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/syslog'. This event is identical to previous ones, serving as further confirmation of the persistent successful login. The repeated logging across various files highlights the pervasive nature of this activity on the mail server.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 59, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9467, TLS, session=<gumRspnVDLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686164226.378266\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/mail.info'. This is another identical log entry, reinforcing the fact of the successful login. The sheer volume of these duplicate successful login messages, even if benign, requires aggregation to avoid overwhelming analysts, but the underlying anomalous event (new user 'meghan.morris' logging in) remains a high priority.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 50, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9465, TLS, session=<68yQspnVCrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686164226.373839\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/mail.info'. This is yet another identical log entry confirming the successful login. The numerous log entries for the same event point to a robust logging configuration, but more importantly, to a potentially compromised or newly active account that needs immediate scrutiny.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 51, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9467, TLS, session=<gumRspnVDLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686164226.374332\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/mail.info'. This is another identical log entry, underscoring the repeated successful login. The persistence of these successful logins for 'meghan.morris' indicates consistent access to the mail server, which could be indicative of an attacker maintaining a foothold.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 52, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9469, TLS, session=<1nCZspnVDrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686164226.374825\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/mail.log'. This is another identical log entry, reinforcing the pattern of successful logins. The aggregation of these alerts by the SIEM (Wazuh) is crucial for identifying the underlying anomaly rather than being overwhelmed by duplicate entries.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 53, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9462, TLS, session=<7yaQspnVCLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686164226.375318\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/syslog'. This is another identical log entry. The continuous stream of these successful logins, particularly for a newly observed user 'meghan.morris', should prompt a review of the user's legitimacy and normal activity patterns. This is a high-priority event that requires immediate investigation.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 57, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9462, TLS, session=<7yaQspnVCLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686164226.377286\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/syslog'. This is the final duplicate log entry in this sequence. The sustained successful logins for 'meghan.morris' from the same internal IP reinforce the need for a thorough investigation of this account and the associated activity on the mail server. The use of PLAIN authentication method, even with TLS, also raises a minor concern compared to stronger methods.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 58, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9465, TLS, session=<68yQspnVCrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686164226.377776\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'daniel.morgan' from IP 172.17.131.81, found in '/var/log/syslog'. This event is identical to the previous one (same user, source IP, method, TLS, and timestamp, though a different MPID), reinforcing the occurrence of the successful login but not indicating a new or distinct incident. The continuous successful logins from this IP suggest persistent access to the mail server.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:24\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 69, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:24 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9479, TLS, session=<bBwStpnVGLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:24.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686164284.383186\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'daniel.morgan' from IP 172.17.131.81, found in '/var/log/mail.info'. This is another identical log entry, confirming the persistent successful login of 'daniel.morgan'. The rapid succession of new users successfully logging in from the same internal IP, following previous suspicious activities (AppArmor modifications, 'phopkins' SSH and sudo, and 'meghan.morris' mail logins), is a strong indicator of a widespread compromise or credential harvesting operation.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:24\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 61, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:24 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9479, TLS, session=<bBwStpnVGLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:24.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686164284.379246\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'daniel.morgan' from IP 172.17.131.81, found in '/var/log/mail.info'. This event is identical to previous ones, serving as further confirmation of the persistent successful login. The multiple log entries across different log files for the same event can lead to alert fatigue if not properly aggregated, but also confirms the widespread logging of this potentially suspicious activity.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:24\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 62, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:24 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9481, TLS, session=<5qYStpnVGrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:24.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686164284.379739\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'daniel.morgan' from IP 172.17.131.81, found in '/var/log/mail.log'. This is another identical log entry, confirming the persistent successful login of 'daniel.morgan'. The continued appearance of these successful logins, especially for a new user not previously seen, warrants immediate investigation into the legitimacy of the 'daniel.morgan' account and its activities.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:24\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 65, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:24 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9479, TLS, session=<bBwStpnVGLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:24.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686164284.381218\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'daniel.morgan' from IP 172.17.131.81, found in '/var/log/mail.log'. This event is identical to previous ones, serving as further confirmation of the persistent successful login. The multiple log entries across different log files for the same event can lead to alert fatigue if not properly aggregated, but also confirms the widespread logging of this potentially suspicious activity.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:24\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 66, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:24 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9481, TLS, session=<5qYStpnVGrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:24.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686164284.381710\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'daniel.morgan' from IP 172.17.131.81, found in '/var/log/mail.info'. This is another identical log entry, confirming the persistent successful login of 'daniel.morgan'. The volume of these duplicate successful login messages, even if benign, requires aggregation to avoid overwhelming analysts, but the underlying anomalous event (new user 'daniel.morgan' logging in) remains a high priority.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:25\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 64, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:25 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9488, TLS, session=<Bm8itpnVHrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:25.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686164284.380725\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'daniel.morgan' from IP 172.17.131.81, found in '/var/log/mail.log'. This is another identical log entry, reinforcing the fact of the successful login. The numerous log entries for the same event point to a robust logging configuration, but more importantly, to a potentially compromised or newly active account that needs immediate scrutiny.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:25\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 68, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:25 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9488, TLS, session=<Bm8itpnVHrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:25.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686164284.382694\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Duplicate log entry of a successful IMAP login for 'daniel.morgan' from IP 172.17.131.81, found in '/var/log/syslog'. This is the final duplicate log entry in this sequence. The sustained successful logins for 'daniel.morgan' from the same internal IP reinforce the need for a thorough investigation of this account and the associated activity on the mail server. The use of PLAIN authentication method, even with TLS, also raises a minor concern compared to stronger methods.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:25\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 71, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:25 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9484, TLS, session=<4MUTtpnVHLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:25.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686164284.384166\"}"
+  }
+]

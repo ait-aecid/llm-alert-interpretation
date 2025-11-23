@@ -1,0 +1,377 @@
+[
+  {
+    "predicted_attack_type": [
+      "Valid Account Use",
+      "Initial Access",
+      "Persistence"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Successful IMAP login via dovecot using valid user susan.gregory and PLAIN auth method over TLS indicates legitimate or potentially unauthorized valid account access",
+    "tools": [
+      "dovecot",
+      "IMAP client tools",
+      "custom scripts using IMAP protocol"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"jonesmorgan-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:44:35\"}, \"agent\": {\"ip\": \"192.168.131.228\", \"name\": \"wazuh-client\", \"id\": \"13\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 180, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:44:35 jonesmorgan-mail dovecot: imap-login: Login: user=<susan.gregory>, method=PLAIN, rip=192.168.128.170, lip=192.168.128.170, mpid=20031, TLS, session=<Z7YRAMTVOOfAqICq>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:44:35.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686345915.7780992\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Use",
+      "Initial Access",
+      "Persistence"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Repeated successful IMAP login for user susan.gregory with PLAIN method over TLS; likely normal valid account activity",
+    "tools": [
+      "dovecot",
+      "IMAP client tools",
+      "custom scripts using IMAP protocol"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"jonesmorgan-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:44:35\"}, \"agent\": {\"ip\": \"192.168.131.228\", \"name\": \"wazuh-client\", \"id\": \"13\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 179, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:44:35 jonesmorgan-mail dovecot: imap-login: Login: user=<susan.gregory>, method=PLAIN, rip=192.168.128.170, lip=192.168.128.170, mpid=20031, TLS, session=<Z7YRAMTVOOfAqICq>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:44:35.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686345915.7780481\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Use",
+      "Initial Access",
+      "Persistence"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Successful IMAP login by user damian.jordan on taylorcruz-mail host using PLAIN auth over TLS; normal valid account authentication",
+    "tools": [
+      "dovecot",
+      "IMAP client tools",
+      "custom scripts using IMAP protocol"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:45:09\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 181, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:45:09 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=26449, TLS, session=<cGcbAsTVuLbAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:45:09.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686345949.7781501\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Use",
+      "Initial Access",
+      "Persistence"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Repeated successful login for damian.jordan user; likely normal email access activity",
+    "tools": [
+      "dovecot",
+      "IMAP client tools",
+      "custom scripts using IMAP protocol"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:45:09\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 182, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:45:09 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=26449, TLS, session=<cGcbAsTVuLbAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:45:09.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686345949.7782012\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Use",
+      "Initial Access",
+      "Persistence"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Repeated successful login for damian.jordan user; consistent with expected valid user login behavior",
+    "tools": [
+      "dovecot",
+      "IMAP client tools",
+      "custom scripts using IMAP protocol"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:45:09\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 183, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:45:09 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=26449, TLS, session=<cGcbAsTVuLbAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:45:09.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686345949.7782522\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Use",
+      "Initial Access",
+      "Persistence"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Successful login by user susan.gregory from same IP using PLAIN auth over TLS, typical valid account usage",
+    "tools": [
+      "dovecot",
+      "IMAP client tools",
+      "custom scripts using IMAP protocol"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"jonesmorgan-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:58:30\"}, \"agent\": {\"ip\": \"192.168.131.228\", \"name\": \"wazuh-client\", \"id\": \"13\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 300, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:58:30 jonesmorgan-mail dovecot: imap-login: Login: user=<susan.gregory>, method=PLAIN, rip=192.168.128.170, lip=192.168.128.170, mpid=20181, TLS, session=<fVzkMcTVhOfAqICq>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:58:30.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686346750.7870717\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Use",
+      "Initial Access",
+      "Persistence"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Duplicate event of successful login by susan.gregory; normal valid authentication",
+    "tools": [
+      "dovecot",
+      "IMAP client tools",
+      "custom scripts using IMAP protocol"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"jonesmorgan-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:58:30\"}, \"agent\": {\"ip\": \"192.168.131.228\", \"name\": \"wazuh-client\", \"id\": \"13\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 299, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:58:30 jonesmorgan-mail dovecot: imap-login: Login: user=<susan.gregory>, method=PLAIN, rip=192.168.128.170, lip=192.168.128.170, mpid=20181, TLS, session=<fVzkMcTVhOfAqICq>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:58:30.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686346750.7870206\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Use",
+      "Initial Access",
+      "Persistence"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Repeated login by susan.gregory user, consistent with standard email access",
+    "tools": [
+      "dovecot",
+      "IMAP client tools",
+      "custom scripts using IMAP protocol"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"jonesmorgan-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:58:30\"}, \"agent\": {\"ip\": \"192.168.131.228\", \"name\": \"wazuh-client\", \"id\": \"13\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 298, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:58:30 jonesmorgan-mail dovecot: imap-login: Login: user=<susan.gregory>, method=PLAIN, rip=192.168.128.170, lip=192.168.128.170, mpid=20181, TLS, session=<fVzkMcTVhOfAqICq>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:58:30.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686346750.7869694\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Use",
+      "Initial Access",
+      "Persistence"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Login success for user michael.davis from his own IP with PLAIN method over TLS, indicates normal user authentication",
+    "tools": [
+      "dovecot",
+      "IMAP client tools",
+      "custom scripts using IMAP protocol"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:59:56\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 301, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:59:56 mail dovecot: imap-login: Login: user=<michael.davis>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=32046, TLS, session=<s3n7NsTVhM+sEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:59:56.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686346837.7871226\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Use",
+      "Initial Access",
+      "Persistence"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Repeated login success for michael.davis, typical valid user activity",
+    "tools": [
+      "dovecot",
+      "IMAP client tools",
+      "custom scripts using IMAP protocol"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:59:56\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 311, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:59:56 mail dovecot: imap-login: Login: user=<michael.davis>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=32052, TLS, session=<zEf9NsTViM+sEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:59:56.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686346837.7876166\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Network Protocol Anomaly",
+      "Potential TLS Manipulation"
+    ],
+    "attack_type": "networkscans",
+    "description": "TLS protocol anomaly detected: invalid record or traffic, unexpected TLS version 'UNDETERMINED', suspicious JA3 fingerprint",
+    "tools": [
+      "Custom TLS scanners",
+      "Malicious TLS clients",
+      "Network sniffers with malformed TLS traffic"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"metadata\": {\"flowints\": {\"tls\": {\"anomaly\": {\"count\": \"2\"}}}}, \"tx_id\": \"0\", \"app_proto\": \"tls\", \"in_iface\": \"ens3\", \"src_ip\": \"151.101.194.110\", \"src_port\": \"443\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2230010\", \"rev\": \"1\", \"gid\": \"1\", \"signature\": \"SURICATA TLS invalid record/traffic\", \"action\": \"allowed\", \"category\": \"Generic Protocol Command Decode\"}, \"flow_id\": \"630418207537175.000000\", \"dest_ip\": \"192.168.128.4\", \"proto\": \"TCP\", \"tls\": {\"version\": \"UNDETERMINED\", \"ja3\": {\"string\": \"771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,0-23-65281-10-11-35-16-5-13-18-51-45-43-27-17513-21,29-23-24,0\", \"hash\": \"cd08e31494f9531f560d64c695473da9\"}, \"sni\": \"fast.wistia.com\"}, \"dest_port\": \"37514\", \"flow\": {\"pkts_toserver\": \"10\", \"start\": \"2022-01-18T12:06:41.784407+0000\", \"bytes_toclient\": \"206\", \"bytes_toserver\": \"1692\", \"pkts_toclient\": \"3\"}, \"timestamp\": \"2022-01-18T12:06:41.800120+0000\"}, \"rule\": {\"firedtimes\": 50, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - SURICATA TLS invalid record/traffic\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:06:41.800120Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686440842.6717642\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Network Protocol Anomaly",
+      "Potential TLS Manipulation"
+    ],
+    "attack_type": "networkscans",
+    "description": "TLS invalid handshake message detected, anomalous TLS version and handshake patterns, unexpected JA3 fingerprint",
+    "tools": [
+      "Malformed TLS handshake tools",
+      "TLS fuzzers",
+      "Custom crafted clients"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"172.17.130.196\", \"name\": \"wazuh-client\", \"id\": \"19\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"metadata\": {\"flowints\": {\"tls\": {\"anomaly\": {\"count\": \"2\"}}}}, \"tx_id\": \"0\", \"app_proto\": \"tls\", \"in_iface\": \"ens3\", \"src_ip\": \"2.17.4.25\", \"src_port\": \"443\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2230003\", \"rev\": \"1\", \"gid\": \"1\", \"signature\": \"SURICATA TLS invalid handshake message\", \"action\": \"allowed\", \"category\": \"Generic Protocol Command Decode\"}, \"flow_id\": \"818627970601434.000000\", \"dest_ip\": \"172.17.130.196\", \"proto\": \"TCP\", \"tls\": {\"version\": \"UNDETERMINED\", \"ja3\": {\"string\": \"771,4865-4867-4866-49195-49199-52393-52392-49196-49200-49162-49161-49171-49172-156-157-47-53-10,0-23-65281-10-11-35-16-5-51-43-13-45-28-21,29-23-24-25-256-257,0\", \"hash\": \"aa7744226c695c0b2e440419848cf700\"}, \"sni\": \"www.state.gov\"}, \"dest_port\": \"35032\", \"flow\": {\"pkts_toserver\": \"10\", \"start\": \"2022-01-18T12:07:00.987610+0000\", \"bytes_toclient\": \"206\", \"bytes_toserver\": \"1736\", \"pkts_toclient\": \"3\"}, \"timestamp\": \"2022-01-18T12:07:01.020684+0000\"}, \"rule\": {\"firedtimes\": 93, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - SURICATA TLS invalid handshake message\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:07:01.020684Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686440861.6823348\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Network Protocol Anomaly",
+      "Potential TLS Manipulation"
+    ],
+    "attack_type": "networkscans",
+    "description": "TLS invalid handshake message from internal IP to external IP, multiple TLS anomalies, abnormal JA3 hash",
+    "tools": [
+      "Malformed TLS handshake tools",
+      "TLS fuzzers"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"metadata\": {\"flowints\": {\"tls\": {\"anomaly\": {\"count\": \"4\"}}}}, \"tx_id\": \"0\", \"app_proto\": \"tls\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"35032\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2230003\", \"rev\": \"1\", \"gid\": \"1\", \"signature\": \"SURICATA TLS invalid handshake message\", \"action\": \"allowed\", \"category\": \"Generic Protocol Command Decode\"}, \"flow_id\": \"991891246289372.000000\", \"dest_ip\": \"2.17.4.25\", \"proto\": \"TCP\", \"tls\": {\"version\": \"UNDETERMINED\", \"ja3\": {\"string\": \"771,4865-4867-4866-49195-49199-52393-52392-49196-49200-49162-49161-49171-49172-156-157-47-53-10,0-23-65281-10-11-35-16-5-51-43-13-45-28-21,29-23-24-25-256-257,0\", \"hash\": \"aa7744226c695c0b2e440419848cf700\"}, \"sni\": \"www.state.gov\"}, \"dest_port\": \"443\", \"flow\": {\"pkts_toserver\": \"11\", \"start\": \"2022-01-18T12:07:00.987612+0000\", \"bytes_toclient\": \"805\", \"bytes_toserver\": \"1802\", \"pkts_toclient\": \"7\"}, \"timestamp\": \"2022-01-18T12:07:01.030519+0000\"}, \"rule\": {\"firedtimes\": 91, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - SURICATA TLS invalid handshake message\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:07:01.030519Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686440861.6816167\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Network Protocol Anomaly",
+      "Potential TLS Manipulation"
+    ],
+    "attack_type": "networkscans",
+    "description": "TLS invalid record/traffic alert on connection from internal host to external IP with anomalous JA3 fingerprint",
+    "tools": [
+      "Custom TLS traffic generators",
+      "Network testing tools"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"metadata\": {\"flowints\": {\"tls\": {\"anomaly\": {\"count\": \"4\"}}}}, \"tx_id\": \"0\", \"app_proto\": \"tls\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"35032\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2230010\", \"rev\": \"1\", \"gid\": \"1\", \"signature\": \"SURICATA TLS invalid record/traffic\", \"action\": \"allowed\", \"category\": \"Generic Protocol Command Decode\"}, \"flow_id\": \"991891246289372.000000\", \"dest_ip\": \"2.17.4.25\", \"proto\": \"TCP\", \"tls\": {\"version\": \"UNDETERMINED\", \"ja3\": {\"string\": \"771,4865-4867-4866-49195-49199-52393-52392-49196-49200-49162-49161-49171-49172-156-157-47-53-10,0-23-65281-10-11-35-16-5-51-43-13-45-28-21,29-23-24-25-256-257,0\", \"hash\": \"aa7744226c695c0b2e440419848cf700\"}, \"sni\": \"www.state.gov\"}, \"dest_port\": \"443\", \"flow\": {\"pkts_toserver\": \"11\", \"start\": \"2022-01-18T12:07:00.987612+0000\", \"bytes_toclient\": \"805\", \"bytes_toserver\": \"1802\", \"pkts_toclient\": \"7\"}, \"timestamp\": \"2022-01-18T12:07:01.030519+0000\"}, \"rule\": {\"firedtimes\": 92, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - SURICATA TLS invalid record/traffic\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:07:01.030519Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686440861.6818136\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Network Protocol Anomaly",
+      "Potential TLS Manipulation"
+    ],
+    "attack_type": "networkscans",
+    "description": "Detected invalid TLS handshake message in Snort IDS log, anomalous protocol behavior",
+    "tools": [
+      "Malicious TLS handshake tools",
+      "Protocol fuzzers"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/18/2022-12:07:01.030519\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"2.17.4.25:443\", \"id\": \"1:2230003:1\"}, \"rule\": {\"firedtimes\": 83, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/18/2022-12:07:01.030519  [**] [1:2230003:1] SURICATA TLS invalid handshake message [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 192.168.128.4:35032 -> 2.17.4.25:443\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:07:01.030519Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686440861.6820919\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Network Protocol Anomaly",
+      "Potential TLS Manipulation"
+    ],
+    "attack_type": "networkscans",
+    "description": "TLS invalid record/traffic alert from internal IP to external IP with anomalous TLS version and JA3 fingerprint",
+    "tools": [
+      "Malicious TLS clients",
+      "TLS anomaly generators"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"metadata\": {\"flowints\": {\"tls\": {\"anomaly\": {\"count\": \"4\"}}}}, \"tx_id\": \"0\", \"app_proto\": \"tls\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"56094\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2230010\", \"rev\": \"1\", \"gid\": \"1\", \"signature\": \"SURICATA TLS invalid record/traffic\", \"action\": \"allowed\", \"category\": \"Generic Protocol Command Decode\"}, \"flow_id\": \"989838252469605.000000\", \"dest_ip\": \"54.171.36.119\", \"proto\": \"TCP\", \"tls\": {\"version\": \"UNDETERMINED\", \"ja3\": {\"string\": \"771,4865-4867-4866-49195-49199-52393-52392-49196-49200-49162-49161-49171-49172-156-157-47-53-10,0-23-65281-10-11-16-5-51-43-13-28-21,29-23-24-25-256-257,0\", \"hash\": \"a75de44db3e351bbd8d38b64c41f444e\"}, \"sni\": \"in.hotjar.com\"}, \"dest_port\": \"443\", \"flow\": {\"pkts_toserver\": \"10\", \"start\": \"2022-01-18T12:07:08.028005+0000\", \"bytes_toclient\": \"392\", \"bytes_toserver\": \"1307\", \"pkts_toclient\": \"4\"}, \"timestamp\": \"2022-01-18T12:07:08.204208+0000\"}, \"rule\": {\"firedtimes\": 129, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - SURICATA TLS invalid record/traffic\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:07:08.204208Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686440869.6910959\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Network Protocol Anomaly",
+      "Potential TLS Manipulation"
+    ],
+    "attack_type": "networkscans",
+    "description": "TLS invalid handshake message detected by Snort, unusual handshake and protocol irregularities",
+    "tools": [
+      "TLS fuzzers",
+      "Malicious TLS handshake tools"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/18/2022-12:07:08.204261\"}, \"agent\": {\"ip\": \"172.17.130.196\", \"name\": \"wazuh-client\", \"id\": \"19\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"172.17.130.196\", \"dstip\": \"54.171.36.119:443\", \"id\": \"1:2230003:1\"}, \"rule\": {\"firedtimes\": 123, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/18/2022-12:07:08.204261  [**] [1:2230003:1] SURICATA TLS invalid handshake message [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 172.17.130.196:56094 -> 54.171.36.119:443\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:07:08.204261Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686440869.6900309\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Use",
+      "Credential Access"
+    ],
+    "attack_type": "networkscans",
+    "description": "Successful authentication to Dovecot IMAP service, user logged in with valid credentials, could be legitimate or attacker using compromised credentials.",
+    "tools": [
+      "Email clients",
+      "Brute force tools",
+      "Credential stuffing frameworks"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:08:38\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 332, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:08:38 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=4188, TLS, session=<ZPUbIdrV2L3AqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:08:38.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686440959.6958523\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Use",
+      "Credential Access"
+    ],
+    "attack_type": "networkscans",
+    "description": "Successful authentication to Dovecot IMAP service for a different user, indicating valid credential use, possibly attacker or legitimate user.",
+    "tools": [
+      "Email clients",
+      "Credential stuffing tools",
+      "Brute force tools"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:11:08\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 335, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:11:08 taylorcruz-mail dovecot: imap-login: Login: user=<christopher.friedman>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=4260, TLS, session=<xLwHKtrV3r3AqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:11:08.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686441107.6960054\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Use",
+      "Credential Access"
+    ],
+    "attack_type": "servicescans",
+    "description": "Repeated successful authentication for same user, normal activity unless credentials compromised.",
+    "tools": [
+      "Email clients",
+      "Credential stuffing tools"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:17:05\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 394, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:17:05 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=4346, TLS, session=<XzJRP9rVHr7AqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:05.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686441466.6999755\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Usage"
+    ],
+    "attack_type": "cracking",
+    "description": "Successful authentication from internal IP using known account. May represent legitimate use or lateral movement depending on context.",
+    "tools": [
+      "Outlook",
+      "Thunderbird",
+      "IMAP client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"jonesmorgan-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:51:27\"}, \"agent\": {\"ip\": \"192.168.131.228\", \"name\": \"wazuh-client\", \"id\": \"13\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 348, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:51:27 jonesmorgan-mail dovecot: imap-login: Login: user=<susan.gregory>, method=PLAIN, rip=192.168.128.170, lip=192.168.128.170, mpid=28776, TLS, session=<6UY2utrVPurAqICq>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:51:27.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686443528.263060118\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "TLS Evasion",
+      "Protocol Anomaly"
+    ],
+    "attack_type": "cracking",
+    "description": "Invalid TLS handshake from a known ad tracking domain could indicate obfuscated traffic or anomaly in encryption handling.",
+    "tools": [
+      "custom TLS clients",
+      "Scrapy with TLS modification"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"metadata\": {\"flowints\": {\"tls\": {\"anomaly\": {\"count\": \"2\"}}}}, \"tx_id\": \"0\", \"app_proto\": \"tls\", \"in_iface\": \"ens3\", \"src_ip\": \"3.33.220.150\", \"src_port\": \"443\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2230003\", \"rev\": \"1\", \"gid\": \"1\", \"signature\": \"SURICATA TLS invalid handshake message\", \"action\": \"allowed\", \"category\": \"Generic Protocol Command Decode\"}, \"flow_id\": \"106269172004919.000000\", \"dest_ip\": \"192.168.128.4\", \"proto\": \"TCP\", \"tls\": {\"version\": \"UNDETERMINED\", \"ja3\": {\"string\": \"771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,0-23-65281-10-11-35-16-5-13-18-51-45-43-27-17513-21,29-23-24,0\", \"hash\": \"cd08e31494f9531f560d64c695473da9\"}, \"sni\": \"insight.adsrvr.org\"}, \"dest_port\": \"34806\", \"flow\": {\"pkts_toserver\": \"10\", \"start\": \"2022-01-18T12:53:19.751671+0000\", \"bytes_toclient\": \"206\", \"bytes_toserver\": \"1800\", \"pkts_toclient\": \"3\"}, \"timestamp\": \"2022-01-18T12:53:19.840644+0000\"}, \"rule\": {\"firedtimes\": 123, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - SURICATA TLS invalid handshake message\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:53:19.840644Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686443640.263061258\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "TLS Evasion",
+      "Outbound Anomaly"
+    ],
+    "attack_type": "cracking",
+    "description": "Outbound TLS handshake anomaly to public IP may reflect evasive communication or poorly configured TLS client.",
+    "tools": [
+      "Curl with modified TLS",
+      "PowerShell Invoke-WebRequest"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/18/2022-13:09:45.716306\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"3.219.152.16:443\", \"id\": \"1:2230003:1\"}, \"rule\": {\"firedtimes\": 162, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/18/2022-13:09:45.716306  [**] [1:2230003:1] SURICATA TLS invalid handshake message [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 192.168.128.4:59960 -> 3.219.152.16:443\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T13:09:45.716306Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686444627.263208381\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "TLS Evasion",
+      "Protocol Anomaly"
+    ],
+    "attack_type": "cracking",
+    "description": "TLS record/traffic anomaly from CDN or media server may be misclassified, or part of obfuscated data transfer.",
+    "tools": [
+      "Streamlink",
+      "custom video clients"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"metadata\": {\"flowints\": {\"tls\": {\"anomaly\": {\"count\": \"2\"}}}}, \"tx_id\": \"0\", \"app_proto\": \"tls\", \"in_iface\": \"ens3\", \"src_ip\": \"94.245.192.25\", \"src_port\": \"443\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2230010\", \"rev\": \"1\", \"gid\": \"1\", \"signature\": \"SURICATA TLS invalid record/traffic\", \"action\": \"allowed\", \"category\": \"Generic Protocol Command Decode\"}, \"flow_id\": \"2129898912690440.000000\", \"dest_ip\": \"192.168.128.4\", \"proto\": \"TCP\", \"tls\": {\"version\": \"UNDETERMINED\", \"ja3\": {\"string\": \"771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,0-23-65281-10-11-35-16-5-13-18-51-45-43-27-17513-21,29-23-24,0\", \"hash\": \"cd08e31494f9531f560d64c695473da9\"}, \"sni\": \"eonlinevideos.akamaized.net\"}, \"dest_port\": \"55440\", \"flow\": {\"pkts_toserver\": \"6\", \"start\": \"2022-01-18T13:09:45.798984+0000\", \"bytes_toclient\": \"206\", \"bytes_toserver\": \"1580\", \"pkts_toclient\": \"3\"}, \"timestamp\": \"2022-01-18T13:09:45.834229+0000\"}, \"rule\": {\"firedtimes\": 176, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - SURICATA TLS invalid record/traffic\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T13:09:45.834229Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686444627.263196865\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "TLS Evasion",
+      "Protocol Misuse"
+    ],
+    "attack_type": "cracking",
+    "description": "Malformed TLS records in outbound traffic might be application misbehavior or covert channel attempt.",
+    "tools": [
+      "Scapy",
+      "custom TLS stack"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"metadata\": {\"flowints\": {\"tls\": {\"anomaly\": {\"count\": \"4\"}}}}, \"tx_id\": \"0\", \"app_proto\": \"tls\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"55132\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2230010\", \"rev\": \"1\", \"gid\": \"1\", \"signature\": \"SURICATA TLS invalid record/traffic\", \"action\": \"allowed\", \"category\": \"Generic Protocol Command Decode\"}, \"flow_id\": \"668334427059464.000000\", \"dest_ip\": \"199.27.170.188\", \"proto\": \"TCP\", \"tls\": {\"version\": \"UNDETERMINED\", \"ja3\": {\"string\": \"771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,0-23-65281-10-11-35-16-5-13-18-51-45-43-27-17513-21,29-23-24,0\", \"hash\": \"cd08e31494f9531f560d64c695473da9\"}, \"sni\": \"feed.theplatform.com\"}, \"dest_port\": \"443\", \"flow\": {\"pkts_toserver\": \"7\", \"start\": \"2022-01-18T13:09:49.177416+0000\", \"bytes_toclient\": \"389\", \"bytes_toserver\": \"1113\", \"pkts_toclient\": \"5\"}, \"timestamp\": \"2022-01-18T13:09:49.481579+0000\"}, \"rule\": {\"firedtimes\": 194, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - SURICATA TLS invalid record/traffic\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T13:09:49.481579Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686444630.263238996\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "TLS Evasion",
+      "Protocol Misuse"
+    ],
+    "attack_type": "cracking",
+    "description": "Suricata logs invalid TLS handshake message outbound, same as previous record, reinforcing likelihood of benign anomaly.",
+    "tools": [
+      "Curl with modified headers",
+      "TLS fuzzing tools"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/18/2022-13:09:49.481579\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"199.27.170.188:443\", \"id\": \"1:2230003:1\"}, \"rule\": {\"firedtimes\": 178, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/18/2022-13:09:49.481579  [**] [1:2230003:1] SURICATA TLS invalid handshake message [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 192.168.128.4:55132 -> 199.27.170.188:443\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T13:09:49.481579Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686444630.263243483\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "TLS Evasion",
+      "Protocol Misuse"
+    ],
+    "attack_type": "cracking",
+    "description": "Repeated invalid handshake entries toward public IPs indicate systemic misconfiguration or protocol misuse rather than targeted attack.",
+    "tools": [
+      "OpenSSL test client",
+      "Scapy"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/18/2022-13:09:49.481579\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"199.27.170.188:443\", \"id\": \"1:2230010:1\"}, \"rule\": {\"firedtimes\": 179, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/18/2022-13:09:49.481579  [**] [1:2230010:1] SURICATA TLS invalid record/traffic [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 192.168.128.4:55132 -> 199.27.170.188:443\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T13:09:49.481579Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686444630.263243906\"}\n"
+  }
+]

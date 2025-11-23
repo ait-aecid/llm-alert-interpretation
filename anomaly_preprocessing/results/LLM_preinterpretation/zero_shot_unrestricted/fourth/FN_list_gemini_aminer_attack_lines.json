@@ -1,0 +1,52 @@
+[
+  {
+    "predicted_attack_type": [],
+    "attack_type": "servicescans",
+    "description": "Log indicates 'no host name found for IP address'. This is likely an informational message from a mail server (Exim) trying to resolve a PTR record, not directly indicative of an attack.",
+    "tools": [],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/no_host_found\", \"/model/fm/no_host_found/no_host_found_str\", \"/model/fm/no_host_found/ip\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-18 12:17:15 no host name found for IP address 192.168.130.77\"], \"Timestamps\": [1642508235], \"DetectionTimestamp\": [1642508235], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/exim4/mainlog\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "predicted_attack_type": [],
+    "attack_type": "servicescans",
+    "description": "Log indicates 'no host name found for IP address'. This is likely an informational message from a mail server (Exim) trying to resolve a PTR record, not directly indicative of an attack.",
+    "tools": [],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/no_host_found\", \"/model/fm/no_host_found/no_host_found_str\", \"/model/fm/no_host_found/ip\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-18 12:17:15 no host name found for IP address 192.168.130.77\"], \"Timestamps\": [1642508235], \"DetectionTimestamp\": [1642508235], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/exim4/mainlog\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "predicted_attack_type": [],
+    "attack_type": "servicescans",
+    "description": "Log indicates 'no host name found for IP address'. This is likely an informational message from a mail server (Exim) trying to resolve a PTR record, not directly indicative of an attack.",
+    "tools": [],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/no_host_found\", \"/model/fm/no_host_found/no_host_found_str\", \"/model/fm/no_host_found/ip\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-18 12:17:28 no host name found for IP address 192.168.130.77\"], \"Timestamps\": [1642508248], \"DetectionTimestamp\": [1642508248], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/exim4/mainlog\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "predicted_attack_type": [],
+    "attack_type": "servicescans",
+    "description": "Log indicates 'no host name found for IP address'. This is likely an informational message from a mail server (Exim) trying to resolve a PTR record, not directly indicative of an attack.",
+    "tools": [],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/no_host_found\", \"/model/fm/no_host_found/no_host_found_str\", \"/model/fm/no_host_found/ip\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-18 12:17:28 no host name found for IP address 192.168.130.77\"], \"Timestamps\": [1642508248], \"DetectionTimestamp\": [1642508248], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/exim4/mainlog\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "None"
+    ],
+    "attack_type": "dirb",
+    "description": "New character in Apache Access request, but the character `+` is legitimate for URL encoding, and the status code is 404, indicating no resource found.",
+    "tools": [],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/includes/classes/lost+found\"], \"MissingCharacters\": [\"+\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:35:13 +0000] \\\"GET /wp-content/themes/go/includes/classes/lost+found HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509313], \"DetectionTimestamp\": [1642509313], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance"
+    ],
+    "attack_type": "cracking",
+    "description": "Unusual occurrence frequency of Apache Access request methods; could indicate web scanning or enumeration.",
+    "tools": [
+      "Nmap",
+      "Nikto",
+      "Acunetix"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 11, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of Apache Access request methods.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [[\"0\"], [\"1\"]], \"AffectedLogAtomFrequencies\": [3, 16], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.7764705882352941}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:13:13:28 +0000] \\\"GET / HTTP/1.1\\\" 200 6128 \\\"-\\\" \\\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0\\\"\"], \"Timestamps\": [1642511608], \"DetectionTimestamp\": [1642511608], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  }
+]

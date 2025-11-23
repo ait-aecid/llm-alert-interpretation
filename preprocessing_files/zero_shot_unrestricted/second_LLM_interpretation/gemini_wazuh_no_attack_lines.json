@@ -1,0 +1,802 @@
+[
+  {
+    "anomaly_timestamp": "2022-01-15T06:44:51.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Successful IMAP login for user 'samantha.thornton' on 'mail' from internal IP 172.17.131.81 using PLAIN method with TLS. This is a successful authentication event. While not inherently malicious, repeated successful logins from the same user within a short timeframe, especially if accompanied by other suspicious activities, could indicate a compromised account or automated access.",
+    "tools": ["Legitimate email client", "Potentially automated login script or tool if part of a larger, rapid series of logins."],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:44:51.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Another successful IMAP login for user 'samantha.thornton' on 'mail' from IP 172.17.131.81, occurring at the exact same timestamp but with a different MPID (9280 vs 9275). This suggests multiple concurrent or rapid login attempts for the same user, which could be normal for certain mail clients or a sign of an automated process. Investigate the number of concurrent sessions for this user.",
+    "tools": ["Legitimate email client (multiple sessions)", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:44:51.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'samantha.thornton' from IP 172.17.131.81, found in '/var/log/syslog'. This event is identical to the previous one (same MPID 9280), reinforcing the occurrence of the successful login but not indicating a new or distinct incident.",
+    "tools": ["Legitimate email client", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:44:51.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Another successful IMAP login for 'samantha.thornton' from IP 172.17.131.81, from '/var/log/mail.info'. This is a different MPID (9278), indicating yet another concurrent or very rapid successful login attempt for the same user. The rapid succession of successful logins for a single user could be a red flag for compromised credentials being used by an automated tool, or it could be a misconfigured legitimate mail client.",
+    "tools": ["Legitimate email client (multiple sessions)", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:44:51.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'samantha.thornton' from IP 172.17.131.81, found in '/var/log/syslog'. This log is identical to the previous one (MPID 9278), confirming the successful login but not adding new information about the incident.",
+    "tools": ["Legitimate email client", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:44:52.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Successful IMAP login for user 'samantha.thornton' on 'mail' from IP 172.17.131.81, occurring one second after the previous cluster of logins. This new MPID (9282) further highlights the persistent and rapid login activity for this user. Given the multiple successful logins within a very short timeframe, it's advisable to investigate if this is expected behavior for 'samantha.thornton' or if it indicates potential automated access to the account.",
+    "tools": ["Legitimate email client (multiple sessions)", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:44:52.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'samantha.thornton' from IP 172.17.131.81, from '/var/log/mail.log'. This log is identical to the preceding one (MPID 9282), confirming the continued login activity.",
+    "tools": ["Legitimate email client", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:44:52.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'samantha.thornton' from IP 172.17.131.81, from '/var/log/syslog'. This log is identical to the preceding ones for MPID 9282, providing redundant information about the successful login.",
+    "tools": ["Legitimate email client", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:46:10.000000Z",
+    "attack_type": ["Defense Evasion", "System Management"],
+    "mitre": ["T1562.001"],
+    "description": "ClamAV database update process started on 'miller-mail'. This is a routine and expected event for antivirus software, indicating that the threat intelligence database is being updated. This is generally a benign security control. An unusual frequency of updates or failures might warrant investigation.",
+    "tools": ["ClamAV antivirus software"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:40.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Successful IMAP login for user 'damian.jordan' on 'taylorcruz-mail' from internal IP 192.168.128.195 using PLAIN method with TLS. This is another standard successful authentication. Similar to the 'samantha.thornton' logins, it should be monitored for any anomalous behavior in context, but by itself, it is not an indicator of compromise.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:40.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Successful IMAP login for user 'damian.jordan' on 'taylorcruz-mail' from internal IP 192.168.128.195 using PLAIN method with TLS. This is a successful authentication event. While not inherently malicious, a cluster of successful logins for the same user within the same second, especially with varying MPIDs, could indicate that a mail client is opening multiple concurrent connections or an automated process is accessing the account. This merits a review of expected user behavior.",
+    "tools": ["Legitimate email client (potentially opening multiple sessions)", "Automated login script"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:40.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Another successful IMAP login for user 'damian.jordan' on 'taylorcruz-mail' from IP 192.168.128.195, occurring at the exact same timestamp but with a different MPID (5432). This further reinforces the observation of multiple concurrent or rapid login attempts for 'damian.jordan'. This behavior, while potentially benign for legitimate mail clients, should be assessed against baseline activity for this user.",
+    "tools": ["Legitimate email client (multiple sessions)", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:40.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'damian.jordan' from IP 192.168.128.195, found in '/var/log/syslog'. This event is identical to the previous one (same MPID 5432), reinforcing the successful authentication but not indicating a new or distinct incident.",
+    "tools": ["Legitimate email client", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:40.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Another successful IMAP login for 'damian.jordan' from IP 192.168.128.195, recorded in '/var/log/mail.info'. This log entry has an MPID of 5427, indicating yet another distinct concurrent or very rapid successful login attempt for the same user within the same second. The clustering of multiple successful logins for a single user from the same source IP in such a short period could be an indicator of credential reuse across multiple applications/clients or an automated access tool.",
+    "tools": ["Legitimate email client (multiple sessions)", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:40.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'damian.jordan' from IP 192.168.128.195, found in '/var/log/mail.log'. This log is identical to the preceding one (MPID 5427), confirming the successful login but not adding new information about the incident.",
+    "tools": ["Legitimate email client", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:40.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'damian.jordan' from IP 192.168.128.195, from '/var/log/mail.log'. This log is identical to a prior one (MPID 5430), confirming the continued rapid login activity.",
+    "tools": ["Legitimate email client", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:40.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'damian.jordan' from IP 192.168.128.195, from '/var/log/mail.log'. This log is identical to a prior one (MPID 5432), further confirming the ongoing rapid login activity.",
+    "tools": ["Legitimate email client", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:40.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'damian.jordan' from IP 192.168.128.195, from '/var/log/syslog'. This log is identical to a prior one (MPID 5430), providing redundant information about the successful login.",
+    "tools": ["Legitimate email client", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:41.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Successful IMAP login for user 'damian.jordan' on 'taylorcruz-mail' from IP 192.168.128.195, occurring one second after the previous cluster of logins. This new MPID (5434) further highlights the persistent and rapid login activity for this user. Given the multiple successful logins within a very short timeframe, it's crucial to investigate if this is expected behavior for 'damian.jordan' (e.g., mail client configuration) or if it indicates potential automated access to the account, which could be part of an adversary's initial access or persistence efforts.",
+    "tools": ["Legitimate email client (multiple sessions)", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:41.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'damian.jordan' from IP 192.168.128.195, from '/var/log/mail.log'. This log is identical to the preceding one (MPID 5434), confirming the continued login activity.",
+    "tools": ["Legitimate email client", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:52:41.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'damian.jordan' from IP 192.168.128.195, found in '/var/log/syslog'. This event is identical to the previous ones (same MPID 5434), reinforcing the occurrence of the successful login but not indicating a new or distinct incident.",
+    "tools": ["Legitimate email client", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:53:50.000000Z",
+    "attack_type": ["Initial Access", "Persistence", "Lateral Movement"],
+    "mitre": ["T1078", "T1021"],
+    "description": "Successful SSH authentication for user 'phopkins' on 'mail' from IP 10.35.35.202 using a public key. This is a significant event. Given the earlier logs of 'phopkins' gaining root privileges on 'intranet-server' and performing suspicious activities (listing root directory, reading shadow file), a successful SSH login to a different server ('mail') using this user's account suggests potential lateral movement. The use of public key authentication suggests pre-established access or a key compromise.",
+    "tools": ["SSH client", "Compromised SSH keys", "Potentially tools for lateral movement or persistence like 'ssh-agent' forwarding or direct SSH connections."],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:53:50.000000Z",
+    "attack_type": ["Initial Access", "Persistence", "Privilege Escalation"],
+    "mitre": ["T1078"],
+    "description": "PAM session opened for user 'phopkins' on 'mail' via SSH, initiated by UID 0 (root). This confirms the successful SSH login and that the 'phopkins' session is being managed with root privileges. This is a critical indicator of compromise, especially following the previous activity on 'intranet-server' where 'phopkins' escalated to root.",
+    "tools": ["SSH", "Legitimate system utilities (`pam`)"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:53:50.000000Z",
+    "attack_type": ["Initial Access", "Persistence", "Privilege Escalation"],
+    "mitre": ["T1078"],
+    "description": "Systemd PAM session opened for user 'phopkins' on 'mail' by UID 0 (root). This is a duplicate confirmation of the successful login and session establishment for 'phopkins' with root privileges on the 'mail' server. This reinforces the severity of the SSH successful login.",
+    "tools": ["SSH", "Legitimate system utilities (`systemd`, `pam`)"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:54:41.000000Z",
+    "attack_type": ["Impact", "Defense Evasion"],
+    "mitre": ["T1562"],
+    "description": "PAM login session for user 'phopkins' closed on 'mail' via systemd-user. This event indicates the termination of 'phopkins''s session on the 'mail' server. While a session closing is a normal event, given the preceding suspicious activities, it might be an attempt by the attacker to cover their tracks or conclude their operations on this server.",
+    "tools": ["Legitimate system utilities (`systemd`, `pam`)"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T06:54:41.000000Z",
+    "attack_type": ["Impact", "Defense Evasion"],
+    "mitre": ["T1562"],
+    "description": "PAM login session for user 'phopkins' closed on 'mail' via SSHd. This event also indicates the termination of 'phopkins''s SSH session. Similar to the systemd session close, it should be noted in the context of the prior malicious activity.",
+    "tools": ["Legitimate system utilities (`sshd`, `pam`)"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:01:47.882369Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "Suricata alert for 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' from internal IP 192.168.128.4 to 91.189.88.152 (archive.ubuntu.com) on port 80, requesting `python3.6-dev_3.6.9-1~18.04ubuntu1.6_amd64.deb`. While this is classified as 'Not Suspicious Traffic' by Suricata (due to it being a common APT update), in a compromised environment, an attacker could be using APT to install new tools or backdoors. The request for a 'dev' package (python3.6-dev) might be unusual for a production server and could indicate an attacker setting up a development environment or installing tools for further exploitation.",
+    "tools": ["APT package manager", "Potentially attacker-controlled repositories or compromised official repositories"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:01:47.882369Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 192.168.128.4 to 91.189.88.152:80. This is a duplicate alert for the same activity from the previous log. The classification 'Not Suspicious Traffic' by the IDS might understate the potential risk if the system is already compromised.",
+    "tools": ["APT package manager"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:01:47.882948Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 10.35.33.111 to 91.189.88.152:80. This is another instance of the same alert, indicating that multiple internal hosts are performing APT updates at the same time. The simultaneous nature might suggest a system-wide update, but it's important to verify if this behavior is coordinated or if multiple compromised hosts are reaching out.",
+    "tools": ["APT package manager"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:01:47.882948Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "Suricata alert for 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' from internal IP 10.35.33.111 to 91.189.88.152 (archive.ubuntu.com) on port 80, requesting `python3.6-dev_3.6.9-1~18.04ubuntu1.6_amd64.deb`. This is a duplicate of a previous alert, indicating another system on the network performing a similar package management action. The consistent pattern across multiple machines could be part of normal operations, but in light of the 'phopkins' compromise, it warrants investigation into whether these are legitimate updates or if an attacker is using this as a cover to download malicious tools.",
+    "tools": ["APT package manager"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:01:48.017549Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 192.168.128.4 to security.ubuntu.com (91.189.91.39) on port 80, requesting 'libsystemd0_237-3ubuntu10.50_amd64.deb'. This is classified as 'Not Suspicious Traffic' by Suricata, implying it's a routine system update. However, given previous suspicious activities, downloading system libraries could also be a method for an attacker to tamper with core system components or install malicious versions.",
+    "tools": ["APT package manager"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:01:48.017549Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 192.168.128.4 to 91.189.91.39:80. This is a duplicate alert for the same system update activity. While seemingly benign, the context of prior 'phopkins' SSH activity necessitates continued vigilance.",
+    "tools": ["APT package manager"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:01:48.018014Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 10.35.33.111 to security.ubuntu.com (91.189.91.39) on port 80, requesting 'libsystemd0_237-3ubuntu10.50_amd64.deb'. This is another instance of routine system updates from a different internal host. The synchronized nature of these updates across multiple machines (similar timestamps) is expected for managed systems but should be verified.",
+    "tools": ["APT package manager"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:01:48.018014Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 10.35.33.111 to 91.189.91.39:80. This is a duplicate alert for the same system update activity from the previous log.",
+    "tools": ["APT package manager"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:02:07.889619Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 192.168.128.4 to archive.ubuntu.com (91.189.88.142) on port 80, requesting 'libxml2_2.9.4+dfsg1-6.1ubuntu1.4_amd64.deb'. This is another legitimate-looking package download. However, an attacker could be using legitimate package management to download or update tools they need for further exploitation, or even replace legitimate libraries with malicious ones.",
+    "tools": ["APT package manager"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:02:07.889619Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 192.168.128.4 to 91.189.88.142:80. This is a duplicate alert for the same system update activity.",
+    "tools": ["APT package manager"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:02:07.890025Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 10.35.33.111 to archive.ubuntu.com (91.189.88.142) on port 80, requesting 'libxml2_2.9.4+dfsg1-6.1ubuntu1.4_amd64.deb'. This is consistent with other recent APT traffic from multiple internal hosts. While the activity itself is a common system task, the overall context of potential compromise on another host makes these package management activities noteworthy.",
+    "tools": ["APT package manager"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:02:07.890025Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 10.35.33.111 to 91.189.88.142:80. This is a duplicate alert for the same system update activity.",
+    "tools": ["APT package manager"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:04:36.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Successful IMAP login for user 'samantha.thornton' on 'mail' from internal IP 172.17.131.81 using PLAIN method with TLS. This is a successful authentication, similar to previous observations for this user. Given the recurring nature, it's important to confirm if this user typically has such frequent login activity, or if it might be automated access, potentially by a compromised credential or legitimate but misconfigured client.",
+    "tools": ["Legitimate email client", "Potentially automated login script"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:04:36.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'samantha.thornton' from IP 172.17.131.81, found in '/var/log/mail.info'. This event is identical to the previous one (same MPID 9377), reinforcing the occurrence of the successful login.",
+    "tools": ["Legitimate email client", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:04:36.000000Z",
+    "attack_type": ["Valid Accounts Abuse"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'samantha.thornton' from IP 172.17.131.81, found in '/var/log/syslog'. This event is identical to the previous ones (same MPID 9377), reinforcing the occurrence of the successful login but not indicating a new or distinct incident.",
+    "tools": ["Legitimate email client", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:04:53.000000Z",
+    "attack_type": ["Defense Evasion"],
+    "mitre": ["T1562.001"],
+    "description": "AppArmor status change: 'operation=\"profile_replace\" profile=\"unconfined\" name=\"/usr/lib/NetworkManager/nm-dhcp-client.action\"' executed by 'apparmor_parser' with UID 0 (root). This indicates that the AppArmor profile for the NetworkManager DHCP client action script was replaced, essentially unconfining it. While this *could* be a legitimate system update or configuration change, it could also be a method for an attacker to disable or weaken security controls (AppArmor) on a system they have compromised to facilitate further malicious activity without being restricted by mandatory access controls. The process was run by UID 0, meaning it had root privileges.",
+    "tools": ["AppArmor utilities", "Privilege escalation tools (if not already root)"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:04:53.000000Z",
+    "attack_type": ["Defense Evasion"],
+    "mitre": ["T1562.001"],
+    "description": "AppArmor status change: 'operation=\"profile_replace\" profile=\"unconfined\" name=\"/usr/lib/NetworkManager/nm-dhcp-helper\"' executed by 'apparmor_parser' with UID 0 (root). Similar to the previous alert, this indicates that another AppArmor profile related to NetworkManager (specifically for the DHCP helper) was replaced and unconfined with root privileges. This reinforces the suspicion that AppArmor security controls might be systematically disabled or weakened, which is a common defense evasion technique.",
+    "tools": ["AppArmor utilities", "Privilege escalation tools (if not already root)"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:04:53.000000Z",
+    "attack_type": ["Defense Evasion"],
+    "mitre": ["T1562.001"],
+    "description": "AppArmor status change: 'operation=\"profile_replace\" profile=\"unconfined\" name=\"/sbin/dhclient\"' executed by 'apparmor_parser' with UID 0 (root). This is the third instance of an AppArmor profile being replaced and unconfined by a root process, this time for the dhclient utility. The consistent pattern of unconfining network-related components could suggest an attacker is trying to gain unrestricted network capabilities on the compromised system.",
+    "tools": ["AppArmor utilities", "Privilege escalation tools (if not already root)"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:04:53.000000Z",
+    "attack_type": ["Defense Evasion"],
+    "mitre": ["T1562.001"],
+    "description": "AppArmor status change: 'operation=\"profile_replace\" profile=\"unconfined\" name=\"/usr/lib/connman/scripts/dhclient-script\"' executed by 'apparmor_parser' with UID 0 (root). This is yet another AppArmor profile replacement and unconfining, specifically for the dhclient-script used by ConnMan. This continuous unconfining of network-related tools strongly indicates an attempt to bypass security measures and gain full control over the system's network interactions.",
+    "tools": ["AppArmor utilities", "Privilege escalation tools (if not already root)"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:09:46.000000Z",
+    "attack_type": ["Initial Access", "Persistence", "Lateral Movement"],
+    "mitre": ["T1078", "T1021"],
+    "description": "Successful SSH authentication for user 'phopkins' on 'intranet-server' from IP 10.35.35.202 using a public key. This is the second successful SSH login for 'phopkins' observed in these logs, following the earlier login to 'mail'. This repetition, especially from the same source IP, reinforces the concern about 'phopkins''s account compromise and potential lateral movement within the network.",
+    "tools": ["SSH client", "Compromised SSH keys"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:09:46.000000Z",
+    "attack_type": ["Initial Access", "Persistence", "Privilege Escalation"],
+    "mitre": ["T1078"],
+    "description": "PAM session opened for user 'phopkins' on 'intranet-server' via SSH, initiated by UID 0 (root). This confirms the successful SSH login and that 'phopkins' session has root privileges. This is a critical indicator of privilege escalation and control over the 'intranet-server'.",
+    "tools": ["SSH", "Legitimate system utilities (`pam`)"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:09:46.000000Z",
+    "attack_type": ["Initial Access", "Persistence", "Privilege Escalation"],
+    "mitre": ["T1078"],
+    "description": "Systemd PAM session opened for user 'phopkins' on 'intranet-server' by UID 0 (root). This is a duplicate confirmation of the successful login and session establishment for 'phopkins' with root privileges on the 'intranet-server'.",
+    "tools": ["SSH", "Legitimate system utilities (`systemd`, `pam`)"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:10:08.000000Z",
+    "attack_type": ["Privilege Escalation", "Discovery"],
+    "mitre": ["T1548.003", "T1005"],
+    "description": "User 'phopkins' executed 'sudo /usr/bin/tail /var/log/syslog' from '/home/phopkins' on 'intranet-server'. This is the first recorded instance of 'phopkins' using 'sudo' on this host. While 'tail /var/log/syslog' is often used for legitimate system monitoring, an attacker might use it for reconnaissance (T1005: Data from Local System) or to check for monitoring on their activities after gaining initial access or privilege escalation (T1548.003: Sudo and Sudo Caching). The fact that 'phopkins' is now running commands as 'root' via sudo reinforces the critical nature of this user's compromise.",
+    "tools": ["sudo", "tail"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:10:08.000000Z",
+    "attack_type": ["Privilege Escalation"],
+    "mitre": ["T1078"],
+    "description": "PAM session opened for user 'root' by 'phopkins' (UID 0) on 'intranet-server' via sudo. This confirms that 'phopkins' successfully escalated privileges to 'root' using 'sudo'. This is a critical indication of successful privilege escalation, allowing the attacker full control over the compromised system.",
+    "tools": ["sudo", "Legitimate system utilities (`pam`)"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:10:08.000000Z",
+    "attack_type": ["Defense Evasion"],
+    "mitre": ["T1562"],
+    "description": "PAM login session for user 'root' closed on 'intranet-server'. This indicates the termination of the root session that 'phopkins' had opened via sudo. While a session closing is a normal event, given the prior privilege escalation and reconnaissance by 'phopkins', this could be an attempt to cover tracks or conclude the elevated operations on the system.",
+    "tools": ["Legitimate system utilities (`sudo`, `pam`)"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.327729Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 192.168.128.4 to 'ppa.launchpad.net' (91.189.95.85) on port 80, requesting 'InRelease' for the 'oisf/suricata-stable' PPA. This is a check for updates from a software repository. While common for legitimate software management (like Suricata itself), an attacker might add their own malicious PPAs or use existing ones to download tools or compromised packages. The '304 Not Modified' status indicates no new updates, but the connection itself is noteworthy given the context of other suspicious activities.",
+    "tools": ["APT package manager"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.327729Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 192.168.128.4 to 91.189.95.85:80. This is a duplicate alert for the same package management activity.",
+    "tools": ["APT package manager"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.328372Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 192.168.128.4 to 'security.ubuntu.com' (91.189.88.152) on port 80, requesting 'InRelease' for 'bionic-security'. This indicates a check for security updates for the Ubuntu Bionic distribution. This is a normal system activity; however, it's worth noting if any unusual security updates are being pulled in the context of a potential compromise.",
+    "tools": ["APT package manager"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.328372Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 192.168.128.4 to 91.189.88.152:80. This is a duplicate alert for the same package management activity.",
+    "tools": ["APT package manager"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.328895Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 10.35.33.111 to 'ppa.launchpad.net' (91.189.95.85) on port 80, requesting 'InRelease' for the 'oisf/suricata-stable' PPA. This is consistent with other APT traffic observed from multiple internal hosts. The simultaneous nature of these update checks across different machines suggests a synchronized update process.",
+    "tools": ["APT package manager"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.328895Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 10.35.33.111 to 91.189.95.85:80. This is a duplicate alert for the same package management activity.",
+    "tools": ["APT package manager"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.329539Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 10.35.33.111 to 91.189.88.152:80. This is a duplicate alert for the same package management activity.",
+    "tools": ["APT package manager"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.329539Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 10.35.33.111 to 'security.ubuntu.com' (91.189.88.152) on port 80, requesting 'InRelease' for 'bionic-security'. This is consistent with other APT traffic observed. While these are routine checks for updates, it's important to cross-reference with other system activity to ensure no malicious packages are being downloaded or that these activities are not a cover for other illicit actions, especially after the 'phopkins' account compromise.",
+    "tools": ["APT package manager"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.333703Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 192.168.128.4 to 'archive.ubuntu.com' (91.189.88.142) on port 80, requesting 'InRelease' for 'bionic'. This is a normal check for general updates for the Ubuntu Bionic distribution. As with other APT activity, the critical aspect is ensuring that these are indeed legitimate updates and not being leveraged for malicious purposes in a compromised environment.",
+    "tools": ["APT package manager"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.333703Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 192.168.128.4 to 91.189.88.142:80. This is a duplicate alert for the same package management activity, specifically checking for 'bionic' InRelease on archive.ubuntu.com. These repeated alerts for benign APT traffic might be noise if the systems are routinely updated, but could also indicate a pattern of reconnaissance or package manipulation if other malicious activities are detected.",
+    "tools": ["APT package manager"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.334828Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 10.35.33.111 to 'archive.ubuntu.com' (91.189.88.142) on port 80, requesting 'InRelease' for 'bionic'. This is consistent with other APT traffic observed from multiple internal hosts. The '304 Not Modified' status indicates no new updates. While typically benign, the sheer volume of these alerts, especially after previous alerts related to privilege escalation and AppArmor modifications, warrants further investigation to confirm their legitimacy and rule out any hidden malicious activity.",
+    "tools": ["APT package manager"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.334828Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 10.35.33.111 to 91.189.88.142:80. This is a duplicate alert for the same package management activity. The high frequency of these IDS events (rule fired 34 times) for seemingly benign activity might point to an attacker using legitimate update mechanisms as a cover, or simply generating noise.",
+    "tools": ["APT package manager"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.360543Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 192.168.128.4 to 'archive.ubuntu.com' (91.189.88.142) on port 80, requesting 'InRelease' for 'bionic-updates'. This indicates a check for general updates for the Ubuntu Bionic distribution. The 'length: 1262' in the HTTP response suggests actual content was received, meaning new update information was retrieved. This could be part of legitimate system patching or, in a compromised environment, an attacker downloading specific updated packages to exploit or to blend in with normal network traffic.",
+    "tools": ["APT package manager"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.360543Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 192.168.128.4 to 91.189.88.142:80. This is a duplicate alert for the same package management activity. The continuous flow of these 'policy' alerts raises the overall alert fatigue but their context with previous anomalies means they should not be ignored completely.",
+    "tools": ["APT package manager"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.361735Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 10.35.33.111 to 'archive.ubuntu.com' (91.189.88.142) on port 80, requesting 'InRelease' for 'bionic-updates'. This is another instance of a system checking for Ubuntu updates, indicating synchronization of update activities across hosts. This activity on a potentially compromised host could be monitored for unusual update sources or content.",
+    "tools": ["APT package manager"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.361735Z",
+    "attack_type": ["Discovery", "Defense Evasion", "Alert Fatigue"],
+    "mitre": ["T1082", "T1071.001", "T1562"],
+    "description": "Multiple IDS alerts (rule ID 20152, level 10) for the same event: 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' originating from 10.35.33.111 to 91.189.88.142:80. This indicates a high frequency of this specific alert. While the individual APT update checks might be benign, the 'multiple IDS alerts for same ID' rule firing suggests an unusual volume of these events, which could be an attacker attempting to generate high alert volume to mask other activities, or simply very active systems. Given the previous AppArmor changes and 'phopkins' activity, this high volume is suspicious.",
+    "tools": ["APT package manager"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.496520Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 192.168.128.4 to 'archive.ubuntu.com' (91.189.88.142) on port 80, requesting 'InRelease' for 'bionic-backports'. This is a normal check for backported packages. The increasing variety of repositories being accessed (security, updates, backports) could indicate a thorough update process, but also offers more potential avenues for an attacker to introduce or download malicious packages if they have compromised the system's package management configuration.",
+    "tools": ["APT package manager"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.496520Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 192.168.128.4 to 91.189.88.142:80. This is a duplicate alert for the same package management activity.",
+    "tools": ["APT package manager"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.497791Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 10.35.33.111 to 'archive.ubuntu.com' (91.189.88.142) on port 80, requesting 'InRelease' for 'bionic-backports'. This is another instance of APT traffic from a different internal host, consistent with a synchronized update process. The repeated nature of these alerts emphasizes the need for a comprehensive security assessment of these systems, especially if they are deemed to be compromised or under suspicious activity.",
+    "tools": ["APT package manager"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:33.497791Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 10.35.33.111 to 91.189.88.142:80. This is a duplicate alert for the same package management activity, specifically checking for 'bionic-backports' InRelease. The continued high volume of these benign-looking APT alerts, especially after previous alerts related to potential compromise, requires a deeper dive into the system's package manager configuration and a comparison of installed packages against a baseline.",
+    "tools": ["APT package manager"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:34.002313Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 192.168.128.4 to 'security.ubuntu.com' (91.189.88.152) on port 80, requesting a specific package hash ('cfff5d561f5d4daf2639ae53583c8d1b71d217189bc1f5c404fca10f901d3c07') from 'bionic-security/universe/binary-amd64/by-hash'. This indicates a direct attempt to download a package based on its SHA256 hash. While this is a legitimate way for APT to fetch packages, the specific nature of the request (a direct hash lookup) and the ongoing suspicious activities (privilege escalation, AppArmor changes) make this a higher fidelity alert. It could be an attacker fetching a specific tool or component.",
+    "tools": ["APT package manager"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:34.002313Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 192.168.128.4 to 91.189.88.152:80. This is a duplicate alert for the same package download activity by hash. The consistent alerting pattern on APT traffic across multiple logs warrants careful examination of the actual packages being installed or updated.",
+    "tools": ["APT package manager"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:34.003454Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "IDS event from Snort confirming the 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' alert, originating from 10.35.33.111 to 91.189.88.152:80. This is a duplicate alert for the same package download activity by hash. The multiple alerts for the same APT activity across different machines indicate a synchronized or automated update/download process, which could be either benign system management or malicious deployment.",
+    "tools": ["APT package manager"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:11:34.003454Z",
+    "attack_type": ["Discovery", "Defense Evasion"],
+    "mitre": ["T1082", "T1071.001"],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 10.35.33.111 to 'security.ubuntu.com' (91.189.88.152) on port 80, requesting a specific package hash ('cfff5d561f5d4daf2639ae53583c8d1b71d217189bc1f5c404fca10f901d3c07') from 'bionic-security/universe/binary-amd64/by-hash'. This indicates another system on the network is attempting to download the exact same package by hash. The fact that multiple systems are requesting the same specific package by hash, combined with the previous suspicious activities (AppArmor modifications, 'phopkins' SSH and sudo), strongly suggests a coordinated action. This could be a malicious update or the download of an attacker's tool across several compromised systems.",
+    "tools": ["APT package manager"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:13:47.000000Z",
+    "attack_type": ["Privilege Escalation", "Discovery"],
+    "mitre": ["T1548.003", "T1005"],
+    "description": "User 'phopkins' executed 'sudo /usr/bin/tail /var/log/syslog' from '/home/phopkins' on 'intranet-server'. This is the second instance of 'phopkins' using 'sudo' to run 'tail /var/log/syslog', which means the rule 'First time user executed sudo' (ID 5403) did not fire, but 'Successful sudo to ROOT executed' (ID 5402) did. The repeated use of sudo by 'phopkins' to access system logs reinforces the suspicion of reconnaissance activity by a compromised user aiming to understand the system or observe effects of their actions.",
+    "tools": ["sudo", "tail"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:13:47.000000Z",
+    "attack_type": ["Defense Evasion"],
+    "mitre": ["T1562"],
+    "description": "PAM login session for user 'root' closed on 'intranet-server'. This indicates the termination of another root session that 'phopkins' had opened via sudo. While a session closing is normal, its occurrence directly after another sudo command by the potentially compromised 'phopkins' user suggests a pattern of elevated privilege use and then session termination, possibly to evade detection or clean up active sessions.",
+    "tools": ["Legitimate system utilities (`sudo`, `pam`)"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:13:47.000000Z",
+    "attack_type": ["Privilege Escalation"],
+    "mitre": ["T1078"],
+    "description": "PAM session opened for user 'root' by 'phopkins' (UID 0) on 'intranet-server' via sudo. This confirms that 'phopkins' successfully escalated privileges to 'root' using 'sudo' again. The repeated successful privilege escalation by 'phopkins' is a critical indicator of a persistent compromise and active malicious control over the 'intranet-server'.",
+    "tools": ["sudo", "Legitimate system utilities (`pam`)"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Successful IMAP login for user 'meghan.morris' from IP 172.17.131.81 to the 'mail' server, using PLAIN authentication and TLS. This is a new user account appearing in the successful login logs from an internal IP, indicating potential compromise or use of another valid account. The method 'PLAIN' is less secure than other authentication methods (like CRAM-MD5 or Digest-MD5), raising an additional flag.",
+    "tools": ["Legitimate email client"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/mail.log'. This event is identical to the previous one (same user, source IP, method, TLS, and timestamp, though a different MPID), reinforcing the occurrence of the successful login but not indicating a new or distinct incident. The continuous successful logins from this IP suggest persistent access to the mail server.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/mail.log'. This event is identical to previous ones (same user, source IP, method, TLS, and timestamp, though a different MPID), reinforcing the occurrence of the successful login but not indicating a new or distinct incident. The repeated successful logins from this IP suggest persistent access to the mail server, which, in the context of other suspicious activities, could indicate a compromised account being used for reconnaissance or data exfiltration.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/syslog'. This event is identical to previous ones, further confirming the successful login but not representing a new anomaly. The multiple log entries across different log files for the same event can lead to alert fatigue if not properly aggregated, but also confirms the widespread logging of this potentially suspicious activity.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/mail.log'. This is another identical log entry, confirming the persistent successful login of 'meghan.morris'. The continued appearance of these successful logins, especially for a new user not previously seen, warrants immediate investigation into the legitimacy of the 'meghan.morris' account and its activities.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/syslog'. This event is identical to previous ones, serving as further confirmation of the persistent successful login. The repeated logging across various files highlights the pervasive nature of this activity on the mail server.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/mail.info'. This is another identical log entry, reinforcing the fact of the successful login. The sheer volume of these duplicate successful login messages, even if benign, requires aggregation to avoid overwhelming analysts, but the underlying anomalous event (new user 'meghan.morris' logging in) remains a high priority.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/mail.info'. This is yet another identical log entry confirming the successful login. The numerous log entries for the same event point to a robust logging configuration, but more importantly, to a potentially compromised or newly active account that needs immediate scrutiny.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/mail.info'. This is another identical log entry, underscoring the repeated successful login. The persistence of these successful logins for 'meghan.morris' indicates consistent access to the mail server, which could be indicative of an attacker maintaining a foothold.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/mail.log'. This is another identical log entry, reinforcing the pattern of successful logins. The aggregation of these alerts by the SIEM (Wazuh) is crucial for identifying the underlying anomaly rather than being overwhelmed by duplicate entries.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/syslog'. This is another identical log entry. The continuous stream of these successful logins, particularly for a newly observed user 'meghan.morris', should prompt a review of the user's legitimacy and normal activity patterns. This is a high-priority event that requires immediate investigation.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:16:26.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'meghan.morris' from IP 172.17.131.81, found in '/var/log/syslog'. This is the final duplicate log entry in this sequence. The sustained successful logins for 'meghan.morris' from the same internal IP reinforce the need for a thorough investigation of this account and the associated activity on the mail server. The use of PLAIN authentication method, even with TLS, also raises a minor concern compared to stronger methods.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:24.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Successful IMAP login for a *new* user, 'daniel.morgan', from IP 172.17.131.81 to the 'mail' server, using PLAIN authentication and TLS. Similar to 'meghan.morris' earlier, this is another new user account appearing in the successful login logs from an internal IP. The rapid succession of new, previously unseen user accounts logging into the mail server from the same internal IP (172.17.131.81) is highly suspicious and indicative of an adversary attempting to gain and maintain access using multiple valid credentials or a credential stuffing attack. The use of PLAIN authentication, even with TLS, remains a security concern.",
+    "tools": ["Legitimate email client"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:24.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'daniel.morgan' from IP 172.17.131.81, found in '/var/log/syslog'. This event is identical to the previous one (same user, source IP, method, TLS, and timestamp, though a different MPID), reinforcing the occurrence of the successful login but not indicating a new or distinct incident. The continuous successful logins from this IP suggest persistent access to the mail server.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:24.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'daniel.morgan' from IP 172.17.131.81, found in '/var/log/mail.info'. This is another identical log entry, confirming the persistent successful login of 'daniel.morgan'. The rapid succession of new users successfully logging in from the same internal IP, following previous suspicious activities (AppArmor modifications, 'phopkins' SSH and sudo, and 'meghan.morris' mail logins), is a strong indicator of a widespread compromise or credential harvesting operation.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:24.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'daniel.morgan' from IP 172.17.131.81, found in '/var/log/mail.info'. This event is identical to previous ones, serving as further confirmation of the persistent successful login. The multiple log entries across different log files for the same event can lead to alert fatigue if not properly aggregated, but also confirms the widespread logging of this potentially suspicious activity.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:24.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'daniel.morgan' from IP 172.17.131.81, found in '/var/log/mail.log'. This is another identical log entry, confirming the persistent successful login of 'daniel.morgan'. The continued appearance of these successful logins, especially for a new user not previously seen, warrants immediate investigation into the legitimacy of the 'daniel.morgan' account and its activities.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:24.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'daniel.morgan' from IP 172.17.131.81, found in '/var/log/mail.log'. This event is identical to previous ones, serving as further confirmation of the persistent successful login. The multiple log entries across different log files for the same event can lead to alert fatigue if not properly aggregated, but also confirms the widespread logging of this potentially suspicious activity.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:25.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Successful IMAP login for 'daniel.morgan' from IP 172.17.131.81 to the 'mail' server, using PLAIN authentication and TLS. This event, although a second later, is essentially a continuation of the previous successful logins by 'daniel.morgan'. The sustained successful logins from this IP for different accounts ('meghan.morris' and 'daniel.morgan') are highly anomalous and strongly suggest a broader compromise of user credentials or the mail server itself. This warrants immediate action to review these accounts and the source IP.",
+    "tools": ["Legitimate email client"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:25.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'daniel.morgan' from IP 172.17.131.81, found in '/var/log/mail.info'. This is another identical log entry, confirming the persistent successful login of 'daniel.morgan'. The volume of these duplicate successful login messages, even if benign, requires aggregation to avoid overwhelming analysts, but the underlying anomalous event (new user 'daniel.morgan' logging in) remains a high priority.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:25.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'daniel.morgan' from IP 172.17.131.81, found in '/var/log/mail.log'. This is another identical log entry, reinforcing the fact of the successful login. The numerous log entries for the same event point to a robust logging configuration, but more importantly, to a potentially compromised or newly active account that needs immediate scrutiny.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "2022-01-15T07:17:25.000000Z",
+    "attack_type": ["Initial Access", "Persistence"],
+    "mitre": ["T1078"],
+    "description": "Duplicate log entry of a successful IMAP login for 'daniel.morgan' from IP 172.17.131.81, found in '/var/log/syslog'. This is the final duplicate log entry in this sequence. The sustained successful logins for 'daniel.morgan' from the same internal IP reinforce the need for a thorough investigation of this account and the associated activity on the mail server. The use of PLAIN authentication method, even with TLS, also raises a minor concern compared to stronger methods.",
+    "tools": ["Legitimate email client"],
+    "classification": "FP"
+  }
+]

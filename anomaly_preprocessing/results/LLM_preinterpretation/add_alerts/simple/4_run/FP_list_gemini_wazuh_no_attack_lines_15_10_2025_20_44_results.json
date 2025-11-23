@@ -1,0 +1,158 @@
+[
+  {
+    "line_number": 10,
+    "predicted_attack_type": [
+      "T1078"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "Successful login to Dovecot from an internal IP address, indicating potential credential abuse or unauthorized access.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 40, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5427, TLS, session=<WC2WXZnV+qXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686162799.311347\"}\n"
+  },
+  {
+    "line_number": 11,
+    "predicted_attack_type": [
+      "T1078"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "Successful login to Dovecot using PLAIN authentication method from an internal IP address, which is a common technique for initial access or credential abuse.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 35, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5430, TLS, session=<R8mZXZnV/KXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686162799.308805\"}\n"
+  },
+  {
+    "line_number": 12,
+    "predicted_attack_type": [
+      "T1078"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "Successful login to Dovecot indicates a potential use of valid accounts for unauthorized access.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 36, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5432, TLS, session=<yQicXZnV/qXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686162799.309314\"}\n"
+  },
+  {
+    "line_number": 22,
+    "predicted_attack_type": [
+      "T1078",
+      "T1021"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "Successful SSH authentication using public key, indicating potential valid account usage and remote service access.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"sshd\", \"timestamp\": \"Jan 15 06:53:50\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.35.202\", \"dstuser\": \"phopkins\", \"srcport\": \"55218\"}, \"rule\": {\"mail\": false, \"level\": 3, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"10.2.5\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"sshd: authentication success.\", \"groups\": [\"syslog\", \"sshd\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 1, \"mitre\": {\"technique\": [\"Valid Accounts\", \"Remote Services\"], \"id\": [\"T1078\", \"T1021\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\", \"Lateral Movement\"]}, \"id\": \"5715\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"sshd\", \"name\": \"sshd\"}, \"full_log\": \"Jan 15 06:53:50 mail sshd[9296]: Accepted publickey for phopkins from 10.35.35.202 port 55218 ssh2: RSA SHA256:8wFbiaYPevKS/wYKnePO20v0iymTcrRh4Kr+1uRS1UM\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:53:50.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686162869.314388\"}\n"
+  },
+  {
+    "line_number": 39,
+    "predicted_attack_type": [
+      "T1078"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "Successful authentication via Dovecot indicates a potential use of valid accounts for access.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:04:36\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 47, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:04:36 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9377, TLS, session=<7qlDiJnVBLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:36.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686163517.332610\"}\n"
+  },
+  {
+    "line_number": 40,
+    "predicted_attack_type": [
+      "T1078"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "Successful authentication to Dovecot indicates a potential use of valid accounts for access.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:04:36\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 46, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:04:36 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9377, TLS, session=<7qlDiJnVBLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:36.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686163517.332113\"}\n"
+  },
+  {
+    "line_number": 47,
+    "predicted_attack_type": [
+      "T1078"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "Successful login via SSH using public key authentication for user 'phopkins' from IP '10.35.35.202'.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sshd\", \"timestamp\": \"Jan 15 07:09:46\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"uid\": \"0\", \"dstuser\": \"phopkins\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 3, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 07:09:46 intranet-server sshd[13466]: pam_unix(sshd:session): session opened for user phopkins by (uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:09:46.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686163825.338811\"}\n"
+  },
+  {
+    "line_number": 48,
+    "predicted_attack_type": [
+      "T1078"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "Successful login detected for user phopkins via SSH, indicating potential account usage.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"systemd\", \"timestamp\": \"Jan 15 07:09:46\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"uid\": \"0\", \"dstuser\": \"phopkins\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 4, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 07:09:46 intranet-server systemd: pam_unix(systemd-user:session): session opened for user phopkins by (uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:09:46.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686163825.339281\"}\n"
+  },
+  {
+    "line_number": 49,
+    "predicted_attack_type": [
+      "T1548.003"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The user 'phopkins' executed 'sudo' for the first time, attempting to gain root privileges to run '/usr/bin/tail /var/log/syslog'. This indicates a potential privilege escalation attempt.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:10:08\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"dstuser\": \"root\", \"tty\": \"pts/0\", \"pwd\": \"/home/phopkins\", \"command\": \"/usr/bin/tail /var/log/syslog\"}, \"rule\": {\"firedtimes\": 1, \"mail\": false, \"level\": 4, \"description\": \"First time user executed sudo.\", \"groups\": [\"syslog\", \"sudo\"], \"mitre\": {\"technique\": [\"Sudo and Sudo Caching\"], \"id\": [\"T1548.003\"], \"tactic\": [\"Privilege Escalation\", \"Defense Evasion\"]}, \"id\": \"5403\"}, \"decoder\": {\"parent\": \"sudo\", \"name\": \"sudo\", \"ftscomment\": \"First time user executed the sudo command\"}, \"full_log\": \"Jan 15 07:10:08 intranet-server sudo: phopkins : TTY=pts/0 ; PWD=/home/phopkins ; USER=root ; COMMAND=/usr/bin/tail /var/log/syslog\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:10:08.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686163847.339755\"}\n"
+  },
+  {
+    "line_number": 50,
+    "predicted_attack_type": [
+      "T1078",
+      "T1548.003"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The user 'phopkins' successfully escalated privileges using sudo to become 'root', which is a common technique for privilege escalation.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:10:08\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"uid\": \"0\", \"dstuser\": \"root\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 5, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 07:10:08 intranet-server sudo: pam_unix(sudo:session): session opened for user root by phopkins(uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:10:08.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686163847.340156\"}\n"
+  },
+  {
+    "line_number": 76,
+    "predicted_attack_type": [
+      "T1548.003"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "Successful sudo execution by a user to gain root privileges, indicating potential privilege escalation.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:13:47\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"dstuser\": \"root\", \"tty\": \"pts/0\", \"pwd\": \"/home/phopkins\", \"command\": \"/usr/bin/tail /var/log/syslog\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\", \"10.2.2\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Successful sudo to ROOT executed.\", \"groups\": [\"syslog\", \"sudo\"], \"nist_800_53\": [\"AU.14\", \"AC.7\", \"AC.6\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 1, \"mitre\": {\"technique\": [\"Sudo and Sudo Caching\"], \"id\": [\"T1548.003\"], \"tactic\": [\"Privilege Escalation\", \"Defense Evasion\"]}, \"id\": \"5402\", \"gpg13\": [\"7.6\", \"7.8\", \"7.13\"]}, \"decoder\": {\"parent\": \"sudo\", \"name\": \"sudo\", \"ftscomment\": \"First time user executed the sudo command\"}, \"full_log\": \"Jan 15 07:13:47 intranet-server sudo: phopkins : TTY=pts/0 ; PWD=/home/phopkins ; USER=root ; COMMAND=/usr/bin/tail /var/log/syslog\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:13:47.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686164068.371893\"}\n"
+  },
+  {
+    "line_number": 78,
+    "predicted_attack_type": [
+      "T1078"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "Successful PAM session opened for user root by phopkins, indicating privilege escalation.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:13:47\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"uid\": \"0\", \"dstuser\": \"root\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 6, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 07:13:47 intranet-server sudo: pam_unix(sudo:session): session opened for user root by phopkins(uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:13:47.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686164068.372469\"}\n"
+  },
+  {
+    "line_number": 91,
+    "predicted_attack_type": [
+      "T1078"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "Successful login from an external IP to Dovecot, indicating potential account compromise.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:24\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 70, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:24 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9481, TLS, session=<5qYStpnVGrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:24.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686164284.383676\"}\n"
+  },
+  {
+    "line_number": 92,
+    "predicted_attack_type": [
+      "T1078"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "Successful login from an external IP to Dovecot, indicating potential credential abuse.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:24\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 69, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:24 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9479, TLS, session=<bBwStpnVGLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:24.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686164284.383186\"}\n"
+  }
+]

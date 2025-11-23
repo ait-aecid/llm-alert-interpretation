@@ -1,0 +1,460 @@
+[
+  {
+    "line_number": 14,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The unusual frequency of DNS queries to specific IPs suggests potential covert data exfiltration over DNS.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 33, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS query IPs.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_query_ip\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/ip\"], \"AffectedLogAtomValues\": [[\"192.168.131.228\"], [\"192.168.129.212\"], [\"192.168.128.195\"], [\"192.168.131.118\"], [\"192.168.128.4\"], [\"172.17.131.81\"], [\"10.35.35.118\"], [\"172.17.130.37\"], [\"192.168.130.84\"], [\"172.17.130.196\"], [\"192.168.128.170\"], [\"192.168.128.107\"], [\"10.35.35.202\"], [\"10.35.33.116\"], [\"192.168.131.165\"], [\"192.168.128.152\"]], \"AffectedLogAtomFrequencies\": [172, 43, 27, 4, 244, 209, 222, 3, 37, 271, 11, 2, 14, 2, 25, 74], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.5810874704491725}, \"LogData\": {\"RawLogData\": [\"Jan 18 08:00:41 dnsmasq[14460]: query[SRV] _http._tcp.security.ubuntu.com from 192.168.128.4\"], \"Timestamps\": [1642492841], \"DetectionTimestamp\": [1642492841], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 15,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The unusual frequency of DNS PTR queries suggests potential covert data exfiltration or reconnaissance activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/forwarded\", \"/model/type/forwarded/reply\", \"/model/type/forwarded/domain\", \"/model/type/forwarded/to\", \"/model/type/forwarded/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/nameserver\", \"/model/type/nameserver/nameserver\", \"/model/type/nameserver/ip\", \"/model/type/nameserver/refused\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/reply\", \"/model/type/reply/reply\", \"/model/type/reply/domain\", \"/model/type/reply/is\", \"/model/type/reply/ip\"]], \"AffectedLogAtomFrequencies\": [185, 154, 60, 118, 128], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.52015732546706}, \"LogData\": {\"RawLogData\": [\"Jan 18 08:40:20 dnsmasq[14460]: query[PTR] 110.130.168.192.in-addr.arpa from 192.168.128.170\"], \"Timestamps\": [1642495220], \"DetectionTimestamp\": [1642495220], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 16,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The high-frequency DNS queries indicate potential covert data exfiltration over DNS.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [2, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9692307692307692}, \"LogData\": {\"RawLogData\": [\"Jan 18 05:22:44 dnsmasq[14460]: query[A] motd.ubuntu.com from 192.168.130.19\"], \"Timestamps\": [1642483364], \"DetectionTimestamp\": [1642483364], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 17,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The high frequency of DNS queries to 'taylorcruz-mail' suggests potential covert data exfiltration over DNS.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/forwarded\", \"/model/type/forwarded/reply\", \"/model/type/forwarded/domain\", \"/model/type/forwarded/to\", \"/model/type/forwarded/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/reply\", \"/model/type/reply/reply\", \"/model/type/reply/domain\", \"/model/type/reply/is\", \"/model/type/reply/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [15, 14, 12, 1], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.676923076923077}, \"LogData\": {\"RawLogData\": [\"Jan 18 05:31:17 dnsmasq[14460]: query[AAAA] taylorcruz-mail from 192.168.128.195\"], \"Timestamps\": [1642483877], \"DetectionTimestamp\": [1642483877], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 18,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The high-frequency DNS queries indicate potential covert data exfiltration over DNS.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [2, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9692307692307692}, \"LogData\": {\"RawLogData\": [\"Jan 18 05:41:02 dnsmasq[14460]: query[TXT] current.cvd.clamav.net from 192.168.128.4\"], \"Timestamps\": [1642484462], \"DetectionTimestamp\": [1642484462], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 19,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The high-frequency DNS queries indicate potential covert data exfiltration over DNS.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [1, 1], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9846153846153847}, \"LogData\": {\"RawLogData\": [\"Jan 18 06:01:17 dnsmasq[14460]: query[AAAA] taylorcruz-mail from 192.168.128.195\"], \"Timestamps\": [1642485677], \"DetectionTimestamp\": [1642485677], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 20,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The unusual frequency of DNS queries to specific IP addresses suggests potential covert data exfiltration over DNS.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 33, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS query IPs.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_query_ip\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/ip\"], \"AffectedLogAtomValues\": [[\"192.168.128.195\"], [\"192.168.131.228\"], [\"192.168.128.170\"], [\"192.168.129.212\"], [\"192.168.130.19\"], [\"192.168.128.4\"], [\"172.17.128.63\"], [\"10.35.32.78\"], [\"172.17.131.81\"], [\"10.35.35.204\"]], \"AffectedLogAtomFrequencies\": [3, 3, 3, 3, 2, 29, 2, 2, 20, 15], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.8957264957264958}, \"LogData\": {\"RawLogData\": [\"Jan 18 06:01:17 dnsmasq[14460]: query[AAAA] taylorcruz-mail from 192.168.128.195\"], \"Timestamps\": [1642485677], \"DetectionTimestamp\": [1642485677], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 21,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The unusual frequency of DNS queries to specific IP addresses suggests potential covert data exfiltration over DNS.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 33, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS query IPs.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_query_ip\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/ip\"], \"AffectedLogAtomValues\": [[\"10.35.35.118\"], [\"172.17.130.196\"], [\"192.168.128.4\"], [\"192.168.128.195\"], [\"10.35.35.206\"], [\"10.35.32.164\"], [\"172.17.130.37\"], [\"192.168.131.234\"], [\"172.17.131.81\"], [\"192.168.131.228\"], [\"192.168.128.170\"], [\"192.168.129.212\"], [\"10.35.33.116\"], [\"172.17.129.140\"], [\"192.168.129.209\"], [\"192.168.131.156\"], [\"10.35.33.144\"], [\"192.168.131.15\"], [\"10.35.32.1\"], [\"172.17.128.1\"]], \"AffectedLogAtomFrequencies\": [43, 70, 170, 273, 4, 125, 10, 25, 109, 7, 27, 101, 3, 2, 25, 28, 3, 50, 2, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.6071428571428571}, \"LogData\": {\"RawLogData\": [\"Jan 17 17:00:05 dnsmasq[14460]: query[PTR] 209.129.168.192.in-addr.arpa from 192.168.128.195\"], \"Timestamps\": [1642438805], \"DetectionTimestamp\": [1642438805], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 22,
+    "predicted_attack_type": [
+      "Network Service Discovery"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a TLS key negotiation failure, which can be indicative of an attacker probing the network for vulnerabilities or attempting to disrupt secure communications.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/tls_error\", \"/model/fm/tls_error/error_str\", \"/model/fm/tls_error/fm/negotiation_failed\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-17 17:11:26 hwarren/192.168.129.254:34841 TLS Error: TLS key negotiation failed to occur within 60 seconds (check your network connectivity)\"], \"Timestamps\": [1642439486], \"DetectionTimestamp\": [1642439486], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/openvpn.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.196\"}}\n"
+  },
+  {
+    "line_number": 23,
+    "predicted_attack_type": [
+      "Network Service Discovery"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a TLS handshake failure, which can be indicative of scanning or probing activities attempting to identify vulnerabilities or misconfigurations in network services.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/tls_error\", \"/model/fm/tls_error/error_str\", \"/model/fm/tls_error/fm/handshake_failed\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-17 17:11:26 hwarren/192.168.129.254:34841 TLS Error: TLS handshake failed\"], \"Timestamps\": [1642439486], \"DetectionTimestamp\": [1642439486], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/openvpn.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.196\"}}\n"
+  },
+  {
+    "line_number": 24,
+    "predicted_attack_type": [
+      "Network Service Discovery"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a TLS session move event, which can be indicative of network scanning or reconnaissance activities attempting to identify active sessions or endpoints.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/tls/fm/move_session\", \"/model/fm/tls/fm/move_session/move_session_str\", \"/model/fm/tls/fm/move_session/dest\", \"/model/fm/tls/fm/move_session/src_str\", \"/model/fm/tls/fm/move_session/src\", \"/model/fm/tls/fm/move_session/reinit_src_str\", \"/model/fm/tls/fm/move_session/reinit_src\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-17 17:11:26 hwarren/192.168.129.254:34841 TLS: move_session: dest=TM_LAME_DUCK src=TM_ACTIVE reinit_src=1\"], \"Timestamps\": [1642439486], \"DetectionTimestamp\": [1642439486], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/openvpn.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.196\"}}\n"
+  },
+  {
+    "line_number": 25,
+    "predicted_attack_type": [
+      "Network Service Discovery"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a TLS key negotiation failure, which can be indicative of network scanning or attempts to disrupt secure communication.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/tls_error\", \"/model/fm/tls_error/error_str\", \"/model/fm/tls_error/fm/negotiation_failed\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-17 17:12:41 hwarren/192.168.129.254:34841 TLS Error: TLS key negotiation failed to occur within 60 seconds (check your network connectivity)\"], \"Timestamps\": [1642439561], \"DetectionTimestamp\": [1642439561], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/openvpn.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.196\"}}\n"
+  },
+  {
+    "line_number": 26,
+    "predicted_attack_type": [
+      "Network Service Discovery"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a TLS handshake failure, which can be indicative of scanning or probing activities attempting to identify vulnerabilities or misconfigurations in network services.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/tls_error\", \"/model/fm/tls_error/error_str\", \"/model/fm/tls_error/fm/handshake_failed\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-17 17:12:41 hwarren/192.168.129.254:34841 TLS Error: TLS handshake failed\"], \"Timestamps\": [1642439561], \"DetectionTimestamp\": [1642439561], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/openvpn.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.196\"}}\n"
+  },
+  {
+    "line_number": 27,
+    "predicted_attack_type": [
+      "Network Intrusion Detection",
+      "Network Service Discovery"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a TLS key negotiation failure, which can be indicative of an attempt to establish a secure connection that is being actively probed or interfered with.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/tls_error\", \"/model/fm/tls_error/error_str\", \"/model/fm/tls_error/fm/negotiation_failed\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-17 17:13:57 hwarren/192.168.129.254:34841 TLS Error: TLS key negotiation failed to occur within 60 seconds (check your network connectivity)\"], \"Timestamps\": [1642439637], \"DetectionTimestamp\": [1642439637], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/openvpn.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.196\"}}\n"
+  },
+  {
+    "line_number": 28,
+    "predicted_attack_type": [
+      "Network Service Discovery",
+      "Active Scanning"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a TLS handshake failure, which can be indicative of scanning or probing activities attempting to identify vulnerabilities or misconfigurations in network services.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/tls_error\", \"/model/fm/tls_error/error_str\", \"/model/fm/tls_error/fm/handshake_failed\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-17 17:13:57 hwarren/192.168.129.254:34841 TLS Error: TLS handshake failed\"], \"Timestamps\": [1642439637], \"DetectionTimestamp\": [1642439637], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/openvpn.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.196\"}}\n"
+  },
+  {
+    "line_number": 29,
+    "predicted_attack_type": [
+      "Discovery: File and Directory Discovery"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a PROPFIND request to a user's directory, which is a common method for attackers to discover files and directories on a system.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/remote.php/dav/files/jwright/Photos%20(2)\"], \"MissingCharacters\": [\"(\", \")\"]}, \"LogData\": {\"RawLogData\": [\"cloud.dmz.price.fox.org:443 172.17.130.37 - - [17/Jan/2022:17:51:25 +0000] \\\"PROPFIND /remote.php/dav/files/jwright/Photos%20(2) HTTP/1.1\\\" 207 3595 \\\"-\\\" \\\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/95.0.4638.69 Safari/537.36\\\"\"], \"Timestamps\": [1642441885], \"DetectionTimestamp\": [1642441885], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/other_vhosts_access.log\"]}, \"AMiner\": {\"ID\": \"172.17.129.140\"}}\n"
+  },
+  {
+    "line_number": 30,
+    "predicted_attack_type": [
+      "Command and Scripting Interpreter: Command Execution"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates the presence of characters in the request that are typically used to delimit file paths or arguments, suggesting an attempt to inject commands or manipulate file paths.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/index.php/apps/files/ajax/getstoragestats.php?dir=%2FPhotos%20(2)\"], \"MissingCharacters\": [\"(\", \")\"]}, \"LogData\": {\"RawLogData\": [\"cloud.dmz.price.fox.org:443 172.17.130.37 - - [17/Jan/2022:17:51:25 +0000] \\\"GET /index.php/apps/files/ajax/getstoragestats.php?dir=%2FPhotos%20(2) HTTP/1.1\\\" 200 951 \\\"-\\\" \\\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/95.0.4638.69 Safari/537.36\\\"\"], \"Timestamps\": [1642441885], \"DetectionTimestamp\": [1642441885], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/other_vhosts_access.log\"]}, \"AMiner\": {\"ID\": \"172.17.129.140\"}}\n"
+  },
+  {
+    "line_number": 31,
+    "predicted_attack_type": [
+      "T1071.001",
+      "T1190"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates the presence of unusual characters in the referer field, which could be an attempt to exploit vulnerabilities in the web application or to bypass security controls.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 9, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access referer.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_referer\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/combined/combined/referer\"], \"AffectedLogAtomValues\": [\"https://cloud.price.fox.org/index.php/apps/files/?dir=/Photos%20(2)&fileid=59\"], \"MissingCharacters\": [\"(\", \")\"]}, \"LogData\": {\"RawLogData\": [\"cloud.dmz.price.fox.org:443 172.17.130.37 - - [17/Jan/2022:17:51:25 +0000] \\\"GET /core/img/filetypes/image.svg HTTP/1.1\\\" 200 1242 \\\"https://cloud.price.fox.org/index.php/apps/files/?dir=/Photos%20(2)&fileid=59\\\" \\\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/95.0.4638.69 Safari/537.36\\\"\"], \"Timestamps\": [1642441885], \"DetectionTimestamp\": [1642441885], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/other_vhosts_access.log\"]}, \"AMiner\": {\"ID\": \"172.17.129.140\"}}\n"
+  },
+  {
+    "line_number": 39,
+    "predicted_attack_type": [
+      "Valid Accounts"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a successful accounting operation for the user 'jessica.wright' via the dovecot authentication process, which could be indicative of account manipulation or unauthorized access.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 19, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New user_acct parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_user_acct\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/user_acct/uid\", \"/model/type/user_acct/msg2\", \"/model/type/user_acct/fm/acct/acct\", \"/model/type/user_acct/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"0\", \"'op=PAM:accounting\", \"\\\"jessica.wright\\\"\", \"\\\"/usr/lib/dovecot/auth\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=USER_ACCT msg=audit(1642235841.327:2205): pid=10015 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:accounting acct=\\\"jessica.wright\\\" exe=\\\"/usr/lib/dovecot/auth\\\" hostname=172.17.131.81 addr=172.17.131.81 terminal=dovecot res=success'\"], \"Timestamps\": [1642235841.33], \"DetectionTimestamp\": [1642235841.33], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"172.17.131.81\"}}\n"
+  },
+  {
+    "line_number": 42,
+    "predicted_attack_type": [
+      "Valid Accounts"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a successful authentication attempt for the user 'michael.davis' via dovecot, which could be indicative of an attacker attempting to gain access using valid credentials.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 20, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New user_auth parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_user_auth\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/user_auth/uid\", \"/model/type/user_auth/msg2\", \"/model/type/user_auth/fm/acct/acct\", \"/model/type/user_auth/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"0\", \"'op=PAM:authentication\", \"\\\"michael.davis\\\"\", \"\\\"/usr/lib/dovecot/auth\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=USER_AUTH msg=audit(1642236015.190:2240): pid=10015 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:authentication acct=\\\"michael.davis\\\" exe=\\\"/usr/lib/dovecot/auth\\\" hostname=172.17.131.81 addr=172.17.131.81 terminal=dovecot res=success'\"], \"Timestamps\": [1642236015.19], \"DetectionTimestamp\": [1642236015.19], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"172.17.131.81\"}}\n"
+  },
+  {
+    "line_number": 50,
+    "predicted_attack_type": [
+      "Discovery: Network Service Discovery"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates the use of the REPORT HTTP method, which is often used for discovery of resources and can be abused for reconnaissance.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"9\"]}, \"LogData\": {\"RawLogData\": [\"cloud.dmz.price.fox.org:443 172.17.130.37 - - [15/Jan/2022:07:55:40 +0000] \\\"REPORT /remote.php/dav/files/sthornton/ HTTP/1.1\\\" 207 1471 \\\"-\\\" \\\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/95.0.4638.69 Safari/537.36\\\"\"], \"Timestamps\": [1642233340], \"DetectionTimestamp\": [1642233340], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/other_vhosts_access.log\"]}, \"AMiner\": {\"ID\": \"172.17.129.140\"}}\n"
+  },
+  {
+    "line_number": 53,
+    "predicted_attack_type": [
+      "Valid Accounts"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a successful session open for the root account via sudo, which could be an indicator of privilege escalation or unauthorized access.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 18, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New user_start parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_user_start\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/user_start/uid\", \"/model/type/user_start/msg2\", \"/model/type/user_start/fm/acct/acct\", \"/model/type/user_start/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"0\", \"'op=PAM:session_open\", \"\\\"root\\\"\", \"\\\"/usr/bin/sudo\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=USER_START msg=audit(1642230608.715:598): pid=13610 uid=0 auid=1001 ses=89 msg='op=PAM:session_open acct=\\\"root\\\" exe=\\\"/usr/bin/sudo\\\" hostname=? addr=? terminal=/dev/pts/0 res=success'\"], \"Timestamps\": [1642230608.71], \"DetectionTimestamp\": [1642230608.71], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 56,
+    "predicted_attack_type": [
+      "Input Validation: Cross-site Scripting"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a potential cross-site scripting (XSS) vulnerability in the memo.php script, as evidenced by the unusual characters and the presence of a \"modify_memo\" action.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/mnemo/memo.php?memo=hTKrDU8wPjAWzI2mQo2-WK3&memolist=ou-fheWTtfkWUMROYRMn1Z8&actionID=modify_memo\"], \"MissingCharacters\": [\"Z\", \"K\"]}, \"LogData\": {\"RawLogData\": [\"10.35.33.144 - - [15/Jan/2022:07:13:13 +0000] \\\"GET /mnemo/memo.php?memo=hTKrDU8wPjAWzI2mQo2-WK3&memolist=ou-fheWTtfkWUMROYRMn1Z8&actionID=modify_memo HTTP/1.1\\\" 200 6928 \\\"https://mail.price.fox.org/mnemo/list.php\\\" \\\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/95.0.4638.69 Safari/537.36\\\"\"], \"Timestamps\": [1642230793], \"DetectionTimestamp\": [1642230793], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/mail-access.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "line_number": 83,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The high-frequency DNS queries indicate potential covert data exfiltration over DNS.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/forwarded\", \"/model/type/forwarded/reply\", \"/model/type/forwarded/domain\", \"/model/type/forwarded/to\", \"/model/type/forwarded/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/reply\", \"/model/type/reply/reply\", \"/model/type/reply/domain\", \"/model/type/reply/is\", \"/model/type/reply/ip\"]], \"AffectedLogAtomFrequencies\": [6, 2, 4, 8], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.8461538461538461}, \"LogData\": {\"RawLogData\": [\"Jan 19 23:11:48 dnsmasq[14460]: query[AAAA] jonesmorgan-mail from 192.168.128.170\"], \"Timestamps\": [1642633908], \"DetectionTimestamp\": [1642633908], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 84,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The high-frequency DNS queries to motd.ubuntu.com suggest potential covert data exfiltration over DNS.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [2, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9692307692307692}, \"LogData\": {\"RawLogData\": [\"Jan 19 23:25:41 dnsmasq[14460]: query[A] motd.ubuntu.com from 192.168.131.165\"], \"Timestamps\": [1642634741], \"DetectionTimestamp\": [1642634741], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 85,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The unusual DNS query frequencies indicate potential covert data exfiltration over DNS.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/forwarded\", \"/model/type/forwarded/reply\", \"/model/type/forwarded/domain\", \"/model/type/forwarded/to\", \"/model/type/forwarded/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/reply\", \"/model/type/reply/reply\", \"/model/type/reply/domain\", \"/model/type/reply/is\", \"/model/type/reply/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [7, 6, 8, 1], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.8307692307692308}, \"LogData\": {\"RawLogData\": [\"Jan 19 23:31:17 dnsmasq[14460]: query[AAAA] taylorcruz-mail from 192.168.128.195\"], \"Timestamps\": [1642635077], \"DetectionTimestamp\": [1642635077], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 86,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The high-frequency DNS queries indicate potential covert data exfiltration over DNS.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [2, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9692307692307692}, \"LogData\": {\"RawLogData\": [\"Jan 19 23:41:48 dnsmasq[14460]: query[AAAA] jonesmorgan-mail from 192.168.128.170\"], \"Timestamps\": [1642635708], \"DetectionTimestamp\": [1642635708], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 87,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The high-frequency DNS queries indicate potential covert data exfiltration over DNS.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [2, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9692307692307692}, \"LogData\": {\"RawLogData\": [\"Jan 19 23:55:16 dnsmasq[14460]: query[TXT] current.cvd.clamav.net from 192.168.128.4\"], \"Timestamps\": [1642636516], \"DetectionTimestamp\": [1642636516], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 88,
+    "predicted_attack_type": [
+      "Valid Accounts"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates an unauthorized access attempt to the Horde mail service by user megan.johnson, which could be an attempt to gain access to user accounts.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/service/horde/horde/free_msg\", \"/model/service/horde/horde/free_msg/msg\"]}, \"LogData\": {\"RawLogData\": [\"Jan 19 07:20:40 miller-mail HORDE: User megan.johnson is not authorized for Mail (Host: 192.168.131.156). [pid 871 on line 324 of \\\"/usr/share/php/Horde/Registry.php\\\"]\"], \"Timestamps\": [1642576840], \"DetectionTimestamp\": [1642576840], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/messages\"]}, \"AMiner\": {\"ID\": \"192.168.129.212\"}}\n"
+  },
+  {
+    "line_number": 89,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The high-frequency DNS queries indicate potential covert data exfiltration over DNS.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/forwarded\", \"/model/type/forwarded/reply\", \"/model/type/forwarded/domain\", \"/model/type/forwarded/to\", \"/model/type/forwarded/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/nameserver\", \"/model/type/nameserver/nameserver\", \"/model/type/nameserver/ip\", \"/model/type/nameserver/refused\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/reply\", \"/model/type/reply/reply\", \"/model/type/reply/domain\", \"/model/type/reply/is\", \"/model/type/reply/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [22, 20, 17, 20, 5], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.5733333333333334}, \"LogData\": {\"RawLogData\": [\"Jan 19 07:40:56 dnsmasq[14522]: query[AAAA] mail.dmz.price.fox.org from 172.17.130.37\"], \"Timestamps\": [1642578056], \"DetectionTimestamp\": [1642578056], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "line_number": 90,
+    "predicted_attack_type": [
+      "Brute Force"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a significant increase in CPU usage, which is often associated with brute-force attacks attempting to gain unauthorized access.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 36, \"AnalysisComponentType\": \"MatchValueAverageChangeDetector\", \"AnalysisComponentName\": \"AMiner: CPU value deviates from average in monitoring logs.\", \"Message\": \"Statistical data report\", \"PersistenceFileName\": \"Default\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model\", \"/model/version\", \"/model/agent/version\", \"/model/event/version\", \"/model/metricset/version\", \"/model/time\", \"/model/service/version\", \"/model/version/0\", \"/model/version/1\", \"/model/agent/version/0\", \"/model/agent/version/1\", \"/model/agent/version/2\", \"/model/agent/version/3\", \"/model/agent/version/4\", \"/model/system/cpu/softirq/version\", \"/model/system/cpu/softirq/norm/version\", \"/model/system/cpu/iowait/version\", \"/model/system/cpu/iowait/norm/version\", \"/model/system/cpu/nice/val\", \"/model/system/cpu/nice/norm/val\", \"/model/system/cpu/val\", \"/model/system/cpu/idle/version\", \"/model/system/cpu/idle/norm/version\", \"/model/system/cpu/system/val\", \"/model/system/cpu/system/norm/val\", \"/model/system/cpu/steal/version\", \"/model/system/cpu/steal/norm/version\", \"/model/system/cpu/total/val\", \"/model/system/cpu/total/norm/val\", \"/model/system/cpu/user/version\", \"/model/system/cpu/user/norm/version\", \"/model/system/cpu/irq/version\", \"/model/system/cpu/irq/norm/version\", \"/model/event/version/0\", \"/model/event/version/1\", \"/model/event/version/2\", \"/model/metricset/version/0\", \"/model/metricset/version/1\", \"/model/ecs/version\", \"/model/host/cpu/version\", \"/model/host/version\"], \"AnomalyScores\": [{\"Path\": \"/model/system/cpu/total/norm/val\", \"AnalysisData\": {\"New\": {\"N\": 100, \"Avg\": 0.100627, \"Var\": 0.002294519970707073}, \"Old\": {\"N\": 3800, \"Avg\": 0.07845189473684211, \"Var\": 0.0037339315099652274}}}], \"MinBinElements\": 100, \"MinBinTime\": 10, \"DebugMode\": false}, \"LogData\": {\"RawLogData\": [\"{\\\"@timestamp\\\":\\\"2022-01-19T07:44:54.322Z\\\",\\\"service\\\":{\\\"type\\\":\\\"system\\\"},\\\"tags\\\":[\\\"beats_input_raw_event\\\"],\\\"@version\\\":\\\"1\\\",\\\"agent\\\":{\\\"type\\\":\\\"metricbeat\\\",\\\"hostname\\\":\\\"intranet-server\\\",\\\"version\\\":\\\"7.13.2\\\",\\\"id\\\":\\\"a0c41e4e-ff4a-481f-adda-21fc96889b28\\\",\\\"name\\\":\\\"intranet-server\\\",\\\"ephemeral_id\\\":\\\"ae20c47b-0a81-4e05-a749-cbe0dacd5e36\\\"},\\\"system\\\":{\\\"cpu\\\":{\\\"softirq\\\":{\\\"pct\\\":0.0012,\\\"norm\\\":{\\\"pct\\\":0.0012}},\\\"iowait\\\":{\\\"pct\\\":0,\\\"norm\\\":{\\\"pct\\\":0}},\\\"nice\\\":{\\\"pct\\\":0,\\\"norm\\\":{\\\"pct\\\":0}},\\\"cores\\\":1,\\\"idle\\\":{\\\"pct\\\":0.91,\\\"norm\\\":{\\\"pct\\\":0.91}},\\\"system\\\":{\\\"pct\\\":0.0439,\\\"norm\\\":{\\\"pct\\\":0.0439}},\\\"steal\\\":{\\\"pct\\\":0.0106,\\\"norm\\\":{\\\"pct\\\":0.0106}},\\\"total\\\":{\\\"pct\\\":0.09,\\\"norm\\\":{\\\"pct\\\":0.09}},\\\"user\\\":{\\\"pct\\\":0.0342,\\\"norm\\\":{\\\"pct\\\":0.0342}},\\\"irq\\\":{\\\"pct\\\":0,\\\"norm\\\":{\\\"pct\\\":0}}}},\\\"event\\\":{\\\"duration\\\":1602734,\\\"dataset\\\":\\\"system.cpu\\\",\\\"module\\\":\\\"system\\\"},\\\"metricset\\\":{\\\"name\\\":\\\"cpu\\\",\\\"period\\\":45000},\\\"ecs\\\":{\\\"version\\\":\\\"1.9.0\\\"},\\\"host\\\":{\\\"cpu\\\":{\\\"pct\\\":0.09},\\\"name\\\":\\\"intranet-server\\\"}}\"], \"Timestamps\": [1642578294.32], \"DetectionTimestamp\": [1642578294.32], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/logstash/intranet-server/system.cpu.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.204\"}}\n"
+  },
+  {
+    "line_number": 91,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The unusual frequency of DNS queries to specific IP addresses suggests potential covert data exfiltration over DNS.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 33, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS query IPs.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_query_ip\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/ip\"], \"AffectedLogAtomValues\": [[\"192.168.128.4\"], [\"172.17.130.196\"], [\"192.168.128.195\"], [\"10.35.33.116\"], [\"172.17.130.37\"], [\"192.168.131.228\"], [\"10.35.32.164\"], [\"192.168.128.170\"], [\"192.168.128.107\"], [\"10.35.35.202\"], [\"192.168.129.212\"], [\"192.168.131.156\"], [\"172.17.131.81\"], [\"10.35.35.206\"], [\"10.35.35.118\"], [\"192.168.131.15\"], [\"192.168.131.118\"], [\"192.168.131.234\"]], \"AffectedLogAtomFrequencies\": [77, 33, 3, 56, 8, 3, 117, 3, 2, 12, 16, 44, 38, 4, 2, 45, 37, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.8035329599310642}, \"LogData\": {\"RawLogData\": [\"Jan 19 08:00:40 dnsmasq[14460]: query[A] example.org from 192.168.131.156\"], \"Timestamps\": [1642579240], \"DetectionTimestamp\": [1642579240], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 92,
+    "predicted_attack_type": [
+      "Data from Local System",
+      "Access Token Manipulation"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a potential attempt to access sensitive files or directories, possibly to exfiltrate data or escalate privileges. The presence of parentheses in the request, which are flagged as missing characters, could be an attempt to bypass security controls or exploit a vulnerability.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/index.php/apps/files/ajax/download.php?dir=%2F&files=Photos%20(2)&downloadStartSecret=mpkblf8epu\"], \"MissingCharacters\": [\"(\", \")\"]}, \"LogData\": {\"RawLogData\": [\"cloud.dmz.price.fox.org:443 172.17.130.37 - - [19/Jan/2022:08:56:02 +0000] \\\"GET /index.php/apps/files/ajax/download.php?dir=%2F&files=Photos%20(2)&downloadStartSecret=mpkblf8epu HTTP/1.1\\\" 200 1025463 \\\"-\\\" \\\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/95.0.4638.69 Safari/537.36\\\"\"], \"Timestamps\": [1642582562], \"DetectionTimestamp\": [1642582562], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/other_vhosts_access.log\"]}, \"AMiner\": {\"ID\": \"172.17.129.140\"}}\n"
+  },
+  {
+    "line_number": 93,
+    "predicted_attack_type": [
+      "Data Exfiltration",
+      "Access Control: Data Access"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates an attempt to download a file named 'Photos (2)' which contains characters that are not typically found in web requests, suggesting a potential attempt to exfiltrate sensitive data or exploit a vulnerability.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/index.php/apps/files/ajax/download.php?dir=%2F&files=Photos%20(2)&downloadStartSecret=mpkblf8epu\"], \"MissingCharacters\": [\"(\", \")\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [19/Jan/2022:08:56:02 +0000] \\\"GET /index.php/apps/files/ajax/download.php?dir=%2F&files=Photos%20(2)&downloadStartSecret=mpkblf8epu HTTP/1.1\\\" 200 1023192 \\\"-\\\" \\\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/95.0.4638.69 Safari/537.36\\\"\"], \"Timestamps\": [1642582562], \"DetectionTimestamp\": [1642582562], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/cloud-access.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "line_number": 94,
+    "predicted_attack_type": [
+      "Brute Force"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a significant increase in CPU usage, which is characteristic of brute-force attacks attempting to gain unauthorized access.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 36, \"AnalysisComponentType\": \"MatchValueAverageChangeDetector\", \"AnalysisComponentName\": \"AMiner: CPU value deviates from average in monitoring logs.\", \"Message\": \"Statistical data report\", \"PersistenceFileName\": \"Default\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model\", \"/model/version\", \"/model/agent/version\", \"/model/event/version\", \"/model/metricset/version\", \"/model/time\", \"/model/service/version\", \"/model/version/0\", \"/model/version/1\", \"/model/agent/version/0\", \"/model/agent/version/1\", \"/model/agent/version/2\", \"/model/agent/version/3\", \"/model/agent/version/4\", \"/model/system/cpu/val\", \"/model/system/cpu/iowait/version\", \"/model/system/cpu/iowait/norm/version\", \"/model/system/cpu/nice/val\", \"/model/system/cpu/nice/norm/val\", \"/model/system/cpu/softirq/version\", \"/model/system/cpu/softirq/norm/version\", \"/model/system/cpu/idle/version\", \"/model/system/cpu/idle/norm/version\", \"/model/system/cpu/system/val\", \"/model/system/cpu/system/norm/val\", \"/model/system/cpu/total/val\", \"/model/system/cpu/total/norm/val\", \"/model/system/cpu/steal/version\", \"/model/system/cpu/steal/norm/version\", \"/model/system/cpu/user/version\", \"/model/system/cpu/user/norm/version\", \"/model/system/cpu/irq/version\", \"/model/system/cpu/irq/norm/version\", \"/model/event/version/0\", \"/model/event/version/1\", \"/model/event/version/2\", \"/model/metricset/version/0\", \"/model/metricset/version/1\", \"/model/ecs/version\", \"/model/host/cpu/version\", \"/model/host/version\"], \"AnomalyScores\": [{\"Path\": \"/model/system/cpu/total/norm/val\", \"AnalysisData\": {\"New\": {\"N\": 100, \"Avg\": 0.102272, \"Var\": 0.00011071052121211988}, \"Old\": {\"N\": 3800, \"Avg\": 0.07845189473684211, \"Var\": 0.0037339315099652274}}}], \"MinBinElements\": 100, \"MinBinTime\": 10, \"DebugMode\": false}, \"LogData\": {\"RawLogData\": [\"{\\\"@timestamp\\\":\\\"2022-01-19T08:59:54.322Z\\\",\\\"service\\\":{\\\"type\\\":\\\"system\\\"},\\\"tags\\\":[\\\"beats_input_raw_event\\\"],\\\"@version\\\":\\\"1\\\",\\\"agent\\\":{\\\"type\\\":\\\"metricbeat\\\",\\\"hostname\\\":\\\"intranet-server\\\",\\\"version\\\":\\\"7.13.2\\\",\\\"id\\\":\\\"a0c41e4e-ff4a-481f-adda-21fc96889b28\\\",\\\"name\\\":\\\"intranet-server\\\",\\\"ephemeral_id\\\":\\\"ae20c47b-0a81-4e05-a749-cbe0dacd5e36\\\"},\\\"system\\\":{\\\"cpu\\\":{\\\"cores\\\":1,\\\"iowait\\\":{\\\"pct\\\":2.0E-4,\\\"norm\\\":{\\\"pct\\\":2.0E-4}},\\\"nice\\\":{\\\"pct\\\":0,\\\"norm\\\":{\\\"pct\\\":0}},\\\"softirq\\\":{\\\"pct\\\":0.0014,\\\"norm\\\":{\\\"pct\\\":0.0014}},\\\"idle\\\":{\\\"pct\\\":0.9123,\\\"norm\\\":{\\\"pct\\\":0.9123}},\\\"system\\\":{\\\"pct\\\":0.0459,\\\"norm\\\":{\\\"pct\\\":0.0459}},\\\"total\\\":{\\\"pct\\\":0.0875,\\\"norm\\\":{\\\"pct\\\":0.0875}},\\\"steal\\\":{\\\"pct\\\":0.0085,\\\"norm\\\":{\\\"pct\\\":0.0085}},\\\"user\\\":{\\\"pct\\\":0.0317,\\\"norm\\\":{\\\"pct\\\":0.0317}},\\\"irq\\\":{\\\"pct\\\":0,\\\"norm\\\":{\\\"pct\\\":0}}}},\\\"event\\\":{\\\"duration\\\":1546859,\\\"dataset\\\":\\\"system.cpu\\\",\\\"module\\\":\\\"system\\\"},\\\"metricset\\\":{\\\"name\\\":\\\"cpu\\\",\\\"period\\\":45000},\\\"ecs\\\":{\\\"version\\\":\\\"1.9.0\\\"},\\\"host\\\":{\\\"cpu\\\":{\\\"pct\\\":0.0875},\\\"name\\\":\\\"intranet-server\\\"}}\"], \"Timestamps\": [1642582794.32], \"DetectionTimestamp\": [1642582794.32], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/logstash/intranet-server/system.cpu.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.204\"}}\n"
+  },
+  {
+    "line_number": 95,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The unusual frequency of DNS queries to specific IP addresses suggests potential covert data exfiltration over DNS.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 33, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS query IPs.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_query_ip\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/ip\"], \"AffectedLogAtomValues\": [[\"192.168.131.156\"], [\"192.168.131.118\"], [\"172.17.131.81\"], [\"192.168.128.4\"], [\"10.35.32.164\"], [\"192.168.128.195\"], [\"192.168.131.228\"], [\"10.35.35.118\"], [\"172.17.130.37\"], [\"192.168.128.170\"], [\"172.17.130.196\"], [\"192.168.129.212\"], [\"192.168.130.110\"], [\"192.168.129.209\"], [\"192.168.131.165\"], [\"10.35.35.206\"], [\"172.17.129.140\"], [\"192.168.131.15\"]], \"AffectedLogAtomFrequencies\": [110, 21, 124, 145, 112, 34, 21, 209, 8, 119, 72, 73, 27, 4, 2, 5, 2, 30], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.7103762827822121}, \"LogData\": {\"RawLogData\": [\"Jan 19 09:00:04 dnsmasq[14460]: query[PTR] 156.131.168.192.in-addr.arpa from 192.168.129.212\"], \"Timestamps\": [1642582804], \"DetectionTimestamp\": [1642582804], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 96,
+    "predicted_attack_type": [
+      "Data from Local System",
+      "Access Token Manipulation"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates an attempt to access sensitive files or directories, potentially for data exfiltration or privilege escalation.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/index.php/apps/files/ajax/download.php?dir=%2F&files=Photos%20(2)&downloadStartSecret=eoc8jujhu4l\"], \"MissingCharacters\": [\"(\", \")\"]}, \"LogData\": {\"RawLogData\": [\"cloud.dmz.price.fox.org:443 172.17.130.37 - - [19/Jan/2022:09:06:38 +0000] \\\"GET /index.php/apps/files/ajax/download.php?dir=%2F&files=Photos%20(2)&downloadStartSecret=eoc8jujhu4l HTTP/1.1\\\" 200 1025464 \\\"-\\\" \\\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/95.0.4638.69 Safari/537.36\\\"\"], \"Timestamps\": [1642583198], \"DetectionTimestamp\": [1642583198], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/other_vhosts_access.log\"]}, \"AMiner\": {\"ID\": \"172.17.129.140\"}}\n"
+  },
+  {
+    "line_number": 97,
+    "predicted_attack_type": [
+      "Access Token Manipulation",
+      "Exploitation for Client Execution"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates the presence of unusual characters in a web request, specifically parentheses, which are often used to bypass security filters or exploit vulnerabilities in file handling or path traversal.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/index.php/apps/files/ajax/download.php?dir=%2F&files=Photos%20(2)&downloadStartSecret=eoc8jujhu4l\"], \"MissingCharacters\": [\"(\", \")\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [19/Jan/2022:09:06:38 +0000] \\\"GET /index.php/apps/files/ajax/download.php?dir=%2F&files=Photos%20(2)&downloadStartSecret=eoc8jujhu4l HTTP/1.1\\\" 200 1023177 \\\"-\\\" \\\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/95.0.4638.69 Safari/537.36\\\"\"], \"Timestamps\": [1642583198], \"DetectionTimestamp\": [1642583198], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/cloud-access.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "line_number": 98,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The high-frequency DNS queries indicate potential covert data exfiltration over DNS.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [2, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9692307692307692}, \"LogData\": {\"RawLogData\": [\"Jan 19 00:11:48 dnsmasq[14460]: query[AAAA] jonesmorgan-mail from 192.168.128.170\"], \"Timestamps\": [1642551108], \"DetectionTimestamp\": [1642551108], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 99,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The high-frequency DNS queries indicate potential covert data exfiltration over DNS.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [2, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9692307692307692}, \"LogData\": {\"RawLogData\": [\"Jan 19 00:41:48 dnsmasq[14460]: query[AAAA] jonesmorgan-mail from 192.168.128.170\"], \"Timestamps\": [1642552908], \"DetectionTimestamp\": [1642552908], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 100,
+    "predicted_attack_type": [
+      "Exfiltration Over C2 Channel"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The high-frequency DNS queries indicate potential covert data exfiltration over DNS.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/forwarded\", \"/model/type/forwarded/reply\", \"/model/type/forwarded/domain\", \"/model/type/forwarded/to\", \"/model/type/forwarded/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/reply\", \"/model/type/reply/reply\", \"/model/type/reply/domain\", \"/model/type/reply/is\", \"/model/type/reply/ip\"]], \"AffectedLogAtomFrequencies\": [11, 3, 8, 26], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.6412213740458015}, \"LogData\": {\"RawLogData\": [\"Jan 19 01:01:17 dnsmasq[14460]: query[AAAA] taylorcruz-mail from 192.168.128.195\"], \"Timestamps\": [1642554077], \"DetectionTimestamp\": [1642554077], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}"
+  }
+]

@@ -1,0 +1,1008 @@
+[
+  {
+    "attack_type": [
+      "Information Gathering"
+    ],
+    "description": "New path detected related to peer information, specifically platform details, which could indicate reconnaissance activities.",
+    "tools": [
+      "Nmap",
+      "OpenVPN client (for info leakage if misconfigured)"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/fm/peer_info/fm/platform\", \"/model/fm/peer_info/fm/platform/platform_str\", \"/model/fm/peer_info/fm/platform/platform\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-15 00:41:37 hwarren/192.168.129.254:41251 peer info: IV_PLAT=linux\"], \"Timestamps\": [1642207297], \"DetectionTimestamp\": [1642207297], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/openvpn.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.196\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Discovery"
+    ],
+    "description": "New IP address (10.35.33.116) observed in DNS logs, potentially indicating a new client or an attacker performing internal network reconnaissance.",
+    "tools": [
+      "Nmap",
+      "ping",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 27, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New ip address in DNS logs.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_dns_ip\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/ip\"], \"AffectedLogAtomValues\": [\"10.35.33.116\"]}, \"LogData\": {\"RawLogData\": [\"Jan 15 03:59:20 dnsmasq[14522]: query[AAAA] motd.ubuntu.com from 10.35.33.116\"], \"Timestamps\": [1642219160], \"DetectionTimestamp\": [1642219160], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion",
+      "Persistence"
+    ],
+    "description": "New service start parameter combination for 'grub-common' via systemd. While 'grub-common' is legitimate, new/unusual combinations could be an attempt to establish persistence or evade detection by modifying system services.",
+    "tools": [
+      "systemctl",
+      "update-rc.d",
+      "chkconfig"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 14, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New service_start parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_service_start\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/service_start/uid\", \"/model/type/service_start/msg2\", \"/model/type/service_start/fm/comm/comm\", \"/model/type/service_start/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"0\", \"'unit=grub-common\", \"\\\"systemd\\\"\", \"\\\"/lib/systemd/systemd\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=SERVICE_START msg=audit(1642227294.244:528): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=grub-common comm=\\\"systemd\\\" exe=\\\"/lib/systemd/systemd\\\" hostname=? addr=? terminal=? res=success'\"], \"Timestamps\": [1642227294.24], \"DetectionTimestamp\": [1642227294.24], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion"
+    ],
+    "description": "New service stop parameter combination for 'grub-common' via systemd. Similar to service start, unusual stops might indicate an attempt to disrupt logging or security services, or clean up after an attack.",
+    "tools": [
+      "systemctl",
+      "kill"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 15, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New service_stop parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_service_stop\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/service_stop/uid\", \"/model/type/service_stop/msg2\", \"/model/type/service_stop/fm/comm/comm\", \"/model/type/service_stop/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"0\", \"'unit=grub-common\", \"\\\"systemd\\\"\", \"\\\"/lib/systemd/systemd\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=SERVICE_STOP msg=audit(1642227294.244:529): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=grub-common comm=\\\"systemd\\\" exe=\\\"/lib/systemd/systemd\\\" hostname=? addr=? terminal=? res=success'\"], \"Timestamps\": [1642227294.24], \"DetectionTimestamp\": [1642227294.24], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Resource Hijacking",
+      "Denial of Service"
+    ],
+    "description": "CPU value deviates from average. A significant increase in CPU usage could indicate resource hijacking (e.g., cryptocurrency mining) or a denial-of-service attack.",
+    "tools": [
+      "XMRig",
+      "Stress-ng",
+      "hping3"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 36, \"AnalysisComponentType\": \"MatchValueAverageChangeDetector\", \"AnalysisComponentName\": \"AMiner: CPU value deviates from average in monitoring logs.\", \"Message\": \"Statistical data report\", \"PersistenceFileName\": \"Default\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model\", \"/model/version\", \"/model/agent/version\", \"/model/event/version\", \"/model/metricset/version\", \"/model/time\", \"/model/service/version\", \"/model/version/0\", \"/model/version/1\", \"/model/agent/version/0\", \"/model/agent/version/1\", \"/model/agent/version/2\", \"/model/agent/version/3\", \"/model/agent/version/4\", \"/model/system/cpu/softirq/version\", \"/model/system/cpu/softirq/norm/version\", \"/model/system/cpu/val\", \"/model/system/cpu/iowait/version\", \"/model/system/cpu/iowait/norm/version\", \"/model/system/cpu/nice/val\", \"/model/system/cpu/nice/norm/val\", \"/model/system/cpu/idle/version\", \"/model/system/cpu/idle/norm/version\", \"/model/system/cpu/system/val\", \"/model/system/cpu/system/norm/val\", \"/model/system/cpu/steal/version\", \"/model/system/cpu/steal/norm/version\", \"/model/system/cpu/total/val\", \"/model/system/cpu/total/norm/val\", \"/model/system/cpu/user/version\", \"/model/system/cpu/user/norm/version\", \"/model/system/cpu/irq/version\", \"/model/system/cpu/irq/norm/version\", \"/model/event/version/0\", \"/model/event/version/1\", \"/model/event/version/2\", \"/model/metricset/version/0\", \"/model/metricset/version/1\", \"/model/ecs/version\", \"/model/host/cpu/version\", \"/model/host/version\"], \"AnomalyScores\": [{\"Path\": \"/model/system/cpu/total/norm/val\", \"AnalysisData\": {\"New\": {\"N\": 100, \"Avg\": 0.071784, \"Var\": 2.387065050505056e-05}, \"Old\": {\"N\": 400, \"Avg\": 0.06753825000000001, \"Var\": 4.050001196741853e-05}}}], \"MinBinElements\": 100, \"MinBinTime\": 10, \"DebugMode\": false}, \"LogData\": {\"RawLogData\": [\"{\\\"@timestamp\\\":\\\"2022-01-15T06:14:54.324Z\\\",\\\"service\\\":{\\\"type\\\":\\\"system\\\"},\\\"tags\\\":[\\\"beats_input_raw_event\\\"],\\\"@version\\\":\\\"1\\\",\\\"agent\\\":{\\\"type\\\":\\\"metricbeat\\\",\\\"hostname\\\":\\\"intranet-server\\\",\\\"version\\\":\\\"7.13.2\\\",\\\"id\\\":\\\"a0c41e4e-ff4a-481f-adda-21fc96889b28\\\",\\\"name\\\":\\\"intranet-server\\\",\\\"ephemeral_id\\\":\\\"ae20c47b-0a81-4e05-a749-cbe0dacd5e36\\\"},\\\"system\\\":{\\\"cpu\\\":{\\\"softirq\\\":{\\\"pct\\\":0.0012,\\\"norm\\\":{\\\"pct\\\":0.0012}},\\\"cores\\\":1,\\\"iowait\\\":{\\\"pct\\\":0.0012,\\\"norm\\\":{\\\"pct\\\":0.0012}},\\\"nice\\\":{\\\"pct\\\":0,\\\"norm\\\":{\\\"pct\\\":0}},\\\"idle\\\":{\\\"pct\\\":0.9182,\\\"norm\\\":{\\\"pct\\\":0.9182}},\\\"system\\\":{\\\"pct\\\":0.0388,\\\"norm\\\":{\\\"pct\\\":0.0388}},\\\"steal\\\":{\\\"pct\\\":0.0031,\\\"norm\\\":{\\\"pct\\\":0.0031}},\\\"total\\\":{\\\"pct\\\":0.0806,\\\"norm\\\":{\\\"pct\\\":0.0806}},\\\"user\\\":{\\\"pct\\\":0.0376,\\\"norm\\\":{\\\"pct\\\":0.0376}},\\\"irq\\\":{\\\"pct\\\":0,\\\"norm\\\":{\\\"pct\\\":0}}}},\\\"event\\\":{\\\"duration\\\":704646,\\\"dataset\\\":\\\"system.cpu\\\",\\\"module\\\":\\\"system\\\"},\\\"metricset\\\":{\\\"name\\\":\\\"cpu\\\",\\\"period\\\":45000},\\\"ecs\\\":{\\\"version\\\":\\\"1.9.0\\\"},\\\"host\\\":{\\\"cpu\\\":{\\\"pct\\\":0.0806},\\\"name\\\":\\\"intranet-server\\\"}}\"], \"Timestamps\": [1642227294.32], \"DetectionTimestamp\": [1642227294.32], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/logstash/intranet-server/system.cpu.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.204\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion"
+    ],
+    "description": "New event type related to 'grub-common' recording successful boot. While this is likely benign, an attacker might manipulate boot records to hide persistence mechanisms or other modifications.",
+    "tools": [
+      "GRUB tools",
+      "bootkit frameworks"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/service/grub\", \"/model/service/grub/grub_str\", \"/model/service/grub/id\", \"/model/service/grub/brack_str1\", \"/model/service/grub/grub_msg\"]}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:14:55 webserver grub-common[32539]:  * Recording successful boot for GRUB\"], \"Timestamps\": [1642227295], \"DetectionTimestamp\": [1642227295], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/syslog\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Web Application Attack",
+      "Exploitation for Client Execution"
+    ],
+    "description": "High entropy in Apache Access referer, especially with a suspicious domain, could indicate an attempt to exploit vulnerabilities via malformed referer headers or cross-site scripting (XSS) attacks.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP",
+      "Nikto"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 8, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in Apache Access referer.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_referer\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/combined/combined/referer\"], \"AffectedLogAtomValues\": [\"http://intranet.price.fox.org/\"], \"CriticalValue\": 0.0, \"ProbabilityThreshold\": 0.05}, \"LogData\": {\"RawLogData\": [\"10.35.35.202 - - [15/Jan/2022:06:20:20 +0000] \\\"GET /wp-includes/css/dist/block-library/style.min.css?ver=5.8.3 HTTP/1.1\\\" 200 10846 \\\"http://intranet.price.fox.org/\\\" \\\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0\\\"\"], \"Timestamps\": [1642227620], \"DetectionTimestamp\": [1642227620], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Web Application Attack",
+      "Input Validation Bypass",
+      "Exploitation for Client Execution"
+    ],
+    "description": "New characters detected in Apache Access referer, suggesting an attempt to bypass input validation or inject malicious code (e.g., XSS, SQL injection) through an unusual referer string.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP",
+      "SQLMap"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 9, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access referer.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_referer\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/combined/combined/referer\"], \"AffectedLogAtomValues\": [\"http://intranet.price.fox.org/\"], \"MissingCharacters\": [\"a\", \"c\", \"e\", \"f\", \"g\", \"h\", \"i\", \"n\", \"/\", \"p\", \".\", \"r\", \"o\", \"t\", \"x\", \":\"]}, \"LogData\": {\"RawLogData\": [\"10.35.35.202 - - [15/Jan/2022:06:20:20 +0000] \\\"GET /wp-includes/css/dist/block-library/style.min.css?ver=5.8.3 HTTP/1.1\\\" 200 10846 \\\"http://intranet.price.fox.org/\\\" \\\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0\\\"\"], \"Timestamps\": [1642227620], \"DetectionTimestamp\": [1642227620], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Discovery"
+    ],
+    "description": "New internal IP address (192.168.131.234) detected in DNS logs querying 'motd.ubuntu.com', possibly indicating a new host on the network or an attacker performing internal reconnaissance.",
+    "tools": [
+      "Nmap",
+      "ping",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 27, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New ip address in DNS logs.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_dns_ip\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/ip\"], \"AffectedLogAtomValues\": [\"192.168.131.234\"]}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:40:43 dnsmasq[14460]: query[A] motd.ubuntu.com from 192.168.131.234\"], \"Timestamps\": [1642228843], \"DetectionTimestamp\": [1642228843], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Denial of Service",
+      "Reconnaissance"
+    ],
+    "description": "Unusual frequency of 'A' record DNS queries exceeding the expected range for 'intranet.price.fox.org'. This could indicate a DNS amplification attack, a misconfigured client, or an attacker performing aggressive reconnaissance.",
+    "tools": [
+      "dnsflood",
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 31, \"AnalysisComponentType\": \"EventFrequencyDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of query records in DNS logs.\", \"Message\": \"Frequency exceeds range for the first time\", \"PersistenceFileName\": \"efd_dns_record\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/record\"], \"AffectedLogAtomValues\": [\"A\"]}, \"FrequencyData\": {\"ExpectedLogAtomValuesFrequency\": 532.3333333333334, \"ExpectedLogAtomValuesFrequencyRange\": [462.0, 603.0], \"LogAtomValuesFrequency\": 604, \"WindowSize\": 3600, \"ConfidenceFactor\": 0.25}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:43:04 dnsmasq[14522]: query[A] intranet.price.fox.org from 10.35.33.144\"], \"Timestamps\": [1642228984], \"DetectionTimestamp\": [1642228984], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Web Application Attack",
+      "Reconnaissance"
+    ],
+    "description": "Unusual occurrence frequencies of Apache Access request methods, particularly with 'GET / HTTP/1.1' and a 302 redirect. While a 'GET' is normal, an unusual frequency might point to a web scanner or an attacker mapping the web server.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP",
+      "Nikto"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 11, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of Apache Access request methods.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [[\"1\"], [\"0\"]], \"AffectedLogAtomFrequencies\": [28, 11], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.5411764705882353}, \"LogData\": {\"RawLogData\": [\"10.35.35.118 - - [18/Jan/2022:07:58:03 +0000] \\\"GET / HTTP/1.1\\\" 302 447 \\\"-\\\" \\\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0\\\"\"], \"Timestamps\": [1642492683], \"DetectionTimestamp\": [1642492683], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/mail-access.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Network Scanning"
+    ],
+    "description": "Unusual occurrence frequencies of DNS query IPs, including queries for '_http._tcp.security.ubuntu.com' from 192.168.128.4. This could indicate an attacker performing internal network enumeration or service discovery.",
+    "tools": [
+      "Nmap",
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 33, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS query IPs.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_query_ip\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/ip\"], \"AffectedLogAtomValues\": [[\"192.168.131.228\"], [\"192.168.129.212\"], [\"192.168.128.195\"], [\"192.168.131.118\"], [\"192.168.128.4\"], [\"172.17.131.81\"], [\"10.35.35.118\"], [\"172.17.130.37\"], [\"192.168.130.84\"], [\"172.17.130.196\"], [\"192.168.128.170\"], [\"192.168.128.107\"], [\"10.35.35.202\"], [\"10.35.33.116\"], [\"192.168.131.165\"], [\"192.168.128.152\"]], \"AffectedLogAtomFrequencies\": [172, 43, 27, 4, 244, 209, 222, 3, 37, 271, 11, 2, 14, 2, 25, 74], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.5810874704491725}, \"LogData\": {\"RawLogData\": [\"Jan 18 08:00:41 dnsmasq[14460]: query[SRV] _http._tcp.security.ubuntu.com from 192.168.128.4\"], \"Timestamps\": [1642492841], \"DetectionTimestamp\": [1642492841], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Network Scanning"
+    ],
+    "description": "Unusual occurrence frequencies of DNS log events, including a PTR query for '110.130.168.192.in-addr.arpa' from 192.168.128.170. This could indicate reverse DNS lookups as part of a reconnaissance effort.",
+    "tools": [
+      "Nmap",
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/forwarded\", \"/model/type/forwarded/reply\", \"/model/type/forwarded/domain\", \"/model/type/forwarded/to\", \"/model/type/forwarded/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/nameserver\", \"/model/type/nameserver/nameserver\", \"/model/type/nameserver/ip\", \"/model/type/nameserver/refused\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/reply\", \"/model/type/reply/reply\", \"/model/type/reply/domain\", \"/model/type/reply/is\", \"/model/type/reply/ip\"]], \"AffectedLogAtomFrequencies\": [185, 154, 60, 118, 128], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.52015732546706}, \"LogData\": {\"RawLogData\": [\"Jan 18 08:40:20 dnsmasq[14460]: query[PTR] 110.130.168.192.in-addr.arpa from 192.168.128.170\"], \"Timestamps\": [1642495220], \"DetectionTimestamp\": [1642495220], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance"
+    ],
+    "description": "Unusual occurrence frequencies of DNS log events, with a query for 'motd.ubuntu.com' from 192.168.130.19. While benign in itself, an unusual frequency of such queries could signify a new host or internal reconnaissance.",
+    "tools": [
+      "nslookup",
+      "dig"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [2, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9692307692307692}, \"LogData\": {\"RawLogData\": [\"Jan 18 05:22:44 dnsmasq[14460]: query[A] motd.ubuntu.com from 192.168.130.19\"], \"Timestamps\": [1642483364], \"DetectionTimestamp\": [1642483364], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Software Discovery"
+    ],
+    "description": "Unusual occurrence frequencies of DNS log events, including a query for 'current.cvd.clamav.net' from 192.168.128.4. While legitimate for antivirus updates, an unusual frequency or context might indicate an attacker checking for security software versions.",
+    "tools": [
+      "nslookup",
+      "dig"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [2, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9692307692307692}, \"LogData\": {\"RawLogData\": [\"Jan 18 05:41:02 dnsmasq[14460]: query[TXT] current.cvd.clamav.net from 192.168.128.4\"], \"Timestamps\": [1642484462], \"DetectionTimestamp\": [1642484462], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Network Scanning"
+    ],
+    "description": "Unusual frequency of DNS query IPs, including a PTR lookup from 192.168.128.195. Frequent or unusual PTR queries can indicate an attacker performing reverse DNS lookups to map the network or identify hosts.",
+    "tools": [
+      "Nmap",
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 33, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS query IPs.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_query_ip\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/ip\"], \"AffectedLogAtomValues\": [[\"10.35.35.118\"], [\"172.17.130.196\"], [\"192.168.128.4\"], [\"192.168.128.195\"], [\"10.35.35.206\"], [\"10.35.32.164\"], [\"172.17.130.37\"], [\"192.168.131.234\"], [\"172.17.131.81\"], [\"192.168.131.228\"], [\"192.168.128.170\"], [\"192.168.129.212\"], [\"10.35.33.116\"], [\"172.17.129.140\"], [\"192.168.129.209\"], [\"192.168.131.156\"], [\"10.35.33.144\"], [\"192.168.131.15\"], [\"10.35.32.1\"], [\"172.17.128.1\"]], \"AffectedLogAtomFrequencies\": [43, 70, 170, 273, 4, 125, 10, 25, 109, 7, 27, 101, 3, 2, 25, 28, 3, 50, 2, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.6071428571428571}, \"LogData\": {\"RawLogData\": [\"Jan 17 17:00:05 dnsmasq[14460]: query[PTR] 209.129.168.192.in-addr.arpa from 192.168.128.195\"], \"Timestamps\": [1642438805], \"DetectionTimestamp\": [1642438805], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Network Attack",
+      "Denial of Service",
+      "Evasion"
+    ],
+    "description": "New event type indicating 'TLS key negotiation failed' and 'TLS handshake failed' repeatedly from the same source (192.168.129.254). This could be an attempt to degrade VPN services, probe for weak TLS configurations, or indicate a network connectivity issue.",
+    "tools": [
+      "OpenVPN client (misconfigured)",
+      "Metasploit (for TLS exploits)",
+      "Nmap (for SSL/TLS scanning)"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/tls_error\", \"/model/fm/tls_error/error_str\", \"/model/fm/tls_error/fm/negotiation_failed\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-17 17:11:26 hwarren/192.168.129.254:34841 TLS Error: TLS key negotiation failed to occur within 60 seconds (check your network connectivity)\"], \"Timestamps\": [1642439486], \"DetectionTimestamp\": [1642439486], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/openvpn.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.196\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Network Attack",
+      "Denial of Service",
+      "Evasion"
+    ],
+    "description": "Repeated 'TLS handshake failed' errors from 192.168.129.254, suggesting an attempt to disrupt TLS communication or probe for vulnerabilities in the TLS setup.",
+    "tools": [
+      "OpenSSL",
+      "Wireshark (for analysis)",
+      "TLS/SSL testing tools"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/tls_error\", \"/model/fm/tls_error/error_str\", \"/model/fm/tls_error/fm/handshake_failed\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-17 17:11:26 hwarren/192.168.129.254:34841 TLS Error: TLS handshake failed\"], \"Timestamps\": [1642439486], \"DetectionTimestamp\": [1642439486], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/openvpn.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.196\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion",
+      "Persistence"
+    ],
+    "description": "New event type showing 'TLS: move_session: dest=TM_LAME_DUCK src=TM_ACTIVE reinit_src=1'. This might be part of legitimate VPN session management, but in an attack context, it could signify attempts to re-establish or hijack sessions, potentially for persistence or evasion.",
+    "tools": [
+      "OpenVPN client",
+      "Session hijacking tools"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/tls/fm/move_session\", \"/model/fm/tls/fm/move_session/move_session_str\", \"/model/fm/tls/fm/move_session/dest\", \"/model/fm/tls/fm/move_session/src_str\", \"/model/fm/tls/fm/move_session/src\", \"/model/fm/tls/fm/move_session/reinit_src_str\", \"/model/fm/tls/fm/move_session/reinit_src\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-17 17:11:26 hwarren/192.168.129.254:34841 TLS: move_session: dest=TM_LAME_DUCK src=TM_ACTIVE reinit_src=1\"], \"Timestamps\": [1642439486], \"DetectionTimestamp\": [1642439486], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/openvpn.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.196\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Network Attack",
+      "Denial of Service",
+      "Evasion"
+    ],
+    "description": "Recurring 'TLS key negotiation failed' errors from 192.168.129.254, reinforcing the possibility of a network attack targeting VPN connectivity or TLS configuration.",
+    "tools": [
+      "OpenVPN client (misconfigured)",
+      "Metasploit",
+      "Nmap"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/tls_error\", \"/model/fm/tls_error/error_str\", \"/model/fm/tls_error/fm/negotiation_failed\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-17 17:12:41 hwarren/192.168.129.254:34841 TLS Error: TLS key negotiation failed to occur within 60 seconds (check your network connectivity)\"], \"Timestamps\": [1642439561], \"DetectionTimestamp\": [1642439561], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/openvpn.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.196\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Network Attack",
+      "Denial of Service",
+      "Evasion"
+    ],
+    "description": "Further instances of 'TLS handshake failed' errors, indicating a persistent issue or a continued attempt to disrupt the VPN connection from 192.168.129.254.",
+    "tools": [
+      "OpenSSL",
+      "Wireshark",
+      "TLS/SSL testing tools"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/tls_error\", \"/model/fm/tls_error/error_str\", \"/model/fm/tls_error/fm/handshake_failed\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-17 17:12:41 hwarren/192.168.129.254:34841 TLS Error: TLS handshake failed\"], \"Timestamps\": [1642439561], \"DetectionTimestamp\": [1642439561], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/openvpn.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.196\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Network Attack",
+      "Denial of Service",
+      "Evasion"
+    ],
+    "description": "Continued 'TLS key negotiation failed' errors from 192.168.129.254, suggesting a persistent attack or a chronic network problem affecting the VPN connection.",
+    "tools": [
+      "OpenVPN client (misconfigured)",
+      "Metasploit",
+      "Nmap"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/tls_error\", \"/model/fm/tls_error/error_str\", \"/model/fm/tls_error/fm/negotiation_failed\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-17 17:13:57 hwarren/192.168.129.254:34841 TLS Error: TLS key negotiation failed to occur within 60 seconds (check your network connectivity)\"], \"Timestamps\": [1642439637], \"DetectionTimestamp\": [1642439637], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/openvpn.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.196\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Network Attack",
+      "Denial of Service",
+      "Evasion"
+    ],
+    "description": "Repetitive 'TLS handshake failed' errors from 192.168.129.254, highlighting ongoing issues or a sustained attack targeting the TLS handshake process.",
+    "tools": [
+      "OpenSSL",
+      "Wireshark",
+      "TLS/SSL testing tools"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/tls_error\", \"/model/fm/tls_error/error_str\", \"/model/fm/tls_error/fm/handshake_failed\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-17 17:13:57 hwarren/192.168.129.254:34841 TLS Error: TLS handshake failed\"], \"Timestamps\": [1642439637], \"DetectionTimestamp\": [1642439637], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/openvpn.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.196\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Web Application Attack",
+      "Path Traversal",
+      "Information Gathering"
+    ],
+    "description": "New characters ('(', ')') in Apache Access request '/remote.php/dav/files/jwright/Photos%20(2)'. While parentheses can be part of legitimate filenames, their detection as 'new characters' suggests unusual encoding or an attempt at path traversal or information gathering through unconventional URLs.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP",
+      "DirBuster"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/remote.php/dav/files/jwright/Photos%20(2)\"], \"MissingCharacters\": [\"(\", \")\"]}, \"LogData\": {\"RawLogData\": [\"cloud.dmz.price.fox.org:443 172.17.130.37 - - [17/Jan/2022:17:51:25 +0000] \\\"PROPFIND /remote.php/dav/files/jwright/Photos%20(2) HTTP/1.1\\\" 207 3595 \\\"-\\\" \\\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/95.0.4638.69 Safari/537.36\\\"\"], \"Timestamps\": [1642441885], \"DetectionTimestamp\": [1642441885], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/other_vhosts_access.log\"]}, \"AMiner\": {\"ID\": \"172.17.129.140\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Web Application Attack",
+      "Path Traversal",
+      "Information Gathering"
+    ],
+    "description": "New characters ('(', ')') in Apache Access request '/index.php/apps/files/ajax/getstoragestats.php?dir=%2FPhotos%20(2)'. Similar to the previous alert, these new characters in a directory path hint at potential path traversal attempts or attempts to access specific files or directories that might be unusual.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP",
+      "sqlmap (if parameters are vulnerable)"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/index.php/apps/files/ajax/getstoragestats.php?dir=%2FPhotos%20(2)\"], \"MissingCharacters\": [\"(\", \")\"]}, \"LogData\": {\"RawLogData\": [\"cloud.dmz.price.fox.org:443 172.17.130.37 - - [17/Jan/2022:17:51:25 +0000] \\\"GET /index.php/apps/files/ajax/getstoragestats.php?dir=%2FPhotos%20(2) HTTP/1.1\\\" 200 951 \\\"-\\\" \\\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/95.0.4638.69 Safari/537.36\\\"\"], \"Timestamps\": [1642441885], \"DetectionTimestamp\": [1642441885], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/other_vhosts_access.log\"]}, \"AMiner\": {\"ID\": \"172.17.129.140\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Web Application Attack",
+      "Information Gathering"
+    ],
+    "description": "New characters ('(', ')') detected in the Apache Access referer URL. While these characters are part of the legitimate file path, their detection as 'new' might indicate unusual or specially crafted referer headers, potentially for probing or exploiting vulnerabilities related to URL parsing or directory traversal.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 9, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access referer.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_referer\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/combined/combined/referer\"], \"AffectedLogAtomValues\": [\"https://cloud.price.fox.org/index.php/apps/files/?dir=/Photos%20(2)&fileid=59\"], \"MissingCharacters\": [\"(\", \")\"]}, \"LogData\": {\"RawLogData\": [\"cloud.dmz.price.fox.org:443 172.17.130.37 - - [17/Jan/2022:17:51:25 +0000] \\\"GET /core/img/filetypes/image.svg HTTP/1.1\\\" 200 1242 \\\"https://cloud.price.fox.org/index.php/apps/files/?dir=/Photos%20(2)&fileid=59\\\" \\\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/95.0.4638.69 Safari/537.36\\\"\"], \"Timestamps\": [1642441885], \"DetectionTimestamp\": [1642441885], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/other_vhosts_access.log\"]}, \"AMiner\": {\"ID\": \"172.17.129.140\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion",
+      "Exploitation for Privilege Escalation"
+    ],
+    "description": "New event type indicating a 'PHP Deprecated' error from Horde, related to a deprecated constructor. While often benign, an attacker could exploit such deprecated functions or outdated PHP versions to achieve code execution or bypass security controls, particularly if combined with other vulnerabilities.",
+    "tools": [
+      "Metasploit (for PHP exploits)",
+      "Nessus (for vulnerability scanning)"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/php/fphp/deprecated\", \"/model/with_data/fm/client/fm/php/fphp/deprecated/deprecated_str\", \"/model/with_data/fm/client/fm/php/fphp/deprecated/class\", \"/model/with_data/fm/client/fm/php/fphp/deprecated/constructor_str\", \"/model/with_data/fm/client/fm/php/fphp/deprecated/path\", \"/model/with_data/fm/client/fm/php/fphp/deprecated/compatible_str\", \"/model/with_data/fm/client/fm/php/fphp/deprecated/line\", \"/model/with_data/fm/client/fm/php/fphp/deprecated/opt\", \"/model/with_data/fm/client/fm/php/fphp/deprecated/opt/referer\", \"/model/with_data/fm/client/fm/php/fphp/deprecated/opt/referer/referer_str\", \"/model/with_data/fm/client/fm/php/fphp/deprecated/opt/referer/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Sun Jan 16 08:18:19.723015 2022] [:error] [pid 20094] [client 172.17.130.37:58378] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Horde_Form_Variable has a deprecated constructor in /usr/share/php/Horde/Form/Variable.php on line 9, referer: https://mail.price.fox.org/turba/\"], \"Timestamps\": [1642321099.72], \"DetectionTimestamp\": [1642321099.72], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/horde/horde-error-error.log\"]}, \"AMiner\": {\"ID\": \"172.17.131.81\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Software Discovery"
+    ],
+    "description": "Unusual occurrence frequency of 'TXT' DNS query records, specifically for 'current.cvd.clamav.net' from 192.168.128.4. While legitimate for ClamAV updates, an unusual frequency might suggest an attacker is trying to identify the presence and version of antivirus software on the network.",
+    "tools": [
+      "nslookup",
+      "dig"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 31, \"AnalysisComponentType\": \"EventFrequencyDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of query records in DNS logs.\", \"Message\": \"Frequency exceeds range for the first time\", \"PersistenceFileName\": \"efd_dns_record\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/record\"], \"AffectedLogAtomValues\": [\"TXT\"]}, \"FrequencyData\": {\"ExpectedLogAtomValuesFrequency\": 16.0, \"ExpectedLogAtomValuesFrequencyRange\": [16.0, 16.0], \"LogAtomValuesFrequency\": 17, \"WindowSize\": 3600, \"ConfidenceFactor\": 0.25}, \"LogData\": {\"RawLogData\": [\"Jan 16 09:26:33 dnsmasq[14460]: query[TXT] current.cvd.clamav.net from 192.168.128.4\"], \"Timestamps\": [1642325193], \"DetectionTimestamp\": [1642325193], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Software Discovery"
+    ],
+    "description": "Frequency anomaly detected for 'TXT' DNS queries for 'current.cvd.clamav.net' from 172.17.131.81. Similar to the previous alert, this indicates potential reconnaissance for antivirus software, possibly by an internal host.",
+    "tools": [
+      "nslookup",
+      "dig"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 31, \"AnalysisComponentType\": \"EventFrequencyDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of query records in DNS logs.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"efd_dns_record\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/record\"], \"AffectedLogAtomValues\": [\"TXT\"]}, \"FrequencyData\": {\"ExpectedLogAtomValuesFrequency\": 16.0, \"ExpectedLogAtomValuesFrequencyRange\": [16.0, 16.0], \"LogAtomValuesFrequency\": 20, \"WindowSize\": 3600, \"ConfidenceFactor\": 0.25, \"Confidence\": 0.19999999999999996}, \"LogData\": {\"RawLogData\": [\"Jan 16 09:26:33 dnsmasq[14522]: query[TXT] current.cvd.clamav.net from 172.17.131.81\"], \"Timestamps\": [1642325193], \"DetectionTimestamp\": [1642325193], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Command and Control",
+      "DNS Tunneling"
+    ],
+    "description": "High entropy detected in the DNS domain 'i.li.ru'. While 'i.li.ru' is a legitimate domain, high entropy in DNS queries, especially for unusual or short domains, can indicate data exfiltration or command and control communication via DNS tunneling.",
+    "tools": [
+      "dnscat2",
+      "iodine"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"i.li.ru\"], \"CriticalValue\": 0.014612097004132766, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 16 09:36:45 dnsmasq[14460]: query[A] i.li.ru from 192.168.128.4\"], \"Timestamps\": [1642325805], \"DetectionTimestamp\": [1642325805], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Privilege Escalation",
+      "Account Manipulation"
+    ],
+    "description": "New 'user_acct' parameter combination for user 'hwarren' using '/usr/sbin/sshd'. While SSH accounting is normal, a 'new combination' could indicate an attempt to create a new user, modify an existing one, or log in from an unusual context, potentially for privilege escalation or persistence.",
+    "tools": [
+      "ssh",
+      "useradd",
+      "usermod"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 19, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New user_acct parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_user_acct\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/user_acct/uid\", \"/model/type/user_acct/msg2\", \"/model/type/user_acct/fm/acct/acct\", \"/model/type/user_acct/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"0\", \"'op=PAM:accounting\", \"\\\"hwarren\\\"\", \"\\\"/usr/sbin/sshd\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=USER_ACCT msg=audit(1642238170.824:2410): pid=10661 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:accounting acct=\\\"hwarren\\\" exe=\\\"/usr/sbin/sshd\\\" hostname=172.17.130.196 addr=172.17.130.196 terminal=ssh res=success'\"], \"Timestamps\": [1642238170.82], \"DetectionTimestamp\": [1642238170.82], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"172.17.131.81\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Privilege Escalation",
+      "Account Manipulation"
+    ],
+    "description": "New 'user_acct' parameter combination for user 'jessica.wright' via '/usr/lib/dovecot/auth'. Similar to the previous alert, this might signify unusual authentication attempts or account changes, potentially related to email system compromise or account takeover.",
+    "tools": [
+      "dovecot",
+      "password crackers",
+      "phishing"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 19, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New user_acct parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_user_acct\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/user_acct/uid\", \"/model/type/user_acct/msg2\", \"/model/type/user_acct/fm/acct/acct\", \"/model/type/user_acct/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"0\", \"'op=PAM:accounting\", \"\\\"jessica.wright\\\"\", \"\\\"/usr/lib/dovecot/auth\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=USER_ACCT msg=audit(1642235841.327:2205): pid=10015 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:accounting acct=\\\"jessica.wright\\\" exe=\\\"/usr/lib/dovecot/auth\\\" hostname=172.17.131.81 addr=172.17.131.81 terminal=dovecot res=success'\"], \"Timestamps\": [1642235841.33], \"DetectionTimestamp\": [1642235841.33], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"172.17.131.81\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Privilege Escalation",
+      "Account Manipulation"
+    ],
+    "description": "New 'user_auth' parameter combination for 'michael.davis' using '/usr/lib/dovecot/auth'. While successful authentication events are normal, a 'new combination' could indicate an unusual authentication source or method for the user, potentially an attempt to gain unauthorized access or privilege.",
+    "tools": [
+      "Password spraying tools",
+      "Credential stuffing tools",
+      "Phishing"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 20, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New user_auth parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_user_auth\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/user_auth/uid\", \"/model/type/user_auth/msg2\", \"/model/type/user_auth/fm/acct/acct\", \"/model/type/user_auth/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"0\", \"'op=PAM:authentication\", \"\\\"michael.davis\\\"\", \"\\\"/usr/lib/dovecot/auth\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=USER_AUTH msg=audit(1642236015.190:2240): pid=10015 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:authentication acct=\\\"michael.davis\\\" exe=\\\"/usr/lib/dovecot/auth\\\" hostname=172.17.131.81 addr=172.17.131.81 terminal=dovecot res=success'\"], \"Timestamps\": [1642236015.19], \"DetectionTimestamp\": [1642236015.19], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"172.17.131.81\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance"
+    ],
+    "description": "High entropy in DNS domain 'ipv4only.arpa'. While 'ipv4only.arpa' is a legitimate domain used for DNS64/NAT64 setups, repeated high entropy alerts for this benign domain might indicate a misconfiguration or an unusual pattern of network activity that warrants further investigation, but is unlikely malicious in itself.",
+    "tools": [
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"ipv4only.arpa\"], \"CriticalValue\": 0.014708664098780284, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 08:01:08 dnsmasq[14460]: query[AAAA] ipv4only.arpa from 192.168.128.4\"], \"Timestamps\": [1642233668], \"DetectionTimestamp\": [1642233668], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance"
+    ],
+    "description": "High entropy in DNS domain 'ipv4only.arpa' from 10.35.35.202. Consistent high entropy for a known benign domain suggests a potential network misconfiguration or unusual client behavior rather than a direct attack.",
+    "tools": [
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"ipv4only.arpa\"], \"CriticalValue\": 0.014730451642955783, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 08:01:08 dnsmasq[14522]: query[AAAA] ipv4only.arpa from 10.35.35.202\"], \"Timestamps\": [1642233668], \"DetectionTimestamp\": [1642233668], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance"
+    ],
+    "description": "High entropy in DNS domain 'ipv4only.arpa' when forwarded to 192.168.255.254. This repetition further supports the benign nature of the query itself, but the 'high entropy' alert indicates an unusual pattern from the perspective of the IDS. It could be due to a change in network behavior or a new client on the network.",
+    "tools": [
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"ipv4only.arpa\"], \"CriticalValue\": 0.014752237773682442, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 08:01:08 dnsmasq[14522]: forwarded ipv4only.arpa to 192.168.255.254\"], \"Timestamps\": [1642233668], \"DetectionTimestamp\": [1642233668], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance"
+    ],
+    "description": "Another instance of high entropy in DNS domain 'ipv4only.arpa' from 10.35.35.202. This consistency suggests the 'anomaly' is likely due to the nature of DNS64/NAT64 queries or a specific client's behavior rather than malicious activity.",
+    "tools": [
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"ipv4only.arpa\"], \"CriticalValue\": 0.014774022491124817, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 08:01:08 dnsmasq[14522]: query[AAAA] ipv4only.arpa from 10.35.35.202\"], \"Timestamps\": [1642233668], \"DetectionTimestamp\": [1642233668], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance"
+    ],
+    "description": "Further high entropy detection for 'ipv4only.arpa' forwarded to 192.168.255.254. The repeated nature of these alerts for a known domain points towards a network configuration or benign client behavior that the IDS considers 'anomalous'.",
+    "tools": [
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"ipv4only.arpa\"], \"CriticalValue\": 0.014795805795447408, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 08:01:08 dnsmasq[14522]: forwarded ipv4only.arpa to 192.168.255.254\"], \"Timestamps\": [1642233668], \"DetectionTimestamp\": [1642233668], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance"
+    ],
+    "description": "Final instance in this set of high entropy in DNS domain 'ipv4only.arpa' from 10.35.35.202. The pattern strongly indicates this is expected behavior for a network utilizing DNS64/NAT64, and the 'anomaly' is a false positive based on the IDS's training or baseline.",
+    "tools": [
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"ipv4only.arpa\"], \"CriticalValue\": 0.014817587686814694, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 08:01:08 dnsmasq[14522]: query[AAAA] ipv4only.arpa from 10.35.35.202\"], \"Timestamps\": [1642233668], \"DetectionTimestamp\": [1642233668], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Network Mapping"
+    ],
+    "description": "High entropy in DNS domain for an IP address '172.17.131.81' being replied as 'mail.dmz.price.fox.org'. While direct IP lookups can be normal, unusual entropy in such replies could suggest an attacker is performing extensive reverse DNS lookups to map the network and identify services, including mail servers.",
+    "tools": [
+      "Nmap",
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"172.17.131.81\"], \"CriticalValue\": 0.012598772944251903, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 07:43:21 dnsmasq[14522]: reply 172.17.131.81 is mail.dmz.price.fox.org\"], \"Timestamps\": [1642232601], \"DetectionTimestamp\": [1642232601], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Discovery"
+    ],
+    "description": "A new internal IP address (192.168.131.118) was detected in DNS logs, querying 'location.services.mozilla.com'. This could indicate a new device on the network or an attacker performing internal reconnaissance to identify active hosts.",
+    "tools": [
+      "Nmap",
+      "ping",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 27, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New ip address in DNS logs.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_dns_ip\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/ip\"], \"AffectedLogAtomValues\": [\"192.168.131.118\"]}, \"LogData\": {\"RawLogData\": [\"Jan 15 07:57:03 dnsmasq[14460]: query[A] location.services.mozilla.com from 192.168.131.118\"], \"Timestamps\": [1642233423], \"DetectionTimestamp\": [1642233423], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Privilege Escalation",
+      "Defense Evasion"
+    ],
+    "description": "A new combination of parameters for 'cred_refr' (credential refresh) in audit logs, showing 'root' user and '/usr/bin/sudo'. This could indicate an unusual attempt to refresh root credentials, potentially as part of a privilege escalation attempt or an attacker attempting to blend in with legitimate sudo usage.",
+    "tools": [
+      "sudo",
+      "privilege escalation exploits"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 17, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New cred_refr parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_cred_refr\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/cred_refr/uid\", \"/model/type/cred_refr/msg2\", \"/model/type/cred_refr/fm/acct/acct\", \"/model/type/cred_refr/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"0\", \"'op=PAM:setcred\", \"\\\"root\\\"\", \"\\\"/usr/bin/sudo\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=CRED_REFR msg=audit(1642230608.715:597): pid=13610 uid=0 auid=1001 ses=89 msg='op=PAM:setcred acct=\\\"root\\\" exe=\\\"/usr/bin/sudo\\\" hostname=? addr=? terminal=/dev/pts/0 res=success'\"], \"Timestamps\": [1642230608.71], \"DetectionTimestamp\": [1642230608.71], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Privilege Escalation",
+      "Defense Evasion"
+    ],
+    "description": "A new 'user_start' (user session start) parameter combination for 'root' via '/usr/bin/sudo'. This could signify an unusual initiation of a root session, possibly indicating a privilege escalation attempt or an attacker establishing persistence.",
+    "tools": [
+      "sudo",
+      "privilege escalation exploits"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 18, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New user_start parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_user_start\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/user_start/uid\", \"/model/type/user_start/msg2\", \"/model/type/user_start/fm/acct/acct\", \"/model/type/user_start/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"0\", \"'op=PAM:session_open\", \"\\\"root\\\"\", \"\\\"/usr/bin/sudo\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=USER_START msg=audit(1642230608.715:598): pid=13610 uid=0 auid=1001 ses=89 msg='op=PAM:session_open acct=\\\"root\\\" exe=\\\"/usr/bin/sudo\\\" hostname=? addr=? terminal=/dev/pts/0 res=success'\"], \"Timestamps\": [1642230608.71], \"DetectionTimestamp\": [1642230608.71], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion",
+      "Covert Channel"
+    ],
+    "description": "A new 'user_end' (user session end) parameter combination for 'root' via '/usr/bin/sudo'. While a session ending is normal, a 'new combination' could indicate an attacker trying to clean up their tracks or ending a session in an unusual manner after performing malicious actions.",
+    "tools": [
+      "sudo"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 23, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New user_end parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_user_end\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/user_end/uid\", \"/model/type/user_end/msg2\", \"/model/type/user_end/fm/acct/acct\", \"/model/type/user_end/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"0\", \"'op=PAM:session_close\", \"\\\"root\\\"\", \"\\\"/usr/bin/sudo\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=USER_END msg=audit(1642230608.723:599): pid=13610 uid=0 auid=1001 ses=89 msg='op=PAM:session_close acct=\\\"root\\\" exe=\\\"/usr/bin/sudo\\\" hostname=? addr=? terminal=/dev/pts/0 res=success'\"], \"Timestamps\": [1642230608.72], \"DetectionTimestamp\": [1642230608.72], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion"
+    ],
+    "description": "A new 'cred_disp' (credential dispose) parameter combination for 'root' via '/usr/bin/sudo'. This could indicate an attacker attempting to dispose of credentials in a novel way to avoid detection or hide their activity.",
+    "tools": [
+      "sudo"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 22, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New cred_disp parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_cred_disp\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/cred_disp/uid\", \"/model/type/cred_disp/msg2\", \"/model/type/cred_disp/fm/acct/acct\", \"/model/type/cred_disp/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"0\", \"'op=PAM:setcred\", \"\\\"root\\\"\", \"\\\"/usr/bin/sudo\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=CRED_DISP msg=audit(1642230608.723:600): pid=13610 uid=0 auid=1001 ses=89 msg='op=PAM:setcred acct=\\\"root\\\" exe=\\\"/usr/bin/sudo\\\" hostname=? addr=? terminal=/dev/pts/0 res=success'\"], \"Timestamps\": [1642230608.72], \"DetectionTimestamp\": [1642230608.72], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Privilege Escalation",
+      "Account Manipulation"
+    ],
+    "description": "A new 'user_auth' parameter combination for 'meghan.morris' using '/usr/lib/dovecot/auth'. This could indicate an unusual authentication attempt, possibly related to an attacker testing credentials or attempting to gain unauthorized access to an email account.",
+    "tools": [
+      "Password spraying tools",
+      "Credential stuffing tools",
+      "Phishing"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 20, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New user_auth parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_user_auth\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/user_auth/uid\", \"/model/type/user_auth/msg2\", \"/model/type/user_auth/fm/acct/acct\", \"/model/type/user_auth/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"0\", \"'op=PAM:authentication\", \"\\\"meghan.morris\\\"\", \"\\\"/usr/lib/dovecot/auth\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=USER_AUTH msg=audit(1642230986.066:2078): pid=9460 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:authentication acct=\\\"meghan.morris\\\" exe=\\\"/usr/lib/dovecot/auth\\\" hostname=172.17.131.81 addr=172.17.131.81 terminal=dovecot res=success'\"], \"Timestamps\": [1642230986.07], \"DetectionTimestamp\": [1642230986.07], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"172.17.131.81\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Privilege Escalation",
+      "Account Manipulation"
+    ],
+    "description": "A new 'user_acct' parameter combination for 'meghan.morris' via '/usr/lib/dovecot/auth'. Similar to the authentication alert, this could indicate account manipulation or suspicious activity related to the 'meghan.morris' user account, potentially a new account creation or modification by an attacker.",
+    "tools": [
+      "Password spraying tools",
+      "Credential stuffing tools",
+      "Phishing"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 19, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New user_acct parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_user_acct\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/user_acct/uid\", \"/model/type/user_acct/msg2\", \"/model/type/user_acct/fm/acct/acct\", \"/model/type/user_acct/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"0\", \"'op=PAM:accounting\", \"\\\"meghan.morris\\\"\", \"\\\"/usr/lib/dovecot/auth\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=USER_ACCT msg=audit(1642230986.066:2079): pid=9460 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:accounting acct=\\\"meghan.morris\\\" exe=\\\"/usr/lib/dovecot/auth\\\" hostname=172.17.131.81 addr=172.17.131.81 terminal=dovecot res=success'\"], \"Timestamps\": [1642230986.07], \"DetectionTimestamp\": [1642230986.07], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"172.17.131.81\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Web Application Attack",
+      "Information Gathering"
+    ],
+    "description": "New character ('C') detected in the Apache Access request to '/services/ajax.php/kronolith/listCalendars'. While 'C' is a common character, its detection as 'new' in this context suggests an unusual modification to the request path or parameters, potentially for probing vulnerabilities in the 'kronolith' application or attempting to access sensitive information.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/services/ajax.php/kronolith/listCalendars\"], \"MissingCharacters\": [\"C\"]}, \"LogData\": {\"RawLogData\": [\"10.35.32.164 - - [15/Jan/2022:07:16:33 +0000] \\\"POST /services/ajax.php/kronolith/listCalendars HTTP/1.1\\\" 200 1025 \\\"https://mail.price.fox.org/kronolith/\\\" \\\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0\\\"\"], \"Timestamps\": [1642230993], \"DetectionTimestamp\": [1642230993], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/mail-access.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Web Application Attack",
+      "Information Gathering"
+    ],
+    "description": "New character ('E') detected in the Apache Access request to '/services/ajax.php/kronolith/listEvents'. Similar to the previous alert, this might indicate an unusual request aiming to enumerate events, potentially for information gathering or exploitation of the 'kronolith' application.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/services/ajax.php/kronolith/listEvents\"], \"MissingCharacters\": [\"E\"]}, \"LogData\": {\"RawLogData\": [\"10.35.32.164 - - [15/Jan/2022:07:16:34 +0000] \\\"POST /services/ajax.php/kronolith/listEvents HTTP/1.1\\\" 200 1308 \\\"https://mail.price.fox.org/kronolith/\\\" \\\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0\\\"\"], \"Timestamps\": [1642230994], \"DetectionTimestamp\": [1642230994], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/mail-access.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance"
+    ],
+    "description": "High entropy in DNS domain 'cdn.ampproject.org'. While a legitimate content delivery network (CDN) domain, persistent high entropy alerts could indicate unusual or excessive queries for this domain, potentially due to a misconfigured client, a large number of clients, or an attempt to use the CDN for unexpected communication.",
+    "tools": [
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"cdn.ampproject.org\"], \"CriticalValue\": 0.014549212477404979, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:20:33 dnsmasq[14460]: reply cdn.ampproject.org is <CNAME>\"], \"Timestamps\": [1642227633], \"DetectionTimestamp\": [1642227633], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance"
+    ],
+    "description": "Another instance of high entropy in DNS domain 'cdn.ampproject.org'. The repetition suggests that this might be a baseline behavior of the network with AMP-enabled content, and the IDS is flagging it as 'anomalous' based on its trained model.",
+    "tools": [
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"cdn.ampproject.org\"], \"CriticalValue\": 0.014599492517237666, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:20:33 dnsmasq[14460]: reply cdn.ampproject.org is <CNAME>\"], \"Timestamps\": [1642227633], \"DetectionTimestamp\": [1642227633], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Discovery"
+    ],
+    "description": "New internal IP address (192.168.130.19) detected in DNS logs querying 'motd.ubuntu.com'. This could signal a new host joining the network or an attacker performing internal reconnaissance to identify active machines.",
+    "tools": [
+      "Nmap",
+      "ping",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 27, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New ip address in DNS logs.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_dns_ip\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/ip\"], \"AffectedLogAtomValues\": [\"192.168.130.19\"]}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:20:58 dnsmasq[14460]: query[AAAA] motd.ubuntu.com from 192.168.130.19\"], \"Timestamps\": [1642227658], \"DetectionTimestamp\": [1642227658], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Discovery"
+    ],
+    "description": "New internal IP address (172.17.128.63) detected in DNS logs querying 'motd.ubuntu.com'. This event is consistent with internal reconnaissance, where an attacker might be trying to map the internal network infrastructure.",
+    "tools": [
+      "Nmap",
+      "ping",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 27, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New ip address in DNS logs.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_dns_ip\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/ip\"], \"AffectedLogAtomValues\": [\"172.17.128.63\"]}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:20:58 dnsmasq[14522]: query[A] motd.ubuntu.com from 172.17.128.63\"], \"Timestamps\": [1642227658], \"DetectionTimestamp\": [1642227658], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Discovery"
+    ],
+    "description": "New internal IP address (10.35.32.78) detected in DNS logs querying 'motd.ubuntu.com'. The detection of multiple new internal IPs querying common internal domains can indicate broader reconnaissance activity.",
+    "tools": [
+      "Nmap",
+      "ping",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 27, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New ip address in DNS logs.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_dns_ip\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/ip\"], \"AffectedLogAtomValues\": [\"10.35.32.78\"]}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:20:58 dnsmasq[14522]: query[A] motd.ubuntu.com from 10.35.32.78\"], \"Timestamps\": [1642227658], \"DetectionTimestamp\": [1642227658], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Web Application Attack",
+      "Information Gathering"
+    ],
+    "description": "New characters ('5', 's', '=', '?') detected in the Apache Access referer URL 'https://intranet.price.fox.org/?p=5'. While these characters are valid in URLs, their detection as 'new' could suggest an attacker is manipulating referer headers, possibly for XSS, CSRF, or to bypass security measures, or for reconnaissance by constructing unusual URLs.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 9, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access referer.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_referer\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/combined/combined/referer\"], \"AffectedLogAtomValues\": [\"https://intranet.price.fox.org/?p=5\"], \"MissingCharacters\": [\"5\", \"s\", \"=\", \"?\"]}, \"LogData\": {\"RawLogData\": [\"10.35.35.202 - - [15/Jan/2022:06:22:28 +0000] \\\"GET /wp-includes/css/dist/block-library/style.min.css?ver=5.8.3 HTTP/1.1\\\" 200 10934 \\\"https://intranet.price.fox.org/?p=5\\\" \\\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0\\\"\"], \"Timestamps\": [1642227748], \"DetectionTimestamp\": [1642227748], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Web Application Attack",
+      "Software Discovery"
+    ],
+    "description": "New character ('z') detected in the Apache Access request to '/wp-content/plugins/wpdiscuz/themes/default/style.css'. The appearance of a new character in a plugin path could indicate an attacker probing for specific plugin versions or vulnerabilities, especially if the character is part of an unexpected string.",
+    "tools": [
+      "WPScan",
+      "Burp Suite",
+      "OWASP ZAP"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/plugins/wpdiscuz/themes/default/style.css?ver=7.0.4\"], \"MissingCharacters\": [\"z\"]}, \"LogData\": {\"RawLogData\": [\"10.35.35.202 - - [15/Jan/2022:06:22:28 +0000] \\\"GET /wp-content/plugins/wpdiscuz/themes/default/style.css?ver=7.0.4 HTTP/1.1\\\" 200 19726 \\\"https://intranet.price.fox.org/?p=5\\\" \\\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0\\\"\"], \"Timestamps\": [1642227748], \"DetectionTimestamp\": [1642227748], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Web Application Attack",
+      "Software Discovery"
+    ],
+    "description": "New characters ('1', '3') detected in the Apache Access referer URL related to 'font-awesome-5.13.0'. While these are numerical, their 'new' detection in a static resource path might indicate an attacker attempting to enumerate specific versions of libraries or components to identify known vulnerabilities.",
+    "tools": [
+      "WPScan",
+      "Burp Suite",
+      "OWASP ZAP"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 9, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access referer.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_referer\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/combined/combined/referer\"], \"AffectedLogAtomValues\": [\"https://intranet.price.fox.org/wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/css/fa.min.css?ver=7.0.4\"], \"MissingCharacters\": [\"1\", \"3\"]}, \"LogData\": {\"RawLogData\": [\"10.35.35.202 - - [15/Jan/2022:06:22:28 +0000] \\\"GET /wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/webfonts/fa-regular-400.woff2 HTTP/1.1\\\" 200 13874 \\\"https://intranet.price.fox.org/wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/css/fa.min.css?ver=7.0.4\\\" \\\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0\\\"\"], \"Timestamps\": [1642227748], \"DetectionTimestamp\": [1642227748], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Web Application Attack",
+      "Information Gathering"
+    ],
+    "description": "New character ('x') detected in the Apache Access request to '/wp-admin/admin-ajax.php'. While 'x' is a common character, its detection as 'new' in this specific administrative AJAX endpoint suggests an unusual or potentially manipulated request. This could indicate an attacker probing for vulnerabilities, attempting to trigger specific AJAX actions, or bypassing security controls.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP",
+      "WPScan"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-admin/admin-ajax.php\"], \"MissingCharacters\": [\"x\"]}, \"LogData\": {\"RawLogData\": [\"10.35.35.202 - - [15/Jan/2022:06:25:02 +0000] \\\"POST /wp-admin/admin-ajax.php HTTP/1.1\\\" 200 1225 \\\"https://intranet.price.fox.org/?p=5\\\" \\\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0\\\"\"], \"Timestamps\": [1642227902], \"DetectionTimestamp\": [1642227902], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "DNS Fingerprinting"
+    ],
+    "description": "High entropy in DNS domain 'taylorcruz-mail'. The presence of a potentially internal or unusual hostname with high entropy in DNS queries could indicate an attacker performing reconnaissance to identify internal mail servers or other specific hosts within the network.",
+    "tools": [
+      "nslookup",
+      "dig",
+      "Nmap"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"taylorcruz-mail\"], \"CriticalValue\": 0.012635530389069494, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:25:05 dnsmasq[14460]: query[AAAA] taylorcruz-mail from 192.168.128.195\"], \"Timestamps\": [1642227905], \"DetectionTimestamp\": [1642227905], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Network Mapping"
+    ],
+    "description": "Unusual occurrence frequencies of 'AAAA' (IPv6) DNS query records, specifically for the domain 'mail' from 172.17.131.81. A sudden increase in AAAA queries, particularly for a common internal service like 'mail', could indicate an attacker performing network mapping, trying to identify IPv6-enabled services, or preparing for an IPv6-based attack.",
+    "tools": [
+      "dig",
+      "nslookup",
+      "Nmap"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 31, \"AnalysisComponentType\": \"EventFrequencyDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of query records in DNS logs.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"efd_dns_record\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/record\"], \"AffectedLogAtomValues\": [\"AAAA\"]}, \"FrequencyData\": {\"ExpectedLogAtomValuesFrequency\": 27.6, \"ExpectedLogAtomValuesFrequencyRange\": [1.0, 54.0], \"LogAtomValuesFrequency\": 83, \"WindowSize\": 3600, \"ConfidenceFactor\": 0.25, \"Confidence\": 0.6674698795180722}, \"LogData\": {\"RawLogData\": [\"Jan 15 05:56:56 dnsmasq[14522]: query[AAAA] mail from 172.17.131.81\"], \"Timestamps\": [1642226216], \"DetectionTimestamp\": [1642226216], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "DNS Fingerprinting"
+    ],
+    "description": "Another instance of high entropy in DNS domain 'taylorcruz-mail'. The repeated detection of high entropy for this domain from an internal IP reinforces the possibility of reconnaissance activity targeting internal hostnames, or it could be a misconfigured service generating unusual DNS queries.",
+    "tools": [
+      "nslookup",
+      "dig",
+      "Nmap"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"taylorcruz-mail\"], \"CriticalValue\": 0.011908701331459727, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:01:16 dnsmasq[14460]: query[AAAA] taylorcruz-mail from 192.168.128.195\"], \"Timestamps\": [1642226476], \"DetectionTimestamp\": [1642226476], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion",
+      "Persistence"
+    ],
+    "description": "New service_start parameter combination for 'apt-daily-upgrade' executed by 'systemd'. While this is a legitimate system process, a 'new combination' could indicate an attacker tampering with system services for persistence, to evade detection, or to disrupt normal system operations.",
+    "tools": [
+      "systemctl",
+      "auditctl"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 14, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New service_start parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_service_start\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/service_start/uid\", \"/model/type/service_start/msg2\", \"/model/type/service_start/fm/comm/comm\", \"/model/type/service_start/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"0\", \"'unit=apt-daily-upgrade\", \"\\\"systemd\\\"\", \"\\\"/lib/systemd/systemd\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=SERVICE_START msg=audit(1642226748.740:2000): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=apt-daily-upgrade comm=\\\"systemd\\\" exe=\\\"/lib/systemd/systemd\\\" hostname=? addr=? terminal=? res=success'\"], \"Timestamps\": [1642226748.74], \"DetectionTimestamp\": [1642226748.74], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"172.17.131.81\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion",
+      "Persistence"
+    ],
+    "description": "New service_stop parameter combination for 'apt-daily-upgrade' executed by 'systemd'. Similar to the service start, an unusual stop pattern could suggest an attacker attempting to stop or restart legitimate services for malicious purposes, such as disabling updates or bypassing security mechanisms.",
+    "tools": [
+      "systemctl",
+      "auditctl"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 15, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New service_stop parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_service_stop\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/service_stop/uid\", \"/model/type/service_stop/msg2\", \"/model/type/service_stop/fm/comm/comm\", \"/model/type/service_stop/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"0\", \"'unit=apt-daily-upgrade\", \"\\\"systemd\\\"\", \"\\\"/lib/systemd/systemd\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=SERVICE_STOP msg=audit(1642226748.740:2001): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=apt-daily-upgrade comm=\\\"systemd\\\" exe=\\\"/lib/systemd/systemd\\\" hostname=? addr=? terminal=? res=success'\"], \"Timestamps\": [1642226748.74], \"DetectionTimestamp\": [1642226748.74], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"172.17.131.81\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance"
+    ],
+    "description": "High entropy in DNS domain 'ocsp.pki.goog'. This domain is used for Online Certificate Status Protocol (OCSP) lookups, a legitimate process for checking certificate revocation. Repeated 'high entropy' alerts for this common domain are likely false positives, possibly due to a high volume of certificate checks or variations in the OCSP responses.",
+    "tools": [
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"ocsp.pki.goog\"], \"CriticalValue\": 0.006992475701173519, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:09:04 dnsmasq[14460]: query[A] ocsp.pki.goog from 192.168.130.84\"], \"Timestamps\": [1642226944], \"DetectionTimestamp\": [1642226944], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance"
+    ],
+    "description": "Another instance of high entropy in DNS domain 'ocsp.pki.goog' when forwarded to 8.8.8.8. This consistent flagging of a legitimate OCSP domain suggests the IDS's entropy model might be overly sensitive or not sufficiently trained for this specific, common DNS traffic.",
+    "tools": [
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"ocsp.pki.goog\"], \"CriticalValue\": 0.0070203252738761865, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:09:04 dnsmasq[14460]: forwarded ocsp.pki.goog to 8.8.8.8\"], \"Timestamps\": [1642226944], \"DetectionTimestamp\": [1642226944], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance"
+    ],
+    "description": "Further detection of high entropy in DNS domain 'ocsp.pki.goog' from 192.168.130.84. These alerts for standard certificate validation traffic should be reviewed to potentially tune down the sensitivity of the entropy detector for known benign domains.",
+    "tools": [
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"ocsp.pki.goog\"], \"CriticalValue\": 0.0070481716671763565, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:09:04 dnsmasq[14460]: query[AAAA] ocsp.pki.goog from 192.168.130.84\"], \"Timestamps\": [1642226944], \"DetectionTimestamp\": [1642226944], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance"
+    ],
+    "description": "Final instance of high entropy in DNS domain 'ocsp.pki.goog' forwarded to 8.8.8.8. All these alerts for 'ocsp.pki.goog' are likely false positives, indicating normal network behavior related to TLS certificate validation.",
+    "tools": [
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"ocsp.pki.goog\"], \"CriticalValue\": 0.007076014881718718, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:09:04 dnsmasq[14460]: forwarded ocsp.pki.goog to 8.8.8.8\"], \"Timestamps\": [1642226944], \"DetectionTimestamp\": [1642226944], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance"
+    ],
+    "description": "High entropy in DNS domain 'ocsp.pki.goog' being replied as a CNAME. Similar to previous alerts, this is likely a false positive. 'ocsp.pki.goog' is a legitimate domain for certificate revocation checks, and high entropy here probably reflects variations in CDN responses or a high volume of legitimate queries.",
+    "tools": [
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"ocsp.pki.goog\"], \"CriticalValue\": 0.007103854918147755, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:09:04 dnsmasq[14460]: reply ocsp.pki.goog is <CNAME>\"], \"Timestamps\": [1642226944], \"DetectionTimestamp\": [1642226944], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance"
+    ],
+    "description": "Another instance of high entropy in DNS domain 'ocsp.pki.goog' as a CNAME reply. This further confirms that the anomaly is likely due to the nature of OCSP traffic and not malicious activity. The IDS's sensitivity for this domain might need adjustment.",
+    "tools": [
+      "dig",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"ocsp.pki.goog\"], \"CriticalValue\": 0.007146524884303124, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 15 06:09:04 dnsmasq[14460]: reply ocsp.pki.goog is <CNAME>\"], \"Timestamps\": [1642226944], \"DetectionTimestamp\": [1642226944], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "DNS Fingerprinting"
+    ],
+    "description": "Unusual occurrence frequency of DNS log events, specifically for 'jonesmorgan-mail' from 192.168.128.170. The domain 'jonesmorgan-mail' appears to be an internal hostname. Anomalous frequency of queries for such a domain could suggest an attacker performing internal network reconnaissance, trying to identify and map internal mail servers or other specific hosts.",
+    "tools": [
+      "nslookup",
+      "dig",
+      "Nmap"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/forwarded\", \"/model/type/forwarded/reply\", \"/model/type/forwarded/domain\", \"/model/type/forwarded/to\", \"/model/type/forwarded/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/reply\", \"/model/type/reply/reply\", \"/model/type/reply/domain\", \"/model/type/reply/is\", \"/model/type/reply/ip\"]], \"AffectedLogAtomFrequencies\": [6, 2, 4, 8], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.8461538461538461}, \"LogData\": {\"RawLogData\": [\"Jan 19 23:11:48 dnsmasq[14460]: query[AAAA] jonesmorgan-mail from 192.168.128.170\"], \"Timestamps\": [1642633908], \"DetectionTimestamp\": [1642633908], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Discovery"
+    ],
+    "description": "Unusual occurrence frequency of DNS log events, specifically for 'motd.ubuntu.com' from 192.168.131.165. While 'motd.ubuntu.com' is a legitimate Ubuntu message-of-the-day domain, an unusual frequency of queries from a new or unexpected internal IP could indicate a new device on the network or an attacker attempting to enumerate operating systems on internal hosts.",
+    "tools": [
+      "Nmap",
+      "ping",
+      "nslookup"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [2, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9692307692307692}, \"LogData\": {\"RawLogData\": [\"Jan 19 23:25:41 dnsmasq[14460]: query[A] motd.ubuntu.com from 192.168.131.165\"], \"Timestamps\": [1642634741], \"DetectionTimestamp\": [1642634741], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "DNS Fingerprinting"
+    ],
+    "description": "Unusual occurrence frequency of DNS log events, specifically for 'taylorcruz-mail' from 192.168.128.195. This is another internal hostname. Similar to 'jonesmorgan-mail', an anomalous query frequency could point to internal reconnaissance, where an attacker is trying to identify mail servers or other key infrastructure components.",
+    "tools": [
+      "nslookup",
+      "dig",
+      "Nmap"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/forwarded\", \"/model/type/forwarded/reply\", \"/model/type/forwarded/domain\", \"/model/type/forwarded/to\", \"/model/type/forwarded/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/reply\", \"/model/type/reply/reply\", \"/model/type/reply/domain\", \"/model/type/reply/is\", \"/model/type/reply/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [7, 6, 8, 1], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.8307692307692308}, \"LogData\": {\"RawLogData\": [\"Jan 19 23:31:17 dnsmasq[14460]: query[AAAA] taylorcruz-mail from 192.168.128.195\"], \"Timestamps\": [1642635077], \"DetectionTimestamp\": [1642635077], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "DNS Fingerprinting"
+    ],
+    "description": "Unusual occurrence frequency of DNS log events, specifically for 'jonesmorgan-mail' from 192.168.128.170. This repetitive alert for the same internal mail-related domain reinforces the potential for reconnaissance targeting internal services.",
+    "tools": [
+      "nslookup",
+      "dig",
+      "Nmap"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [2, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9692307692307692}, \"LogData\": {\"RawLogData\": [\"Jan 19 23:41:48 dnsmasq[14460]: query[AAAA] jonesmorgan-mail from 192.168.128.170\"], \"Timestamps\": [1642635708], \"DetectionTimestamp\": [1642635708], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Software Discovery"
+    ],
+    "description": "Unusual occurrence frequency of DNS log events, specifically for 'TXT' query to 'current.cvd.clamav.net' from 192.168.128.4. While legitimate for ClamAV updates, an anomalous frequency could indicate an attacker attempting to fingerprint security software present on the network, which is a common reconnaissance tactic.",
+    "tools": [
+      "nslookup",
+      "dig"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [2, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9692307692307692}, \"LogData\": {\"RawLogData\": [\"Jan 19 23:55:16 dnsmasq[14460]: query[TXT] current.cvd.clamav.net from 192.168.128.4\"], \"Timestamps\": [1642636516], \"DetectionTimestamp\": [1642636516], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Privilege Escalation",
+      "Account Manipulation"
+    ],
+    "description": "New event type indicating 'User megan.johnson is not authorized for Mail' from Horde. While this is an authorization failure, the detection as a 'new event type' could signify an attacker attempting to access mailboxes with invalid credentials, possibly through brute-force or credential stuffing attacks, or probing for misconfigurations.",
+    "tools": [
+      "Hydra",
+      "Medusa",
+      "Credential stuffing tools"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/service/horde/horde/free_msg\", \"/model/service/horde/horde/free_msg/msg\"]}, \"LogData\": {\"RawLogData\": [\"Jan 19 07:20:40 miller-mail HORDE: User megan.johnson is not authorized for Mail (Host: 192.168.131.156). [pid 871 on line 324 of \\\"/usr/share/php/Horde/Registry.php\\\"]\"], \"Timestamps\": [1642576840], \"DetectionTimestamp\": [1642576840], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/messages\"]}, \"AMiner\": {\"ID\": \"192.168.129.212\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Network Mapping"
+    ],
+    "description": "Unusual occurrence frequencies of DNS log events, specifically a 'AAAA' query for 'mail.dmz.price.fox.org' from 172.17.130.37. An anomalous frequency of DNS queries for a known mail server, particularly for IPv6 (AAAA) records, could indicate an attacker performing reconnaissance to identify mail infrastructure, or mapping network services in preparation for an attack.",
+    "tools": [
+      "dig",
+      "nslookup",
+      "Nmap"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/forwarded\", \"/model/type/forwarded/reply\", \"/model/type/forwarded/domain\", \"/model/type/forwarded/to\", \"/model/type/forwarded/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/nameserver\", \"/model/type/nameserver/nameserver\", \"/model/type/nameserver/ip\", \"/model/type/nameserver/refused\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/reply\", \"/model/type/reply/reply\", \"/model/type/reply/domain\", \"/model/type/reply/is\", \"/model/type/reply/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [22, 20, 17, 20, 5], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.5733333333333334}, \"LogData\": {\"RawLogData\": [\"Jan 19 07:40:56 dnsmasq[14522]: query[AAAA] mail.dmz.price.fox.org from 172.17.130.37\"], \"Timestamps\": [1642578056], \"DetectionTimestamp\": [1642578056], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Network Mapping"
+    ],
+    "description": "Unusual occurrence frequencies of DNS query IPs. A large number of IP addresses showing 'unusual occurrence frequencies' (e.g., 192.168.128.4 with 77 queries, 10.35.32.164 with 117 queries, etc.) suggests widespread internal reconnaissance or scanning activity. This could be an attacker attempting to map the network, identify active hosts, or discover services.",
+    "tools": [
+      "Nmap",
+      "dnsrecon",
+      "enum4linux"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 33, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS query IPs.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_query_ip\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/ip\"], \"AffectedLogAtomValues\": [[\"192.168.128.4\"], [\"172.17.130.196\"], [\"192.168.128.195\"], [\"10.35.33.116\"], [\"172.17.130.37\"], [\"192.168.131.228\"], [\"10.35.32.164\"], [\"192.168.128.170\"], [\"192.168.128.107\"], [\"10.35.35.202\"], [\"192.168.129.212\"], [\"192.168.131.156\"], [\"172.17.131.81\"], [\"10.35.35.206\"], [\"10.35.35.118\"], [\"192.168.131.15\"], [\"192.168.131.118\"], [\"192.168.131.234\"]], \"AffectedLogAtomFrequencies\": [77, 33, 3, 56, 8, 3, 117, 3, 2, 12, 16, 44, 38, 4, 2, 45, 37, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.8035329599310642}, \"LogData\": {\"RawLogData\": [\"Jan 19 08:00:40 dnsmasq[14460]: query[A] example.org from 192.168.131.156\"], \"Timestamps\": [1642579240], \"DetectionTimestamp\": [1642579240], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "Network Mapping"
+    ],
+    "description": "Unusual occurrence frequencies of DNS query IPs, with a wide range of internal IPs showing anomalous activity. This continues to suggest broad internal reconnaissance or scanning activity, where an attacker is likely trying to map the network topology and identify active hosts and services.",
+    "tools": [
+      "Nmap",
+      "dnsrecon",
+      "enum4linux"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 33, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS query IPs.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_query_ip\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/ip\"], \"AffectedLogAtomValues\": [[\"192.168.131.156\"], [\"192.168.131.118\"], [\"172.17.131.81\"], [\"192.168.128.4\"], [\"10.35.32.164\"], [\"192.168.128.195\"], [\"192.168.131.228\"], [\"10.35.35.118\"], [\"172.17.130.37\"], [\"192.168.128.170\"], [\"172.17.130.196\"], [\"192.168.129.212\"], [\"192.168.130.110\"], [\"192.168.129.209\"], [\"192.168.131.165\"], [\"10.35.35.206\"], [\"172.17.129.140\"], [\"192.168.131.15\"]], \"AffectedLogAtomFrequencies\": [110, 21, 124, 145, 112, 34, 21, 209, 8, 119, 72, 73, 27, 4, 2, 5, 2, 30], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.7103762827822121}, \"LogData\": {\"RawLogData\": [\"Jan 19 09:00:04 dnsmasq[14460]: query[PTR] 156.131.168.192.in-addr.arpa from 192.168.129.212\"], \"Timestamps\": [1642582804], \"DetectionTimestamp\": [1642582804], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "DNS Fingerprinting"
+    ],
+    "description": "Unusual occurrence frequencies of DNS log events for 'jonesmorgan-mail' from 192.168.128.170. This query targets an internal mail server, and its anomalous frequency could indicate an attacker performing targeted reconnaissance to identify mail infrastructure or other critical internal services.",
+    "tools": [
+      "nslookup",
+      "dig",
+      "Nmap"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [2, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9692307692307692}, \"LogData\": {\"RawLogData\": [\"Jan 19 00:11:48 dnsmasq[14460]: query[AAAA] jonesmorgan-mail from 192.168.128.170\"], \"Timestamps\": [1642551108], \"DetectionTimestamp\": [1642551108], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "DNS Fingerprinting"
+    ],
+    "description": "Another instance of unusual occurrence frequencies for 'jonesmorgan-mail' from 192.168.128.170. The repeated nature of this alert suggests ongoing reconnaissance against this internal mail server, which could be a precursor to a more direct attack.",
+    "tools": [
+      "nslookup",
+      "dig",
+      "Nmap"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [2, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9692307692307692}, \"LogData\": {\"RawLogData\": [\"Jan 19 00:41:48 dnsmasq[14460]: query[AAAA] jonesmorgan-mail from 192.168.128.170\"], \"Timestamps\": [1642552908], \"DetectionTimestamp\": [1642552908], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "attack_type": [
+      "Reconnaissance",
+      "DNS Fingerprinting"
+    ],
+    "description": "Unusual occurrence frequencies of DNS log events for 'taylorcruz-mail' from 192.168.128.195. This alert, similar to those for 'jonesmorgan-mail', points to reconnaissance activity targeting internal mail servers, potentially for information gathering or to identify weak points in the messaging infrastructure.",
+    "tools": [
+      "nslookup",
+      "dig",
+      "Nmap"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/forwarded\", \"/model/type/forwarded/reply\", \"/model/type/forwarded/domain\", \"/model/type/forwarded/to\", \"/model/type/forwarded/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/reply\", \"/model/type/reply/reply\", \"/model/type/reply/domain\", \"/model/type/reply/is\", \"/model/type/reply/ip\"]], \"AffectedLogAtomFrequencies\": [11, 3, 8, 26], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.6412213740458015}, \"LogData\": {\"RawLogData\": [\"Jan 19 01:01:17 dnsmasq[14460]: query[AAAA] taylorcruz-mail from 192.168.128.195\"], \"Timestamps\": [1642554077], \"DetectionTimestamp\": [1642554077], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}"
+  }
+]

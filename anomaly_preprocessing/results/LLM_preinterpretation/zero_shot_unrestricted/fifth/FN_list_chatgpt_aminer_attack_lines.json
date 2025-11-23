@@ -1,0 +1,92 @@
+[
+  {
+    "predicted_attack_type": [
+      "Command and Control"
+    ],
+    "attack_type": "dnsteal",
+    "description": "High entropy domain query (youtu.be) detected, possibly used to bypass DNS filters; high entropy often indicates domain generation algorithms (DGAs) or obfuscated C2 channels.",
+    "tools": [
+      "DNSCat2",
+      "IODINE",
+      "DNScat",
+      "Metasploit"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:33 dnsmasq[14460]: query[A] youtu.be from 192.168.128.4\"], \"Timestamps\": [1642411593], \"DetectionTimestamp\": [1642411593], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Command and Control"
+    ],
+    "attack_type": "dnsteal",
+    "description": "High entropy domain (youtu.be) forwarded to public DNS server (8.8.8.8), continuing pattern of DNS activity possibly tied to evasion or DGA.",
+    "tools": [
+      "DNSCat2",
+      "IODINE",
+      "DNScat",
+      "Metasploit"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:33 dnsmasq[14460]: forwarded youtu.be to 8.8.8.8\"], \"Timestamps\": [1642411593], \"DetectionTimestamp\": [1642411593], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Command and Control"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Another host querying the same high entropy domain (youtu.be), which could indicate shared malware behavior or C2 beaconing attempt.",
+    "tools": [
+      "DNSCat2",
+      "IODINE",
+      "Metasploit"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:33 dnsmasq[14522]: query[A] youtu.be from 172.17.130.196\"], \"Timestamps\": [1642411593], \"DetectionTimestamp\": [1642411593], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Command and Control"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Host forwards DNS query for high entropy domain (youtu.be), indicative of persistent C2 traffic or misclassified domain.",
+    "tools": [
+      "DNSCat2",
+      "Metasploit"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:33 dnsmasq[14522]: forwarded youtu.be to 192.168.255.254\"], \"Timestamps\": [1642411593], \"DetectionTimestamp\": [1642411593], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Command and Control"
+    ],
+    "attack_type": "dnsteal",
+    "description": "DNS reply received for youtu.be with legitimate IP address, suggesting it's likely normal traffic and not a malicious domain.",
+    "tools": [
+      "DNSCat2",
+      "Cobalt Strike"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:34 dnsmasq[14460]: reply youtu.be is 172.217.20.14\"], \"Timestamps\": [1642411594], \"DetectionTimestamp\": [1642411594], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Command and Control"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Repeat of previous DNS reply for youtu.be, confirming likely benign traffic to a legitimate service (YouTube).",
+    "tools": [
+      "DNSCat2",
+      "Cobalt Strike"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:34 dnsmasq[14522]: reply youtu.be is 172.217.20.14\"], \"Timestamps\": [1642411594], \"DetectionTimestamp\": [1642411594], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance"
+    ],
+    "attack_type": "cracking",
+    "description": "Unusual HTTP request method frequency from internal host suggests scanning or fingerprinting behavior.",
+    "tools": [
+      "curl",
+      "nikto",
+      "nmap"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 11, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of Apache Access request methods.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [[\"0\"], [\"1\"]], \"AffectedLogAtomFrequencies\": [3, 16], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.7764705882352941}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:13:13:28 +0000] \\\"GET / HTTP/1.1\\\" 200 6128 \\\"-\\\" \\\"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0\\\"\"], \"Timestamps\": [1642511608], \"DetectionTimestamp\": [1642511608], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  }
+]

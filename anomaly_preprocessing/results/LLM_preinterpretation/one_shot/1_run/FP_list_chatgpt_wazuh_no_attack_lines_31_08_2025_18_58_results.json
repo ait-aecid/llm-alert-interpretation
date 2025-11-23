@@ -1,0 +1,46 @@
+[
+  {
+    "line_number": 49,
+    "predicted_attack_type": [
+      "Sudo and Sudo Caching"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates the first-time use of sudo by a user, which could be an attempt at privilege escalation.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:10:08\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"dstuser\": \"root\", \"tty\": \"pts/0\", \"pwd\": \"/home/phopkins\", \"command\": \"/usr/bin/tail /var/log/syslog\"}, \"rule\": {\"firedtimes\": 1, \"mail\": false, \"level\": 4, \"description\": \"First time user executed sudo.\", \"groups\": [\"syslog\", \"sudo\"], \"mitre\": {\"technique\": [\"Sudo and Sudo Caching\"], \"id\": [\"T1548.003\"], \"tactic\": [\"Privilege Escalation\", \"Defense Evasion\"]}, \"id\": \"5403\"}, \"decoder\": {\"parent\": \"sudo\", \"name\": \"sudo\", \"ftscomment\": \"First time user executed the sudo command\"}, \"full_log\": \"Jan 15 07:10:08 intranet-server sudo: phopkins : TTY=pts/0 ; PWD=/home/phopkins ; USER=root ; COMMAND=/usr/bin/tail /var/log/syslog\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:10:08.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686163847.339755\"}\n"
+  },
+  {
+    "line_number": 50,
+    "predicted_attack_type": [
+      "Valid Accounts"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert shows a successful sudo session opened by a user with root privileges, indicating use of valid credentials for privilege escalation.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:10:08\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"uid\": \"0\", \"dstuser\": \"root\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 5, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 07:10:08 intranet-server sudo: pam_unix(sudo:session): session opened for user root by phopkins(uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:10:08.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686163847.340156\"}\n"
+  },
+  {
+    "line_number": 76,
+    "predicted_attack_type": [
+      "Sudo and Sudo Caching"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a successful sudo command execution to root, which is a legitimate privilege escalation activity.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:13:47\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"dstuser\": \"root\", \"tty\": \"pts/0\", \"pwd\": \"/home/phopkins\", \"command\": \"/usr/bin/tail /var/log/syslog\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\", \"10.2.2\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Successful sudo to ROOT executed.\", \"groups\": [\"syslog\", \"sudo\"], \"nist_800_53\": [\"AU.14\", \"AC.7\", \"AC.6\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 1, \"mitre\": {\"technique\": [\"Sudo and Sudo Caching\"], \"id\": [\"T1548.003\"], \"tactic\": [\"Privilege Escalation\", \"Defense Evasion\"]}, \"id\": \"5402\", \"gpg13\": [\"7.6\", \"7.8\", \"7.13\"]}, \"decoder\": {\"parent\": \"sudo\", \"name\": \"sudo\", \"ftscomment\": \"First time user executed the sudo command\"}, \"full_log\": \"Jan 15 07:13:47 intranet-server sudo: phopkins : TTY=pts/0 ; PWD=/home/phopkins ; USER=root ; COMMAND=/usr/bin/tail /var/log/syslog\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:13:47.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686164068.371893\"}\n"
+  },
+  {
+    "line_number": 78,
+    "predicted_attack_type": [
+      "Valid Accounts"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert shows a successful sudo session opened by a user with root privileges, indicating use of valid credentials for privilege escalation.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:13:47\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"uid\": \"0\", \"dstuser\": \"root\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 6, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 07:13:47 intranet-server sudo: pam_unix(sudo:session): session opened for user root by phopkins(uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:13:47.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686164068.372469\"}\n"
+  }
+]

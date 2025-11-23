@@ -1,0 +1,802 @@
+[
+  {
+    "anomaly_timestamp": "1642207297",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1592"],
+    "description": "Detection of a new 'platform' value 'linux' in OpenVPN peer information. While 'linux' is a common and legitimate platform, its 'newness' might indicate a new type of client connecting to the VPN, which could be benign or an early indicator of a new device attempting to establish VPN access. Contextual analysis of the user 'hwarren' and IP '192.168.129.254' is crucial.",
+    "tools": ["OpenVPN client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642208411",
+    "attack_type": ["Command and Control", "Data Exfiltration"],
+    "mitre": ["T1071.004", "T1048"],
+    "description": "Unusual frequency of DNS queries for a highly obfuscated and high-entropy domain '3x6-.97-.ZCQRhpsTmsNYWJ8IgBtV9oGyx5Y9FcRwL/lgFbb5Jdq/WWQ05ZUaEvREiFoQ-.66503vY2X9wemzaiPq2ylGsry26f5XFuwRfG9jMVeAPtoqzZH1V4sXHAG*Jn-.ku/4WajV17adtCXvrpm*gNCvcHEnG2pbPbrKzZHcyIszza2fdy59Lf4w7xEM-.customers_2020.xlsx.ycgjslfptkev.com'. The presence of file names ('customers_2020.xlsx') and unusual characters suggests DNS tunneling for C2 communication or data exfiltration. The high entropy indicates a likely algorithmic generation of domain names, a common characteristic of malware (Domain Generation Algorithm - DGA).",
+    "tools": ["DNS Tunneling tools (e.g., Iodine, dnscat2)", "Malware using DGA"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642208476",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1592"],
+    "description": "High entropy in DNS domain 'taylorcruz-mail'. While 'taylorcruz-mail' might be a legitimate internal hostname, its classification as 'high entropy' indicates that it deviates from the typical patterns observed in DNS queries, potentially due to unusual naming conventions or an attempt to query non-standard internal resources.",
+    "tools": ["Nmap (for DNS brute-forcing)", "Internal DNS scanners"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642219160",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1592"],
+    "description": "Detection of a new IP address '10.35.33.116' performing DNS queries for 'motd.ubuntu.com'. While 'motd.ubuntu.com' is a legitimate Ubuntu domain, a 'new IP address' indicates a new host on the network making DNS requests. This could be a new device, a misconfigured device, or a compromised host initiating unexpected external communication.",
+    "tools": ["Standard system utilities"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227294.24",
+    "attack_type": ["Defense Evasion", "Persistence"],
+    "mitre": ["T1562.001", "T1543.003"],
+    "description": "Audit log indicating a new service start parameter combination for 'grub-common' initiated by 'systemd' (PID 1, UID 0/root). This is generally a normal system event during boot or system updates. However, its detection as 'new' suggests a change in the usual boot process or GRUB configuration. While likely benign (e.g., kernel update), it could be an indicator of tampering with the bootloader for persistence.",
+    "tools": ["Legitimate system updates", "Rootkits (less likely in this context)"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227294.24",
+    "attack_type": ["Defense Evasion", "Persistence"],
+    "mitre": ["T1562.001", "T1543.003"],
+    "description": "Audit log indicating a new service stop parameter combination for 'grub-common' initiated by 'systemd' (PID 1, UID 0/root). Similar to the service start, this is typically a normal system event during boot or system updates. Its 'newness' could reflect a change in the GRUB configuration or a system update. While usually benign, it warrants investigation if other suspicious activities are observed, as it could precede bootloader manipulation.",
+    "tools": ["Legitimate system updates"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227294.32",
+    "attack_type": ["Resource Hijacking", "Impact"],
+    "mitre": ["T1496", "T1529"],
+    "description": "Change in CPU utilization. While the average increased slightly from 0.067 to 0.071, and variance decreased, this specific CPU metric change might not be significant enough to indicate malicious activity on its own. It could represent normal fluctuations in system load.",
+    "tools": ["Monitoring tools"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227295",
+    "attack_type": ["Defense Evasion", "Persistence"],
+    "mitre": ["T1562.001", "T1543.003"],
+    "description": "New event type: 'grub-common' recording a successful boot for GRUB. This is a normal system log entry, typically occurring during system startup. Its 'newness' in the detector's training mode indicates that this specific log pattern for GRUB events was not previously observed, but it is not inherently malicious.",
+    "tools": ["GRUB bootloader"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227620",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1592"],
+    "description": "High entropy in the Apache Access referer 'http://intranet.price.fox.org/'. The entropy value being 0.0, despite the referer containing multiple characters, is suspicious. It suggests a potential miscalculation by the detector or an unusual, possibly malformed, referer that the entropy calculation flagged incorrectly. However, a referer to the site itself is normal behavior for web Browse.",
+    "tools": ["Web browsers", "Automated web tools"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227620",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1592"],
+    "description": "New characters detected in Apache Access referer: 'a', 'c', 'e', 'f', 'g', 'h', 'i', 'n', '/', 'p', '.', 'r', 'o', 't', 'x', ':'. These characters are all standard and expected in a URL. This indicates the CharsetDetector was in training mode and simply learned a new set of common characters, not a malicious activity.",
+    "tools": ["Web browsers"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642228843",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1592"],
+    "description": "Detection of a new IP address '192.168.131.234' performing a DNS query for 'motd.ubuntu.com'. While 'motd.ubuntu.com' is a legitimate Ubuntu domain, the 'newness' of the IP suggests a new host on the network or a previously unseen internal IP communicating with DNS. This could indicate a new device, a reconfigured device, or a compromised system attempting to resolve external domains.",
+    "tools": ["Standard system utilities"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642228984",
+    "attack_type": ["Command and Control", "Reconnaissance"],
+    "mitre": ["T1071.004", "T1592"],
+    "description": "The frequency of DNS A record queries has exceeded its expected range for the first time, originating from '10.35.33.144' and querying 'intranet.price.fox.org'. A sudden increase in DNS 'A' record queries, especially for an internal domain, could indicate increased internal reconnaissance, a misconfigured application, or potentially a compromised host aggressively querying internal resources for mapping or C2 purposes. It's marked as 'training mode' which suggests the system is learning baseline, but the frequency anomaly is flagged.",
+    "tools": ["Internal network scanners", "Custom scripts for enumeration"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642492683",
+    "attack_type": ["Reconnaissance", "Vulnerability Scanning"],
+    "mitre": ["T1595", "T1592"],
+    "description": "Unusual occurrence frequencies of Apache Access request methods (GET and other methods). Specifically, an anomaly detected where the 'GET' method count (28) and other methods (11) are deemed unusual. The user agent 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0' is a standard browser, but the 'unusual frequency' could point to automated Browse or a script actively probing the web server, potentially for accessible content or vulnerabilities.",
+    "tools": ["Web scanners", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642492841",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1592"],
+    "description": "Unusual occurrence frequencies of DNS query IPs, with a query for '_http._tcp.security.ubuntu.com' from '192.168.128.4'. While the queried domain is legitimate (Ubuntu security updates), the 'unusual frequency' of this particular IP in DNS queries suggests a change in its behavior. This could be due to system updates, software installations, or, in a malicious context, a compromised host performing reconnaissance or attempting to resolve C2 infrastructure.",
+    "tools": ["Software update mechanisms", "Malware with DNS capabilities"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642495220",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1592"],
+    "description": "Unusual occurrence frequencies of DNS log events, specifically involving PTR queries like '110.130.168.192.in-addr.arpa' from '192.168.128.170'. While PTR queries are normal for reverse DNS lookups, an 'unusual frequency' of this event type could indicate a host performing extensive network mapping, scanning, or attempting to identify systems on the network. This could be part of a reconnaissance phase.",
+    "tools": ["Network scanners (e.g., Nmap)", "Internal reconnaissance tools"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642483364",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1592"],
+    "description": "Unusual occurrence frequencies of DNS log events. A query for 'motd.ubuntu.com' from '192.168.130.19' is observed. While the domain is legitimate, the 'frequency anomaly' in the overall DNS log events suggests a deviation from normal DNS query patterns. This could indicate a system reboot, a new system coming online, or a change in the network's DNS traffic composition.",
+    "tools": ["System updates", "New device onboarding"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642483877",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1592"],
+    "description": "Unusual occurrence frequencies of DNS log events, specifically a query for 'taylorcruz-mail' from '192.168.128.195'. The overall anomaly in DNS log event frequencies, combined with a query for what appears to be an internal mail server, suggests unusual internal DNS activity. This could be an internal host performing reconnaissance, or a misconfigured application causing excessive DNS lookups.",
+    "tools": ["Internal network scanners", "Misconfigured applications"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642484462",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1592"],
+    "description": "Unusual occurrence frequencies of DNS log events. A query for 'current.cvd.clamav.net' (ClamAV virus definitions) from '192.168.128.4'. While the domain is legitimate, the 'frequency anomaly' in overall DNS events could indicate a system's antivirus software performing an unusual number of updates or a new instance of antivirus software being deployed, leading to a temporary spike in specific DNS queries.",
+    "tools": ["Antivirus software"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642485677",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1592"],
+    "description": "Unusual occurrence frequencies of DNS log events. A query for 'taylorcruz-mail' from '192.168.128.195' is detected again. The repeated flagging of 'unusual frequency' for DNS log events related to this internal mail server suggests a persistent anomaly in its DNS query patterns. This reinforces the need to investigate the host '192.168.128.195' to understand the reason behind these frequent queries.",
+    "tools": ["Internal network scanners", "Misconfigured applications"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642485677",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1592"],
+    "description": "Unusual occurrence frequencies of DNS query IPs, with a query for 'taylorcruz-mail' from '192.168.128.195'. The 'unusual frequency' of this specific IP in DNS queries for an internal mail server, combined with previous similar detections, highlights consistent anomalous DNS behavior from this host. This strengthens the suspicion of ongoing internal reconnaissance or a persistent misconfiguration, warranting further investigation into the activities of '192.168.128.195'.",
+    "tools": ["Internal network scanners", "Misconfigured applications"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642438805",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1592"],
+    "description": "Unusual occurrence frequencies of DNS query IPs, specifically a PTR query ('209.129.168.192.in-addr.arpa') from '192.168.128.195'. While PTR queries are common for reverse DNS lookups, an unusual frequency from a particular IP suggests that this host might be performing extensive network mapping or scanning. This could be an attacker enumerating network devices or a misconfigured system.",
+    "tools": ["Network scanners (e.g., Nmap)", "Internal reconnaissance scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642439486",
+    "attack_type": ["Initial Access", "Defense Evasion"],
+    "mitre": ["T1133", "T1562.001"],
+    "description": "New event type: 'TLS Error: TLS key negotiation failed to occur within 60 seconds (check your network connectivity)' from OpenVPN. This indicates a failure in establishing a secure VPN connection. While it could be a simple network issue or misconfiguration, repeated failures from the same user/IP ('hwarren'/'192.168.129.254') might suggest attempts to bypass VPN security, brute-force credentials, or exploit TLS vulnerabilities.",
+    "tools": ["OpenVPN client", "VPN probing tools"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642439486",
+    "attack_type": ["Initial Access", "Defense Evasion"],
+    "mitre": ["T1133", "T1562.001"],
+    "description": "New event type: 'TLS Error: TLS handshake failed' from OpenVPN. Similar to the key negotiation failure, a failed TLS handshake points to a problem in establishing a secure encrypted tunnel. Persistent failures from 'hwarren' at '192.168.129.254' warrant investigation as they could be indicative of: 1) Incorrect VPN client configuration. 2) Network instability. 3) An attacker attempting to connect with incorrect credentials or a misconfigured client, possibly probing for weaknesses.",
+    "tools": ["OpenVPN client", "VPN probing tools"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642439486",
+    "attack_type": ["Defense Evasion"],
+    "mitre": ["T1562"],
+    "description": "New event type: 'TLS: move_session: dest=TM_LAME_DUCK src=TM_ACTIVE reinit_src=1' from OpenVPN. This message indicates an OpenVPN session state transition. 'TM_LAME_DUCK' is a state where the server is attempting to gracefully shut down or reconfigure a session. While not directly malicious, if this 'move_session' pattern is unusual for this user/IP, it could relate to attempts to disrupt or reset VPN connections, possibly to bypass security controls or force re-authentication.",
+    "tools": ["OpenVPN server/client"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642439561",
+    "attack_type": ["Initial Access", "Defense Evasion"],
+    "mitre": ["T1133", "T1562.001"],
+    "description": "Repeated 'TLS Error: TLS key negotiation failed to occur within 60 seconds' from 'hwarren/192.168.129.254'. Multiple occurrences of this error from the same source increase the suspicion. While still potentially a network issue, it could also indicate a sustained attempt to connect to the VPN with incorrect parameters, possibly hinting at brute-force attempts or a persistent but misconfigured attack tool.",
+    "tools": ["VPN brute-forcing tools", "OpenVPN client (misconfigured)"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642439561",
+    "attack_type": ["Initial Access", "Defense Evasion"],
+    "mitre": ["T1133", "T1562.001"],
+    "description": "Repeated 'TLS Error: TLS handshake failed' from 'hwarren/192.168.129.254'. This repeated failure reinforces the need for investigation. It could signify: 1) A user struggling with VPN connectivity. 2) An attacker continually attempting to establish a session, potentially with incorrect or compromised credentials, or by trying to exploit a TLS vulnerability.",
+    "tools": ["VPN probing tools", "OpenVPN client (misconfigured)"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642439637",
+    "attack_type": ["Initial Access", "Defense Evasion"],
+    "mitre": ["T1133", "T1562.001"],
+    "description": "Further repeated 'TLS Error: TLS key negotiation failed to occur within 60 seconds' from 'hwarren/192.168.129.254'. The continuous nature of these errors from the same source suggests a persistent problem or intentional activity. It strongly indicates either a user with severe network issues/misconfiguration or a dedicated attempt to gain unauthorized VPN access.",
+    "tools": ["VPN brute-forcing tools", "OpenVPN client (misconfigured)"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642439637",
+    "attack_type": ["Initial Access", "Defense Evasion"],
+    "mitre": ["T1133", "T1562.001"],
+    "description": "Further repeated 'TLS Error: TLS handshake failed' from 'hwarren/192.168.129.254'. The consistent failure of TLS handshakes from this specific user/IP points to a significant issue with their VPN connection. This could be indicative of a persistent attempt at unauthorized access (e.g., trying to guess credentials or exploit a VPN vulnerability) or a legitimate user facing ongoing connectivity problems.",
+    "tools": ["VPN probing tools", "OpenVPN client (misconfigured)"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642441885",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1592"],
+    "description": "New characters '(', ')' detected in an Apache Access request: '/remote.php/dav/files/jwright/Photos%20(2)'. While these characters are part of a legitimate file path (e.g., 'Photos (2)'), their 'newness' to the detector suggests they haven't been observed in requests before. This could mean a new application, user, or automated process is accessing files with unusual naming conventions. The 'HeadlessChrome' user agent suggests automated access, possibly a web crawler or an application syncing files.",
+    "tools": ["WebDAV clients", "Automated web crawlers"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642441885",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1592"],
+    "description": "New characters '(', ')' detected in an Apache Access request: '/index.php/apps/files/ajax/getstoragestats.php?dir=%2FPhotos%20(2)'. Similar to the previous entry, these characters are part of a file path with spaces, which are URL-encoded as '%20'. Their 'newness' to the character set indicates that the system is learning normal patterns. The 'HeadlessChrome' user agent again points to automated access, likely a legitimate client (e.g., Nextcloud web UI automation or sync client) interacting with the file storage.",
+    "tools": ["Web application clients (e.g., Nextcloud)", "Automated scripts"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642441885",
+    "attack_type": ["Possible Path Traversal", "Information Gathering"],
+    "mitre": ["T1083", "T1592"],
+    "description": "New characters '(', ')' in referer URL for a file path, possibly indicating an attempt to traverse directories or enumerate files.",
+    "tools": ["Burp Suite", "OWASP ZAP", "Custom Scripts"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642321099.72",
+    "attack_type": ["Software Exploitation", "Vulnerability Exploitation"],
+    "mitre": ["T1203", "T1190"],
+    "description": "PHP Deprecated methods warning in a Horde_Form_Variable class, indicating potential outdated software with known vulnerabilities.",
+    "tools": ["Metasploit", "Nessus", "Vulnerability Scanners"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642325193",
+    "attack_type": ["DNS Reconnaissance", "Network Scanning"],
+    "mitre": ["T1590", "T1046"],
+    "description": "Increased frequency of TXT DNS queries to current.cvd.clamav.net, potentially for gathering information about antivirus software or for a DoS attack.",
+    "tools": ["dig", "nslookup", "Nmap"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642325193",
+    "attack_type": ["DNS Reconnaissance", "Network Scanning"],
+    "mitre": ["T1590", "T1046"],
+    "description": "Increased frequency of TXT DNS queries to current.cvd.clamav.net, potentially for gathering information about antivirus software or for a DoS attack.",
+    "tools": ["dig", "nslookup", "Nmap"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642325805",
+    "attack_type": ["DNS Tunneling", "Command and Control", "Data Exfiltration"],
+    "mitre": ["T1071.004", "T1048.003"],
+    "description": "High entropy in DNS domain 'i.li.ru' could indicate a DNS tunneling attempt for command and control or data exfiltration.",
+    "tools": ["iodine", "DNSCat2", "Dnscat"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642237203",
+    "attack_type": ["Data Exfiltration", "Command and Control", "DNS Tunneling"],
+    "mitre": ["T1048.003", "T1071.004"],
+    "description": "Unusual occurrence frequency of A record queries with a highly randomized and long domain name, suggesting data exfiltration or C2 via DNS.",
+    "tools": ["iodine", "DNSCat2", "Custom DNS exfiltration tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642237203",
+    "attack_type": ["Reconnaissance", "Network Scanning"],
+    "mitre": ["T1590", "T1046"],
+    "description": "Unusual occurrence frequencies of DNS query IPs, especially with a long and random-looking domain, could be part of a larger reconnaissance or data exfiltration campaign.",
+    "tools": ["Nmap", "Masscan", "Custom scripts for IP enumeration"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642238170.82",
+    "attack_type": ["Account Manipulation", "Privilege Escalation", "Persistence"],
+    "mitre": ["T1098", "T1078", "T1546"],
+    "description": "New user_acct parameter combination for 'hwarren' with 'sshd' execution, suggesting a new or unauthorized account activity or privilege escalation attempt.",
+    "tools": ["Mimikatz", "PowerShell Empire", "SSH client for unauthorized access"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642235841.33",
+    "attack_type": ["Account Manipulation", "Privilege Escalation", "Persistence"],
+    "mitre": ["T1098", "T1078", "T1546"],
+    "description": "New user_acct parameter combination for 'jessica.wright' with 'dovecot/auth' execution, suggesting a new or unauthorized account activity or privilege escalation attempt.",
+    "tools": ["Mimikatz", "PowerShell Empire", "Dovecot exploits"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642235992",
+    "attack_type": ["Web Application Attack", "Information Gathering"],
+    "mitre": ["T1190", "T1592"],
+    "description": "New character ',' detected in the Apache Access request for a WordPress load-scripts.php, potentially indicating an attempt to inject malicious code or enumerate plugins.",
+    "tools": ["Burp Suite", "OWASP ZAP", "WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642236003",
+    "attack_type": ["Data Exfiltration", "Command and Control", "DNS Tunneling"],
+    "mitre": ["T1048.003", "T1071.004"],
+    "description": "Unusual occurrence frequencies of DNS log events with a highly randomized and long domain name, suggesting data exfiltration or C2 via DNS.",
+    "tools": ["iodine", "DNSCat2", "Custom DNS exfiltration tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642236015.19",
+    "attack_type": ["Account Manipulation", "Privilege Escalation", "Persistence"],
+    "mitre": ["T1098", "T1078", "T1546"],
+    "description": "New user_auth parameter combination for 'michael.davis' with 'dovecot/auth' execution, suggesting a new or unauthorized account activity or privilege escalation attempt.",
+    "tools": ["Mimikatz", "PowerShell Empire", "Dovecot exploits"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642233668",
+    "attack_type": ["Reconnaissance", "Network Scanning"],
+    "mitre": ["T1590", "T1046"],
+    "description": "High entropy in DNS domain 'ipv4only.arpa', which is a legitimate special-use domain. This could be a false positive or indicate unusual network configuration/activity, but less likely an attack.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642233668",
+    "attack_type": ["Reconnaissance", "Network Scanning"],
+    "mitre": ["T1590", "T1046"],
+    "description": "High entropy in DNS domain 'ipv4only.arpa', which is a legitimate special-use domain. This could be a false positive or indicate unusual network configuration/activity, but less likely an attack.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642233668",
+    "attack_type": ["Reconnaissance", "Network Scanning"],
+    "mitre": ["T1590", "T1046"],
+    "description": "High entropy in DNS domain 'ipv4only.arpa', which is a legitimate special-use domain. This could be a false positive or indicate unusual network configuration/activity, but less likely an attack.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642233668",
+    "attack_type": ["Reconnaissance", "Network Scanning"],
+    "mitre": ["T1590", "T1046"],
+    "description": "High entropy in DNS domain 'ipv4only.arpa', which is a legitimate special-use domain. This could be a false positive or indicate unusual network configuration/activity, but less likely an attack.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642233668",
+    "attack_type": ["Reconnaissance", "Network Scanning"],
+    "mitre": ["T1590", "T1046"],
+    "description": "High entropy in DNS domain 'ipv4only.arpa', which is a legitimate special-use domain. This could be a false positive or indicate unusual network configuration/activity, but less likely an attack.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642233668",
+    "attack_type": ["Reconnaissance", "Network Scanning"],
+    "mitre": ["T1590", "T1046"],
+    "description": "High entropy in DNS domain 'ipv4only.arpa', which is a legitimate special-use domain. This could be a false positive or indicate unusual network configuration/activity, but less likely an attack.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642232601",
+    "attack_type": ["Information Gathering", "Network Reconnaissance"],
+    "mitre": ["T1592"],
+    "description": "High entropy in DNS domain '172.17.131.81' being mapped to a hostname (mail.dmz.price.fox.org). While the IP itself isn't high entropy, this alert might be triggered by an unusual pattern of IP-to-hostname lookups which could indicate reconnaissance. Given it's a 'reply' it's less likely malicious.",
+    "tools": ["nslookup", "dig"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642233340",
+    "attack_type": ["Web Application Attack", "Reconnaissance"],
+    "mitre": ["T1190", "T1592"],
+    "description": "New request method 'REPORT' detected in Apache access logs. This HTTP method is often used for WebDAV, but if not expected, it could indicate an attempt to exploit WebDAV vulnerabilities or enumerate server capabilities.",
+    "tools": ["Cadaver", "Nmap (with http-methods script)", "Burp Suite"],
+    "classification": "TP"
+  },
+    {
+    "anomaly_timestamp": "1642233423",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1590"],
+    "description": "New IP address detected in DNS logs performing a query to a legitimate domain, potentially for reconnaissance. However, querying a legitimate Mozilla service makes it less likely to be malicious on its own.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642230608.71",
+    "attack_type": ["Privilege Escalation", "Account Manipulation"],
+    "mitre": ["T1078", "T1098", "T1548.001"],
+    "description": "New credential refresh combination detected for 'root' via 'sudo', possibly indicating an attempt at privilege escalation or unauthorized access.",
+    "tools": ["sudo", "privilege escalation exploits"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230608.71",
+    "attack_type": ["Privilege Escalation", "Account Manipulation", "Persistence"],
+    "mitre": ["T1078", "T1098", "T1548.001"],
+    "description": "New user session start combination detected for 'root' via 'sudo', possibly indicating an attempt at privilege escalation or establishing persistence.",
+    "tools": ["sudo", "privilege escalation exploits"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230608.72",
+    "attack_type": ["Privilege Escalation", "Account Manipulation", "Persistence"],
+    "mitre": ["T1078", "T1098"],
+    "description": "New user session end combination detected for 'root' via 'sudo', indicating the conclusion of a session that might have involved privilege escalation.",
+    "tools": ["sudo"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230608.72",
+    "attack_type": ["Privilege Escalation", "Account Manipulation"],
+    "mitre": ["T1078", "T1098"],
+    "description": "New credential disposition combination detected for 'root' via 'sudo', indicating the conclusion of credential manipulation that might have involved privilege escalation.",
+    "tools": ["sudo"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230793",
+    "attack_type": ["Web Application Attack", "Command and Control"],
+    "mitre": ["T1190", "T1059"],
+    "description": "New and unusual characters ('Z', 'K') detected in a web request parameter, potentially indicating an injection attack or attempted command execution.",
+    "tools": ["Burp Suite", "OWASP ZAP", "SQLMap"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230793",
+    "attack_type": ["Web Application Attack", "Command and Control"],
+    "mitre": ["T1190", "T1059"],
+    "description": "New and unusual characters ('j', 'K', 'Z') detected in a referer URL parameter, potentially indicating an injection attack or attempted command execution.",
+    "tools": ["Burp Suite", "OWASP ZAP", "SQLMap"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230986.07",
+    "attack_type": ["Brute Force", "Credential Access", "Account Manipulation"],
+    "mitre": ["T1110", "T1078"],
+    "description": "New user authentication combination detected for 'meghan.morris' via 'dovecot/auth', possibly indicating a brute-force or credential stuffing attempt.",
+    "tools": ["Hydra", "Medusa", "Ncrack"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230986.07",
+    "attack_type": ["Account Manipulation", "Credential Access"],
+    "mitre": ["T1098", "T1078"],
+    "description": "New user account combination detected for 'meghan.morris' via 'dovecot/auth', indicating a new or unauthorized account activity.",
+    "tools": ["Hydra", "Medusa", "Ncrack"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230993",
+    "attack_type": ["Web Application Attack", "Information Gathering", "Path Traversal"],
+    "mitre": ["T1190", "T1083", "T1059"],
+    "description": "New and unusual character ('C') detected in the request path, potentially indicating an attempt to exploit web application vulnerabilities or information gathering.",
+    "tools": ["Burp Suite", "OWASP ZAP", "DirBuster"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642230994",
+    "attack_type": ["Web Application Attack", "Information Gathering"],
+    "mitre": ["T1190", "T1083"],
+    "description": "New and unusual character ('E') detected in the web request path '/services/ajax.php/kronolith/listEvents'. This could indicate an attempt to exploit web application vulnerabilities or enumerate server capabilities.",
+    "tools": ["Burp Suite", "OWASP ZAP"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642227633",
+    "attack_type": ["Information Gathering"],
+    "mitre": ["T1592"],
+    "description": "High entropy detected in the DNS domain 'cdn.ampproject.org'. While high entropy can indicate malicious activity like DGA, cdn.ampproject.org is a legitimate Content Delivery Network (CDN) domain for Google AMP, which often has complex, high-entropy subdomains due to its nature. This is likely a false positive.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227633",
+    "attack_type": ["Information Gathering"],
+    "mitre": ["T1592"],
+    "description": "High entropy detected in the DNS domain 'cdn.ampproject.org'. While high entropy can indicate malicious activity like DGA, cdn.ampproject.org is a legitimate Content Delivery Network (CDN) domain for Google AMP, which often has complex, high-entropy subdomains due to its nature. This is likely a false positive.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227658",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1590"],
+    "description": "New IP address '192.168.130.19' detected in DNS logs querying 'motd.ubuntu.com'. This could be a new client or internal system joining the network, performing legitimate updates or checks.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227658",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1590"],
+    "description": "New IP address '172.17.128.63' detected in DNS logs querying 'motd.ubuntu.com'. This could be a new client or internal system joining the network, performing legitimate updates or checks.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227658",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1590"],
+    "description": "New IP address '10.35.32.78' detected in DNS logs querying 'motd.ubuntu.com'. This could be a new client or internal system joining the network, performing legitimate updates or checks.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227748",
+    "attack_type": ["Web Application Attack", "Information Gathering"],
+    "mitre": ["T1190", "T1592"],
+    "description": "New characters ('5', 's', '=', '?') detected in the Apache access referer for an internal WordPress site. These characters are common in URLs (e.g., query parameters). While 'new', they are contextually benign within a URL for a WordPress page, suggesting a false positive.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227748",
+    "attack_type": ["Web Application Attack", "Information Gathering"],
+    "mitre": ["T1190", "T1083"],
+    "description": "New character ('z') detected in the Apache access request path '/wp-content/plugins/wpdiscuz/themes/default/style.css?ver=7.0.4'. While 'z' is a legitimate character, its 'new' detection could indicate a dynamic path generation or an attempt to bypass security, though it appears to be part of a legitimate plugin name ('wpdiscuz'). Given the context, this is likely a false positive due to plugin updates or initial access.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227748",
+    "attack_type": ["Web Application Attack", "Information Gathering"],
+    "mitre": ["T1190", "T1083"],
+    "description": "New characters ('d', 'l', 'm', '0', '4', 'u', 'v', 'w', '7', 'y', 'z') detected in the Apache access referer for a WordPress plugin resource path. These characters are standard in URLs and file paths. Their 'new' detection is likely due to the initial use or update of the 'wpdiscuz' plugin, suggesting a false positive.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227748",
+    "attack_type": ["Web Application Attack", "Information Gathering"],
+    "mitre": ["T1190", "T1083"],
+    "description": "New characters ('1', '3') detected in the Apache access referer for a WordPress plugin resource path. These characters are standard in URLs and version numbers. Their 'new' detection is likely due to the initial use or update of the 'wpdiscuz' plugin's assets, suggesting a false positive.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227902",
+    "attack_type": ["Web Application Attack"],
+    "mitre": ["T1190"],
+    "description": "New character ('x') detected in the Apache access request for '/wp-admin/admin-ajax.php'. While `admin-ajax.php` is a legitimate WordPress file used for AJAX calls, the detection of a 'new' character in its request could signify an attempted injection or parameter manipulation. However, 'x' is a common character, and without more context on where it appeared (e.g., within a specific parameter), it might be a false positive related to a unique but benign AJAX request.",
+    "tools": ["Burp Suite", "OWASP ZAP"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642227905",
+    "attack_type": ["Command and Control", "Reconnaissance"],
+    "mitre": ["T1071.004", "T1568.002"],
+    "description": "High entropy detected in the DNS domain 'taylorcruz-mail'. High entropy in DNS queries can be an indicator of a Domain Generation Algorithm (DGA) used by malware for command and control or for rapidly changing rendezvous points. This warrants further investigation.",
+    "tools": ["DGArchive", "Passive DNS analysis tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642226216",
+    "attack_type": ["Reconnaissance", "Discovery"],
+    "mitre": ["T1590", "T1046"],
+    "description": "Unusual occurrence frequency of 'AAAA' DNS query records (IPv6 addresses) detected. An increase in AAAA queries could indicate a system attempting to communicate over IPv6 more frequently, which might be normal network behavior, or it could be a sign of reconnaissance by an attacker mapping the network's IPv6 capabilities. Given the magnitude (83 vs expected 27.6), it leans towards suspicious.",
+    "tools": ["DNS analysis tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642226476",
+    "attack_type": ["Command and Control", "Reconnaissance"],
+    "mitre": ["T1071.004", "T1568.002"],
+    "description": "High entropy detected in the DNS domain 'taylorcruz-mail'. High entropy in DNS queries can be an indicator of a Domain Generation Algorithm (DGA) used by malware for command and control or for rapidly changing rendezvous points. This warrants further investigation.",
+    "tools": ["DGArchive", "Passive DNS analysis tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642226748.74",
+    "attack_type": ["Defense Evasion", "Persistence"],
+    "mitre": ["T1543.003"],
+    "description": "New service start parameter combination detected for 'apt-daily-upgrade' run by 'systemd'. This service is legitimate for automated updates. While 'new', it's likely a benign system event (e.g., first run of a new update schedule, or a system reboot triggering it after a long period of inactivity).",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642226748.74",
+    "attack_type": ["Defense Evasion", "Persistence"],
+    "mitre": ["T1543.003"],
+    "description": "New service stop parameter combination detected for 'apt-daily-upgrade' run by 'systemd'. This service is legitimate for automated updates. Similar to the start event, it's likely a benign system event (e.g., completion of an update process).",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642226944",
+    "attack_type": ["Information Gathering"],
+    "mitre": ["T1592"],
+    "description": "High entropy detected in the DNS domain 'ocsp.pki.goog'. This is a legitimate Google domain used for Online Certificate Status Protocol (OCSP) lookups. OCSP URLs can sometimes exhibit higher entropy due to unique identifiers in certificate checks. This is likely a false positive.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642226944",
+    "attack_type": ["Information Gathering"],
+    "mitre": ["T1592"],
+    "description": "High entropy detected in the DNS domain 'ocsp.pki.goog'. This is a legitimate Google domain used for Online Certificate Status Protocol (OCSP) lookups. OCSP URLs can sometimes exhibit higher entropy due to unique identifiers in certificate checks. This is likely a false positive.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642226944",
+    "attack_type": ["Information Gathering"],
+    "mitre": ["T1592"],
+    "description": "High entropy detected in the DNS domain 'ocsp.pki.goog'. This is a legitimate Google domain used for Online Certificate Status Protocol (OCSP) lookups. OCSP URLs can sometimes exhibit higher entropy due to unique identifiers in certificate checks. This is likely a false positive.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642226944",
+    "attack_type": ["Information Gathering"],
+    "mitre": ["T1592"],
+    "description": "High entropy detected in the DNS domain 'ocsp.pki.goog'. This is a legitimate Google domain used for Online Certificate Status Protocol (OCSP) lookups. OCSP URLs can sometimes exhibit higher entropy due to unique identifiers in certificate checks. This is likely a false positive.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642226944",
+    "attack_type": ["Information Gathering"],
+    "mitre": ["T1592"],
+    "description": "High entropy detected in the DNS domain 'ocsp.pki.goog'. This is a legitimate Google domain used for Online Certificate Status Protocol (OCSP) lookups. OCSP URLs can sometimes exhibit higher entropy due to unique identifiers in certificate checks. This is likely a false positive.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642226944",
+    "attack_type": ["Information Gathering"],
+    "mitre": ["T1592"],
+    "description": "High entropy detected in the DNS domain 'ocsp.pki.goog'. This is a legitimate Google domain used for Online Certificate Status Protocol (OCSP) lookups. OCSP URLs can sometimes exhibit higher entropy due to unique identifiers in certificate checks. This is likely a false positive.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642633908",
+    "attack_type": ["Command and Control", "Data Exfiltration"],
+    "mitre": ["T1071.004", "T1048.003"],
+    "description": "Unusual occurrence frequencies of DNS log events related to a seemingly arbitrary domain 'jonesmorgan-mail'. The combination of a name that appears machine-generated or unique, with unusual frequency, strongly suggests DNS tunneling for command and control or data exfiltration. This is further supported by the alert being in 'TrainingMode: false', indicating it's an active detection, not a training observation.",
+    "tools": ["iodine", "DNSCat2", "dnscat2"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642634741",
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1590"],
+    "description": "Unusual occurrence frequencies of DNS log events for 'motd.ubuntu.com'. While 'motd.ubuntu.com' is legitimate for message-of-the-day updates, an unusual *frequency* could indicate an increased number of Ubuntu systems checking in (e.g., new deployments), or potentially a system configured to query this unusually frequently, which might be abnormal behavior for an established host. Given the destination, it is likely a false positive, but the 'unusual frequency' is worth noting.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642635077",
+    "attack_type": ["Command and Control", "Data Exfiltration"],
+    "mitre": ["T1071.004", "T1048.003"],
+    "description": "Unusual occurrence frequencies of DNS log events for 'taylorcruz-mail'. Similar to 'jonesmorgan-mail', a seemingly unique or machine-generated domain with abnormal frequency suggests DNS tunneling for command and control or data exfiltration.",
+    "tools": ["iodine", "DNSCat2", "dnscat2"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642635708",
+    "attack_type": ["Command and Control", "Data Exfiltration"],
+    "mitre": ["T1071.004", "T1048.003"],
+    "description": "Unusual occurrence frequencies of DNS log events for 'jonesmorgan-mail'. Repeated detection of unusual frequency for this domain reinforces the suspicion of DNS tunneling activity.",
+    "tools": ["iodine", "DNSCat2", "dnscat2"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642636516",
+    "attack_type": ["Defense Evasion"],
+    "mitre": ["T1562.001"],
+    "description": "Unusual occurrence frequencies of DNS log events for 'current.cvd.clamav.net'. This is a legitimate domain for ClamAV antivirus definition updates. An unusual frequency could indicate a large number of systems updating simultaneously, or a misconfigured system repeatedly trying to update, rather than malicious activity. Therefore, it is likely a false positive.",
+    "tools": [],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": "1642576840",
+    "attack_type": ["Initial Access", "Lateral Movement", "Account Manipulation"],
+    "mitre": ["T1078", "T1133", "T1098"],
+    "description": "New event type: 'User megan.johnson is not authorized for Mail (Host: 192.168.131.156)'. This indicates an unauthorized access attempt to the Horde mail service by user 'megan.johnson' from an internal IP. This could be a legitimate user error, but also a credential stuffing attack, brute force, or an attempt at lateral movement by a compromised host/user.",
+    "tools": ["Hydra", "Patator", "credential stuffing tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642578056",
+    "attack_type": ["Reconnaissance", "Discovery"],
+    "mitre": ["T1590", "T1046"],
+    "description": "Unusual occurrence frequencies of various DNS log event types, including queries, cached, forwarded, and replies, originating from '172.17.130.37' for 'mail.dmz.price.fox.org'. While the domain itself is internal and likely legitimate, the overall 'unusual frequency' across multiple DNS event types could indicate network scanning, enumeration, or other reconnaissance activities from the source IP.",
+    "tools": ["Nmap", "dnsrecon"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642578294.32",
+    "attack_type": ["Resource Hijacking", "Impact"],
+    "mitre": ["T1496"],
+    "description": "CPU total percentage deviates from average in monitoring logs, increasing from 0.078 to 0.100. This indicates an unusual increase in CPU utilization on 'intranet-server'. This could be due to legitimate processes (e.g., scheduled tasks, new applications) or malicious activity such as cryptomining, resource exhaustion attacks, or execution of computationally intensive malware.",
+    "tools": ["Cryptominers", "DDoS tools (resource exhaustion)"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642579240",
+    "attack_type": ["Reconnaissance", "Discovery"],
+    "mitre": ["T1590", "T1046"],
+    "description": "Unusual occurrence frequencies of DNS queries from multiple internal IPs. The alert lists many IPs with varying frequencies, but indicates a 'Frequency anomaly'. This could signify a network scanning event, misconfigured clients, or increased activity from certain hosts which might be indicative of reconnaissance or compromised systems.",
+    "tools": ["Nmap", "dnsrecon"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642582562",
+    "attack_type": ["Exfiltration", "Data Theft"],
+    "mitre": ["T1041"],
+    "description": "New characters '(' and ')' detected in an Apache access request for a file download ('Photos (2)'). While these characters can be legitimate in filenames, their detection as 'new' in a download request for what appears to be sensitive data ('Photos') on a cloud server suggests potential unauthorized data exfiltration or a misconfigured application handling. This warrants investigation.",
+    "tools": ["Web crawlers", "download utilities"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642582562",
+    "attack_type": ["Exfiltration", "Data Theft"],
+    "mitre": ["T1041"],
+    "description": "New characters '(' and ')' detected in an Apache access request for a file download ('Photos (2)'). This is a duplicate detection from another log source, reinforcing the potential unauthorized data exfiltration or misconfiguration.",
+    "tools": ["Web crawlers", "download utilities"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642582794.32",
+    "attack_type": ["Resource Hijacking", "Impact"],
+    "mitre": ["T1496"],
+    "description": "CPU total percentage deviates from average in monitoring logs, increasing from 0.078 to 0.102. This indicates a sustained unusual increase in CPU utilization on 'intranet-server'. This could be due to legitimate processes (e.g., scheduled tasks, new applications) or malicious activity such as cryptomining, resource exhaustion attacks, or execution of computationally intensive malware.",
+    "tools": ["Cryptominers", "DDoS tools (resource exhaustion)"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642582804",
+    "attack_type": ["Reconnaissance", "Discovery"],
+    "mitre": ["T1590", "T1046"],
+    "description": "Unusual occurrence frequencies of DNS queries from multiple internal IPs, including PTR queries. This is a recurring alert for unusual DNS query frequencies across various internal hosts, reinforcing the suspicion of reconnaissance or discovery activity within the network.",
+    "tools": ["Nmap", "dnsrecon"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642583198",
+    "attack_type": ["Exfiltration", "Data Theft"],
+    "mitre": ["T1041"],
+    "description": "New characters '(' and ')' detected in an Apache access request for a file download, similar to previous alerts. The repeated detection confirms this unusual activity on the cloud server, suggesting ongoing potential unauthorized data exfiltration attempts.",
+    "tools": ["Web crawlers", "download utilities"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642583198",
+    "attack_type": ["Exfiltration", "Data Theft"],
+    "mitre": ["T1041"],
+    "description": "New characters '(' and ')' detected in an Apache access request for a file download, duplicate from another log source. This reinforces the concern regarding potential unauthorized data exfiltration from the cloud server.",
+    "tools": ["Web crawlers", "download utilities"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642551108",
+    "attack_type": ["Command and Control", "Data Exfiltration"],
+    "mitre": ["T1071.004", "T1048.003"],
+    "description": "Unusual occurrence frequencies of DNS log events for 'jonesmorgan-mail'. This specific domain, combined with unusual frequency, strongly points to DNS tunneling, likely for command and control or data exfiltration. The 'TrainingMode: false' indicates an active detection.",
+    "tools": ["iodine", "DNSCat2", "dnscat2"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642552908",
+    "attack_type": ["Command and Control", "Data Exfiltration"],
+    "mitre": ["T1071.004", "T1048.003"],
+    "description": "Unusual occurrence frequencies of DNS log events for 'jonesmorgan-mail'. Repeated detection of this pattern further solidifies the suspicion of DNS tunneling activities.",
+    "tools": ["iodine", "DNSCat2", "dnscat2"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642554077",
+    "attack_type": ["Command and Control", "Data Exfiltration"],
+    "mitre": ["T1071.004", "T1048.003"],
+    "description": "Unusual occurrence frequencies of DNS log events related to 'taylorcruz-mail'. This domain's high entropy and unusual frequency indicate potential DNS tunneling for command and control or data exfiltration. The varying frequencies across different DNS event types (query, cached, forwarded, reply) suggest complex or evolving tunneling behavior.",
+    "tools": ["iodine", "DNSCat2", "dnscat2"],
+    "classification": "TP"
+  }
+]

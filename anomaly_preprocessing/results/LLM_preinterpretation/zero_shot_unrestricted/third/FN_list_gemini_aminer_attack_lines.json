@@ -1,0 +1,118 @@
+[
+  {
+    "predicted_attack_type": [
+      "Command and Control",
+      "Exfiltration"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Reply for high entropy DNS domain 'youtu.be' is 172.217.20.14. This is a duplicate log entry confirming the successful resolution of the high-entropy domain to a Google IP. The repeated successful resolution further suggests that the DGA is actively generating domains that can resolve, potentially for ongoing C2 communications or data exfiltration.",
+    "tools": [
+      "Custom Malware",
+      "DGA"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 30, \"AnalysisComponentType\": \"EntropyDetector\", \"AnalysisComponentName\": \"AMiner: High entropy in DNS domain.\", \"Message\": \"Value entropy anomaly detected\", \"PersistenceFileName\": \"entropy_dns_domain\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/domain\", \"/model/type/reply/domain\", \"/model/type/forwarded/domain\"], \"AffectedLogAtomValues\": [\"youtu.be\"], \"CriticalValue\": 0.014938108374387008, \"ProbabilityThreshold\": 0.015}, \"LogData\": {\"RawLogData\": [\"Jan 17 09:26:34 dnsmasq[14522]: reply youtu.be is 172.217.20.14\"], \"Timestamps\": [1642411594], \"DetectionTimestamp\": [1642411594], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"10.35.32.1\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Brute Force"
+    ],
+    "attack_type": "servicescans",
+    "description": "Duplicate log entry of 'Disconnected (no auth attempts in 0 secs)' for IMAP login on 'taylorcruz-mail' from 192.168.130.77, found in '/var/log/syslog'. This identical log entry reinforces the detection of a new event type related to mail server interactions. The repetition across different log files highlights the persistence of this anomaly.",
+    "tools": [
+      "Nmap",
+      "Hydra",
+      "Medusa"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/service/dovecot/imap/imap_login/login/disconnected_str/auth/no_auth_str\"]}, \"LogData\": {\"RawLogData\": [\"Jan 18 12:17:15 taylorcruz-mail dovecot: imap-login: Disconnected (no auth attempts in 0 secs): user=<>, rip=192.168.130.77, lip=192.168.128.195, session=<hifuP9rVVNbAqIJN>\"], \"Timestamps\": [1642508235], \"DetectionTimestamp\": [1642508235], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/syslog\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Brute Force"
+    ],
+    "attack_type": "servicescans",
+    "description": "Duplicate log entry of 'Disconnected (no auth attempts in 0 secs)' for IMAP login on 'taylorcruz-mail' from 192.168.130.77, found in '/var/log/mail.info'. This additional identical log entry further confirms the presence of this new and potentially suspicious mail server interaction pattern. The multiple occurrences of this specific log indicates a consistent behavior from the source IP.",
+    "tools": [
+      "Nmap",
+      "Hydra",
+      "Medusa"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/service/dovecot/imap/imap_login/login/disconnected_str/auth/no_auth_str\"]}, \"LogData\": {\"RawLogData\": [\"Jan 18 12:17:15 taylorcruz-mail dovecot: imap-login: Disconnected (no auth attempts in 0 secs): user=<>, rip=192.168.130.77, lip=192.168.128.195, session=<hifuP9rVVNbAqIJN>\"], \"Timestamps\": [1642508235], \"DetectionTimestamp\": [1642508235], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/mail.info\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance"
+    ],
+    "attack_type": "servicescans",
+    "description": "Duplicate log entry of 'no host name found for IP address 192.168.130.77' in Exim mail log. This further confirms the observation of a new log pattern related to hostname resolution issues for the identified IP. The repetition reinforces the need to investigate the source of these connections.",
+    "tools": [
+      "Nmap",
+      "Malicious Email Client"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/no_host_found\", \"/model/fm/no_host_found/no_host_found_str\", \"/model/fm/no_host_found/ip\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-18 12:17:15 no host name found for IP address 192.168.130.77\"], \"Timestamps\": [1642508235], \"DetectionTimestamp\": [1642508235], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/exim4/mainlog\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance"
+    ],
+    "attack_type": "servicescans",
+    "description": "New event type: 'no host name found for IP address 192.168.130.77' in Exim mail log. This is a repeated observation of the mail server being unable to resolve the hostname for the suspicious IP. The persistent logging of this issue indicates an ongoing interaction with this unresolvable IP, which remains suspicious given the other activities.",
+    "tools": [
+      "Nmap",
+      "Malicious Email Client"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/no_host_found\", \"/model/fm/no_host_found/no_host_found_str\", \"/model/fm/no_host_found/ip\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-18 12:17:28 no host name found for IP address 192.168.130.77\"], \"Timestamps\": [1642508248], \"DetectionTimestamp\": [1642508248], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/exim4/mainlog\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance"
+    ],
+    "attack_type": "servicescans",
+    "description": "Duplicate log entry of 'no host name found for IP address 192.168.130.77' in Exim mail log. This repeated log further confirms the continued attempts from the suspicious IP where hostname resolution fails. This sustained behavior suggests a persistent, potentially automated, interaction from this IP.",
+    "tools": [
+      "Nmap",
+      "Malicious Email Client"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/fm/no_host_found\", \"/model/fm/no_host_found/no_host_found_str\", \"/model/fm/no_host_found/ip\"]}, \"LogData\": {\"RawLogData\": [\"2022-01-18 12:17:28 no host name found for IP address 192.168.130.77\"], \"Timestamps\": [1642508248], \"DetectionTimestamp\": [1642508248], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/exim4/mainlog\"]}, \"AMiner\": {\"ID\": \"192.168.128.170\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Discovery"
+    ],
+    "attack_type": "servicescans",
+    "description": "Duplicate log entry of 'client denied by server configuration: /var/www/html/HNAP1' from 192.168.130.77. This repetition further emphasizes the persistent attempts to access the HNAP1 endpoint from the suspicious IP, reinforcing the active reconnaissance activity against the web server.",
+    "tools": [
+      "Nmap",
+      "Web Vulnerability Scanners"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:17:29.873517 2022] [authz_core:error] [pid 25459] [client 192.168.130.77:35160] AH01630: client denied by server configuration: /var/www/html/HNAP1\"], \"Timestamps\": [1642508249.87], \"DetectionTimestamp\": [1642508249.87], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-error-error.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Discovery"
+    ],
+    "attack_type": "servicescans",
+    "description": "Duplicate log entry of 'client denied by server configuration: /var/www/html/' from 172.17.130.196. This is a repeat of a previous attempt to access the web root, further indicating the persistent nature of the reconnaissance activities from this internal IP.",
+    "tools": [
+      "Nmap",
+      "Web Vulnerability Scanners"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:17:29.873799 2022] [authz_core:error] [pid 25202] [client 172.17.130.196:44820] AH01630: client denied by server configuration: /var/www/html/\"], \"Timestamps\": [1642508249.87], \"DetectionTimestamp\": [1642508249.87], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-error-error.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Discovery"
+    ],
+    "attack_type": "servicescans",
+    "description": "Duplicate log entry of 'client denied by server configuration: /var/www/html/' from 192.168.130.77. Another repeat of an attempt to access the web root from 192.168.130.77. The continued occurrence of these denied access attempts from multiple internal IPs is a clear sign of an ongoing, automated reconnaissance campaign.",
+    "tools": [
+      "Nmap",
+      "Web Vulnerability Scanners"
+    ],
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 3, \"AnalysisComponentType\": \"NewMatchPathDetector\", \"AnalysisComponentName\": \"AMiner: New event type.\", \"Message\": \"New path(es) detected\", \"PersistenceFileName\": \"nmpd\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/with_data/fm/client/fm/ah\", \"/model/with_data/fm/client/fm/ah/ah_str\", \"/model/with_data/fm/client/fm/ah/ah_number\", \"/model/with_data/fm/client/fm/ah/colon\", \"/model/with_data/fm/client/fm/ah/msg\"]}, \"LogData\": {\"RawLogData\": [\"[Tue Jan 18 12:17:29.873915 2022] [authz_core:error] [pid 25292] [client 192.168.130.77:35156] AH01630: client denied by server configuration: /var/www/html/\"], \"Timestamps\": [1642508249.87], \"DetectionTimestamp\": [1642508249.87], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/apache2/proxy-error-error.log\"]}, \"AMiner\": {\"ID\": \"172.17.130.37\"}}\n"
+  }
+]

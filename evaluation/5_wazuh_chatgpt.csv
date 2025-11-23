@@ -1,0 +1,105 @@
+AT;#;Classification;Attack Line Content;Description;Correct Attack Type?
+DNSteal;4;Valid Accounts;"IDS: “Dovecot Authentication Success.”, mitre – technique: “Valid Accounts”, id: “T1078”, tactic: “Defense Evasion, Persistence, Privilege Escalation, Initial Access”,
+Raw Data: “jonesmorgan-mail dovecot: imap-login: Login: user=<susan.gregory>, method=PLAIN, rip=192.168.128.170, lip=192.168.128.170, mpid=20031, TLS, session=<Z7YRAMTVOOfAqICq>”";Classification probably based on repeated imap login attempts;Alternate explanation for alert
+Network Scans;3;Valid Account Usage;"IDS: “Dovecot Authentication Success.”, mitre – technique: “Valid Accounts”, id: “T1078”, tactic: “Defense Evasion, Persistence, Privilege Escalation, Initial Access”,
+Raw Data: “taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=4084, TLS, session=<kj6o/tnVnr3AqIDD>”";Classification probably based on repeated imap login attempts;Alternate explanation for alert
+Network Scans;2;"Protocol Anomaly, 
+TLS Evasion";IDS: “SURICATA TLS invalid record/traffic”, “SURICATA TLS invalid handshake message”;Classification probably based on protocol name TLS and invalid packets;Alternate explanation for alert
+Network Scans;2;"TLS Evasion, 
+Encrypted Command and Control";IDS: “SURICATA TLS invalid handshake message”, “SURICATA TLS invalid record/traffic”;Classification probably based on protocol name TLS and invalid packets;Alternate explanation for alert
+Network Scans;2;TLS Evasion;"IDS: “IDS event.”
+Raw Data: “SURICATA TLS invalid handshake message [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP}”";Classification probably based on protocol name TLS and invalid packets;Alternate explanation for alert
+Network Scans;1;"TLS Evasion, 
+Beaconing over Encrypted Channel";IDS: “SURICATA TLS invalid record/traffic”;Classification probably based on protocol name TLS and invalid packets;Alternate explanation for alert
+Network Scans;2;"Protocol Abuse, 
+Encrypted Channel Misuse";"IDS: “IDS event.”, 
+Raw Data: “SURICATA TLS invalid record/traffic [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP}”";Classification probably based on protocol name TLS and invalid packets;Alternate explanation for alert
+Network Scans;2;"Protocol Abuse, 
+Encrypted Channel Misuse";"IDS: “SURICATA TLS invalid handshake message”, “SURICATA TLS invalid record/traffic”
+";Classification probably based on protocol name TLS and invalid packets;Alternate explanation for alert
+Network Scans;2;Valid Account Abuse;"IDS: “Dovecot Authentication Success.”, mitre – technique: “Valid Accounts”, id: “T1078”, tactic: “Defense Evasion”, “Persistence”, “Privilege Escalation”, “Initial Access”
+Raw Data: “taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=4188, TLS, session=<ZPUbIdrV2L3AqIDD>”";Classification probably based on IDS mitre classification;Alternate explanation for alert
+Service Scans;1;Valid Account Abuse;"IDS: “Dovecot Authentication Success.”, mitre – technique: “Valid Accounts”, id: “T1078”, tactic: “Defense Evasion”, “Persistence”, “Privilege Escalation”, “Initial Access”
+Raw Data: “taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=4346, TLS, session=<XzJRP9rVHr7AqIDD>”";Classification probably based on IDS mitre classification;Alternate explanation for alert
+Service Scans;3;"Reconnaissance, 
+Lateral Movement";"IDS: “sshd: insecure connection attempt (scan).”, mitre – technique: “SSH”, id: “T1021.004”, tactic: “Lateral Movement”
+Raw Data: “internal-share sshd[28182]: Did not receive identification string from [IP] port [port]”";Classification probably based on a connection attempt without identification string;Too generic
+Service Scans;1;"SSH Reconnaissance, 
+Lateral Movement Attempt";"IDS: “sshd: insecure connection attempt (scan).”, mitre – technique: “SSH”, id: “T1021.004”, tactic: “Lateral Movement”
+Raw Data: “webserver sshd[25473]: Did not receive identification string from [IP] port [port]”";"Classification probably based on a connection attempt without identification string; scanning behavior is not represented";Alternate explanation for alert
+Service Scans;1;"Protocol Abuse, 
+SMTP Recon";"IDS: “First time this IDS alert is generated.”, 
+Raw Data: “SURICATA SMTP invalid reply [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP}”";Classification probably based on protocol name SMTP;Alternate explanation for alert
+Service Scans;1;Web Reconnaissance;"IDS: “Apache: Attempt to access forbidden file or directory.” 
+Raw Data: “AH01630: client denied by server configuration: /var/www/html/”";Classification probably based on tool name apache and attempted access to forbidden file and directory;Too generic
+Service Scans;1;"Web Reconnaissance, 
+Scanning";"IDS: “Web server 400 error code.”
+Raw Data: “GET /nmaplowercheck1642508249 HTTP/1.1 403 3260 - Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)”";Classification probably based on tool name nmap and http status code 403;Correct & expressive
+Service Scans;1;Web Application Scanning;"IDS: “Web server 400 error code.”
+Raw Data: “POST /sdk HTTP/1.1 403 363 - Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)”";Classification probably based on http status code 403 and tool name nmap;Correct & expressive
+Service Scans;2;Web Directory Enumeration;"IDS: “Apache: Attempt to access forbidden file or directory.”,
+Raw Data: “AH01630: client denied by server configuration: /var/www/html/”";Classification probably based on tool name apache and attempted access to forbidden file and directory;Correct & expressive
+WPScan;2;WordPress Plugin Enumeration;"IDS: “Web server 400 error code.”, 
+Raw Data: “HEAD /wp-content/plugins/change-wp-admin-login/ HTTP/1.1 404 146 https://intranet.price.fox.org WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)”";Classification probably based on tool name WPScan;Correct & expressive
+WPScan;1;WordPress Plugin Enumeration;"IDS: “Multiple web server 400 error codes from same source ip.”, mitre - technique: ""Vulnerability Scanning"", id: ""T1595.002”, tactic: “Reconnaissance”
+Raw Data: “HEAD /wp-content/plugins/clean-image-filenames/ HTTP/1.1 404 146 https://intranet.price.fox.org WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)”";Classification probably based on tool name WPScan;Correct & expressive
+WPScan;4;Web Application Scanning;"IDS: “Web server 400 error code.”,
+Raw Data: “HEAD /wp-content/plugins/click-to-chat-for-whatsapp/ HTTP/1.1 404 146 https://intranet.price.fox.org WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)”";Classification probably based on tool name WPScan;Correct & expressive
+WPScan;1;"Web Application Scanning, 
+Reconnaissance";"IDS: “Multiple web server 400 error codes from same source ip.”, mitre – technique: ""Vulnerability Scanning"", id: ""T1595.002"", tactic: ""Reconnaissance” 
+Raw Data: “HEAD /wp-content/plugins/constant-contact-forms/ HTTP/1.1 404 146 https://intranet.price.fox.org WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)”";Classification probably based on tool name WPScan and multiple HEAD requests to various WP plugins from same IP;Correct & expressive
+WPScan;2;"Plugin Enumeration, 
+Web Application Reconnaissance";"IDS: “Web server 400 error code.”,
+Raw Data: “HEAD /wp-content/plugins/better-wp-security/ HTTP/1.1 404 146 https://intranet.price.fox.org WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)”";Classification probably based on tool name WPScan and access attempts to various WP plugin paths;Correct & expressive
+WPScan;3;"Automated Plugin Enumeration,
+Web Application Reconnaissance";"IDS: “Multiple web server 400 error codes from same source ip.”, mitre - technique: ""Vulnerability Scanning"", id: ""T1595.002”, tactic: “Reconnaissance” 
+Raw Data: “HEAD /wp-content/plugins/ameliabooking/ HTTP/1.1 404 146 https://intranet.price.fox.org WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)”";Classification probably based on tool name WPScan and access attempts to various WP plugin paths;Correct & expressive
+WPScan;2;WordPress Reconnaissance;"IDS: “Web server 400 error code.”;
+Raw Data: “HEAD /?attachment_id=16 HTTP/1.1 404 323 https://intranet.price.fox.org WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)”";Classification probably based on tool name WPScan and access attempts to potential vulnerable paths like attachment_id indicating testing media attachments;Correct & expressive
+WPScan;1;"File Enumeration, 
+WordPress Config Discovery";"IDS: “Web server 400 error code.”,
+Raw Data: “HEAD /wp-config.php- HTTP/1.1 404 146 https://intranet.price.fox.org WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)”";Classification probably based on tool name WPScan and access attempts to WordPress config file;Correct & expressive
+Dirb;3;Directory Brute Forcing;"IDS: “Web server 400 error code.”,
+Raw Data: “GET /academics HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on attempted access to non-existent directory and 404 http status code;Correct & expressive
+Dirb;1;Log File Enumeration;"IDS: “Web server 400 error code.”,  
+Raw Data: “GET /access-log.1 HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on attempted access to non-existent file and 404 http status code;Correct & expressive
+Dirb;3;"Web Scanning, 
+Reconnaissance";"IDS: “Multiple web server 400 error codes from same source ip”, mitre -  technique: ""Vulnerability Scanning”, id: ""T1595.002”, tactic: ""Reconnaissance”
+Raw Data: “GET /accountants HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on http status code 404 and high frequency of such errors from the same IP;Correct & expressive
+Dirb;1;"Web Scanning, 
+Reconnaissance";"IDS: “Web server 400 error code.”, 
+Raw Data: “GET /beheer HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on http status code 404 and attempted access to potential admin or backend access points (beheer = admin in dutch);Correct & expressive
+Dirb;1;"Web Application Scanning, 
+Brute Force Discovery";"IDS: “Web server 400 error code.”,
+Raw Data: “GET /wp-admin/user/webcalendar HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on http status code 404 and attempted access to admin interfaces;Correct & expressive
+Dirb;4;Web Application Scanning;"IDS: “Web server 400 error code.”, 
+Raw Data: “GET /wp-admin/user/webcart HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on http status code 404 and attempted access to admin interfaces;Correct & expressive
+Dirb;1;"Access to Protected Resources,
+Credential Access";"IDS: “Apache: Attempt to access forbidden file or directory.”,
+Raw Data: “AH01630: client denied by server configuration: /var/www/intranet.price.fox.org/wp-content/plugins/.htpasswd_”";Classification probably based on attempted access to forbidden file or directory;Alternate explanation for alert
+Dirb;1;"Exploit Attempt,
+Reconnaissance";"IDS: “Web server 400 error code.”,
+Raw Data: “GET /wp-content/plugins/_vti_bin/_vti_aut/author.dll HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on access to author.dll indicating looking for known vulnerabilities;Too generic
+Dirb;6;Valid Account Use;"IDS: “Dovecot Authentication Success.”, mitre – technique: “Valid Accounts”, id: “T1078”, tactic: “Defense Evasion”, “Persistence”, “Privilege Escalation”, “Initial Access”
+Raw Data: “miller-mail dovecot: imap-login: Login: user=<megan.johnson>, method=PLAIN, rip=192.168.129.212, lip=192.168.129.212, mpid=28005, TLS, session=<o6XRidrVbpzAqIHU>”";Classification probably based on IDS mitre classification;Alternate explanation for alert
+Password Cracking;3;Valid Account Use;"IDS: “Dovecot Authentication Success.”, mitre – technique: “Valid Accounts”, id: “T1078”, tactic: “Defense Evasion”, “Persistence”, “Privilege Escalation”, “Initial Access”
+Raw Data: “taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=4648, TLS, session=<5+7kjdrVtr7AqIDD>”";Classification probably based on IDS mitre classification;Aligns with IDS alert but not label
+Password Cracking;2;"Protocol Exploitation, 
+Evasion";IDS: “SURICATA HTTP unable to match response to request”,;Classification probably based on tool name Suricata and potentially malformed HTTP traffic;Alternate explanation for alert
+Password Cracking;3;Protocol Anomaly;IDS: “SURICATA TLS invalid handshake message”, “SURICATA TLS invalid record/traffic”;Classification probably based on tool name Suricata and protocol name TLS;Alternate explanation for alert
+Password Cracking;1;Brute Force;"IDS: “PAM: User login failed.”, mitre – technique: “Password Guessing”, id: “T1110.001”, tactic: “Credential Access”
+Raw Data: “taylorcruz-mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=christopher.friedman rhost=192.168.128.195  user=christopher.friedman”";Classification probably based on IDS mitre classification;Correct & expressive
+Privilege Escalation;1;"Privilege Escalation, 
+Defense Evasion";"IDS: “User successfully changed UID.”, mitre: technique: “Valid Accounts”, id: “T1078”, tactic: “Defense Evasion, Persistence, Privilege Escalation, Initial Access”
+Raw Data: “intranet-server su[28816]: + /dev/pts/1 www-data:phopkins”";Classification probably based on IDS mitre classification and tool name su;Correct & expressive
+Privilege Escalation;4;Valid Account Abuse;"IDS: “PAM: Login session opened.”,  mitre: technique: “Valid Accounts”, id: “T1078”, tactic: “Defense Evasion, Persistence, Privilege Escalation, Initial Access”
+Raw Data: “intranet-server su[28816]: pam_unix(su:session): session opened for user phopkins by (uid=33)”";Classification probably based on IDS mitre classification;Correct & expressive
+Privilege Escalation;1;Privilege Escalation;"IDS: “Successful sudo to ROOT executed.”, mitre: technique: “Sudo and Sudo Caching”, id: “T1548.003”, tactic: “Privilege Escalation, Defense Evasion”
+Raw Data: “intranet-server sudo: phopkins : TTY=pts/1 ; PWD=/var/www/intranet.price.fox.org/wp-content/uploads/2022/01 ; USER=root ; COMMAND=list”";Classification probably based on IDS mitre classification and tool name sudo;Correct & expressive
+Privilege Escalation;1;"Privilege Escalation, 
+Discovery";"IDS: “Successful sudo to ROOT executed”, mitre: technique: “Sudo and Sudo Caching”, id: “T1548.003”, tactic: “Privilege Escalation, Defense Evasion”
+Raw Data: “intranet-server sudo: phopkins : TTY=pts/1 ; PWD=/var/www/intranet.price.fox.org/wp-content/uploads/2022/01 ; USER=root ; COMMAND=/bin/ls -laR /root/”";Classification probably based on IDS mitre classification and access to /root directory;Correct & expressive
+Privilege Escalation;1;"Credential Access, 
+Privilege Escalation";"IDS: “Successful sudo to ROOT executed.”,  mitre: technique: “Sudo and Sudo Caching”, id: “T1548.003”, tactic: “Privilege Escalation, Defense Evasion”
+Raw Data: “intranet-server sudo: phopkins : TTY=pts/1 ; PWD=/var/www/intranet.price.fox.org/wp-content/uploads/2022/01 ; USER=root ; COMMAND=/bin/cat /etc/shadow”";Classification probably based on IDS mitre classification and access to /etc/shadow directory;Correct & expressive
+;85;;;;

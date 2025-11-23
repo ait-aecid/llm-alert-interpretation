@@ -1,0 +1,146 @@
+[
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence",
+      "Privilege Escalation",
+      "Lateral Movement"
+    ],
+    "description": "Successful SSH authentication for user **phopkins** from IP **10.35.35.202** using a public key. This is a significant event as it indicates **initial access** or **persistence** on the 'mail' server. The use of public key authentication is common for legitimate access but can also be used by attackers who have gained access to a user's private key. The source IP 10.35.35.202 is an internal IP, potentially hinting at **lateral movement** from another compromised internal host or a user logging in from their workstation.",
+    "tools": [
+      "SSH clients (e.g., OpenSSH, PuTTY)",
+      "Credential dumping tools (if key was stolen)"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"sshd\", \"timestamp\": \"Jan 15 06:53:50\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.35.202\", \"dstuser\": \"phopkins\", \"srcport\": \"55218\"}, \"rule\": {\"mail\": false, \"level\": 3, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"10.2.5\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"sshd: authentication success.\", \"groups\": [\"syslog\", \"sshd\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 1, \"mitre\": {\"technique\": [\"Valid Accounts\", \"Remote Services\"], \"id\": [\"T1078\", \"T1021\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\", \"Lateral Movement\"]}, \"id\": \"5715\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"sshd\", \"name\": \"sshd\"}, \"full_log\": \"Jan 15 06:53:50 mail sshd[9296]: Accepted publickey for phopkins from 10.35.35.202 port 55218 ssh2: RSA SHA256:8wFbiaYPevKS/wYKnePO20v0iymTcrRh4Kr+1uRS1UM\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:53:50.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686162869.314388\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence",
+      "Privilege Escalation"
+    ],
+    "description": "PAM session opened for user **phopkins** by **uid=0 (root)**. This event directly follows the successful SSH login and confirms that the authenticated user 'phopkins' was granted a session with **root privileges**. This is a critical **privilege escalation** event, indicating that an attacker (if 'phopkins' account is compromised) now has administrative control over the 'mail' server.",
+    "tools": [
+      "Linux system commands",
+      "Rootkits"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"sshd\", \"timestamp\": \"Jan 15 06:53:50\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"uid\": \"0\", \"dstuser\": \"phopkins\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 1, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 06:53:50 mail sshd[9296]: pam_unix(sshd:session): session opened for user phopkins by (uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:53:50.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686162869.314923\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence",
+      "Privilege Escalation"
+    ],
+    "description": "PAM session opened for user **phopkins** by **uid=0 (root)** via systemd. This further confirms the **privilege escalation** for user 'phopkins' to root after the SSH login. This indicates a successful transition to a highly privileged state on the system, which is a major security concern.",
+    "tools": [
+      "Systemd services",
+      "Linux system calls"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"systemd\", \"timestamp\": \"Jan 15 06:53:50\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"uid\": \"0\", \"dstuser\": \"phopkins\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 2, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 06:53:50 mail systemd: pam_unix(systemd-user:session): session opened for user phopkins by (uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:53:50.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686162869.315370\"}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion",
+      "Rootkit",
+      "System Binary Proxy Execution"
+    ],
+    "description": "AppArmor profile replacement by apparmor_parser, potentially indicating an attempt to bypass security controls or persistent unauthorized code execution.",
+    "tools": [
+      "AppArmor",
+      "Linux commands",
+      "Malicious scripts"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"audit\": {\"uid\": \"0\", \"auid\": \"4294967295\", \"gid\": \"0\", \"exe\": \"/sbin/apparmor_parser\", \"euid\": \"0\", \"session\": \"4294967295\", \"pid\": \"17954\", \"id\": \"208\", \"type\": \"AVC\", \"command\": \"apparmor_parser\"}}, \"rule\": {\"firedtimes\": 18, \"mail\": false, \"level\": 3, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"10.6.1\"], \"tsc\": [\"CC7.2\", \"CC7.3\"], \"description\": \"Auditd: SELinux permission check.\", \"groups\": [\"audit\", \"audit_selinux\"], \"id\": \"80730\", \"nist_800_53\": [\"AU.6\"], \"gdpr\": [\"IV_30.1.g\", \"IV_35.7.d\"]}, \"decoder\": {\"name\": \"auditd\"}, \"full_log\": \"type=AVC msg=audit(1642230293.229:208): apparmor=\\\"STATUS\\\" operation=\\\"profile_replace\\\" profile=\\\"unconfined\\\" name=\\\"/usr/lib/NetworkManager/nm-dhcp-client.action\\\" pid=17954 comm=\\\"apparmor_parser\\\" type=SYSCALL msg=audit(1642230293.229:208): arch=c000003e syscall=1 success=yes exit=24993 a0=6 a1=5577aa056ff0 a2=61a1 a3=0 items=0 ppid=17953 pid=17954 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts0 ses=4294967295 comm=\\\"apparmor_parser\\\" exe=\\\"/sbin/apparmor_parser\\\" key=(null) type=PROCTITLE msg=audit(1642230293.229:208): proctitle=61707061726D6F725F706172736572002D72002D54002D57002F6574632F61707061726D6F722E642F7362696E2E6468636C69656E74\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:53.000000Z\", \"location\": \"/var/log/audit/audit.log\", \"id\": \"1686163533.334743\"}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion",
+      "Rootkit",
+      "System Binary Proxy Execution"
+    ],
+    "description": "AppArmor profile replacement by apparmor_parser, potentially indicating an attempt to bypass security controls or persistent unauthorized code execution.",
+    "tools": [
+      "AppArmor",
+      "Linux commands",
+      "Malicious scripts"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"audit\": {\"uid\": \"0\", \"auid\": \"4294967295\", \"gid\": \"0\", \"exe\": \"/sbin/apparmor_parser\", \"euid\": \"0\", \"session\": \"4294967295\", \"pid\": \"17954\", \"id\": \"209\", \"type\": \"AVC\", \"command\": \"apparmor_parser\"}}, \"rule\": {\"firedtimes\": 19, \"mail\": false, \"level\": 3, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"10.6.1\"], \"tsc\": [\"CC7.2\", \"CC7.3\"], \"description\": \"Auditd: SELinux permission check.\", \"groups\": [\"audit\", \"audit_selinux\"], \"id\": \"80730\", \"nist_800_53\": [\"AU.6\"], \"gdpr\": [\"IV_30.1.g\", \"IV_35.7.d\"]}, \"decoder\": {\"name\": \"auditd\"}, \"full_log\": \"type=AVC msg=audit(1642230293.229:209): apparmor=\\\"STATUS\\\" operation=\\\"profile_replace\\\" profile=\\\"unconfined\\\" name=\\\"/usr/lib/NetworkManager/nm-dhcp-helper\\\" pid=17954 comm=\\\"apparmor_parser\\\" type=SYSCALL msg=audit(1642230293.229:209): arch=c000003e syscall=1 success=yes exit=25025 a0=6 a1=5577aa056ff0 a2=61c1 a3=0 items=0 ppid=17953 pid=17954 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts0 ses=4294967295 comm=\\\"apparmor_parser\\\" exe=\\\"/sbin/apparmor_parser\\\" key=(null) type=PROCTITLE msg=audit(1642230293.229:209): proctitle=61707061726D6F725F706172736572002D72002D54002D57002F6574632F61707061726D6F722E642F7362696E2E6468636C69656E74\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:53.000000Z\", \"location\": \"/var/log/audit/audit.log\", \"id\": \"1686163533.335917\"}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion",
+      "Rootkit",
+      "System Binary Proxy Execution"
+    ],
+    "description": "AppArmor profile replacement by apparmor_parser, potentially indicating an attempt to bypass security controls or persistent unauthorized code execution.",
+    "tools": [
+      "AppArmor",
+      "Linux commands",
+      "Malicious scripts"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"audit\": {\"uid\": \"0\", \"auid\": \"4294967295\", \"gid\": \"0\", \"exe\": \"/sbin/apparmor_parser\", \"euid\": \"0\", \"session\": \"4294967295\", \"pid\": \"17954\", \"id\": \"207\", \"type\": \"AVC\", \"command\": \"apparmor_parser\"}}, \"rule\": {\"firedtimes\": 17, \"mail\": false, \"level\": 3, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"10.6.1\"], \"tsc\": [\"CC7.2\", \"CC7.3\"], \"description\": \"Auditd: SELinux permission check.\", \"groups\": [\"audit\", \"audit_selinux\"], \"id\": \"80730\", \"nist_800_53\": [\"AU.6\"], \"gdpr\": [\"IV_30.1.g\", \"IV_35.7.d\"]}, \"decoder\": {\"name\": \"auditd\"}, \"full_log\": \"type=AVC msg=audit(1642230293.225:207): apparmor=\\\"STATUS\\\" operation=\\\"profile_replace\\\" profile=\\\"unconfined\\\" name=\\\"/sbin/dhclient\\\" pid=17954 comm=\\\"apparmor_parser\\\" type=SYSCALL msg=audit(1642230293.225:207): arch=c000003e syscall=1 success=yes exit=44953 a0=6 a1=5577a9e6c9d0 a2=af99 a3=0 items=0 ppid=17953 pid=17954 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts0 ses=4294967295 comm=\\\"apparmor_parser\\\" exe=\\\"/sbin/apparmor_parser\\\" key=(null) type=PROCTITLE msg=audit(1642230293.225:207): proctitle=61707061726D6F725F706172736572002D72002D54002D57002F6574632F61707061726D6F722E642F7362696E2E6468636C69656E74\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:53.000000Z\", \"location\": \"/var/log/audit/audit.log\", \"id\": \"1686163533.333600\"}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion",
+      "Rootkit",
+      "System Binary Proxy Execution"
+    ],
+    "description": "AppArmor profile replacement by apparmor_parser, potentially indicating an attempt to bypass security controls or persistent unauthorized code execution.",
+    "tools": [
+      "AppArmor",
+      "Linux commands",
+      "Malicious scripts"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"audit\": {\"uid\": \"0\", \"auid\": \"4294967295\", \"gid\": \"0\", \"exe\": \"/sbin/apparmor_parser\", \"euid\": \"0\", \"session\": \"4294967295\", \"pid\": \"17954\", \"id\": \"210\", \"type\": \"AVC\", \"command\": \"apparmor_parser\"}}, \"rule\": {\"firedtimes\": 20, \"mail\": false, \"level\": 3, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"10.6.1\"], \"tsc\": [\"CC7.2\", \"CC7.3\"], \"description\": \"Auditd: SELinux permission check.\", \"groups\": [\"audit\", \"audit_selinux\"], \"id\": \"80730\", \"nist_800_53\": [\"AU.6\"], \"gdpr\": [\"IV_30.1.g\", \"IV_35.7.d\"]}, \"decoder\": {\"name\": \"auditd\"}, \"full_log\": \"type=AVC msg=audit(1642230293.229:210): apparmor=\\\"STATUS\\\" operation=\\\"profile_replace\\\" profile=\\\"unconfined\\\" name=\\\"/usr/lib/connman/scripts/dhclient-script\\\" pid=17954 comm=\\\"apparmor_parser\\\" type=SYSCALL msg=audit(1642230293.229:210): arch=c000003e syscall=1 success=yes exit=23625 a0=6 a1=5577aa06f4b0 a2=5c49 a3=0 items=0 ppid=17953 pid=17954 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts0 ses=4294967295 comm=\\\"apparmor_parser\\\" exe=\\\"/sbin/apparmor_parser\\\" key=(null) type=PROCTITLE msg=audit(1642230293.229:210): proctitle=61707061726D6F725F706172736572002D72002D54002D57002F6574632F61707061726D6F722E642F7362696E2E6468636C69656E74\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:53.000000Z\", \"location\": \"/var/log/audit/audit.log\", \"id\": \"1686163533.337084\"}\n"
+  },
+  {
+    "attack_type": [
+      "Privilege Escalation",
+      "Defense Evasion"
+    ],
+    "description": "User phopkins executed sudo for the first time to run 'tail /var/log/syslog' as root. This could be an attacker escalating privileges or performing reconnaissance.",
+    "tools": [
+      "sudo",
+      "Legitimate system utilities (tail)"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:10:08\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"dstuser\": \"root\", \"tty\": \"pts/0\", \"pwd\": \"/home/phopkins\", \"command\": \"/usr/bin/tail /var/log/syslog\"}, \"rule\": {\"firedtimes\": 1, \"mail\": false, \"level\": 4, \"description\": \"First time user executed sudo.\", \"groups\": [\"syslog\", \"sudo\"], \"mitre\": {\"technique\": [\"Sudo and Sudo Caching\"], \"id\": [\"T1548.003\"], \"tactic\": [\"Privilege Escalation\", \"Defense Evasion\"]}, \"id\": \"5403\"}, \"decoder\": {\"parent\": \"sudo\", \"name\": \"sudo\", \"ftscomment\": \"First time user executed the sudo command\"}, \"full_log\": \"Jan 15 07:10:08 intranet-server sudo: phopkins : TTY=pts/0 ; PWD=/home/phopkins ; USER=root ; COMMAND=/usr/bin/tail /var/log/syslog\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:10:08.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686163847.339755\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts",
+      "Privilege Escalation"
+    ],
+    "description": "PAM session opened for root by user phopkins via sudo, indicating successful privilege escalation.",
+    "tools": [
+      "sudo",
+      "Legitimate system utilities"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:10:08\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"uid\": \"0\", \"dstuser\": \"root\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 5, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 07:10:08 intranet-server sudo: pam_unix(sudo:session): session opened for user root by phopkins(uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:10:08.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686163847.340156\"}\n"
+  },
+  {
+    "attack_type": [
+      "Privilege Escalation",
+      "Defense Evasion"
+    ],
+    "description": "Successful sudo command execution to root by user 'phopkins' to 'tail /var/log/syslog'. This could be an attacker escalating privileges or performing reconnaissance.",
+    "tools": [
+      "sudo",
+      "Legitimate system utilities (tail)"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:13:47\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"dstuser\": \"root\", \"tty\": \"pts/0\", \"pwd\": \"/home/phopkins\", \"command\": \"/usr/bin/tail /var/log/syslog\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\", \"10.2.2\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Successful sudo to ROOT executed.\", \"groups\": [\"syslog\", \"sudo\"], \"nist_800_53\": [\"AU.14\", \"AC.7\", \"AC.6\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 1, \"mitre\": {\"technique\": [\"Sudo and Sudo Caching\"], \"id\": [\"T1548.003\"], \"tactic\": [\"Privilege Escalation\", \"Defense Evasion\"]}, \"id\": \"5402\", \"gpg13\": [\"7.6\", \"7.8\", \"7.13\"]}, \"decoder\": {\"parent\": \"sudo\", \"name\": \"sudo\", \"ftscomment\": \"First time user executed the sudo command\"}, \"full_log\": \"Jan 15 07:13:47 intranet-server sudo: phopkins : TTY=pts/0 ; PWD=/home/phopkins ; USER=root ; COMMAND=/usr/bin/tail /var/log/syslog\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:13:47.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686164068.371893\"}\n"
+  },
+  {
+    "attack_type": [
+      "Valid Accounts",
+      "Privilege Escalation"
+    ],
+    "description": "PAM session opened for user root by 'phopkins' via sudo, indicating successful privilege escalation.",
+    "tools": [
+      "sudo",
+      "Legitimate system utilities"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:13:47\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"uid\": \"0\", \"dstuser\": \"root\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 6, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 07:13:47 intranet-server sudo: pam_unix(sudo:session): session opened for user root by phopkins(uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:13:47.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686164068.372469\"}\n"
+  }
+]

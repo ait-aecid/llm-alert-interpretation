@@ -1,0 +1,857 @@
+[
+  {
+    "line_number": 1,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Dovecot authentication success is a normal event indicating successful login, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:44:51\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 25, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:44:51 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9275, TLS, session=<LJuoQZnV+rmsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:44:51.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686162330.303465\"}\n"
+  },
+  {
+    "line_number": 2,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful authentication events suggest normal user activity.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:44:51\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 27, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:44:51 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9280, TLS, session=<Nz6qQZnV/rmsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:44:51.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686162330.304457\"}\n"
+  },
+  {
+    "line_number": 3,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Dovecot authentication success is a normal event indicating successful login, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:44:51\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 30, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:44:51 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9280, TLS, session=<Nz6qQZnV/rmsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:44:51.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686162330.305941\"}\n"
+  },
+  {
+    "line_number": 4,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful authentication indicates normal user activity.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:44:51\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 23, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:44:51 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9278, TLS, session=<2ESpQZnV/LmsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:44:51.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686162330.302471\"}\n"
+  },
+  {
+    "line_number": 5,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins suggest normal user activity, likely a false positive.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:44:51\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 29, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:44:51 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9278, TLS, session=<2ESpQZnV/LmsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:44:51.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686162330.305447\"}\n"
+  },
+  {
+    "line_number": 6,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Multiple successful logins from the same IP suggest normal user activity rather than an attack.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:44:52\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 31, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:44:52 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9282, TLS, session=<DbSwQZnVALqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:44:52.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686162332.306435\"}\n"
+  },
+  {
+    "line_number": 7,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins suggest normal user activity, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:44:52\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 32, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:44:52 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9282, TLS, session=<DbSwQZnVALqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:44:52.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686162332.306932\"}\n"
+  },
+  {
+    "line_number": 8,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins indicate normal user activity, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:44:52\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 33, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:44:52 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9282, TLS, session=<DbSwQZnVALqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:44:52.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686162332.307428\"}\n"
+  },
+  {
+    "line_number": 9,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "ClamAV database update is a routine process and not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"miller-mail\", \"program_name\": \"freshclam\", \"timestamp\": \"Jan 15 06:46:10\"}, \"agent\": {\"ip\": \"192.168.129.212\", \"name\": \"wazuh-client\", \"id\": \"10\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"firedtimes\": 10, \"mail\": false, \"level\": 3, \"pci_dss\": [\"5.2\"], \"tsc\": [\"A1.2\"], \"description\": \"ClamAV database update\", \"groups\": [\"clamd\", \"freshclam\", \"virus\"], \"id\": \"52507\", \"nist_800_53\": [\"SI.3\"], \"gpg13\": [\"4.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"freshclam\"}, \"full_log\": \"Jan 15 06:46:10 miller-mail freshclam[28619]: Sat Jan 15 06:46:10 2022 -> ClamAV update process started at Sat Jan 15 06:46:10 2022\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:46:10.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686162410.307922\"}\n"
+  },
+  {
+    "line_number": 10,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins suggest normal user activity rather than malicious intent.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 40, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5427, TLS, session=<WC2WXZnV+qXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686162799.311347\"}\n"
+  },
+  {
+    "line_number": 11,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Multiple successful logins suggest normal user activity rather than malicious behavior.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 35, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5430, TLS, session=<R8mZXZnV/KXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686162799.308805\"}\n"
+  },
+  {
+    "line_number": 12,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins suggest normal user activity rather than malicious behavior.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 36, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5432, TLS, session=<yQicXZnV/qXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686162799.309314\"}\n"
+  },
+  {
+    "line_number": 13,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins suggest normal user activity rather than malicious intent.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 42, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5432, TLS, session=<yQicXZnV/qXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686162799.312359\"}\n"
+  },
+  {
+    "line_number": 14,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins indicate normal user activity, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 34, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5427, TLS, session=<WC2WXZnV+qXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686162799.308296\"}\n"
+  },
+  {
+    "line_number": 15,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins suggest normal user activity rather than malicious behavior.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 37, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5427, TLS, session=<WC2WXZnV+qXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686162799.309823\"}\n"
+  },
+  {
+    "line_number": 16,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins indicate normal user activity, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 38, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5430, TLS, session=<R8mZXZnV/KXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686162799.310331\"}\n"
+  },
+  {
+    "line_number": 17,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins indicate normal user activity, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 39, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5432, TLS, session=<yQicXZnV/qXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686162799.310839\"}\n"
+  },
+  {
+    "line_number": 18,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins indicate normal user activity, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:40\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 41, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:40 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5430, TLS, session=<R8mZXZnV/KXAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:40.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686162799.311853\"}\n"
+  },
+  {
+    "line_number": 19,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins indicate normal user activity, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:41\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 43, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:41 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5434, TLS, session=<2m6oXZnVAKbAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:41.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686162801.312865\"}\n"
+  },
+  {
+    "line_number": 20,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins indicate normal user activity, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:41\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 44, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:41 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5434, TLS, session=<2m6oXZnVAKbAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:41.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686162801.313374\"}\n"
+  },
+  {
+    "line_number": 21,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins indicate normal user activity, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:52:41\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 45, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:52:41 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=5434, TLS, session=<2m6oXZnVAKbAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:52:41.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686162801.313882\"}\n"
+  },
+  {
+    "line_number": 22,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Authentication success for a known user with a valid key, likely benign.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"sshd\", \"timestamp\": \"Jan 15 06:53:50\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.35.202\", \"dstuser\": \"phopkins\", \"srcport\": \"55218\"}, \"rule\": {\"mail\": false, \"level\": 3, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"10.2.5\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"sshd: authentication success.\", \"groups\": [\"syslog\", \"sshd\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 1, \"mitre\": {\"technique\": [\"Valid Accounts\", \"Remote Services\"], \"id\": [\"T1078\", \"T1021\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\", \"Lateral Movement\"]}, \"id\": \"5715\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"sshd\", \"name\": \"sshd\"}, \"full_log\": \"Jan 15 06:53:50 mail sshd[9296]: Accepted publickey for phopkins from 10.35.35.202 port 55218 ssh2: RSA SHA256:8wFbiaYPevKS/wYKnePO20v0iymTcrRh4Kr+1uRS1UM\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:53:50.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686162869.314388\"}\n"
+  },
+  {
+    "line_number": 24,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins suggest normal user activity.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"systemd\", \"timestamp\": \"Jan 15 06:53:50\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"uid\": \"0\", \"dstuser\": \"phopkins\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 2, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 06:53:50 mail systemd: pam_unix(systemd-user:session): session opened for user phopkins by (uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:53:50.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686162869.315370\"}\n"
+  },
+  {
+    "line_number": 25,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Session closure for user 'phopkins' is a normal activity following a successful login.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"systemd\", \"timestamp\": \"Jan 15 06:54:41\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"dstuser\": \"phopkins\"}, \"rule\": {\"firedtimes\": 4, \"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session closed.\", \"groups\": [\"pam\", \"syslog\"], \"id\": \"5502\", \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gpg13\": [\"7.8\", \"7.9\"], \"gdpr\": [\"IV_32.2\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 06:54:41 mail systemd: pam_unix(systemd-user:session): session closed for user phopkins\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:54:41.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686162921.316228\"}\n"
+  },
+  {
+    "line_number": 26,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Session closure for user 'phopkins' is a normal activity following a successful login.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"sshd\", \"timestamp\": \"Jan 15 06:54:41\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"dstuser\": \"phopkins\"}, \"rule\": {\"firedtimes\": 3, \"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session closed.\", \"groups\": [\"pam\", \"syslog\"], \"id\": \"5502\", \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gpg13\": [\"7.8\", \"7.9\"], \"gdpr\": [\"IV_32.2\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 06:54:41 mail sshd[9296]: pam_unix(sshd:session): session closed for user phopkins\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:54:41.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686162921.315822\"}\n"
+  },
+  {
+    "line_number": 27,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates normal package management activity, not malicious.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"54306\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1409152754361679.000000\", \"dest_ip\": \"91.189.88.152\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/pool/main/p/python3.6/python3.6-dev_3.6.9-1%7e18.04ubuntu1.6_amd64.deb\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:01:47.828751+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"444\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:01:47.882369+0000\"}, \"rule\": {\"firedtimes\": 21, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:01:47.882369Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163348.316639\"}\n"
+  },
+  {
+    "line_number": 28,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Traffic related to package management is benign and expected, not suspicious.",
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:01:47.882369\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"91.189.88.152:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 20, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:01:47.882369  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 192.168.128.4:54306 -> 91.189.88.152:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:01:47.882369Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163348.320899\"}\n"
+  },
+  {
+    "line_number": 29,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Traffic related to package management is benign and not suspicious.",
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:01:47.882948\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.33.111\", \"dstip\": \"91.189.88.152:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 22, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:01:47.882948  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.35.33.111:54306 -> 91.189.88.152:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:01:47.882948Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163348.326051\"}\n"
+  },
+  {
+    "line_number": 30,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to package management traffic, which is benign and expected behavior.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"54306\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"553438502692637.000000\", \"dest_ip\": \"91.189.88.152\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/pool/main/p/python3.6/python3.6-dev_3.6.9-1%7e18.04ubuntu1.6_amd64.deb\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:01:47.829213+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"444\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:01:47.882948+0000\"}, \"rule\": {\"firedtimes\": 23, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:01:47.882948Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163348.321795\"}\n"
+  },
+  {
+    "line_number": 31,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates outbound traffic related to package management, which is typical for system updates and not malicious.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"51264\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"425487131978577.000000\", \"dest_ip\": \"91.189.91.39\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"security.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/pool/main/s/systemd/libsystemd0_237-3ubuntu10.50_amd64.deb\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:01:47.830289+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"433\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:01:48.017549+0000\"}, \"rule\": {\"firedtimes\": 22, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:01:48.017549Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163348.318782\"}\n"
+  },
+  {
+    "line_number": 32,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to package management traffic, which is benign and expected.",
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:01:48.017549\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"91.189.91.39:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 21, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:01:48.017549  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 192.168.128.4:51264 -> 91.189.91.39:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:01:48.017549Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163348.321348\"}\n"
+  },
+  {
+    "line_number": 33,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to package management traffic, which is benign and expected behavior.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"51264\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"514150289354026.000000\", \"dest_ip\": \"91.189.91.39\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"security.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/pool/main/s/systemd/libsystemd0_237-3ubuntu10.50_amd64.deb\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:01:47.830762+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"433\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:01:48.018014+0000\"}, \"rule\": {\"firedtimes\": 24, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:01:48.018014Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163348.323935\"}\n"
+  },
+  {
+    "line_number": 34,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Traffic classified as not suspicious, related to package management updates.",
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:01:48.018014\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.33.111\", \"dstip\": \"91.189.91.39:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 23, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:01:48.018014  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.35.33.111:51264 -> 91.189.91.39:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:01:48.018014Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163348.326499\"}\n"
+  },
+  {
+    "line_number": 35,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to legitimate package management activity, not malicious.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"36880\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1349347483566669.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/pool/main/libx/libxml2/libxml2_2.9.4%2bdfsg1-6.1ubuntu1.4_amd64.deb\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:02:07.836173+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"441\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:02:07.889619+0000\"}, \"rule\": {\"firedtimes\": 25, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:02:07.889619Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163368.326945\"}\n"
+  },
+  {
+    "line_number": 36,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Traffic related to package management updates, not suspicious.",
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:02:07.889619\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"91.189.88.142:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 24, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:02:07.889619  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 192.168.128.4:36880 -> 91.189.88.142:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:02:07.889619Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163368.329082\"}\n"
+  },
+  {
+    "line_number": 37,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to legitimate package management activity from a known repository, classified as not suspicious.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"36880\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"560892419752936.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/pool/main/libx/libxml2/libxml2_2.9.4%2bdfsg1-6.1ubuntu1.4_amd64.deb\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:02:07.836584+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"441\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:02:07.890025+0000\"}, \"rule\": {\"firedtimes\": 26, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:02:07.890025Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163368.329531\"}\n"
+  },
+  {
+    "line_number": 38,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to package management activity, which is benign and expected behavior.",
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:02:07.890025\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.33.111\", \"dstip\": \"91.189.88.142:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 25, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:02:07.890025  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.35.33.111:36880 -> 91.189.88.142:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:02:07.890025Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163368.331665\"}\n"
+  },
+  {
+    "line_number": 39,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a successful authentication event, which is normal behavior and not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:04:36\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 47, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:04:36 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9377, TLS, session=<7qlDiJnVBLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:36.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686163517.332610\"}\n"
+  },
+  {
+    "line_number": 40,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Dovecot authentication success is a normal event, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:04:36\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 46, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:04:36 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9377, TLS, session=<7qlDiJnVBLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:36.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686163517.332113\"}\n"
+  },
+  {
+    "line_number": 41,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Dovecot authentication success is a normal event indicating a successful login, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:04:36\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 48, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:04:36 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9377, TLS, session=<7qlDiJnVBLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:36.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686163517.333106\"}\n"
+  },
+  {
+    "line_number": 42,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "SELinux permission check via AppArmor is a normal system operation, not malicious.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"audit\": {\"uid\": \"0\", \"auid\": \"4294967295\", \"gid\": \"0\", \"exe\": \"/sbin/apparmor_parser\", \"euid\": \"0\", \"session\": \"4294967295\", \"pid\": \"17954\", \"id\": \"208\", \"type\": \"AVC\", \"command\": \"apparmor_parser\"}}, \"rule\": {\"firedtimes\": 18, \"mail\": false, \"level\": 3, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"10.6.1\"], \"tsc\": [\"CC7.2\", \"CC7.3\"], \"description\": \"Auditd: SELinux permission check.\", \"groups\": [\"audit\", \"audit_selinux\"], \"id\": \"80730\", \"nist_800_53\": [\"AU.6\"], \"gdpr\": [\"IV_30.1.g\", \"IV_35.7.d\"]}, \"decoder\": {\"name\": \"auditd\"}, \"full_log\": \"type=AVC msg=audit(1642230293.229:208): apparmor=\\\"STATUS\\\" operation=\\\"profile_replace\\\" profile=\\\"unconfined\\\" name=\\\"/usr/lib/NetworkManager/nm-dhcp-client.action\\\" pid=17954 comm=\\\"apparmor_parser\\\" type=SYSCALL msg=audit(1642230293.229:208): arch=c000003e syscall=1 success=yes exit=24993 a0=6 a1=5577aa056ff0 a2=61a1 a3=0 items=0 ppid=17953 pid=17954 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts0 ses=4294967295 comm=\\\"apparmor_parser\\\" exe=\\\"/sbin/apparmor_parser\\\" key=(null) type=PROCTITLE msg=audit(1642230293.229:208): proctitle=61707061726D6F725F706172736572002D72002D54002D57002F6574632F61707061726D6F722E642F7362696E2E6468636C69656E74\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:53.000000Z\", \"location\": \"/var/log/audit/audit.log\", \"id\": \"1686163533.334743\"}\n"
+  },
+  {
+    "line_number": 43,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "SELinux permission check is a normal security operation, not malicious.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"audit\": {\"uid\": \"0\", \"auid\": \"4294967295\", \"gid\": \"0\", \"exe\": \"/sbin/apparmor_parser\", \"euid\": \"0\", \"session\": \"4294967295\", \"pid\": \"17954\", \"id\": \"209\", \"type\": \"AVC\", \"command\": \"apparmor_parser\"}}, \"rule\": {\"firedtimes\": 19, \"mail\": false, \"level\": 3, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"10.6.1\"], \"tsc\": [\"CC7.2\", \"CC7.3\"], \"description\": \"Auditd: SELinux permission check.\", \"groups\": [\"audit\", \"audit_selinux\"], \"id\": \"80730\", \"nist_800_53\": [\"AU.6\"], \"gdpr\": [\"IV_30.1.g\", \"IV_35.7.d\"]}, \"decoder\": {\"name\": \"auditd\"}, \"full_log\": \"type=AVC msg=audit(1642230293.229:209): apparmor=\\\"STATUS\\\" operation=\\\"profile_replace\\\" profile=\\\"unconfined\\\" name=\\\"/usr/lib/NetworkManager/nm-dhcp-helper\\\" pid=17954 comm=\\\"apparmor_parser\\\" type=SYSCALL msg=audit(1642230293.229:209): arch=c000003e syscall=1 success=yes exit=25025 a0=6 a1=5577aa056ff0 a2=61c1 a3=0 items=0 ppid=17953 pid=17954 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts0 ses=4294967295 comm=\\\"apparmor_parser\\\" exe=\\\"/sbin/apparmor_parser\\\" key=(null) type=PROCTITLE msg=audit(1642230293.229:209): proctitle=61707061726D6F725F706172736572002D72002D54002D57002F6574632F61707061726D6F722E642F7362696E2E6468636C69656E74\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:53.000000Z\", \"location\": \"/var/log/audit/audit.log\", \"id\": \"1686163533.335917\"}\n"
+  },
+  {
+    "line_number": 44,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "SELinux permission check related to AppArmor profile replacement is a normal administrative action.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"audit\": {\"uid\": \"0\", \"auid\": \"4294967295\", \"gid\": \"0\", \"exe\": \"/sbin/apparmor_parser\", \"euid\": \"0\", \"session\": \"4294967295\", \"pid\": \"17954\", \"id\": \"207\", \"type\": \"AVC\", \"command\": \"apparmor_parser\"}}, \"rule\": {\"firedtimes\": 17, \"mail\": false, \"level\": 3, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"10.6.1\"], \"tsc\": [\"CC7.2\", \"CC7.3\"], \"description\": \"Auditd: SELinux permission check.\", \"groups\": [\"audit\", \"audit_selinux\"], \"id\": \"80730\", \"nist_800_53\": [\"AU.6\"], \"gdpr\": [\"IV_30.1.g\", \"IV_35.7.d\"]}, \"decoder\": {\"name\": \"auditd\"}, \"full_log\": \"type=AVC msg=audit(1642230293.225:207): apparmor=\\\"STATUS\\\" operation=\\\"profile_replace\\\" profile=\\\"unconfined\\\" name=\\\"/sbin/dhclient\\\" pid=17954 comm=\\\"apparmor_parser\\\" type=SYSCALL msg=audit(1642230293.225:207): arch=c000003e syscall=1 success=yes exit=44953 a0=6 a1=5577a9e6c9d0 a2=af99 a3=0 items=0 ppid=17953 pid=17954 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts0 ses=4294967295 comm=\\\"apparmor_parser\\\" exe=\\\"/sbin/apparmor_parser\\\" key=(null) type=PROCTITLE msg=audit(1642230293.225:207): proctitle=61707061726D6F725F706172736572002D72002D54002D57002F6574632F61707061726D6F722E642F7362696E2E6468636C69656E74\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:53.000000Z\", \"location\": \"/var/log/audit/audit.log\", \"id\": \"1686163533.333600\"}\n"
+  },
+  {
+    "line_number": 45,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "SELinux permission check related to AppArmor profile update. Likely benign system activity.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"audit\": {\"uid\": \"0\", \"auid\": \"4294967295\", \"gid\": \"0\", \"exe\": \"/sbin/apparmor_parser\", \"euid\": \"0\", \"session\": \"4294967295\", \"pid\": \"17954\", \"id\": \"210\", \"type\": \"AVC\", \"command\": \"apparmor_parser\"}}, \"rule\": {\"firedtimes\": 20, \"mail\": false, \"level\": 3, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"10.6.1\"], \"tsc\": [\"CC7.2\", \"CC7.3\"], \"description\": \"Auditd: SELinux permission check.\", \"groups\": [\"audit\", \"audit_selinux\"], \"id\": \"80730\", \"nist_800_53\": [\"AU.6\"], \"gdpr\": [\"IV_30.1.g\", \"IV_35.7.d\"]}, \"decoder\": {\"name\": \"auditd\"}, \"full_log\": \"type=AVC msg=audit(1642230293.229:210): apparmor=\\\"STATUS\\\" operation=\\\"profile_replace\\\" profile=\\\"unconfined\\\" name=\\\"/usr/lib/connman/scripts/dhclient-script\\\" pid=17954 comm=\\\"apparmor_parser\\\" type=SYSCALL msg=audit(1642230293.229:210): arch=c000003e syscall=1 success=yes exit=23625 a0=6 a1=5577aa06f4b0 a2=5c49 a3=0 items=0 ppid=17953 pid=17954 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts0 ses=4294967295 comm=\\\"apparmor_parser\\\" exe=\\\"/sbin/apparmor_parser\\\" key=(null) type=PROCTITLE msg=audit(1642230293.229:210): proctitle=61707061726D6F725F706172736572002D72002D54002D57002F6574632F61707061726D6F722E642F7362696E2E6468636C69656E74\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:53.000000Z\", \"location\": \"/var/log/audit/audit.log\", \"id\": \"1686163533.337084\"}\n"
+  },
+  {
+    "line_number": 46,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a successful SSH authentication using a valid account, which is a normal operation unless other suspicious activities are detected.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sshd\", \"timestamp\": \"Jan 15 07:09:46\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.35.202\", \"dstuser\": \"phopkins\", \"srcport\": \"56060\"}, \"rule\": {\"mail\": false, \"level\": 3, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"10.2.5\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"sshd: authentication success.\", \"groups\": [\"syslog\", \"sshd\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 2, \"mitre\": {\"technique\": [\"Valid Accounts\", \"Remote Services\"], \"id\": [\"T1078\", \"T1021\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\", \"Lateral Movement\"]}, \"id\": \"5715\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"sshd\", \"name\": \"sshd\"}, \"full_log\": \"Jan 15 07:09:46 intranet-server sshd[13466]: Accepted publickey for phopkins from 10.35.35.202 port 56060 ssh2: RSA SHA256:8wFbiaYPevKS/wYKnePO20v0iymTcrRh4Kr+1uRS1UM\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:09:46.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686163825.338253\"}\n"
+  },
+  {
+    "line_number": 48,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The login session opened for user 'phopkins' appears legitimate, matching previous successful authentications.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"systemd\", \"timestamp\": \"Jan 15 07:09:46\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"uid\": \"0\", \"dstuser\": \"phopkins\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 4, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 07:09:46 intranet-server systemd: pam_unix(systemd-user:session): session opened for user phopkins by (uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:09:46.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686163825.339281\"}\n"
+  },
+  {
+    "line_number": 51,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Session closure for root user is a normal activity following a sudo session.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:10:08\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"dstuser\": \"root\"}, \"rule\": {\"firedtimes\": 5, \"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session closed.\", \"groups\": [\"pam\", \"syslog\"], \"id\": \"5502\", \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gpg13\": [\"7.8\", \"7.9\"], \"gdpr\": [\"IV_32.2\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 07:10:08 intranet-server sudo: pam_unix(sudo:session): session closed for user root\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:10:08.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686163847.340619\"}\n"
+  },
+  {
+    "line_number": 52,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates normal package management activity, not suspicious.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"60524\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"260302728146719.000000\", \"dest_ip\": \"91.189.95.85\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"ppa.launchpad.net\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/oisf/suricata-stable/ubuntu/dists/bionic/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\", \"status\": \"304\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:11:33.274207+0000\", \"bytes_toclient\": \"449\", \"bytes_toserver\": \"508\", \"pkts_toclient\": \"3\"}, \"timestamp\": \"2022-01-15T07:11:33.327729+0000\"}, \"rule\": {\"firedtimes\": 27, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.327729Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.341033\"}\n"
+  },
+  {
+    "line_number": 53,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Traffic related to package management is benign and expected.",
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.327729\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"91.189.95.85:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 26, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.327729  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 192.168.128.4:60524 -> 91.189.95.85:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.327729Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.351450\"}\n"
+  },
+  {
+    "line_number": 54,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to package management traffic, which is typically benign and expected behavior for system updates.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"54320\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1535313162088750.000000\", \"dest_ip\": \"91.189.88.152\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"security.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic-security/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:11:33.274734+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"498\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:11:33.328372+0000\"}, \"rule\": {\"firedtimes\": 28, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.328372Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.343146\"}\n"
+  },
+  {
+    "line_number": 55,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to package management traffic, classified as not suspicious.",
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.328372\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"91.189.88.152:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 27, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.328372  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 192.168.128.4:54320 -> 91.189.88.152:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.328372Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.351897\"}\n"
+  },
+  {
+    "line_number": 56,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to normal package management activity, not suspicious.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"60524\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"2091986020807393.000000\", \"dest_ip\": \"91.189.95.85\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"ppa.launchpad.net\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/oisf/suricata-stable/ubuntu/dists/bionic/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\", \"status\": \"304\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:11:33.275169+0000\", \"bytes_toclient\": \"449\", \"bytes_toserver\": \"508\", \"pkts_toclient\": \"3\"}, \"timestamp\": \"2022-01-15T07:11:33.328895+0000\"}, \"rule\": {\"firedtimes\": 32, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.328895Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.354142\"}\n"
+  },
+  {
+    "line_number": 57,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Traffic related to package management is benign and not suspicious.",
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.328895\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.33.111\", \"dstip\": \"91.189.95.85:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 32, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.328895  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.35.33.111:60524 -> 91.189.95.85:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.328895Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.366790\"}\n"
+  },
+  {
+    "line_number": 58,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to package management traffic, classified as not suspicious.",
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.329539\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.33.111\", \"dstip\": \"91.189.88.152:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 33, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.329539  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.35.33.111:54320 -> 91.189.88.152:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.329539Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.367236\"}\n"
+  },
+  {
+    "line_number": 59,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to package management traffic, which is benign and expected behavior.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"54320\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1874716510205288.000000\", \"dest_ip\": \"91.189.88.152\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"security.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic-security/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:11:33.275816+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"498\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:11:33.329539+0000\"}, \"rule\": {\"firedtimes\": 33, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.329539Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.356256\"}\n"
+  },
+  {
+    "line_number": 60,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to legitimate package management activity, not malicious.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"36892\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1177443602084660.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\", \"status\": \"304\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:11:33.275252+0000\", \"bytes_toclient\": \"417\", \"bytes_toserver\": \"488\", \"pkts_toclient\": \"3\"}, \"timestamp\": \"2022-01-15T07:11:33.333703+0000\"}, \"rule\": {\"firedtimes\": 29, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.333703Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.345217\"}\n"
+  },
+  {
+    "line_number": 61,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to a benign activity of GNU/Linux APT User-Agent accessing Ubuntu repositories, classified as not suspicious traffic.",
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.333703\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"91.189.88.142:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 28, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.333703  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 192.168.128.4:36892 -> 91.189.88.142:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.333703Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.352346\"}\n"
+  },
+  {
+    "line_number": 62,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to legitimate package management activity from a known source (archive.ubuntu.com).",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"36892\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"990090686183221.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\", \"status\": \"304\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:11:33.276277+0000\", \"bytes_toclient\": \"417\", \"bytes_toserver\": \"488\", \"pkts_toclient\": \"3\"}, \"timestamp\": \"2022-01-15T07:11:33.334828+0000\"}, \"rule\": {\"firedtimes\": 34, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.334828Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.358322\"}\n"
+  },
+  {
+    "line_number": 63,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Traffic related to package management, classified as not suspicious.",
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.334828\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.33.111\", \"dstip\": \"91.189.88.142:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 34, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.334828  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.35.33.111:36892 -> 91.189.88.142:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.334828Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.367684\"}\n"
+  },
+  {
+    "line_number": 64,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to legitimate package management activity, not malicious.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"1\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"36892\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1177443602084660.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"1262\", \"url\": \"/ubuntu/dists/bionic-updates/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"6\", \"start\": \"2022-01-15T07:11:33.275252+0000\", \"bytes_toclient\": \"1771\", \"bytes_toserver\": \"844\", \"pkts_toclient\": \"4\"}, \"timestamp\": \"2022-01-15T07:11:33.360543+0000\"}, \"rule\": {\"firedtimes\": 30, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.360543Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.347298\"}\n"
+  },
+  {
+    "line_number": 65,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Traffic related to legitimate package management activity, not suspicious.",
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.360543\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"91.189.88.142:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 29, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.360543  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 192.168.128.4:36892 -> 91.189.88.142:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.360543Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.352795\"}\n"
+  },
+  {
+    "line_number": 66,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to legitimate package management traffic to a known Ubuntu repository, classified as not suspicious.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"1\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"36892\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"990090686183221.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"1262\", \"url\": \"/ubuntu/dists/bionic-updates/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"6\", \"start\": \"2022-01-15T07:11:33.276277+0000\", \"bytes_toclient\": \"1771\", \"bytes_toserver\": \"844\", \"pkts_toclient\": \"4\"}, \"timestamp\": \"2022-01-15T07:11:33.361735+0000\"}, \"rule\": {\"firedtimes\": 35, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.361735Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.360396\"}\n"
+  },
+  {
+    "line_number": 67,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to package management traffic, which is benign.",
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.361735\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.33.111\", \"dstip\": \"91.189.88.142:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 2, \"mail\": false, \"level\": 10, \"pci_dss\": [\"10.6.1\", \"11.4\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC7.2\", \"CC7.3\", \"CC6.1\", \"CC6.8\"], \"description\": \"Multiple IDS alerts for same id.\", \"groups\": [\"ids\"], \"id\": \"20152\", \"nist_800_53\": [\"AU.6\", \"SI.4\"], \"frequency\": 10, \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.361735  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.35.33.111:36892 -> 91.189.88.142:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.361735Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.368132\"}\n"
+  },
+  {
+    "line_number": 68,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to legitimate package management activity, not malicious.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"2\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"36892\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1177443602084660.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic-backports/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"27\", \"start\": \"2022-01-15T07:11:33.275252+0000\", \"bytes_toclient\": \"7187\", \"bytes_toserver\": \"2456\", \"pkts_toclient\": \"8\"}, \"timestamp\": \"2022-01-15T07:11:33.496520+0000\"}, \"rule\": {\"firedtimes\": 31, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.496520Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.349373\"}\n"
+  },
+  {
+    "line_number": 69,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Traffic related to package management updates, classified as not suspicious.",
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.496520\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"91.189.88.142:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 30, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.496520  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 192.168.128.4:36892 -> 91.189.88.142:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.496520Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.353244\"}\n"
+  },
+  {
+    "line_number": 70,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to legitimate package management activity, not malicious.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"2\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"36892\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"990090686183221.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic-backports/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"28\", \"start\": \"2022-01-15T07:11:33.276277+0000\", \"bytes_toclient\": \"7187\", \"bytes_toserver\": \"2522\", \"pkts_toclient\": \"8\"}, \"timestamp\": \"2022-01-15T07:11:33.497791+0000\"}, \"rule\": {\"firedtimes\": 36, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.497791Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.362464\"}\n"
+  },
+  {
+    "line_number": 71,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to legitimate package management traffic, classified as not suspicious.",
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.497791\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.33.111\", \"dstip\": \"91.189.88.142:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 35, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.497791  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.35.33.111:36892 -> 91.189.88.142:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.497791Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.368736\"}\n"
+  },
+  {
+    "line_number": 72,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to legitimate package management activity from a known repository, not malicious.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"1\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"54320\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1535313162088750.000000\", \"dest_ip\": \"91.189.88.152\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"security.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic-security/universe/binary-amd64/by-hash/SHA256/cfff5d561f5d4daf2639ae53583c8d1b71d217189bc1f5c404fca10f901d3c07\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"30\", \"start\": \"2022-01-15T07:11:33.274734+0000\", \"bytes_toclient\": \"4202\", \"bytes_toserver\": \"2482\", \"pkts_toclient\": \"5\"}, \"timestamp\": \"2022-01-15T07:11:34.002313+0000\"}, \"rule\": {\"firedtimes\": 38, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:34.002313Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.369632\"}\n"
+  },
+  {
+    "line_number": 73,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Traffic related to package management updates, classified as not suspicious.",
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:34.002313\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"91.189.88.152:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 31, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:34.002313  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 192.168.128.4:54320 -> 91.189.88.152:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:34.002313Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.353693\"}\n"
+  },
+  {
+    "line_number": 74,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to legitimate package management activity, not suspicious.",
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:34.003454\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.33.111\", \"dstip\": \"91.189.88.152:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 36, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:34.003454  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.35.33.111:54320 -> 91.189.88.152:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:34.003454Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.369184\"}\n"
+  },
+  {
+    "line_number": 75,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert is related to legitimate package management traffic to a known repository (security.ubuntu.com).",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"1\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"54320\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1874716510205288.000000\", \"dest_ip\": \"91.189.88.152\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"security.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic-security/universe/binary-amd64/by-hash/SHA256/cfff5d561f5d4daf2639ae53583c8d1b71d217189bc1f5c404fca10f901d3c07\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"31\", \"start\": \"2022-01-15T07:11:33.275816+0000\", \"bytes_toclient\": \"2848\", \"bytes_toserver\": \"2548\", \"pkts_toclient\": \"4\"}, \"timestamp\": \"2022-01-15T07:11:34.003454+0000\"}, \"rule\": {\"firedtimes\": 37, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:34.003454Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.364534\"}\n"
+  },
+  {
+    "line_number": 77,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "The alert indicates a normal session closure for a sudo command, which is expected behavior.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:13:47\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"dstuser\": \"root\"}, \"rule\": {\"firedtimes\": 6, \"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session closed.\", \"groups\": [\"pam\", \"syslog\"], \"id\": \"5502\", \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gpg13\": [\"7.8\", \"7.9\"], \"gdpr\": [\"IV_32.2\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 07:13:47 intranet-server sudo: pam_unix(sudo:session): session closed for user root\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:13:47.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686164068.372932\"}\n"
+  },
+  {
+    "line_number": 78,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Legitimate sudo session opened by user 'phopkins' to 'root'. No malicious activity detected.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:13:47\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"uid\": \"0\", \"dstuser\": \"root\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 6, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 07:13:47 intranet-server sudo: pam_unix(sudo:session): session opened for user root by phopkins(uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:13:47.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686164068.372469\"}\n"
+  },
+  {
+    "line_number": 79,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Dovecot authentication success indicates a legitimate login using valid credentials.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 49, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9462, TLS, session=<7yaQspnVCLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686164226.373346\"}\n"
+  },
+  {
+    "line_number": 80,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Dovecot authentication success indicates a legitimate login, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 54, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9465, TLS, session=<68yQspnVCrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686164226.375810\"}\n"
+  },
+  {
+    "line_number": 81,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Dovecot authentication success is a normal event indicating a valid login, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 56, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9469, TLS, session=<1nCZspnVDrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686164226.376794\"}\n"
+  },
+  {
+    "line_number": 82,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Dovecot authentication success is a normal event indicating valid user login.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 60, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9469, TLS, session=<1nCZspnVDrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686164226.378756\"}\n"
+  },
+  {
+    "line_number": 83,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Dovecot authentication success is a normal event indicating valid user login.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 55, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9467, TLS, session=<gumRspnVDLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686164226.376302\"}\n"
+  },
+  {
+    "line_number": 84,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins indicate normal user activity, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 59, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9467, TLS, session=<gumRspnVDLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686164226.378266\"}\n"
+  },
+  {
+    "line_number": 85,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins for the same user suggest normal activity rather than an anomaly.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 50, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9465, TLS, session=<68yQspnVCrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686164226.373839\"}\n"
+  },
+  {
+    "line_number": 86,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins indicate normal user activity, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 51, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9467, TLS, session=<gumRspnVDLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686164226.374332\"}\n"
+  },
+  {
+    "line_number": 87,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Multiple successful logins from the same IP suggest normal user activity rather than an attack.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 52, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9469, TLS, session=<1nCZspnVDrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686164226.374825\"}\n"
+  },
+  {
+    "line_number": 88,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Multiple successful logins from the same IP suggest normal user activity.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 53, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9462, TLS, session=<7yaQspnVCLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686164226.375318\"}\n"
+  },
+  {
+    "line_number": 89,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins suggest normal user activity, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 57, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9462, TLS, session=<7yaQspnVCLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686164226.377286\"}\n"
+  },
+  {
+    "line_number": 90,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Multiple successful logins from the same IP suggest normal user activity.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 58, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9465, TLS, session=<68yQspnVCrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686164226.377776\"}\n"
+  },
+  {
+    "line_number": 91,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Multiple successful logins from the same IP suggest normal user activity.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:24\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 70, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:24 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9481, TLS, session=<5qYStpnVGrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:24.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686164284.383676\"}\n"
+  },
+  {
+    "line_number": 92,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Multiple successful logins indicate normal user activity, not malicious.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:24\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 69, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:24 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9479, TLS, session=<bBwStpnVGLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:24.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686164284.383186\"}\n"
+  },
+  {
+    "line_number": 93,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins suggest normal user activity, likely a false positive.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:24\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 61, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:24 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9479, TLS, session=<bBwStpnVGLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:24.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686164284.379246\"}\n"
+  },
+  {
+    "line_number": 94,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Multiple successful logins from the same IP suggest normal user activity.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:24\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 62, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:24 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9481, TLS, session=<5qYStpnVGrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:24.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686164284.379739\"}\n"
+  },
+  {
+    "line_number": 95,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins suggest normal user activity rather than malicious behavior.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:24\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 65, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:24 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9479, TLS, session=<bBwStpnVGLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:24.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686164284.381218\"}\n"
+  },
+  {
+    "line_number": 96,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Multiple successful logins from the same IP suggest normal user activity rather than an attack.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:24\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 66, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:24 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9481, TLS, session=<5qYStpnVGrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:24.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686164284.381710\"}\n"
+  },
+  {
+    "line_number": 97,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins from the same IP suggest normal user activity rather than an attack.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:25\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 67, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:25 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9484, TLS, session=<4MUTtpnVHLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:25.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686164284.382202\"}\n"
+  },
+  {
+    "line_number": 98,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Multiple successful logins from the same IP suggest normal user activity rather than malicious behavior.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:25\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 64, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:25 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9488, TLS, session=<Bm8itpnVHrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:25.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686164284.380725\"}\n"
+  },
+  {
+    "line_number": 99,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Repeated successful logins suggest normal user activity rather than malicious behavior.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:25\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 68, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:25 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9488, TLS, session=<Bm8itpnVHrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:25.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686164284.382694\"}\n"
+  },
+  {
+    "line_number": 100,
+    "predicted_attack_type": "",
+    "attack_type": "",
+    "classification_correct": "",
+    "classification": "FP",
+    "description": "Multiple successful logins from the same IP suggest normal user activity rather than malicious behavior.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:25\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 71, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:25 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9484, TLS, session=<4MUTtpnVHLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:25.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686164284.384166\"}"
+  }
+]

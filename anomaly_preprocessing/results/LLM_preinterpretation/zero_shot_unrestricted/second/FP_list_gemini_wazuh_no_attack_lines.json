@@ -1,0 +1,415 @@
+[
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence",
+      "Lateral Movement"
+    ],
+    "description": "Successful SSH authentication for user 'phopkins' on 'mail' from IP 10.35.35.202 using a public key. This is a significant event. Given the earlier logs of 'phopkins' gaining root privileges on 'intranet-server' and performing suspicious activities (listing root directory, reading shadow file), a successful SSH login to a different server ('mail') using this user's account suggests potential lateral movement. The use of public key authentication suggests pre-established access or a key compromise.",
+    "tools": [
+      "SSH client",
+      "Compromised SSH keys",
+      "Potentially tools for lateral movement or persistence like 'ssh-agent' forwarding or direct SSH connections."
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"sshd\", \"timestamp\": \"Jan 15 06:53:50\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.35.202\", \"dstuser\": \"phopkins\", \"srcport\": \"55218\"}, \"rule\": {\"mail\": false, \"level\": 3, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"10.2.5\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"sshd: authentication success.\", \"groups\": [\"syslog\", \"sshd\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 1, \"mitre\": {\"technique\": [\"Valid Accounts\", \"Remote Services\"], \"id\": [\"T1078\", \"T1021\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\", \"Lateral Movement\"]}, \"id\": \"5715\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"sshd\", \"name\": \"sshd\"}, \"full_log\": \"Jan 15 06:53:50 mail sshd[9296]: Accepted publickey for phopkins from 10.35.35.202 port 55218 ssh2: RSA SHA256:8wFbiaYPevKS/wYKnePO20v0iymTcrRh4Kr+1uRS1UM\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:53:50.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686162869.314388\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence",
+      "Privilege Escalation"
+    ],
+    "description": "PAM session opened for user 'phopkins' on 'mail' via SSH, initiated by UID 0 (root). This confirms the successful SSH login and that the 'phopkins' session is being managed with root privileges. This is a critical indicator of compromise, especially following the previous activity on 'intranet-server' where 'phopkins' escalated to root.",
+    "tools": [
+      "SSH",
+      "Legitimate system utilities (`pam`)"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"sshd\", \"timestamp\": \"Jan 15 06:53:50\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"uid\": \"0\", \"dstuser\": \"phopkins\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 1, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 06:53:50 mail sshd[9296]: pam_unix(sshd:session): session opened for user phopkins by (uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:53:50.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686162869.314923\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence",
+      "Privilege Escalation"
+    ],
+    "description": "Systemd PAM session opened for user 'phopkins' on 'mail' by UID 0 (root). This is a duplicate confirmation of the successful login and session establishment for 'phopkins' with root privileges on the 'mail' server. This reinforces the severity of the SSH successful login.",
+    "tools": [
+      "SSH",
+      "Legitimate system utilities (`systemd`, `pam`)"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"systemd\", \"timestamp\": \"Jan 15 06:53:50\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"uid\": \"0\", \"dstuser\": \"phopkins\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 2, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 06:53:50 mail systemd: pam_unix(systemd-user:session): session opened for user phopkins by (uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:53:50.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686162869.315370\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "Suricata alert for 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' from internal IP 192.168.128.4 to 91.189.88.152 (archive.ubuntu.com) on port 80, requesting `python3.6-dev_3.6.9-1~18.04ubuntu1.6_amd64.deb`. While this is classified as 'Not Suspicious Traffic' by Suricata (due to it being a common APT update), in a compromised environment, an attacker could be using APT to install new tools or backdoors. The request for a 'dev' package (python3.6-dev) might be unusual for a production server and could indicate an attacker setting up a development environment or installing tools for further exploitation.",
+    "tools": [
+      "APT package manager",
+      "Potentially attacker-controlled repositories or compromised official repositories"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"54306\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1409152754361679.000000\", \"dest_ip\": \"91.189.88.152\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/pool/main/p/python3.6/python3.6-dev_3.6.9-1%7e18.04ubuntu1.6_amd64.deb\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:01:47.828751+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"444\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:01:47.882369+0000\"}, \"rule\": {\"firedtimes\": 21, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:01:47.882369Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163348.316639\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "Suricata alert for 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' from internal IP 10.35.33.111 to 91.189.88.152 (archive.ubuntu.com) on port 80, requesting `python3.6-dev_3.6.9-1~18.04ubuntu1.6_amd64.deb`. This is a duplicate of a previous alert, indicating another system on the network performing a similar package management action. The consistent pattern across multiple machines could be part of normal operations, but in light of the 'phopkins' compromise, it warrants investigation into whether these are legitimate updates or if an attacker is using this as a cover to download malicious tools.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"54306\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"553438502692637.000000\", \"dest_ip\": \"91.189.88.152\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/pool/main/p/python3.6/python3.6-dev_3.6.9-1%7e18.04ubuntu1.6_amd64.deb\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:01:47.829213+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"444\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:01:47.882948+0000\"}, \"rule\": {\"firedtimes\": 23, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:01:47.882948Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163348.321795\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 192.168.128.4 to security.ubuntu.com (91.189.91.39) on port 80, requesting 'libsystemd0_237-3ubuntu10.50_amd64.deb'. This is classified as 'Not Suspicious Traffic' by Suricata, implying it's a routine system update. However, given previous suspicious activities, downloading system libraries could also be a method for an attacker to tamper with core system components or install malicious versions.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"51264\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"425487131978577.000000\", \"dest_ip\": \"91.189.91.39\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"security.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/pool/main/s/systemd/libsystemd0_237-3ubuntu10.50_amd64.deb\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:01:47.830289+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"433\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:01:48.017549+0000\"}, \"rule\": {\"firedtimes\": 22, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:01:48.017549Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163348.318782\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 10.35.33.111 to security.ubuntu.com (91.189.91.39) on port 80, requesting 'libsystemd0_237-3ubuntu10.50_amd64.deb'. This is another instance of routine system updates from a different internal host. The synchronized nature of these updates across multiple machines (similar timestamps) is expected for managed systems but should be verified.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"51264\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"514150289354026.000000\", \"dest_ip\": \"91.189.91.39\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"security.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/pool/main/s/systemd/libsystemd0_237-3ubuntu10.50_amd64.deb\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:01:47.830762+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"433\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:01:48.018014+0000\"}, \"rule\": {\"firedtimes\": 24, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:01:48.018014Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163348.323935\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 192.168.128.4 to archive.ubuntu.com (91.189.88.142) on port 80, requesting 'libxml2_2.9.4+dfsg1-6.1ubuntu1.4_amd64.deb'. This is another legitimate-looking package download. However, an attacker could be using legitimate package management to download or update tools they need for further exploitation, or even replace legitimate libraries with malicious ones.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"36880\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1349347483566669.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/pool/main/libx/libxml2/libxml2_2.9.4%2bdfsg1-6.1ubuntu1.4_amd64.deb\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:02:07.836173+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"441\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:02:07.889619+0000\"}, \"rule\": {\"firedtimes\": 25, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:02:07.889619Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163368.326945\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 10.35.33.111 to archive.ubuntu.com (91.189.88.142) on port 80, requesting 'libxml2_2.9.4+dfsg1-6.1ubuntu1.4_amd64.deb'. This is consistent with other recent APT traffic from multiple internal hosts. While the activity itself is a common system task, the overall context of potential compromise on another host makes these package management activities noteworthy.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"36880\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"560892419752936.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/pool/main/libx/libxml2/libxml2_2.9.4%2bdfsg1-6.1ubuntu1.4_amd64.deb\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:02:07.836584+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"441\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:02:07.890025+0000\"}, \"rule\": {\"firedtimes\": 26, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:02:07.890025Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163368.329531\"}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion"
+    ],
+    "description": "AppArmor status change: 'operation=\"profile_replace\" profile=\"unconfined\" name=\"/usr/lib/NetworkManager/nm-dhcp-client.action\"' executed by 'apparmor_parser' with UID 0 (root). This indicates that the AppArmor profile for the NetworkManager DHCP client action script was replaced, essentially unconfining it. While this *could* be a legitimate system update or configuration change, it could also be a method for an attacker to disable or weaken security controls (AppArmor) on a system they have compromised to facilitate further malicious activity without being restricted by mandatory access controls. The process was run by UID 0, meaning it had root privileges.",
+    "tools": [
+      "AppArmor utilities",
+      "Privilege escalation tools (if not already root)"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"audit\": {\"uid\": \"0\", \"auid\": \"4294967295\", \"gid\": \"0\", \"exe\": \"/sbin/apparmor_parser\", \"euid\": \"0\", \"session\": \"4294967295\", \"pid\": \"17954\", \"id\": \"208\", \"type\": \"AVC\", \"command\": \"apparmor_parser\"}}, \"rule\": {\"firedtimes\": 18, \"mail\": false, \"level\": 3, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"10.6.1\"], \"tsc\": [\"CC7.2\", \"CC7.3\"], \"description\": \"Auditd: SELinux permission check.\", \"groups\": [\"audit\", \"audit_selinux\"], \"id\": \"80730\", \"nist_800_53\": [\"AU.6\"], \"gdpr\": [\"IV_30.1.g\", \"IV_35.7.d\"]}, \"decoder\": {\"name\": \"auditd\"}, \"full_log\": \"type=AVC msg=audit(1642230293.229:208): apparmor=\\\"STATUS\\\" operation=\\\"profile_replace\\\" profile=\\\"unconfined\\\" name=\\\"/usr/lib/NetworkManager/nm-dhcp-client.action\\\" pid=17954 comm=\\\"apparmor_parser\\\" type=SYSCALL msg=audit(1642230293.229:208): arch=c000003e syscall=1 success=yes exit=24993 a0=6 a1=5577aa056ff0 a2=61a1 a3=0 items=0 ppid=17953 pid=17954 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts0 ses=4294967295 comm=\\\"apparmor_parser\\\" exe=\\\"/sbin/apparmor_parser\\\" key=(null) type=PROCTITLE msg=audit(1642230293.229:208): proctitle=61707061726D6F725F706172736572002D72002D54002D57002F6574632F61707061726D6F722E642F7362696E2E6468636C69656E74\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:53.000000Z\", \"location\": \"/var/log/audit/audit.log\", \"id\": \"1686163533.334743\"}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion"
+    ],
+    "description": "AppArmor status change: 'operation=\"profile_replace\" profile=\"unconfined\" name=\"/usr/lib/NetworkManager/nm-dhcp-helper\"' executed by 'apparmor_parser' with UID 0 (root). Similar to the previous alert, this indicates that another AppArmor profile related to NetworkManager (specifically for the DHCP helper) was replaced and unconfined with root privileges. This reinforces the suspicion that AppArmor security controls might be systematically disabled or weakened, which is a common defense evasion technique.",
+    "tools": [
+      "AppArmor utilities",
+      "Privilege escalation tools (if not already root)"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"audit\": {\"uid\": \"0\", \"auid\": \"4294967295\", \"gid\": \"0\", \"exe\": \"/sbin/apparmor_parser\", \"euid\": \"0\", \"session\": \"4294967295\", \"pid\": \"17954\", \"id\": \"209\", \"type\": \"AVC\", \"command\": \"apparmor_parser\"}}, \"rule\": {\"firedtimes\": 19, \"mail\": false, \"level\": 3, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"10.6.1\"], \"tsc\": [\"CC7.2\", \"CC7.3\"], \"description\": \"Auditd: SELinux permission check.\", \"groups\": [\"audit\", \"audit_selinux\"], \"id\": \"80730\", \"nist_800_53\": [\"AU.6\"], \"gdpr\": [\"IV_30.1.g\", \"IV_35.7.d\"]}, \"decoder\": {\"name\": \"auditd\"}, \"full_log\": \"type=AVC msg=audit(1642230293.229:209): apparmor=\\\"STATUS\\\" operation=\\\"profile_replace\\\" profile=\\\"unconfined\\\" name=\\\"/usr/lib/NetworkManager/nm-dhcp-helper\\\" pid=17954 comm=\\\"apparmor_parser\\\" type=SYSCALL msg=audit(1642230293.229:209): arch=c000003e syscall=1 success=yes exit=25025 a0=6 a1=5577aa056ff0 a2=61c1 a3=0 items=0 ppid=17953 pid=17954 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts0 ses=4294967295 comm=\\\"apparmor_parser\\\" exe=\\\"/sbin/apparmor_parser\\\" key=(null) type=PROCTITLE msg=audit(1642230293.229:209): proctitle=61707061726D6F725F706172736572002D72002D54002D57002F6574632F61707061726D6F722E642F7362696E2E6468636C69656E74\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:53.000000Z\", \"location\": \"/var/log/audit/audit.log\", \"id\": \"1686163533.335917\"}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion"
+    ],
+    "description": "AppArmor status change: 'operation=\"profile_replace\" profile=\"unconfined\" name=\"/sbin/dhclient\"' executed by 'apparmor_parser' with UID 0 (root). This is the third instance of an AppArmor profile being replaced and unconfined by a root process, this time for the dhclient utility. The consistent pattern of unconfining network-related components could suggest an attacker is trying to gain unrestricted network capabilities on the compromised system.",
+    "tools": [
+      "AppArmor utilities",
+      "Privilege escalation tools (if not already root)"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"audit\": {\"uid\": \"0\", \"auid\": \"4294967295\", \"gid\": \"0\", \"exe\": \"/sbin/apparmor_parser\", \"euid\": \"0\", \"session\": \"4294967295\", \"pid\": \"17954\", \"id\": \"207\", \"type\": \"AVC\", \"command\": \"apparmor_parser\"}}, \"rule\": {\"firedtimes\": 17, \"mail\": false, \"level\": 3, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"10.6.1\"], \"tsc\": [\"CC7.2\", \"CC7.3\"], \"description\": \"Auditd: SELinux permission check.\", \"groups\": [\"audit\", \"audit_selinux\"], \"id\": \"80730\", \"nist_800_53\": [\"AU.6\"], \"gdpr\": [\"IV_30.1.g\", \"IV_35.7.d\"]}, \"decoder\": {\"name\": \"auditd\"}, \"full_log\": \"type=AVC msg=audit(1642230293.225:207): apparmor=\\\"STATUS\\\" operation=\\\"profile_replace\\\" profile=\\\"unconfined\\\" name=\\\"/sbin/dhclient\\\" pid=17954 comm=\\\"apparmor_parser\\\" type=SYSCALL msg=audit(1642230293.225:207): arch=c000003e syscall=1 success=yes exit=44953 a0=6 a1=5577a9e6c9d0 a2=af99 a3=0 items=0 ppid=17953 pid=17954 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts0 ses=4294967295 comm=\\\"apparmor_parser\\\" exe=\\\"/sbin/apparmor_parser\\\" key=(null) type=PROCTITLE msg=audit(1642230293.225:207): proctitle=61707061726D6F725F706172736572002D72002D54002D57002F6574632F61707061726D6F722E642F7362696E2E6468636C69656E74\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:53.000000Z\", \"location\": \"/var/log/audit/audit.log\", \"id\": \"1686163533.333600\"}\n"
+  },
+  {
+    "attack_type": [
+      "Defense Evasion"
+    ],
+    "description": "AppArmor status change: 'operation=\"profile_replace\" profile=\"unconfined\" name=\"/usr/lib/connman/scripts/dhclient-script\"' executed by 'apparmor_parser' with UID 0 (root). This is yet another AppArmor profile replacement and unconfining, specifically for the dhclient-script used by ConnMan. This continuous unconfining of network-related tools strongly indicates an attempt to bypass security measures and gain full control over the system's network interactions.",
+    "tools": [
+      "AppArmor utilities",
+      "Privilege escalation tools (if not already root)"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"audit\": {\"uid\": \"0\", \"auid\": \"4294967295\", \"gid\": \"0\", \"exe\": \"/sbin/apparmor_parser\", \"euid\": \"0\", \"session\": \"4294967295\", \"pid\": \"17954\", \"id\": \"210\", \"type\": \"AVC\", \"command\": \"apparmor_parser\"}}, \"rule\": {\"firedtimes\": 20, \"mail\": false, \"level\": 3, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"10.6.1\"], \"tsc\": [\"CC7.2\", \"CC7.3\"], \"description\": \"Auditd: SELinux permission check.\", \"groups\": [\"audit\", \"audit_selinux\"], \"id\": \"80730\", \"nist_800_53\": [\"AU.6\"], \"gdpr\": [\"IV_30.1.g\", \"IV_35.7.d\"]}, \"decoder\": {\"name\": \"auditd\"}, \"full_log\": \"type=AVC msg=audit(1642230293.229:210): apparmor=\\\"STATUS\\\" operation=\\\"profile_replace\\\" profile=\\\"unconfined\\\" name=\\\"/usr/lib/connman/scripts/dhclient-script\\\" pid=17954 comm=\\\"apparmor_parser\\\" type=SYSCALL msg=audit(1642230293.229:210): arch=c000003e syscall=1 success=yes exit=23625 a0=6 a1=5577aa06f4b0 a2=5c49 a3=0 items=0 ppid=17953 pid=17954 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts0 ses=4294967295 comm=\\\"apparmor_parser\\\" exe=\\\"/sbin/apparmor_parser\\\" key=(null) type=PROCTITLE msg=audit(1642230293.229:210): proctitle=61707061726D6F725F706172736572002D72002D54002D57002F6574632F61707061726D6F722E642F7362696E2E6468636C69656E74\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:04:53.000000Z\", \"location\": \"/var/log/audit/audit.log\", \"id\": \"1686163533.337084\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence",
+      "Lateral Movement"
+    ],
+    "description": "Successful SSH authentication for user 'phopkins' on 'intranet-server' from IP 10.35.35.202 using a public key. This is the second successful SSH login for 'phopkins' observed in these logs, following the earlier login to 'mail'. This repetition, especially from the same source IP, reinforces the concern about 'phopkins''s account compromise and potential lateral movement within the network.",
+    "tools": [
+      "SSH client",
+      "Compromised SSH keys"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sshd\", \"timestamp\": \"Jan 15 07:09:46\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.35.202\", \"dstuser\": \"phopkins\", \"srcport\": \"56060\"}, \"rule\": {\"mail\": false, \"level\": 3, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"10.2.5\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"sshd: authentication success.\", \"groups\": [\"syslog\", \"sshd\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 2, \"mitre\": {\"technique\": [\"Valid Accounts\", \"Remote Services\"], \"id\": [\"T1078\", \"T1021\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\", \"Lateral Movement\"]}, \"id\": \"5715\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"sshd\", \"name\": \"sshd\"}, \"full_log\": \"Jan 15 07:09:46 intranet-server sshd[13466]: Accepted publickey for phopkins from 10.35.35.202 port 56060 ssh2: RSA SHA256:8wFbiaYPevKS/wYKnePO20v0iymTcrRh4Kr+1uRS1UM\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:09:46.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686163825.338253\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence",
+      "Privilege Escalation"
+    ],
+    "description": "PAM session opened for user 'phopkins' on 'intranet-server' via SSH, initiated by UID 0 (root). This confirms the successful SSH login and that 'phopkins' session has root privileges. This is a critical indicator of privilege escalation and control over the 'intranet-server'.",
+    "tools": [
+      "SSH",
+      "Legitimate system utilities (`pam`)"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sshd\", \"timestamp\": \"Jan 15 07:09:46\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"uid\": \"0\", \"dstuser\": \"phopkins\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 3, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 07:09:46 intranet-server sshd[13466]: pam_unix(sshd:session): session opened for user phopkins by (uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:09:46.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686163825.338811\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence",
+      "Privilege Escalation"
+    ],
+    "description": "Systemd PAM session opened for user 'phopkins' on 'intranet-server' by UID 0 (root). This is a duplicate confirmation of the successful login and session establishment for 'phopkins' with root privileges on the 'intranet-server'.",
+    "tools": [
+      "SSH",
+      "Legitimate system utilities (`systemd`, `pam`)"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"systemd\", \"timestamp\": \"Jan 15 07:09:46\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"uid\": \"0\", \"dstuser\": \"phopkins\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 4, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 07:09:46 intranet-server systemd: pam_unix(systemd-user:session): session opened for user phopkins by (uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:09:46.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686163825.339281\"}\n"
+  },
+  {
+    "attack_type": [
+      "Privilege Escalation",
+      "Discovery"
+    ],
+    "description": "User 'phopkins' executed 'sudo /usr/bin/tail /var/log/syslog' from '/home/phopkins' on 'intranet-server'. This is the first recorded instance of 'phopkins' using 'sudo' on this host. While 'tail /var/log/syslog' is often used for legitimate system monitoring, an attacker might use it for reconnaissance (T1005: Data from Local System) or to check for monitoring on their activities after gaining initial access or privilege escalation (T1548.003: Sudo and Sudo Caching). The fact that 'phopkins' is now running commands as 'root' via sudo reinforces the critical nature of this user's compromise.",
+    "tools": [
+      "sudo",
+      "tail"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:10:08\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"dstuser\": \"root\", \"tty\": \"pts/0\", \"pwd\": \"/home/phopkins\", \"command\": \"/usr/bin/tail /var/log/syslog\"}, \"rule\": {\"firedtimes\": 1, \"mail\": false, \"level\": 4, \"description\": \"First time user executed sudo.\", \"groups\": [\"syslog\", \"sudo\"], \"mitre\": {\"technique\": [\"Sudo and Sudo Caching\"], \"id\": [\"T1548.003\"], \"tactic\": [\"Privilege Escalation\", \"Defense Evasion\"]}, \"id\": \"5403\"}, \"decoder\": {\"parent\": \"sudo\", \"name\": \"sudo\", \"ftscomment\": \"First time user executed the sudo command\"}, \"full_log\": \"Jan 15 07:10:08 intranet-server sudo: phopkins : TTY=pts/0 ; PWD=/home/phopkins ; USER=root ; COMMAND=/usr/bin/tail /var/log/syslog\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:10:08.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686163847.339755\"}\n"
+  },
+  {
+    "attack_type": [
+      "Privilege Escalation"
+    ],
+    "description": "PAM session opened for user 'root' by 'phopkins' (UID 0) on 'intranet-server' via sudo. This confirms that 'phopkins' successfully escalated privileges to 'root' using 'sudo'. This is a critical indication of successful privilege escalation, allowing the attacker full control over the compromised system.",
+    "tools": [
+      "sudo",
+      "Legitimate system utilities (`pam`)"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:10:08\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"uid\": \"0\", \"dstuser\": \"root\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 5, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 07:10:08 intranet-server sudo: pam_unix(sudo:session): session opened for user root by phopkins(uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:10:08.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686163847.340156\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 192.168.128.4 to 'ppa.launchpad.net' (91.189.95.85) on port 80, requesting 'InRelease' for the 'oisf/suricata-stable' PPA. This is a check for updates from a software repository. While common for legitimate software management (like Suricata itself), an attacker might add their own malicious PPAs or use existing ones to download tools or compromised packages. The '304 Not Modified' status indicates no new updates, but the connection itself is noteworthy given the context of other suspicious activities.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"60524\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"260302728146719.000000\", \"dest_ip\": \"91.189.95.85\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"ppa.launchpad.net\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/oisf/suricata-stable/ubuntu/dists/bionic/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\", \"status\": \"304\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:11:33.274207+0000\", \"bytes_toclient\": \"449\", \"bytes_toserver\": \"508\", \"pkts_toclient\": \"3\"}, \"timestamp\": \"2022-01-15T07:11:33.327729+0000\"}, \"rule\": {\"firedtimes\": 27, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.327729Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.341033\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 192.168.128.4 to 'security.ubuntu.com' (91.189.88.152) on port 80, requesting 'InRelease' for 'bionic-security'. This indicates a check for security updates for the Ubuntu Bionic distribution. This is a normal system activity; however, it's worth noting if any unusual security updates are being pulled in the context of a potential compromise.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"54320\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1535313162088750.000000\", \"dest_ip\": \"91.189.88.152\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"security.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic-security/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:11:33.274734+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"498\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:11:33.328372+0000\"}, \"rule\": {\"firedtimes\": 28, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.328372Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.343146\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 10.35.33.111 to 'ppa.launchpad.net' (91.189.95.85) on port 80, requesting 'InRelease' for the 'oisf/suricata-stable' PPA. This is consistent with other APT traffic observed from multiple internal hosts. The simultaneous nature of these update checks across different machines suggests a synchronized update process.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"60524\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"2091986020807393.000000\", \"dest_ip\": \"91.189.95.85\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"ppa.launchpad.net\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/oisf/suricata-stable/ubuntu/dists/bionic/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\", \"status\": \"304\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:11:33.275169+0000\", \"bytes_toclient\": \"449\", \"bytes_toserver\": \"508\", \"pkts_toclient\": \"3\"}, \"timestamp\": \"2022-01-15T07:11:33.328895+0000\"}, \"rule\": {\"firedtimes\": 32, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.328895Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.354142\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 10.35.33.111 to 'security.ubuntu.com' (91.189.88.152) on port 80, requesting 'InRelease' for 'bionic-security'. This is consistent with other APT traffic observed. While these are routine checks for updates, it's important to cross-reference with other system activity to ensure no malicious packages are being downloaded or that these activities are not a cover for other illicit actions, especially after the 'phopkins' account compromise.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"54320\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1874716510205288.000000\", \"dest_ip\": \"91.189.88.152\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"security.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic-security/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:11:33.275816+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"498\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:11:33.329539+0000\"}, \"rule\": {\"firedtimes\": 33, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.329539Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.356256\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 192.168.128.4 to 'archive.ubuntu.com' (91.189.88.142) on port 80, requesting 'InRelease' for 'bionic'. This is a normal check for general updates for the Ubuntu Bionic distribution. As with other APT activity, the critical aspect is ensuring that these are indeed legitimate updates and not being leveraged for malicious purposes in a compromised environment.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"36892\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1177443602084660.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\", \"status\": \"304\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:11:33.275252+0000\", \"bytes_toclient\": \"417\", \"bytes_toserver\": \"488\", \"pkts_toclient\": \"3\"}, \"timestamp\": \"2022-01-15T07:11:33.333703+0000\"}, \"rule\": {\"firedtimes\": 29, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.333703Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.345217\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 10.35.33.111 to 'archive.ubuntu.com' (91.189.88.142) on port 80, requesting 'InRelease' for 'bionic'. This is consistent with other APT traffic observed from multiple internal hosts. The '304 Not Modified' status indicates no new updates. While typically benign, the sheer volume of these alerts, especially after previous alerts related to privilege escalation and AppArmor modifications, warrants further investigation to confirm their legitimacy and rule out any hidden malicious activity.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"36892\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"990090686183221.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\", \"status\": \"304\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:11:33.276277+0000\", \"bytes_toclient\": \"417\", \"bytes_toserver\": \"488\", \"pkts_toclient\": \"3\"}, \"timestamp\": \"2022-01-15T07:11:33.334828+0000\"}, \"rule\": {\"firedtimes\": 34, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.334828Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.358322\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 192.168.128.4 to 'archive.ubuntu.com' (91.189.88.142) on port 80, requesting 'InRelease' for 'bionic-updates'. This indicates a check for general updates for the Ubuntu Bionic distribution. The 'length: 1262' in the HTTP response suggests actual content was received, meaning new update information was retrieved. This could be part of legitimate system patching or, in a compromised environment, an attacker downloading specific updated packages to exploit or to blend in with normal network traffic.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"1\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"36892\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1177443602084660.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"1262\", \"url\": \"/ubuntu/dists/bionic-updates/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"6\", \"start\": \"2022-01-15T07:11:33.275252+0000\", \"bytes_toclient\": \"1771\", \"bytes_toserver\": \"844\", \"pkts_toclient\": \"4\"}, \"timestamp\": \"2022-01-15T07:11:33.360543+0000\"}, \"rule\": {\"firedtimes\": 30, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.360543Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.347298\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 10.35.33.111 to 'archive.ubuntu.com' (91.189.88.142) on port 80, requesting 'InRelease' for 'bionic-updates'. This is another instance of a system checking for Ubuntu updates, indicating synchronization of update activities across hosts. This activity on a potentially compromised host could be monitored for unusual update sources or content.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"1\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"36892\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"990090686183221.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"1262\", \"url\": \"/ubuntu/dists/bionic-updates/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"6\", \"start\": \"2022-01-15T07:11:33.276277+0000\", \"bytes_toclient\": \"1771\", \"bytes_toserver\": \"844\", \"pkts_toclient\": \"4\"}, \"timestamp\": \"2022-01-15T07:11:33.361735+0000\"}, \"rule\": {\"firedtimes\": 35, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.361735Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.360396\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion",
+      "Alert Fatigue"
+    ],
+    "description": "Multiple IDS alerts (rule ID 20152, level 10) for the same event: 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' originating from 10.35.33.111 to 91.189.88.142:80. This indicates a high frequency of this specific alert. While the individual APT update checks might be benign, the 'multiple IDS alerts for same ID' rule firing suggests an unusual volume of these events, which could be an attacker attempting to generate high alert volume to mask other activities, or simply very active systems. Given the previous AppArmor changes and 'phopkins' activity, this high volume is suspicious.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/15/2022-07:11:33.361735\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"10.35.33.111\", \"dstip\": \"91.189.88.142:80\", \"id\": \"1:2013504:6\"}, \"rule\": {\"firedtimes\": 2, \"mail\": false, \"level\": 10, \"pci_dss\": [\"10.6.1\", \"11.4\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC7.2\", \"CC7.3\", \"CC6.1\", \"CC6.8\"], \"description\": \"Multiple IDS alerts for same id.\", \"groups\": [\"ids\"], \"id\": \"20152\", \"nist_800_53\": [\"AU.6\", \"SI.4\"], \"frequency\": 10, \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/15/2022-07:11:33.361735  [**] [1:2013504:6] ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management [**] [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.35.33.111:36892 -> 91.189.88.142:80\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.361735Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686163934.368132\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 192.168.128.4 to 'archive.ubuntu.com' (91.189.88.142) on port 80, requesting 'InRelease' for 'bionic-backports'. This is a normal check for backported packages. The increasing variety of repositories being accessed (security, updates, backports) could indicate a thorough update process, but also offers more potential avenues for an attacker to introduce or download malicious packages if they have compromised the system's package management configuration.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"2\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"36892\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1177443602084660.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic-backports/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"27\", \"start\": \"2022-01-15T07:11:33.275252+0000\", \"bytes_toclient\": \"7187\", \"bytes_toserver\": \"2456\", \"pkts_toclient\": \"8\"}, \"timestamp\": \"2022-01-15T07:11:33.496520+0000\"}, \"rule\": {\"firedtimes\": 31, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.496520Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.349373\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 10.35.33.111 to 'archive.ubuntu.com' (91.189.88.142) on port 80, requesting 'InRelease' for 'bionic-backports'. This is another instance of APT traffic from a different internal host, consistent with a synchronized update process. The repeated nature of these alerts emphasizes the need for a comprehensive security assessment of these systems, especially if they are deemed to be compromised or under suspicious activity.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"2\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"36892\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"990090686183221.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic-backports/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"28\", \"start\": \"2022-01-15T07:11:33.276277+0000\", \"bytes_toclient\": \"7187\", \"bytes_toserver\": \"2522\", \"pkts_toclient\": \"8\"}, \"timestamp\": \"2022-01-15T07:11:33.497791+0000\"}, \"rule\": {\"firedtimes\": 36, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.497791Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.362464\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 192.168.128.4 to 'security.ubuntu.com' (91.189.88.152) on port 80, requesting a specific package hash ('cfff5d561f5d4daf2639ae53583c8d1b71d217189bc1f5c404fca10f901d3c07') from 'bionic-security/universe/binary-amd64/by-hash'. This indicates a direct attempt to download a package based on its SHA256 hash. While this is a legitimate way for APT to fetch packages, the specific nature of the request (a direct hash lookup) and the ongoing suspicious activities (privilege escalation, AppArmor changes) make this a higher fidelity alert. It could be an attacker fetching a specific tool or component.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"1\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"54320\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1535313162088750.000000\", \"dest_ip\": \"91.189.88.152\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"security.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic-security/universe/binary-amd64/by-hash/SHA256/cfff5d561f5d4daf2639ae53583c8d1b71d217189bc1f5c404fca10f901d3c07\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"30\", \"start\": \"2022-01-15T07:11:33.274734+0000\", \"bytes_toclient\": \"4202\", \"bytes_toserver\": \"2482\", \"pkts_toclient\": \"5\"}, \"timestamp\": \"2022-01-15T07:11:34.002313+0000\"}, \"rule\": {\"firedtimes\": 38, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:34.002313Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.369632\"}\n"
+  },
+  {
+    "attack_type": [
+      "Discovery",
+      "Defense Evasion"
+    ],
+    "description": "Suricata alert for outbound APT User-Agent traffic from internal IP 10.35.33.111 to 'security.ubuntu.com' (91.189.88.152) on port 80, requesting a specific package hash ('cfff5d561f5d4daf2639ae53583c8d1b71d217189bc1f5c404fca10f901d3c07') from 'bionic-security/universe/binary-amd64/by-hash'. This indicates another system on the network is attempting to download the exact same package by hash. The fact that multiple systems are requesting the same specific package by hash, combined with the previous suspicious activities (AppArmor modifications, 'phopkins' SSH and sudo), strongly suggests a coordinated action. This could be a malicious update or the download of an attacker's tool across several compromised systems.",
+    "tools": [
+      "APT package manager"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"1\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"54320\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1874716510205288.000000\", \"dest_ip\": \"91.189.88.152\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"security.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic-security/universe/binary-amd64/by-hash/SHA256/cfff5d561f5d4daf2639ae53583c8d1b71d217189bc1f5c404fca10f901d3c07\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"31\", \"start\": \"2022-01-15T07:11:33.275816+0000\", \"bytes_toclient\": \"2848\", \"bytes_toserver\": \"2548\", \"pkts_toclient\": \"4\"}, \"timestamp\": \"2022-01-15T07:11:34.003454+0000\"}, \"rule\": {\"firedtimes\": 37, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:34.003454Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.364534\"}\n"
+  },
+  {
+    "attack_type": [
+      "Privilege Escalation",
+      "Discovery"
+    ],
+    "description": "User 'phopkins' executed 'sudo /usr/bin/tail /var/log/syslog' from '/home/phopkins' on 'intranet-server'. This is the second instance of 'phopkins' using 'sudo' to run 'tail /var/log/syslog', which means the rule 'First time user executed sudo' (ID 5403) did not fire, but 'Successful sudo to ROOT executed' (ID 5402) did. The repeated use of sudo by 'phopkins' to access system logs reinforces the suspicion of reconnaissance activity by a compromised user aiming to understand the system or observe effects of their actions.",
+    "tools": [
+      "sudo",
+      "tail"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:13:47\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"dstuser\": \"root\", \"tty\": \"pts/0\", \"pwd\": \"/home/phopkins\", \"command\": \"/usr/bin/tail /var/log/syslog\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\", \"10.2.2\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Successful sudo to ROOT executed.\", \"groups\": [\"syslog\", \"sudo\"], \"nist_800_53\": [\"AU.14\", \"AC.7\", \"AC.6\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 1, \"mitre\": {\"technique\": [\"Sudo and Sudo Caching\"], \"id\": [\"T1548.003\"], \"tactic\": [\"Privilege Escalation\", \"Defense Evasion\"]}, \"id\": \"5402\", \"gpg13\": [\"7.6\", \"7.8\", \"7.13\"]}, \"decoder\": {\"parent\": \"sudo\", \"name\": \"sudo\", \"ftscomment\": \"First time user executed the sudo command\"}, \"full_log\": \"Jan 15 07:13:47 intranet-server sudo: phopkins : TTY=pts/0 ; PWD=/home/phopkins ; USER=root ; COMMAND=/usr/bin/tail /var/log/syslog\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:13:47.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686164068.371893\"}\n"
+  },
+  {
+    "attack_type": [
+      "Privilege Escalation"
+    ],
+    "description": "PAM session opened for user 'root' by 'phopkins' (UID 0) on 'intranet-server' via sudo. This confirms that 'phopkins' successfully escalated privileges to 'root' using 'sudo' again. The repeated successful privilege escalation by 'phopkins' is a critical indicator of a persistent compromise and active malicious control over the 'intranet-server'.",
+    "tools": [
+      "sudo",
+      "Legitimate system utilities (`pam`)"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 15 07:13:47\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"uid\": \"0\", \"dstuser\": \"root\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 6, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 15 07:13:47 intranet-server sudo: pam_unix(sudo:session): session opened for user root by phopkins(uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:13:47.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686164068.372469\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Successful IMAP login for user 'meghan.morris' from IP 172.17.131.81 to the 'mail' server, using PLAIN authentication and TLS. This is a new user account appearing in the successful login logs from an internal IP, indicating potential compromise or use of another valid account. The method 'PLAIN' is less secure than other authentication methods (like CRAM-MD5 or Digest-MD5), raising an additional flag.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:16:26\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 49, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:16:26 mail dovecot: imap-login: Login: user=<meghan.morris>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9462, TLS, session=<7yaQspnVCLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:16:26.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686164226.373346\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Successful IMAP login for a *new* user, 'daniel.morgan', from IP 172.17.131.81 to the 'mail' server, using PLAIN authentication and TLS. Similar to 'meghan.morris' earlier, this is another new user account appearing in the successful login logs from an internal IP. The rapid succession of new, previously unseen user accounts logging into the mail server from the same internal IP (172.17.131.81) is highly suspicious and indicative of an adversary attempting to gain and maintain access using multiple valid credentials or a credential stuffing attack. The use of PLAIN authentication, even with TLS, remains a security concern.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:24\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 70, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:24 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9481, TLS, session=<5qYStpnVGrqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:24.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686164284.383676\"}\n"
+  },
+  {
+    "attack_type": [
+      "Initial Access",
+      "Persistence"
+    ],
+    "description": "Successful IMAP login for 'daniel.morgan' from IP 172.17.131.81 to the 'mail' server, using PLAIN authentication and TLS. This event, although a second later, is essentially a continuation of the previous successful logins by 'daniel.morgan'. The sustained successful logins from this IP for different accounts ('meghan.morris' and 'daniel.morgan') are highly anomalous and strongly suggest a broader compromise of user credentials or the mail server itself. This warrants immediate action to review these accounts and the source IP.",
+    "tools": [
+      "Legitimate email client"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:25\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 67, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:25 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9484, TLS, session=<4MUTtpnVHLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:25.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686164284.382202\"}\n"
+  }
+]

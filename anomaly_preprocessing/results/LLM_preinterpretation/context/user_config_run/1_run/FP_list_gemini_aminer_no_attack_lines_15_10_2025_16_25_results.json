@@ -1,0 +1,57 @@
+[
+  {
+    "line_number": 2,
+    "predicted_attack_type": [
+      "T1071.004"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The log indicates an unusual frequency of DNS query records, specifically for a highly obfuscated domain. This could be indicative of DNS tunneling or C2 communication.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 34, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS query records.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns_record\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [\"/model/type/query/record\"], \"AffectedLogAtomValues\": [[\"A\"], [\"AAAA\"], [\"TXT\"]], \"AffectedLogAtomFrequencies\": [526, 22, 16], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.3, \"Confidence\": 1}, \"LogData\": {\"RawLogData\": [\"Jan 15 01:00:11 dnsmasq[14460]: query[A] 3x6-.97-.ZCQRhpsTmsNYWJ8IgBtV9oGyx5Y9FcRwL/lgFbb5Jdq/WWQ05ZUaEvREiFoQ-.66503vY2X9wemzaiPq2ylGsry26f5XFuwRfG9jMVeAPtoqzZH1V4sXHAG*Jn-.ku/4WajV17adtCXvrpm*gNCvcHEnG2pbPbrKzZHcyIszza2fdy59Lf4w7xEM-.customers_2020.xlsx.ycgjslfptkev.com from 192.168.128.4\"], \"Timestamps\": [1642208411], \"DetectionTimestamp\": [1642208411], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 41,
+    "predicted_attack_type": [
+      "T1071.004"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The log entry indicates an unusual query for a domain name that appears to be randomly generated, which could be indicative of DNS tunneling or a domain generation algorithm (DGA) used by malware.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": true, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/forwarded\", \"/model/type/forwarded/reply\", \"/model/type/forwarded/domain\", \"/model/type/forwarded/to\", \"/model/type/forwarded/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/reply\", \"/model/type/reply/reply\", \"/model/type/reply/domain\", \"/model/type/reply/is\", \"/model/type/reply/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/nameserver\", \"/model/type/nameserver/nameserver\", \"/model/type/nameserver/ip\", \"/model/type/nameserver/refused\"]], \"AffectedLogAtomFrequencies\": [565, 480, 513, 148, 255], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.5614482406935237}, \"LogData\": {\"RawLogData\": [\"Jan 15 08:40:03 dnsmasq[14460]: query[A] 3x6-.481-.90fMRvjo0lNmEurgSf*Vd8gvXW*WiGJ9IHS*W5ek37ku25u28ukmUv6tPkz8-.v5DpdgciuTVGPCsAA2BwKRvJNMqnK8fCvaXanK7LZfUNs9XJ3tXblhcpeNcv-.DsxVazNttWLh4TfWpY9EcXH3cBDDwYops02QUBop*DG70KDTw8NHHBGQ6Nix-.customers_2015.xlsx.ycgjslfptkev.com from 192.168.128.4\"], \"Timestamps\": [1642236003], \"DetectionTimestamp\": [1642236003], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 83,
+    "predicted_attack_type": [
+      "T1071.004"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The log indicates an unusual frequency of DNS query events, specifically for a domain that is not typically queried. This could indicate reconnaissance or C2 activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/forwarded\", \"/model/type/forwarded/reply\", \"/model/type/forwarded/domain\", \"/model/type/forwarded/to\", \"/model/type/forwarded/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/reply\", \"/model/type/reply/reply\", \"/model/type/reply/domain\", \"/model/type/reply/is\", \"/model/type/reply/ip\"]], \"AffectedLogAtomFrequencies\": [6, 2, 4, 8], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.8461538461538461}, \"LogData\": {\"RawLogData\": [\"Jan 19 23:11:48 dnsmasq[14460]: query[AAAA] jonesmorgan-mail from 192.168.128.170\"], \"Timestamps\": [1642633908], \"DetectionTimestamp\": [1642633908], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 87,
+    "predicted_attack_type": [
+      "T1071.004"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The log indicates an unusual frequency of DNS query events, specifically for 'current.cvd.clamav.net', originating from an internal IP address. This could indicate a C2 communication attempt or malware activity.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 32, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS log events.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_dns\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [], \"AffectedLogAtomValues\": [[\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/query\", \"/model/type/query/query\", \"/model/type/query/record\", \"/model/type/query/br_close\", \"/model/type/query/domain\", \"/model/type/query/from\", \"/model/type/query/ip\"], [\"/model\", \"/model/time\", \"/model/service\", \"/model/br_open\", \"/model/pid\", \"/model/br_close\", \"/model/type/cached\", \"/model/type/cached/cached\", \"/model/type/cached/domain\", \"/model/type/cached/is\", \"/model/type/cached/ip\"]], \"AffectedLogAtomFrequencies\": [2, 2], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.9692307692307692}, \"LogData\": {\"RawLogData\": [\"Jan 19 23:55:16 dnsmasq[14460]: query[TXT] current.cvd.clamav.net from 192.168.128.4\"], \"Timestamps\": [1642636516], \"DetectionTimestamp\": [1642636516], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  },
+  {
+    "line_number": 95,
+    "predicted_attack_type": [
+      "T1071.004"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates an unusual frequency of DNS query IPs, specifically a PTR query for an IP address that resolves to an internal IP (192.168.129.212). This could be indicative of reconnaissance or internal network mapping by an attacker.",
+    "anomaly": "{\"AnalysisComponent\": {\"AnalysisComponentIdentifier\": 33, \"AnalysisComponentType\": \"EventCountClusterDetector\", \"AnalysisComponentName\": \"AMiner: Unusual occurrence frequencies of DNS query IPs.\", \"Message\": \"Frequency anomaly detected\", \"PersistenceFileName\": \"eccd_query_ip\", \"TrainingMode\": false, \"AffectedLogAtomPaths\": [\"/model/type/query/ip\"], \"AffectedLogAtomValues\": [[\"192.168.131.156\"], [\"192.168.131.118\"], [\"172.17.131.81\"], [\"192.168.128.4\"], [\"10.35.32.164\"], [\"192.168.128.195\"], [\"192.168.131.228\"], [\"10.35.35.118\"], [\"172.17.130.37\"], [\"192.168.128.170\"], [\"172.17.130.196\"], [\"192.168.129.212\"], [\"192.168.130.110\"], [\"192.168.129.209\"], [\"192.168.131.165\"], [\"10.35.35.206\"], [\"172.17.129.140\"], [\"192.168.131.15\"]], \"AffectedLogAtomFrequencies\": [110, 21, 124, 145, 112, 34, 21, 209, 8, 119, 72, 73, 27, 4, 2, 5, 2, 30], \"AffectedIdValues\": []}, \"CountData\": {\"ConfidenceFactor\": 0.5, \"Confidence\": 0.7103762827822121}, \"LogData\": {\"RawLogData\": [\"Jan 19 09:00:04 dnsmasq[14460]: query[PTR] 156.131.168.192.in-addr.arpa from 192.168.129.212\"], \"Timestamps\": [1642582804], \"DetectionTimestamp\": [1642582804], \"LogLinesCount\": 1, \"LogResources\": [\"/var/log/dnsmasq.log\"]}, \"AMiner\": {\"ID\": \"192.168.255.254\"}}\n"
+  }
+]

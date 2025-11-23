@@ -1,0 +1,1032 @@
+[
+  {
+    "predicted_attack_type": [
+      "Credential Access",
+      "Valid Account Usage"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Repeated successful IMAP login for user susan.gregory from rip=192.168.128.170; high login frequency may indicate compromised credentials.",
+    "tools": [
+      "Hydra",
+      "Metasploit",
+      "MailSniper"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"jonesmorgan-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:44:35\"}, \"agent\": {\"ip\": \"192.168.131.228\", \"name\": \"wazuh-client\", \"id\": \"13\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 180, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:44:35 jonesmorgan-mail dovecot: imap-login: Login: user=<susan.gregory>, method=PLAIN, rip=192.168.128.170, lip=192.168.128.170, mpid=20031, TLS, session=<Z7YRAMTVOOfAqICq>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:44:35.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686345915.7780992\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Credential Access",
+      "Valid Account Usage"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Duplicate login event to mail.log confirming access from susan.gregory on same session ID; log redundancy validates previous alert.",
+    "tools": [
+      "Hydra",
+      "Metasploit",
+      "MailSniper"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"jonesmorgan-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:44:35\"}, \"agent\": {\"ip\": \"192.168.131.228\", \"name\": \"wazuh-client\", \"id\": \"13\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 179, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:44:35 jonesmorgan-mail dovecot: imap-login: Login: user=<susan.gregory>, method=PLAIN, rip=192.168.128.170, lip=192.168.128.170, mpid=20031, TLS, session=<Z7YRAMTVOOfAqICq>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:44:35.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686345915.7780481\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Credential Access",
+      "Valid Account Usage"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Login by damian.jordan from internal address 192.168.128.195, consistent with ongoing lateral movement or persistence with known credentials.",
+    "tools": [
+      "MailSniper",
+      "Evilginx",
+      "Metasploit"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:45:09\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 181, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:45:09 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=26449, TLS, session=<cGcbAsTVuLbAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:45:09.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686345949.7781501\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Credential Access",
+      "Valid Account Usage"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Same login as previous entry, logged in mail.log, indicates successful reauthentication of damian.jordan.",
+    "tools": [
+      "MailSniper",
+      "Evilginx",
+      "Metasploit"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:45:09\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 182, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:45:09 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=26449, TLS, session=<cGcbAsTVuLbAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:45:09.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686345949.7782012\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Credential Access",
+      "Valid Account Usage"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Third duplicate of the same damian.jordan session from syslog; confirms ongoing login activity for this user.",
+    "tools": [
+      "MailSniper",
+      "Evilginx",
+      "Metasploit"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:45:09\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 183, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:45:09 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=26449, TLS, session=<cGcbAsTVuLbAqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:45:09.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686345949.7782522\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Credential Access",
+      "Valid Account Usage"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Repeated login of susan.gregory at 09:58:30 from same IP as earlier, with very high firedtimes (300), suggesting automated or brute-forced access.",
+    "tools": [
+      "Hydra",
+      "MailSniper",
+      "ImapEnum"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"jonesmorgan-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:58:30\"}, \"agent\": {\"ip\": \"192.168.131.228\", \"name\": \"wazuh-client\", \"id\": \"13\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 300, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:58:30 jonesmorgan-mail dovecot: imap-login: Login: user=<susan.gregory>, method=PLAIN, rip=192.168.128.170, lip=192.168.128.170, mpid=20181, TLS, session=<fVzkMcTVhOfAqICq>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:58:30.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686346750.7870717\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Credential Access",
+      "Valid Account Usage"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Same session ID from previous login duplicated in mail.log entry; supports persistent or scripted access activity.",
+    "tools": [
+      "Hydra",
+      "MailSniper",
+      "ImapEnum"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"jonesmorgan-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:58:30\"}, \"agent\": {\"ip\": \"192.168.131.228\", \"name\": \"wazuh-client\", \"id\": \"13\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 299, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:58:30 jonesmorgan-mail dovecot: imap-login: Login: user=<susan.gregory>, method=PLAIN, rip=192.168.128.170, lip=192.168.128.170, mpid=20181, TLS, session=<fVzkMcTVhOfAqICq>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:58:30.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686346750.7870206\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Credential Access",
+      "Valid Account Usage"
+    ],
+    "attack_type": "dnsteal",
+    "description": "Mail.info entry confirming continued use of susan.gregory account in identical session; log repetition across locations suggests centralized alerting.",
+    "tools": [
+      "Hydra",
+      "MailSniper",
+      "ImapEnum"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"jonesmorgan-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:58:30\"}, \"agent\": {\"ip\": \"192.168.131.228\", \"name\": \"wazuh-client\", \"id\": \"13\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 298, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:58:30 jonesmorgan-mail dovecot: imap-login: Login: user=<susan.gregory>, method=PLAIN, rip=192.168.128.170, lip=192.168.128.170, mpid=20181, TLS, session=<fVzkMcTVhOfAqICq>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:58:30.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686346750.7869694\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Credential Access",
+      "Valid Account Usage"
+    ],
+    "attack_type": "dnsteal",
+    "description": "First login of michael.davis from IP 172.17.131.81; notable due to proximity in time to previous attacks and new user activity.",
+    "tools": [
+      "MailSniper",
+      "Metasploit"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:59:56\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 301, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:59:56 mail dovecot: imap-login: Login: user=<michael.davis>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=32046, TLS, session=<s3n7NsTVhM+sEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:59:56.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686346837.7871226\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Credential Access",
+      "Valid Account Usage"
+    ],
+    "attack_type": "dnsteal",
+    "description": "New login session for michael.davis from same IP as previous event but different session ID; potentially part of same attacker workflow.",
+    "tools": [
+      "MailSniper",
+      "Metasploit"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 17 09:59:56\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 311, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 17 09:59:56 mail dovecot: imap-login: Login: user=<michael.davis>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=32052, TLS, session=<zEf9NsTViM+sEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-17T09:59:56.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686346837.7876166\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Authentication"
+    ],
+    "attack_type": "networkscans",
+    "description": "Successful login via IMAP using valid user credentials, method=PLAIN over TLS",
+    "tools": [
+      "Dovecot IMAP server",
+      "imap clients like Thunderbird, Outlook"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 11:59:00\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 273, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 11:59:00 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=4084, TLS, session=<kj6o/tnVnr3AqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T11:59:00.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686440380.6699852\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Authentication"
+    ],
+    "attack_type": "networkscans",
+    "description": "Successful IMAP login by user john.hammond via PLAIN authentication with TLS",
+    "tools": [
+      "Dovecot IMAP server",
+      "imap clients"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"whittaker-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:00:09\"}, \"agent\": {\"ip\": \"192.168.128.195\", \"name\": \"wazuh-client\", \"id\": \"8\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 275, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:00:09 whittaker-mail dovecot: imap-login: Login: user=<john.hammond>, method=PLAIN, rip=192.168.131.228, lip=192.168.131.228, mpid=31878, TLS, session=<SK3HAtrVpqjAqIPk>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:00:09.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686440449.6700868\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Authentication"
+    ],
+    "attack_type": "networkscans",
+    "description": "Repeated successful IMAP login for john.hammond user, possibly normal session continuation",
+    "tools": [
+      "Dovecot IMAP server",
+      "imap clients"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"whittaker-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:05:40\"}, \"agent\": {\"ip\": \"192.168.128.195\", \"name\": \"wazuh-client\", \"id\": \"8\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 303, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:05:40 whittaker-mail dovecot: imap-login: Login: user=<john.hammond>, method=PLAIN, rip=192.168.131.228, lip=192.168.131.228, mpid=31921, TLS, session=<3zyCFtrVsqjAqIPk>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:05:40.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686440780.6715185\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "TLS Protocol Anomaly"
+    ],
+    "attack_type": "networkscans",
+    "description": "Suricata detected an invalid TLS record/traffic pattern, which could indicate malformed or suspicious encrypted communication used to bypass security controls.",
+    "tools": [
+      "nmap",
+      "metasploit",
+      "custom TLS fuzzers"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/18/2022-12:07:08.204261\"}, \"agent\": {\"ip\": \"172.17.130.196\", \"name\": \"wazuh-client\", \"id\": \"19\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"172.17.130.196\", \"dstip\": \"54.171.36.119:443\", \"id\": \"1:2230010:1\"}, \"rule\": {\"firedtimes\": 124, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/18/2022-12:07:08.204261  [**] [1:2230010:1] SURICATA TLS invalid record/traffic [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 172.17.130.196:56094 -> 54.171.36.119:443\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:07:08.204261Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686440869.6900720\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "TLS Protocol Anomaly"
+    ],
+    "attack_type": "networkscans",
+    "description": "Suricata flagged a TLS invalid handshake, possibly from a malformed or intentionally crafted handshake, suggesting protocol misuse or scanning activity.",
+    "tools": [
+      "zmap",
+      "sslyze",
+      "custom scripts"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"172.17.130.196\", \"name\": \"wazuh-client\", \"id\": \"19\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"metadata\": {\"flowints\": {\"tls\": {\"anomaly\": {\"count\": \"4\"}}}}, \"tx_id\": \"0\", \"app_proto\": \"tls\", \"in_iface\": \"ens3\", \"src_ip\": \"172.17.130.196\", \"src_port\": \"56094\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2230003\", \"rev\": \"1\", \"gid\": \"1\", \"signature\": \"SURICATA TLS invalid handshake message\", \"action\": \"allowed\", \"category\": \"Generic Protocol Command Decode\"}, \"flow_id\": \"836237337062778.000000\", \"dest_ip\": \"54.171.36.119\", \"proto\": \"TCP\", \"tls\": {\"version\": \"UNDETERMINED\", \"ja3\": {\"string\": \"771,4865-4867-4866-49195-49199-52393-52392-49196-49200-49162-49161-49171-49172-156-157-47-53-10,0-23-65281-10-11-16-5-51-43-13-28-21,29-23-24-25-256-257,0\", \"hash\": \"a75de44db3e351bbd8d38b64c41f444e\"}, \"sni\": \"in.hotjar.com\"}, \"dest_port\": \"443\", \"flow\": {\"pkts_toserver\": \"10\", \"start\": \"2022-01-18T12:07:08.028026+0000\", \"bytes_toclient\": \"392\", \"bytes_toserver\": \"1307\", \"pkts_toclient\": \"4\"}, \"timestamp\": \"2022-01-18T12:07:08.204261+0000\"}, \"rule\": {\"firedtimes\": 135, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - SURICATA TLS invalid handshake message\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:07:08.204261Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686440869.6922709\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "TLS Protocol Anomaly"
+    ],
+    "attack_type": "networkscans",
+    "description": "TLS invalid record traffic alert reinforces evidence of malformed communication from previous alert; may be related to probing encrypted services or evasion tactics.",
+    "tools": [
+      "nmap",
+      "metasploit",
+      "openssl fuzzing"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"172.17.130.196\", \"name\": \"wazuh-client\", \"id\": \"19\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"metadata\": {\"flowints\": {\"tls\": {\"anomaly\": {\"count\": \"4\"}}}}, \"tx_id\": \"0\", \"app_proto\": \"tls\", \"in_iface\": \"ens3\", \"src_ip\": \"172.17.130.196\", \"src_port\": \"56094\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2230010\", \"rev\": \"1\", \"gid\": \"1\", \"signature\": \"SURICATA TLS invalid record/traffic\", \"action\": \"allowed\", \"category\": \"Generic Protocol Command Decode\"}, \"flow_id\": \"836237337062778.000000\", \"dest_ip\": \"54.171.36.119\", \"proto\": \"TCP\", \"tls\": {\"version\": \"UNDETERMINED\", \"ja3\": {\"string\": \"771,4865-4867-4866-49195-49199-52393-52392-49196-49200-49162-49161-49171-49172-156-157-47-53-10,0-23-65281-10-11-16-5-51-43-13-28-21,29-23-24-25-256-257,0\", \"hash\": \"a75de44db3e351bbd8d38b64c41f444e\"}, \"sni\": \"in.hotjar.com\"}, \"dest_port\": \"443\", \"flow\": {\"pkts_toserver\": \"10\", \"start\": \"2022-01-18T12:07:08.028026+0000\", \"bytes_toclient\": \"392\", \"bytes_toserver\": \"1307\", \"pkts_toclient\": \"4\"}, \"timestamp\": \"2022-01-18T12:07:08.204261+0000\"}, \"rule\": {\"firedtimes\": 136, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - SURICATA TLS invalid record/traffic\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:07:08.204261Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686440869.6924666\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "TLS Protocol Anomaly"
+    ],
+    "attack_type": "networkscans",
+    "description": "Suricata detected another TLS invalid handshake from an external IP to an internal host, which may indicate reconnaissance or exploitation attempt using encrypted channels.",
+    "tools": [
+      "zgrab",
+      "openssl",
+      "masscan with TLS plugins"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"data\": {\"srcip\": \"52.202.9.160\", \"dstip\": \"192.168.128.4:58740\", \"id\": \"1:2230003:1\"}, \"rule\": {\"firedtimes\": 125, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"full_log\": \"01/18/2022-12:07:10.140387  [**] [1:2230003:1] SURICATA TLS invalid handshake message [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 52.202.9.160:443 -> 192.168.128.4:58740\", \"id\": \"1686440870.6934564\", \"predecoder\": {\"timestamp\": \"01/18/2022-12:07:10.140387\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:07:10.140387Z\", \"location\": \"/var/log/suricata/fast.log\", \"GeoLocation\": {\"city_name\": \"Ashburn\", \"country_name\": \"United States\", \"region_name\": \"Virginia\", \"location\": {\"lon\": -77.4728, \"lat\": 39.0481}}}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "SSH Scan",
+      "Lateral Movement Attempt"
+    ],
+    "attack_type": "servicescans",
+    "description": "Connection attempt to SSH service without sending an identification string; behavior typical of port scanning or probing for SSH availability.",
+    "tools": [
+      "nmap",
+      "masscan",
+      "hydra"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"internal-share\", \"program_name\": \"sshd\", \"timestamp\": \"Jan 18 12:17:15\"}, \"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"172.17.130.196\", \"srcport\": \"55898\"}, \"rule\": {\"firedtimes\": 2, \"mail\": false, \"level\": 6, \"pci_dss\": [\"11.4\"], \"tsc\": [\"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"sshd: insecure connection attempt (scan).\", \"groups\": [\"syslog\", \"sshd\", \"recon\"], \"mitre\": {\"technique\": [\"SSH\"], \"id\": [\"T1021.004\"], \"tactic\": [\"Lateral Movement\"]}, \"id\": \"5706\", \"nist_800_53\": [\"SI.4\"], \"gdpr\": [\"IV_35.7.d\"], \"gpg13\": [\"4.12\"]}, \"decoder\": {\"parent\": \"sshd\", \"name\": \"sshd\"}, \"full_log\": \"Jan 18 12:17:15 internal-share sshd[28182]: Did not receive identification string from 172.17.130.196 port 55898\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:15.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686441476.7001731\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "SSH Scan",
+      "Lateral Movement Attempt"
+    ],
+    "attack_type": "servicescans",
+    "description": "Unidentified SSH connection attempt from internal IP, likely reconnaissance to check SSH service responsiveness.",
+    "tools": [
+      "nmap",
+      "masscan"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"inet-firewall\", \"program_name\": \"sshd\", \"timestamp\": \"Jan 18 12:17:15\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.130.77\", \"srcport\": \"48074\"}, \"rule\": {\"firedtimes\": 1, \"mail\": false, \"level\": 6, \"pci_dss\": [\"11.4\"], \"tsc\": [\"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"sshd: insecure connection attempt (scan).\", \"groups\": [\"syslog\", \"sshd\", \"recon\"], \"mitre\": {\"technique\": [\"SSH\"], \"id\": [\"T1021.004\"], \"tactic\": [\"Lateral Movement\"]}, \"id\": \"5706\", \"nist_800_53\": [\"SI.4\"], \"gdpr\": [\"IV_35.7.d\"], \"gpg13\": [\"4.12\"]}, \"decoder\": {\"parent\": \"sshd\", \"name\": \"sshd\"}, \"full_log\": \"Jan 18 12:17:15 inet-firewall sshd[1613]: Did not receive identification string from 192.168.130.77 port 48074\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:15.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686441476.7001281\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "SSH Scan",
+      "Lateral Movement Attempt"
+    ],
+    "attack_type": "servicescans",
+    "description": "Another instance of SSH scanning pattern from the same internal subnet; suggests broad SSH probing for potential lateral access.",
+    "tools": [
+      "nmap",
+      "masscan"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"sshd\", \"timestamp\": \"Jan 18 12:17:15\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.130.77\", \"srcport\": \"52064\"}, \"rule\": {\"firedtimes\": 3, \"mail\": false, \"level\": 6, \"pci_dss\": [\"11.4\"], \"tsc\": [\"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"sshd: insecure connection attempt (scan).\", \"groups\": [\"syslog\", \"sshd\", \"recon\"], \"mitre\": {\"technique\": [\"SSH\"], \"id\": [\"T1021.004\"], \"tactic\": [\"Lateral Movement\"]}, \"id\": \"5706\", \"nist_800_53\": [\"SI.4\"], \"gdpr\": [\"IV_35.7.d\"], \"gpg13\": [\"4.12\"]}, \"decoder\": {\"parent\": \"sshd\", \"name\": \"sshd\"}, \"full_log\": \"Jan 18 12:17:15 taylorcruz-mail sshd[4355]: Did not receive identification string from 192.168.130.77 port 52064\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:15.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686441476.7002184\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Lateral Movement"
+    ],
+    "attack_type": "servicescans",
+    "description": "Inbound SSH connection attempt without providing an identification string is indicative of scanning or fingerprinting activity, possibly to detect active SSH servers or fingerprint the SSH service behavior.",
+    "tools": [
+      "nmap",
+      "masscan",
+      "hydra"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"webserver\", \"program_name\": \"sshd\", \"timestamp\": \"Jan 18 12:17:15\"}, \"agent\": {\"ip\": \"172.17.130.37\", \"name\": \"wazuh-client\", \"id\": \"20\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"172.17.130.196\", \"srcport\": \"50004\"}, \"rule\": {\"firedtimes\": 4, \"mail\": false, \"level\": 6, \"pci_dss\": [\"11.4\"], \"tsc\": [\"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"sshd: insecure connection attempt (scan).\", \"groups\": [\"syslog\", \"sshd\", \"recon\"], \"mitre\": {\"technique\": [\"SSH\"], \"id\": [\"T1021.004\"], \"tactic\": [\"Lateral Movement\"]}, \"id\": \"5706\", \"nist_800_53\": [\"SI.4\"], \"gdpr\": [\"IV_35.7.d\"], \"gpg13\": [\"4.12\"]}, \"decoder\": {\"parent\": \"sshd\", \"name\": \"sshd\"}, \"full_log\": \"Jan 18 12:17:15 webserver sshd[25473]: Did not receive identification string from 172.17.130.196 port 50004\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:15.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686441476.7002628\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Attack"
+    ],
+    "attack_type": "servicescans",
+    "description": "Repeated 403 errors during GET requests suggest attempts to access restricted web resources, possibly as part of reconnaissance or vulnerability probing.",
+    "tools": [
+      "dirb",
+      "gobuster",
+      "nikto"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"172.17.130.37\", \"name\": \"wazuh-client\", \"id\": \"20\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"GET\", \"srcip\": \"192.168.130.77\", \"id\": \"403\", \"url\": \"/\"}, \"rule\": {\"firedtimes\": 2, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"192.168.130.77 - - [18/Jan/2022:12:17:21 +0000] \\\"GET / HTTP/1.0\\\" 403 363 \\\"-\\\" \\\"-\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:21.000000Z\", \"location\": \"/var/log/apache2/proxy-access-access.log\", \"id\": \"1686441482.7003532\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Command and Control"
+    ],
+    "attack_type": "servicescans",
+    "description": "SURICATA flagged an invalid SMTP reply, which may indicate an attempt to misuse email protocols for C2 or testing SMTP service behavior as part of enumeration.",
+    "tools": [
+      "metasploit",
+      "custom malware",
+      "smtp-test-tools"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/18/2022-12:17:27.242838\"}, \"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.128.4\", \"dstip\": \"192.168.130.77:45606\", \"id\": \"1:2220000:1\"}, \"rule\": {\"firedtimes\": 3, \"mail\": false, \"level\": 8, \"description\": \"First time this IDS alert is generated.\", \"groups\": [\"ids\", \"fts\"], \"id\": \"20100\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/18/2022-12:17:27.242838  [**] [1:2220000:1] SURICATA SMTP invalid reply [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 192.168.128.4:587 -> 192.168.130.77:45606\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:27.242838Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686441488.7011580\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Web Application Attack"
+    ],
+    "attack_type": "servicescans",
+    "description": "Attempt to access a restricted directory on the web server, possibly to identify misconfigured or unprotected resources.",
+    "tools": [
+      "dirbuster",
+      "nikto",
+      "wpscan"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"172.17.130.37\", \"name\": \"wazuh-client\", \"id\": \"20\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.130.77\", \"srcport\": \"35080\", \"id\": \"AH01630\"}, \"rule\": {\"firedtimes\": 3, \"mail\": false, \"level\": 5, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"6.5.8\", \"10.2.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Apache: Attempt to access forbidden file or directory.\", \"groups\": [\"apache\", \"web\", \"access_denied\"], \"id\": \"30305\", \"nist_800_53\": [\"SA.11\", \"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"parent\": \"apache-errorlog\", \"name\": \"apache-errorlog\"}, \"full_log\": \"[Tue Jan 18 12:17:27.713538 2022] [authz_core:error] [pid 25459] [client 192.168.130.77:35080] AH01630: client denied by server configuration: /var/www/html/\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:27.713538Z\", \"location\": \"/var/log/apache2/proxy-error-error.log\", \"id\": \"1686441488.7014396\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Web Application Scanning"
+    ],
+    "attack_type": "servicescans",
+    "description": "GET request using Nmap Scripting Engine targeting /nmaplowercheck path, a known technique to detect Nmap-aware hosts or test server responses.",
+    "tools": [
+      "nmap"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"172.17.130.37\", \"name\": \"wazuh-client\", \"id\": \"20\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"GET\", \"srcip\": \"172.17.130.196\", \"id\": \"403\", \"url\": \"/nmaplowercheck1642508249\"}, \"rule\": {\"firedtimes\": 13, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:17:29 +0000] \\\"GET /nmaplowercheck1642508249 HTTP/1.1\\\" 403 3260 \\\"-\\\" \\\"Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:29.000000Z\", \"location\": \"/var/log/apache2/proxy-access-access.log\", \"id\": \"1686441490.7074486\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Web Application Scanning"
+    ],
+    "attack_type": "servicescans",
+    "description": "POST request using Nmap Scripting Engine to a nonstandard path (/sdk), indicative of automated probing of web application endpoints.",
+    "tools": [
+      "nmap",
+      "nikto"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"172.17.130.37\", \"name\": \"wazuh-client\", \"id\": \"20\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"POST\", \"srcip\": \"192.168.130.77\", \"id\": \"403\", \"url\": \"/sdk\"}, \"rule\": {\"firedtimes\": 14, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"192.168.130.77 - - [18/Jan/2022:12:17:29 +0000] \\\"POST /sdk HTTP/1.1\\\" 403 363 \\\"-\\\" \\\"Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:29.000000Z\", \"location\": \"/var/log/apache2/proxy-access-access.log\", \"id\": \"1686441490.7075050\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Attack"
+    ],
+    "attack_type": "servicescans",
+    "description": "Client IP denied access to /var/www/html/ due to server configuration; indicates possible probing for directories with misconfigured access controls.",
+    "tools": [
+      "dirb",
+      "gobuster"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"172.17.130.37\", \"name\": \"wazuh-client\", \"id\": \"20\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.130.77\", \"srcport\": \"35122\", \"id\": \"AH01630\"}, \"rule\": {\"firedtimes\": 7, \"mail\": false, \"level\": 5, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"6.5.8\", \"10.2.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Apache: Attempt to access forbidden file or directory.\", \"groups\": [\"apache\", \"web\", \"access_denied\"], \"id\": \"30305\", \"nist_800_53\": [\"SA.11\", \"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"parent\": \"apache-errorlog\", \"name\": \"apache-errorlog\"}, \"full_log\": \"[Tue Jan 18 12:17:29.661150 2022] [authz_core:error] [pid 25379] [client 192.168.130.77:35122] AH01630: client denied by server configuration: /var/www/html/\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:29.661150Z\", \"location\": \"/var/log/apache2/proxy-error-error.log\", \"id\": \"1686441490.7043522\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Attack",
+      "Reconnaissance"
+    ],
+    "attack_type": "servicescans",
+    "description": "Access attempt to a known Nmap-generated path was denied, which confirms automated scan behavior targeting specific filenames.",
+    "tools": [
+      "nmap"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"172.17.130.37\", \"name\": \"wazuh-client\", \"id\": \"20\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"172.17.130.196\", \"srcport\": \"34854\", \"id\": \"AH01630\"}, \"rule\": {\"firedtimes\": 8, \"mail\": false, \"level\": 5, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"6.5.8\", \"10.2.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Apache: Attempt to access forbidden file or directory.\", \"groups\": [\"apache\", \"web\", \"access_denied\"], \"id\": \"30305\", \"nist_800_53\": [\"SA.11\", \"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"parent\": \"apache-errorlog\", \"name\": \"apache-errorlog\"}, \"full_log\": \"[Tue Jan 18 12:17:29.671199 2022] [authz_core:error] [pid 25459] [client 172.17.130.196:34854] AH01630: client denied by server configuration: /var/www/html/nmaplowercheck1642508249\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:29.671199Z\", \"location\": \"/var/log/apache2/proxy-error-error.log\", \"id\": \"1686441490.7044134\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Web Application Fingerprinting"
+    ],
+    "attack_type": "wpscan",
+    "description": "Use of WPScan scanning for WordPress plugin paths; suggests targeted scanning for vulnerable or outdated plugins.",
+    "tools": [
+      "wpscan"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"HEAD\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-content/plugins/change-wp-admin-login/\"}, \"rule\": {\"firedtimes\": 230, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/change-wp-admin-login/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:58.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441518.7288384\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Web Application Fingerprinting"
+    ],
+    "attack_type": "wpscan",
+    "description": "Multiple HEAD requests targeting various WordPress plugin directories using WPScan; characteristic of automated plugin enumeration.",
+    "tools": [
+      "wpscan"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"previous_output\": \"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/classic-widgets/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/classic-editor-addon/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/check-email/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/child-theme-configurator/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/classic-editor/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/change-wp-admin-login/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/chaty/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/cf7-widget-elementor/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/cb-change-mail-sender/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/cf7-phone-mask-field/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/cf7-google-sheets-connector/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"HEAD\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-content/plugins/clean-image-filenames/\"}, \"rule\": {\"firedtimes\": 18, \"mail\": false, \"level\": 10, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Multiple web server 400 error codes from same source ip.\", \"groups\": [\"web\", \"accesslog\", \"web_scan\", \"recon\"], \"mitre\": {\"technique\": [\"Vulnerability Scanning\"], \"id\": [\"T1595.002\"], \"tactic\": [\"Reconnaissance\"]}, \"id\": \"31151\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"frequency\": 14, \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/clean-image-filenames/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:58.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441518.7291933\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "WPScan used to probe WordPress plugin path '/click-to-chat-for-whatsapp/' indicating plugin enumeration.",
+    "tools": [
+      "WPScan",
+      "Nikto",
+      "wpscan.rb"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"HEAD\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-content/plugins/click-to-chat-for-whatsapp/\"}, \"rule\": {\"firedtimes\": 238, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/click-to-chat-for-whatsapp/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:58.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441518.7296070\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "Use of WPScan to test existence of '/cloudflare/' plugin suggests plugin enumeration for vulnerabilities.",
+    "tools": [
+      "WPScan",
+      "wpscan.rb",
+      "Burp Suite"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"HEAD\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-content/plugins/cloudflare/\"}, \"rule\": {\"firedtimes\": 242, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/cloudflare/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:58.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441518.7298413\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "HEAD request targeting '/cloudflare-flexible-ssl/' with WPScan indicates plugin fingerprinting.",
+    "tools": [
+      "WPScan",
+      "wpscan.rb",
+      "DirBuster"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"HEAD\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-content/plugins/cloudflare-flexible-ssl/\"}, \"rule\": {\"firedtimes\": 244, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/cloudflare-flexible-ssl/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:58.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441518.7299577\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Web Plugin Enumeration"
+    ],
+    "attack_type": "wpscan",
+    "description": "Burst of 10 HEAD requests to different plugin paths with WPScan implies automated enumeration activity.",
+    "tools": [
+      "WPScan",
+      "wpscan.rb",
+      "Nikto",
+      "DirBuster"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"previous_output\": \"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/complianz-gdpr/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/complianz-terms-conditions/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/coming-soon-maintenance-mode-from-acurax/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/compact-wp-audio-player/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/companion-auto-update/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/comet-cache/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/coming-soon/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/colibri-page-builder/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/colorlib-login-customizer/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/column-shortcodes/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/codepress-admin-columns/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"HEAD\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-content/plugins/constant-contact-forms/\"}, \"rule\": {\"firedtimes\": 20, \"mail\": false, \"level\": 10, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Multiple web server 400 error codes from same source ip.\", \"groups\": [\"web\", \"accesslog\", \"web_scan\", \"recon\"], \"mitre\": {\"technique\": [\"Vulnerability Scanning\"], \"id\": [\"T1595.002\"], \"tactic\": [\"Reconnaissance\"]}, \"id\": \"31151\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"frequency\": 14, \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/constant-contact-forms/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:58.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441518.7313162\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Reconnaissance",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "Probing '/bing-webmaster-tools/' with WPScan to determine plugin presence is typical of scanning phase.",
+    "tools": [
+      "WPScan",
+      "wpscan.rb"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"HEAD\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-content/plugins/bing-webmaster-tools/\"}, \"rule\": {\"firedtimes\": 171, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/bing-webmaster-tools/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:58.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441518.7241745\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "Single HEAD request targeting a known WordPress plugin path using WPScan identified in user-agent header, attempting to enumerate plugin presence.",
+    "tools": [
+      "WPScan",
+      "Nikto",
+      "Burp Suite"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"HEAD\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-content/plugins/better-wp-security/\"}, \"rule\": {\"firedtimes\": 174, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/better-wp-security/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:58.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441518.7243526\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Scanning",
+      "Reconnaissance"
+    ],
+    "attack_type": "wpscan",
+    "description": "Multiple 404 HEAD requests from a single IP targeting various WordPress plugin directories using WPScan indicate automated probing for vulnerable components.",
+    "tools": [
+      "WPScan",
+      "Nmap (HTTP scripts)",
+      "Nikto"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"previous_output\": \"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/all-in-one-wp-security-and-firewall/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/all-in-one-wp-migration/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/all-in-one-seo-pack/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/all-in-one-video-gallery/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/all-in-one-favicon/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/all-in-one-schemaorg-rich-snippets/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/all-in-one-event-calendar/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/all-404-redirect-to-homepage/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/ajax-search-lite/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/ajax-thumbnail-rebuild/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/advanced-wp-reset/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"HEAD\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-content/plugins/ameliabooking/\"}, \"rule\": {\"firedtimes\": 9, \"mail\": false, \"level\": 10, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Multiple web server 400 error codes from same source ip.\", \"groups\": [\"web\", \"accesslog\", \"web_scan\", \"recon\"], \"mitre\": {\"technique\": [\"Vulnerability Scanning\"], \"id\": [\"T1595.002\"], \"tactic\": [\"Reconnaissance\"]}, \"id\": \"31151\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"frequency\": 14, \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/ameliabooking/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:58.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441518.7196001\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "Another probe for the presence of a specific plugin ('amp') via WPScan shown by the user-agent and plugin path. Indicative of plugin enumeration.",
+    "tools": [
+      "WPScan"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"HEAD\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-content/plugins/amp/\"}, \"rule\": {\"firedtimes\": 119, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:17:58 +0000] \\\"HEAD /wp-content/plugins/amp/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:58.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441518.7199000\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Scanning",
+      "Reconnaissance"
+    ],
+    "attack_type": "wpscan",
+    "description": "Bulk plugin enumeration with HEAD requests; plugin names suggest a fingerprinting campaign of WordPress installations using known vulnerable plugins.",
+    "tools": [
+      "WPScan",
+      "Burp Suite",
+      "Nikto"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"previous_output\": \"172.17.130.196 - - [18/Jan/2022:12:17:59 +0000] \\\"HEAD /wp-content/plugins/easy-paypal-donation/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:59 +0000] \\\"HEAD /wp-content/plugins/easy-fancybox/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:59 +0000] \\\"HEAD /wp-content/plugins/easy-google-fonts/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:59 +0000] \\\"HEAD /wp-content/plugins/easy-hide-login/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:59 +0000] \\\"HEAD /wp-content/plugins/easy-digital-downloads/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:59 +0000] \\\"HEAD /wp-content/plugins/easy-facebook-likebox/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:59 +0000] \\\"HEAD /wp-content/plugins/easy-accordion-free/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:59 +0000] \\\"HEAD /wp-content/plugins/easy-appointments/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:59 +0000] \\\"HEAD /wp-content/plugins/easy-custom-sidebars/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:59 +0000] \\\"HEAD /wp-content/plugins/dynamicconditions/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:17:59 +0000] \\\"HEAD /wp-content/plugins/easing-slider/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"HEAD\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-content/plugins/easy-login-woocommerce/\"}, \"rule\": {\"firedtimes\": 29, \"mail\": false, \"level\": 10, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Multiple web server 400 error codes from same source ip.\", \"groups\": [\"web\", \"accesslog\", \"web_scan\", \"recon\"], \"mitre\": {\"technique\": [\"Vulnerability Scanning\"], \"id\": [\"T1595.002\"], \"tactic\": [\"Reconnaissance\"]}, \"id\": \"31151\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"frequency\": 14, \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:17:59 +0000] \\\"HEAD /wp-content/plugins/easy-login-woocommerce/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:17:59.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441519.7410865\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Scanning",
+      "Reconnaissance"
+    ],
+    "attack_type": "wpscan",
+    "description": "More enumeration of WordPress plugin directories using HEAD requests and WPScan in user-agent; pattern and frequency match a scanning campaign.",
+    "tools": [
+      "WPScan",
+      "Wfuzz",
+      "Dirb"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"previous_output\": \"172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/redirection/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/recent-posts-widget-with-thumbnails/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/really-simple-csv-importer/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/really-simple-ssl/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/recent-posts-widget-extended/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/real-time-find-and-replace/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/really-simple-captcha/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/reading-time-wp/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/real-media-library-lite/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/real-cookie-banner/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/re-add-text-justify-button/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"HEAD\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-content/plugins/redis-cache/\"}, \"rule\": {\"firedtimes\": 67, \"mail\": false, \"level\": 10, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Multiple web server 400 error codes from same source ip.\", \"groups\": [\"web\", \"accesslog\", \"web_scan\", \"recon\"], \"mitre\": {\"technique\": [\"Vulnerability Scanning\"], \"id\": [\"T1595.002\"], \"tactic\": [\"Reconnaissance\"]}, \"id\": \"31151\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"frequency\": 14, \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/redis-cache/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:18:01.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441521.7815193\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "HEAD request to a known vulnerable WordPress plugin directory using WPScan user-agent indicates reconnaissance or vulnerability scanning.",
+    "tools": [
+      "WPScan",
+      "Nikto",
+      "Burp Suite"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"HEAD\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-content/plugins/regenerate-thumbnails-advanced/\"}, \"rule\": {\"firedtimes\": 875, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:18:01 +0000] \\\"HEAD /wp-content/plugins/regenerate-thumbnails-advanced/ HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:18:01.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441521.7819359\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "Access attempt to WordPress attachment ID via WPScan user-agent suggests enumeration or probing of resource existence.",
+    "tools": [
+      "WPScan",
+      "Burp Suite"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"HEAD\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/?attachment_id=16\"}, \"rule\": {\"firedtimes\": 4341, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:18:13 +0000] \\\"HEAD /?attachment_id=16 HTTP/1.1\\\" 404 323 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:18:13.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441533.10701804\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Configuration File Discovery",
+      "Web Application Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "Probing for a misnamed wp-config.php file suggests an attempt to discover misconfigured sensitive files.",
+    "tools": [
+      "WPScan",
+      "DirBuster"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"HEAD\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-config.php-\"}, \"rule\": {\"firedtimes\": 4249, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:18:13 +0000] \\\"HEAD /wp-config.php- HTTP/1.1\\\" 404 146 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:18:13.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441533.10629268\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Scanning"
+    ],
+    "attack_type": "wpscan",
+    "description": "Request to attachment ID in WordPress via WPScan suggests enumeration of media or posts.",
+    "tools": [
+      "WPScan"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"HEAD\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/?attachment_id=95\"}, \"rule\": {\"firedtimes\": 4416, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:18:16 +0000] \\\"HEAD /?attachment_id=95 HTTP/1.1\\\" 404 323 \\\"https://intranet.price.fox.org\\\" \\\"WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:18:16.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441536.10760844\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Content Discovery",
+      "Reconnaissance"
+    ],
+    "attack_type": "dirb",
+    "description": "404 error from accessing /academics suggests a tool scanning for common directories on the site.",
+    "tools": [
+      "Gobuster",
+      "Dirb",
+      "Burp Suite"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"GET\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/academics\"}, \"rule\": {\"firedtimes\": 4630, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /academics HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:18:31.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441551.10910499\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Log File Discovery",
+      "Reconnaissance"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access access-log.1 file suggests probing for server log exposure.",
+    "tools": [
+      "Nikto",
+      "DirBuster"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"GET\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/access-log.1\"}, \"rule\": {\"firedtimes\": 4640, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /access-log.1 HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:18:31.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441551.10917783\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Content Discovery",
+      "Vulnerability Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "Multiple requests to various URLs in rapid succession with 404 responses indicate automated directory brute-forcing.",
+    "tools": [
+      "Gobuster",
+      "Dirsearch",
+      "Burp Suite"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"previous_output\": \"172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /account_history HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /account_edit HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /account HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /accommodation HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /accessories HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /access-log.1 HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /access-log HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /accessibility HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /accessgranted HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /access_log.1 HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /access_log HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\", \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"GET\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/accountants\"}, \"rule\": {\"firedtimes\": 357, \"mail\": false, \"level\": 10, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Multiple web server 400 error codes from same source ip.\", \"groups\": [\"web\", \"accesslog\", \"web_scan\", \"recon\"], \"mitre\": {\"technique\": [\"Vulnerability Scanning\"], \"id\": [\"T1595.002\"], \"tactic\": [\"Reconnaissance\"]}, \"id\": \"31151\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"frequency\": 14, \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /accountants HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:18:31.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441551.10920931\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "GET request to '/advancedsearch' endpoint with 404 response may indicate automated probing for hidden or misconfigured pages.",
+    "tools": [
+      "Dirb",
+      "Nikto",
+      "Burp Suite"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"GET\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/advancedsearch\"}, \"rule\": {\"firedtimes\": 4728, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /advancedsearch HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:18:31.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441551.10982237\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Content Discovery",
+      "Reconnaissance"
+    ],
+    "attack_type": "dirb",
+    "description": "Access attempt to '/accountants' as part of mass-scanning activity; likely enumeration of valid paths.",
+    "tools": [
+      "Dirsearch",
+      "Gobuster"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"GET\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/advert\"}, \"rule\": {\"firedtimes\": 4729, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /advert HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:18:31.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441551.10982764\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "Multiple sequential 404s for various short or admin-like URLs from same IP indicate automated web reconnaissance or directory brute-force",
+    "tools": [
+      "Nikto",
+      "Dirb",
+      "Gobuster"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"previous_output\": \"172.17.130.196 - - [18/Jan/2022:12:18:32 +0000] \\\"GET /be HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:32 +0000] \\\"GET /bdata HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /bd HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /bc HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /bbs HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /bboard HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /bb-histlog HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /bb-hist HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /bbclone HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /bbadmin HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:18:31 +0000] \\\"GET /bb HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\", \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"GET\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/bea\"}, \"rule\": {\"firedtimes\": 382, \"mail\": false, \"level\": 10, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Multiple web server 400 error codes from same source ip.\", \"groups\": [\"web\", \"accesslog\", \"web_scan\", \"recon\"], \"mitre\": {\"technique\": [\"Vulnerability Scanning\"], \"id\": [\"T1595.002\"], \"tactic\": [\"Reconnaissance\"]}, \"id\": \"31151\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"frequency\": 14, \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:18:32 +0000] \\\"GET /bea HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:18:32.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441552.11145895\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "404 error on request to '/beheer', which is a known admin panel name in Dutch, suggests probing for administrative paths",
+    "tools": [
+      "Nikto",
+      "Dirbuster"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"GET\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/beheer\"}, \"rule\": {\"firedtimes\": 4974, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:18:32 +0000] \\\"GET /beheer HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:18:32.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441552.11149488\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "Probing attempt to access possible web calendar plugin under WordPress admin path; indicates directory enumeration",
+    "tools": [
+      "WPScan",
+      "Nikto",
+      "Dirsearch"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"GET\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-admin/user/webcalendar\"}, \"rule\": {\"firedtimes\": 37069, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:21:18 +0000] \\\"GET /wp-admin/user/webcalendar HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:21:18.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441718.26299774\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "Request to '/wp-admin/user/webcart' under WordPress structure suggests attacker is enumerating plugin or theme paths",
+    "tools": [
+      "WPScan",
+      "Nikto",
+      "Dirsearch"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"GET\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-admin/user/webcart\"}, \"rule\": {\"firedtimes\": 37071, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:21:18 +0000] \\\"GET /wp-admin/user/webcart HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:21:18.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441718.26300845\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Unauthorized Access Attempt",
+      "File Enumeration"
+    ],
+    "attack_type": "dirb",
+    "description": "Access to .htpasswd file denied; attacker likely trying to access sensitive authentication files",
+    "tools": [
+      "Burp Suite",
+      "OWASP ZAP"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"172.17.130.196\", \"srcport\": \"56484\", \"id\": \"AH01630\"}, \"rule\": {\"firedtimes\": 60, \"mail\": false, \"level\": 5, \"hipaa\": [\"164.312.b\"], \"pci_dss\": [\"6.5.8\", \"10.2.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Apache: Attempt to access forbidden file or directory.\", \"groups\": [\"apache\", \"web\", \"access_denied\"], \"id\": \"30305\", \"nist_800_53\": [\"SA.11\", \"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"parent\": \"apache-errorlog\", \"name\": \"apache-errorlog\"}, \"full_log\": \"[Tue Jan 18 12:21:18.815338 2022] [authz_core:error] [pid 28239] [client 172.17.130.196:56484] AH01630: client denied by server configuration: /var/www/intranet.price.fox.org/wp-content/plugins/.htpasswd_\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:21:18.815338Z\", \"location\": \"/var/log/apache2/intranet-error.log\", \"id\": \"1686441719.26591976\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Scanning",
+      "Exploit Attempt"
+    ],
+    "attack_type": "dirb",
+    "description": "Request to FrontPage server extension DLL path suggests enumeration or exploit attempt targeting known CMS/plugin vulnerability",
+    "tools": [
+      "Nikto",
+      "Metasploit"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"GET\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-content/plugins/_vti_bin/_vti_aut/author.dll\"}, \"rule\": {\"firedtimes\": 37365, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:21:19 +0000] \\\"GET /wp-content/plugins/_vti_bin/_vti_aut/author.dll HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:21:19.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686441719.26512608\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "Attempt to access a likely nonexistent file or resource under known WordPress TinyMCE path; suggests brute-forcing for files or plugin JS",
+    "tools": [
+      "WPScan",
+      "Dirb"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"GET\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-includes/js/tinymce/skins/wordpress/i\"}, \"rule\": {\"firedtimes\": 336473, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:36:39 +0000] \\\"GET /wp-includes/js/tinymce/skins/wordpress/i HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:36:39.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686442639.245445724\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Scanning"
+    ],
+    "attack_type": "dirb",
+    "description": "Numerous requests to variations of paths under /wp-includes/js/tinymce/skins/wordpress/, consistent with enumeration or wordlist scan",
+    "tools": [
+      "WPScan",
+      "Dirsearch",
+      "Nikto"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"previous_output\": \"172.17.130.196 - - [18/Jan/2022:12:36:39 +0000] \\\"GET /wp-includes/js/tinymce/skins/wordpress/ia HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:36:39 +0000] \\\"GET /wp-includes/js/tinymce/skins/wordpress/i HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:36:39 +0000] \\\"GET /wp-includes/js/tinymce/skins/wordpress/hyper HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:36:39 +0000] \\\"GET /wp-includes/js/tinymce/skins/wordpress/humor HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:36:39 +0000] \\\"GET /wp-includes/js/tinymce/skins/wordpress/humans HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:36:39 +0000] \\\"GET /wp-includes/js/tinymce/skins/wordpress/human HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:36:39 +0000] \\\"GET /wp-includes/js/tinymce/skins/wordpress/hu HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:36:39 +0000] \\\"GET /wp-includes/js/tinymce/skins/wordpress/httpuser HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:36:39 +0000] \\\"GET /wp-includes/js/tinymce/skins/wordpress/https HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:36:39 +0000] \\\"GET /wp-includes/js/tinymce/skins/wordpress/httpmodules HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\\n172.17.130.196 - - [18/Jan/2022:12:36:39 +0000] \\\"GET /wp-includes/js/tinymce/skins/wordpress/httpdocs HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\", \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"GET\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-includes/js/tinymce/skins/wordpress/ibm\"}, \"rule\": {\"firedtimes\": 25927, \"mail\": false, \"level\": 10, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Multiple web server 400 error codes from same source ip.\", \"groups\": [\"web\", \"accesslog\", \"web_scan\", \"recon\"], \"mitre\": {\"technique\": [\"Vulnerability Scanning\"], \"id\": [\"T1595.002\"], \"tactic\": [\"Reconnaissance\"]}, \"id\": \"31151\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"frequency\": 14, \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:36:39 +0000] \\\"GET /wp-includes/js/tinymce/skins/wordpress/ibm HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:36:39.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686442639.245446833\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Reconnaissance",
+      "Directory Brute Force"
+    ],
+    "attack_type": "dirb",
+    "description": "The log shows an HTTP GET request for a non-existent file in a typical WordPress plugin path, which is often targeted during automated scanning to enumerate resources or vulnerable plugins/themes. The 404 response indicates probing.",
+    "tools": [
+      "Nikto",
+      "WPScan",
+      "Dirb",
+      "Gobuster"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"GET\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-includes/js/tinymce/skins/wordpress/images/zh_TW\"}, \"rule\": {\"firedtimes\": 359239, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:37:49 +0000] \\\"GET /wp-includes/js/tinymce/skins/wordpress/images/zh_TW HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:37:49.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686442709.262694344\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Web Application Reconnaissance",
+      "Directory Brute Force"
+    ],
+    "attack_type": "dirb",
+    "description": "Another 404 request targeting a similar directory in a WordPress installation. The pattern suggests automated scanning for accessible resources or plugin/theme vulnerabilities.",
+    "tools": [
+      "Nikto",
+      "WPScan",
+      "Dirb",
+      "Gobuster"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"protocol\": \"GET\", \"srcip\": \"172.17.130.196\", \"id\": \"404\", \"url\": \"/wp-includes/js/tinymce/skins/wordpress/images/zones\"}, \"rule\": {\"firedtimes\": 359248, \"mail\": false, \"level\": 5, \"pci_dss\": [\"6.5\", \"11.4\"], \"tsc\": [\"CC6.6\", \"CC7.1\", \"CC8.1\", \"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Web server 400 error code.\", \"groups\": [\"web\", \"accesslog\", \"attack\"], \"id\": \"31101\", \"nist_800_53\": [\"SA.11\", \"SI.4\"], \"gdpr\": [\"IV_35.7.d\"]}, \"decoder\": {\"name\": \"web-accesslog\"}, \"full_log\": \"172.17.130.196 - - [18/Jan/2022:12:37:49 +0000] \\\"GET /wp-includes/js/tinymce/skins/wordpress/images/zones HTTP/1.1\\\" 404 363 \\\"-\\\" \\\"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\\\"\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:37:49.000000Z\", \"location\": \"/var/log/apache2/intranet-access.log\", \"id\": \"1686442710.262699430\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Usage"
+    ],
+    "attack_type": "dirb",
+    "description": "Successful login to IMAP by megan.johnson using PLAIN authentication; observed multiple similar entries in a short timeframe",
+    "tools": [
+      "Hydra",
+      "Medusa",
+      "Metasploit"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"miller-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:37:55\"}, \"agent\": {\"ip\": \"192.168.129.212\", \"name\": \"wazuh-client\", \"id\": \"10\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 202, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:37:55 miller-mail dovecot: imap-login: Login: user=<megan.johnson>, method=PLAIN, rip=192.168.129.212, lip=192.168.129.212, mpid=28005, TLS, session=<o6XRidrVbpzAqIHU>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:37:55.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686442714.262704279\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Usage"
+    ],
+    "attack_type": "dirb",
+    "description": "Repeat of successful authentication by the same user megan.johnson within the same second across different log sources",
+    "tools": [
+      "Hydra",
+      "Medusa",
+      "Metasploit"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"miller-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:37:55\"}, \"agent\": {\"ip\": \"192.168.129.212\", \"name\": \"wazuh-client\", \"id\": \"10\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 203, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:37:55 miller-mail dovecot: imap-login: Login: user=<megan.johnson>, method=PLAIN, rip=192.168.129.212, lip=192.168.129.212, mpid=28005, TLS, session=<o6XRidrVbpzAqIHU>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:37:55.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686442714.262704788\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Usage"
+    ],
+    "attack_type": "dirb",
+    "description": "Third instance of identical login by megan.johnson, suggesting this is part of a synchronized or automated login process",
+    "tools": [
+      "Hydra",
+      "Medusa",
+      "Metasploit"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"miller-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:37:55\"}, \"agent\": {\"ip\": \"192.168.129.212\", \"name\": \"wazuh-client\", \"id\": \"10\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 204, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:37:55 miller-mail dovecot: imap-login: Login: user=<megan.johnson>, method=PLAIN, rip=192.168.129.212, lip=192.168.129.212, mpid=28005, TLS, session=<o6XRidrVbpzAqIHU>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:37:55.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686442714.262705296\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Usage"
+    ],
+    "attack_type": "dirb",
+    "description": "New login instance with updated timestamp by megan.johnson; consistent with repeated, possibly scripted logins",
+    "tools": [
+      "Hydra",
+      "Medusa",
+      "Metasploit"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"miller-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:38:44\"}, \"agent\": {\"ip\": \"192.168.129.212\", \"name\": \"wazuh-client\", \"id\": \"10\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 206, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:38:44 miller-mail dovecot: imap-login: Login: user=<megan.johnson>, method=PLAIN, rip=192.168.129.212, lip=192.168.129.212, mpid=28012, TLS, session=<r+m3jNrVcJzAqIHU>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:38:44.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686442764.262706310\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Usage"
+    ],
+    "attack_type": "dirb",
+    "description": "Same login as above, captured in a different log file, again indicating a repeated or systematic access attempt",
+    "tools": [
+      "Hydra",
+      "Medusa",
+      "Metasploit"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"miller-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:38:44\"}, \"agent\": {\"ip\": \"192.168.129.212\", \"name\": \"wazuh-client\", \"id\": \"10\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 207, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:38:44 miller-mail dovecot: imap-login: Login: user=<megan.johnson>, method=PLAIN, rip=192.168.129.212, lip=192.168.129.212, mpid=28012, TLS, session=<r+m3jNrVcJzAqIHU>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:38:44.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686442764.262706816\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Usage"
+    ],
+    "attack_type": "dirb",
+    "description": "Third appearance of the same login attempt to dovecot by megan.johnson; highly likely part of a brute-force or persistent access pattern",
+    "tools": [
+      "Hydra",
+      "Medusa",
+      "Metasploit"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"miller-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:38:44\"}, \"agent\": {\"ip\": \"192.168.129.212\", \"name\": \"wazuh-client\", \"id\": \"10\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 205, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:38:44 miller-mail dovecot: imap-login: Login: user=<megan.johnson>, method=PLAIN, rip=192.168.129.212, lip=192.168.129.212, mpid=28012, TLS, session=<r+m3jNrVcJzAqIHU>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:38:44.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686442764.262705802\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Usage"
+    ],
+    "attack_type": "cracking",
+    "description": "Login attempt to dovecot mail service from damian.jordan, using plain authentication, indicates successful use of a valid account",
+    "tools": [
+      "Hydra",
+      "Metasploit"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:39:03\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 210, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:39:03 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=4648, TLS, session=<5+7kjdrVtr7AqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:39:03.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686442782.262708348\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Protocol Anomaly",
+      "Reconnaissance"
+    ],
+    "attack_type": "cracking",
+    "description": "Suricata detected HTTP protocol inconsistency where response could not be matched to a request; may indicate probing, evasion, or malformed traffic",
+    "tools": [
+      "Nmap",
+      "custom scripts",
+      "Burp Suite"
+    ],
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"metadata\": {\"flowints\": {\"http\": {\"anomaly\": {\"count\": \"1\"}}}}, \"tx_id\": \"1\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.130.77\", \"src_port\": \"80\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2221010\", \"rev\": \"1\", \"gid\": \"1\", \"signature\": \"SURICATA HTTP unable to match response to request\", \"action\": \"allowed\", \"category\": \"Generic Protocol Command Decode\"}, \"flow_id\": \"1946026947273983.000000\", \"dest_ip\": \"10.35.35.206\", \"proto\": \"TCP\", \"http\": {\"length\": \"1397\", \"http_port\": \"0\", \"url\": \"/libhtp::request_uri_not_seen\"}, \"dest_port\": \"55754\", \"flow\": {\"pkts_toserver\": \"46\", \"start\": \"2022-01-18T12:39:06.746751+0000\", \"bytes_toclient\": \"4532\", \"bytes_toserver\": \"3196\", \"pkts_toclient\": \"5\"}, \"timestamp\": \"2022-01-18T12:39:06.764682+0000\"}, \"rule\": {\"firedtimes\": 6, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - SURICATA HTTP unable to match response to request\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:39:06.764682Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686442786.262710899\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Protocol Anomaly",
+      "Reconnaissance"
+    ],
+    "attack_type": "cracking",
+    "description": "Snort-equivalent alert showing the same HTTP anomaly detected by Suricata, reinforcing that this is likely real anomalous traffic",
+    "tools": [
+      "Nmap",
+      "custom scripts",
+      "Burp Suite"
+    ],
+    "anomaly": "{\"predecoder\": {\"timestamp\": \"01/18/2022-12:39:06.764682\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcip\": \"192.168.130.77\", \"dstip\": \"10.35.35.206:55754\", \"id\": \"1:2221010:1\"}, \"rule\": {\"firedtimes\": 6, \"mail\": false, \"level\": 6, \"description\": \"IDS event.\", \"groups\": [\"ids\"], \"id\": \"20101\"}, \"decoder\": {\"parent\": \"snort\", \"name\": \"snort\"}, \"full_log\": \"01/18/2022-12:39:06.764682  [**] [1:2221010:1] SURICATA HTTP unable to match response to request [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP} 192.168.130.77:80 -> 10.35.35.206:55754\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:39:06.764682Z\", \"location\": \"/var/log/suricata/fast.log\", \"id\": \"1686442786.262712510\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Usage"
+    ],
+    "attack_type": "cracking",
+    "description": "Another user (john.hammond) logged into dovecot using plain authentication, TLS secured, suggesting valid credentials being used\u2014could be compromised",
+    "tools": [
+      "Hydra",
+      "Metasploit"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"whittaker-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:42:33\"}, \"agent\": {\"ip\": \"192.168.128.195\", \"name\": \"wazuh-client\", \"id\": \"8\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 272, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:42:33 whittaker-mail dovecot: imap-login: Login: user=<john.hammond>, method=PLAIN, rip=192.168.131.228, lip=192.168.131.228, mpid=32153, TLS, session=<mBtfmtrVyKjAqIPk>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:42:33.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686442993.262744111\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Usage"
+    ],
+    "attack_type": "cracking",
+    "description": "Repeated Dovecot IMAP successful logins for user 'susan.gregory', possibly indicating a valid account being used for persistence or unauthorized access.",
+    "tools": [
+      "Thunderbird",
+      "Outlook",
+      "Scripting via IMAP libraries"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"jonesmorgan-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:51:27\"}, \"agent\": {\"ip\": \"192.168.131.228\", \"name\": \"wazuh-client\", \"id\": \"13\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 348, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:51:27 jonesmorgan-mail dovecot: imap-login: Login: user=<susan.gregory>, method=PLAIN, rip=192.168.128.170, lip=192.168.128.170, mpid=28776, TLS, session=<6UY2utrVPurAqICq>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:51:27.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686443528.263060118\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Brute Force"
+    ],
+    "attack_type": "cracking",
+    "description": "Failed PAM login from same user and source IP, likely indicating password guessing or brute force attempt on dovecot auth service.",
+    "tools": [
+      "Hydra",
+      "Medusa",
+      "patator"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"auth\", \"timestamp\": \"Jan 18 12:53:18\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"christopher.friedman\", \"uid\": \"0\", \"srcip\": \"192.168.128.195\", \"euid\": \"0\", \"dstuser\": \"christopher.friedman\", \"tty\": \"dovecot\"}, \"rule\": {\"mail\": false, \"level\": 5, \"pci_dss\": [\"10.2.4\", \"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.1\", \"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: User login failed.\", \"groups\": [\"pam\", \"syslog\", \"authentication_failed\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_35.7.d\", \"IV_32.2\"], \"firedtimes\": 1, \"mitre\": {\"technique\": [\"Password Guessing\"], \"id\": [\"T1110.001\"], \"tactic\": [\"Credential Access\"]}, \"id\": \"5503\", \"gpg13\": [\"7.8\"]}, \"decoder\": {\"name\": \"pam\"}, \"full_log\": \"Jan 18 12:53:18 taylorcruz-mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=christopher.friedman rhost=192.168.128.195  user=christopher.friedman\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:53:18.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686443638.263060629\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Privilege Escalation"
+    ],
+    "attack_type": "priviledgeescalation",
+    "description": "User 'www-data' successfully changed UID to user 'phopkins', indicating possible privilege escalation using valid credentials.",
+    "tools": [
+      "sudo",
+      "su"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"su\", \"timestamp\": \"Jan 18 13:14:31\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"www\", \"dstuser\": \"data:phopkins\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"User successfully changed UID.\", \"groups\": [\"syslog\", \"su\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_35.7.d\", \"IV_32.2\"], \"firedtimes\": 1, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5304\", \"gpg13\": [\"7.6\", \"7.8\"]}, \"decoder\": {\"parent\": \"su\", \"name\": \"su\"}, \"full_log\": \"Jan 18 13:14:31 intranet-server su[28816]: + /dev/pts/1 www-data:phopkins\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T13:14:31.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686444911.263244326\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Abuse"
+    ],
+    "attack_type": "priviledgeescalation",
+    "description": "Login session opened by user 'phopkins' from UID 33 (www-data), suggesting lateral movement or credential abuse.",
+    "tools": [
+      "su",
+      "ssh"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"su\", \"timestamp\": \"Jan 18 13:14:31\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"uid\": \"33\", \"dstuser\": \"phopkins\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 1, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 18 13:14:31 intranet-server su[28816]: pam_unix(su:session): session opened for user phopkins by (uid=33)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T13:14:31.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686444911.263244776\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Abuse"
+    ],
+    "attack_type": "priviledgeescalation",
+    "description": "Session opened for user 'phopkins' by UID 0 (root), possibly indicating privilege escalation or persistent access setup.",
+    "tools": [
+      "systemd",
+      "ssh",
+      "su"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"systemd\", \"timestamp\": \"Jan 18 13:14:31\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"uid\": \"0\", \"dstuser\": \"phopkins\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 2, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 18 13:14:31 intranet-server systemd: pam_unix(systemd-user:session): session opened for user phopkins by (uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T13:14:31.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686444911.263245247\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Privilege Escalation"
+    ],
+    "attack_type": "priviledgeescalation",
+    "description": "User 'phopkins' executed 'sudo' as root to run an innocuous 'list' command, may be probing root access capability.",
+    "tools": [
+      "sudo"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 18 13:14:41\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"dstuser\": \"root\", \"tty\": \"pts/1\", \"pwd\": \"/var/www/intranet.price.fox.org/wp-content/uploads/2022/01\", \"command\": \"list\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\", \"10.2.2\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Successful sudo to ROOT executed.\", \"groups\": [\"syslog\", \"sudo\"], \"nist_800_53\": [\"AU.14\", \"AC.7\", \"AC.6\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 1, \"mitre\": {\"technique\": [\"Sudo and Sudo Caching\"], \"id\": [\"T1548.003\"], \"tactic\": [\"Privilege Escalation\", \"Defense Evasion\"]}, \"id\": \"5402\", \"gpg13\": [\"7.6\", \"7.8\", \"7.13\"]}, \"decoder\": {\"parent\": \"sudo\", \"name\": \"sudo\", \"ftscomment\": \"First time user executed the sudo command\"}, \"full_log\": \"Jan 18 13:14:41 intranet-server sudo: phopkins : TTY=pts/1 ; PWD=/var/www/intranet.price.fox.org/wp-content/uploads/2022/01 ; USER=root ; COMMAND=list\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T13:14:41.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686444921.263245724\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Abuse"
+    ],
+    "attack_type": "priviledgeescalation",
+    "description": "A session was opened for user root by UID 0 via sudo, confirming successful privilege elevation.",
+    "tools": [
+      "sudo"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 18 13:14:43\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"uid\": \"0\", \"dstuser\": \"root\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 3, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 18 13:14:43 intranet-server sudo: pam_unix(sudo:session): session opened for user root by (uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T13:14:43.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686444923.263246988\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Privilege Escalation",
+      "Discovery"
+    ],
+    "attack_type": "priviledgeescalation",
+    "description": "User 'phopkins' used sudo to recursively list the /root directory, suggesting probing of sensitive files.",
+    "tools": [
+      "sudo",
+      "ls"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 18 13:14:43\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"dstuser\": \"root\", \"tty\": \"pts/1\", \"pwd\": \"/var/www/intranet.price.fox.org/wp-content/uploads/2022/01\", \"command\": \"/bin/ls -laR /root/\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\", \"10.2.2\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Successful sudo to ROOT executed.\", \"groups\": [\"syslog\", \"sudo\"], \"nist_800_53\": [\"AU.14\", \"AC.7\", \"AC.6\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 2, \"mitre\": {\"technique\": [\"Sudo and Sudo Caching\"], \"id\": [\"T1548.003\"], \"tactic\": [\"Privilege Escalation\", \"Defense Evasion\"]}, \"id\": \"5402\", \"gpg13\": [\"7.6\", \"7.8\", \"7.13\"]}, \"decoder\": {\"parent\": \"sudo\", \"name\": \"sudo\", \"ftscomment\": \"First time user executed the sudo command\"}, \"full_log\": \"Jan 18 13:14:43 intranet-server sudo: phopkins : TTY=pts/1 ; PWD=/var/www/intranet.price.fox.org/wp-content/uploads/2022/01 ; USER=root ; COMMAND=/bin/ls -laR /root/\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T13:14:43.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686444923.263246341\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Credential Access"
+    ],
+    "attack_type": "priviledgeescalation",
+    "description": "User 'phopkins' accessed /etc/shadow using sudo, a common technique for extracting password hashes.",
+    "tools": [
+      "sudo",
+      "cat",
+      "john",
+      "hashcat"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 18 13:14:49\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"srcuser\": \"phopkins\", \"dstuser\": \"root\", \"tty\": \"pts/1\", \"pwd\": \"/var/www/intranet.price.fox.org/wp-content/uploads/2022/01\", \"command\": \"/bin/cat /etc/shadow\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\", \"10.2.2\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Successful sudo to ROOT executed.\", \"groups\": [\"syslog\", \"sudo\"], \"nist_800_53\": [\"AU.14\", \"AC.7\", \"AC.6\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 3, \"mitre\": {\"technique\": [\"Sudo and Sudo Caching\"], \"id\": [\"T1548.003\"], \"tactic\": [\"Privilege Escalation\", \"Defense Evasion\"]}, \"id\": \"5402\", \"gpg13\": [\"7.6\", \"7.8\", \"7.13\"]}, \"decoder\": {\"parent\": \"sudo\", \"name\": \"sudo\", \"ftscomment\": \"First time user executed the sudo command\"}, \"full_log\": \"Jan 18 13:14:49 intranet-server sudo: phopkins : TTY=pts/1 ; PWD=/var/www/intranet.price.fox.org/wp-content/uploads/2022/01 ; USER=root ; COMMAND=/bin/cat /etc/shadow\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T13:14:49.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686444929.263247863\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Valid Account Abuse"
+    ],
+    "attack_type": "priviledgeescalation",
+    "description": "Session opened for user root by UID 0 indicates another instance of elevated access.",
+    "tools": [
+      "sudo"
+    ],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 18 13:14:49\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"uid\": \"0\", \"dstuser\": \"root\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session opened.\", \"groups\": [\"pam\", \"syslog\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 4, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"5501\", \"gpg13\": [\"7.8\", \"7.9\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 18 13:14:49 intranet-server sudo: pam_unix(sudo:session): session opened for user root by (uid=0)\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T13:14:49.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686444929.263248512\"}\n"
+  }
+]

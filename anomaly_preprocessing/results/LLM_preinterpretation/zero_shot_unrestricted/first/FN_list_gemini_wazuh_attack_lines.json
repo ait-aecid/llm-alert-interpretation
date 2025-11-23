@@ -1,0 +1,110 @@
+[
+  {
+    "predicted_attack_type": [
+      "Legitimate User Activity",
+      "Potential Compromised Account"
+    ],
+    "attack_type": "dirb",
+    "description": "Successful Dovecot IMAP login by user **megan.johnson**. While a valid authentication, multiple logins from the same IP (192.168.129.212) in quick succession to different log files might warrant further investigation if this is unusual behavior for the user or IP.",
+    "tools": [],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"miller-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:37:55\"}, \"agent\": {\"ip\": \"192.168.129.212\", \"name\": \"wazuh-client\", \"id\": \"10\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 202, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:37:55 miller-mail dovecot: imap-login: Login: user=<megan.johnson>, method=PLAIN, rip=192.168.129.212, lip=192.168.129.212, mpid=28005, TLS, session=<o6XRidrVbpzAqIHU>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:37:55.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686442714.262704279\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Legitimate User Activity",
+      "Potential Compromised Account"
+    ],
+    "attack_type": "dirb",
+    "description": "Successful Dovecot IMAP login by user **megan.johnson**. As with the previous entry, this is a valid authentication, but repeated logins from the same IP in a short timeframe across various log files could indicate suspicious activity if not typical.",
+    "tools": [],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"miller-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:37:55\"}, \"agent\": {\"ip\": \"192.168.129.212\", \"name\": \"wazuh-client\", \"id\": \"10\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 203, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:37:55 miller-mail dovecot: imap-login: Login: user=<megan.johnson>, method=PLAIN, rip=192.168.129.212, lip=192.168.129.212, mpid=28005, TLS, session=<o6XRidrVbpzAqIHU>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:37:55.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686442714.262704788\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Legitimate User Activity",
+      "Potential Compromised Account"
+    ],
+    "attack_type": "dirb",
+    "description": "Successful Dovecot IMAP login by user **megan.johnson**. This is a legitimate login. However, if this user account exhibits unusual behavior post-login or if these frequent logins are out of character, it could suggest a **compromised account**.",
+    "tools": [],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"miller-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:37:55\"}, \"agent\": {\"ip\": \"192.168.129.212\", \"name\": \"wazuh-client\", \"id\": \"10\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 204, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:37:55 miller-mail dovecot: imap-login: Login: user=<megan.johnson>, method=PLAIN, rip=192.168.129.212, lip=192.168.129.212, mpid=28005, TLS, session=<o6XRidrVbpzAqIHU>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:37:55.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686442714.262705296\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Legitimate User Activity",
+      "Potential Compromised Account"
+    ],
+    "attack_type": "dirb",
+    "description": "Successful Dovecot IMAP login by user **megan.johnson**. While a valid authentication, repeated logins from the same IP (192.168.129.212) within a short period, especially across different logs, could be indicative of an **attacker using valid credentials**.",
+    "tools": [],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"miller-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:38:44\"}, \"agent\": {\"ip\": \"192.168.129.212\", \"name\": \"wazuh-client\", \"id\": \"10\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 206, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:38:44 miller-mail dovecot: imap-login: Login: user=<megan.johnson>, method=PLAIN, rip=192.168.129.212, lip=192.168.129.212, mpid=28012, TLS, session=<r+m3jNrVcJzAqIHU>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:38:44.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686442764.262706310\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Legitimate User Activity",
+      "Potential Compromised Account"
+    ],
+    "attack_type": "dirb",
+    "description": "Successful Dovecot IMAP login by user **megan.johnson**. This is a routine authentication. However, the consistency of logins for this user from the same IP at slightly different times might suggest **automated access or account sharing**, which could be a security risk.",
+    "tools": [],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"miller-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:38:44\"}, \"agent\": {\"ip\": \"192.168.129.212\", \"name\": \"wazuh-client\", \"id\": \"10\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 207, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:38:44 miller-mail dovecot: imap-login: Login: user=<megan.johnson>, method=PLAIN, rip=192.168.129.212, lip=192.168.129.212, mpid=28012, TLS, session=<r+m3jNrVcJzAqIHU>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:38:44.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686442764.262706816\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Legitimate User Activity",
+      "Potential Compromised Account"
+    ],
+    "attack_type": "dirb",
+    "description": "Successful Dovecot IMAP login by user **megan.johnson**. This event, along with the other similar entries, points to normal user activity, but the frequency warrants a check for adherence to security policies regarding **valid account usage**.",
+    "tools": [],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"miller-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:38:44\"}, \"agent\": {\"ip\": \"192.168.129.212\", \"name\": \"wazuh-client\", \"id\": \"10\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 205, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:38:44 miller-mail dovecot: imap-login: Login: user=<megan.johnson>, method=PLAIN, rip=192.168.129.212, lip=192.168.129.212, mpid=28012, TLS, session=<r+m3jNrVcJzAqIHU>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:38:44.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686442764.262705802\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Legitimate User Activity",
+      "Potential Compromised Account"
+    ],
+    "attack_type": "cracking",
+    "description": "Successful Dovecot IMAP login by user **damian.jordan** from IP **192.168.128.195**. As with the previous entries, this indicates a successful authentication. If this login occurs from an unusual location or at an abnormal time for this user, it could signal a **compromised account**.",
+    "tools": [],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"taylorcruz-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:39:03\"}, \"agent\": {\"ip\": \"192.168.128.170\", \"name\": \"wazuh-client\", \"id\": \"6\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 210, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:39:03 taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN, rip=192.168.128.195, lip=192.168.128.195, mpid=4648, TLS, session=<5+7kjdrVtr7AqIDD>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:39:03.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686442782.262708348\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Legitimate User Activity",
+      "Potential Compromised Account"
+    ],
+    "attack_type": "cracking",
+    "description": "Successful Dovecot IMAP login by user **john.hammond** from IP **192.168.131.228**. This is a successful authentication. As with other successful logins, the classification as False Positive assumes normal user behavior; however, any unusual patterns in access (e.g., geographic location, time of day, or concurrent logins) would shift this to a **True Positive** for a **compromised account**.",
+    "tools": [],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"whittaker-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:42:33\"}, \"agent\": {\"ip\": \"192.168.128.195\", \"name\": \"wazuh-client\", \"id\": \"8\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 272, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:42:33 whittaker-mail dovecot: imap-login: Login: user=<john.hammond>, method=PLAIN, rip=192.168.131.228, lip=192.168.131.228, mpid=32153, TLS, session=<mBtfmtrVyKjAqIPk>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:42:33.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686442993.262744111\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Legitimate User Activity",
+      "Potential Compromised Account"
+    ],
+    "attack_type": "cracking",
+    "description": "Successful Dovecot IMAP login by user **susan.gregory**. This is a routine authentication. If this login's context (source IP, time of day, prior failed attempts) is unusual, it could indicate a **compromised account**.",
+    "tools": [],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"jonesmorgan-mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 18 12:51:27\"}, \"agent\": {\"ip\": \"192.168.131.228\", \"name\": \"wazuh-client\", \"id\": \"13\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 348, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 18 12:51:27 jonesmorgan-mail dovecot: imap-login: Login: user=<susan.gregory>, method=PLAIN, rip=192.168.128.170, lip=192.168.128.170, mpid=28776, TLS, session=<6UY2utrVPurAqICq>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T12:51:27.000000Z\", \"location\": \"/var/log/syslog\", \"id\": \"1686443528.263060118\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Normal Activity (post-escalation)"
+    ],
+    "attack_type": "priviledgeescalation",
+    "description": "PAM session closed for user **root** via sudo. This indicates the user (or attacker) has exited the root session. While a normal event after a privileged operation, given the preceding escalations, this suggests the **attacker has completed their root-level actions** or is attempting to cover their tracks.",
+    "tools": [],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 18 13:14:43\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"dstuser\": \"root\"}, \"rule\": {\"firedtimes\": 1, \"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session closed.\", \"groups\": [\"pam\", \"syslog\"], \"id\": \"5502\", \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gpg13\": [\"7.8\", \"7.9\"], \"gdpr\": [\"IV_32.2\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 18 13:14:43 intranet-server sudo: pam_unix(sudo:session): session closed for user root\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T13:14:43.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686444923.263247446\"}\n"
+  },
+  {
+    "predicted_attack_type": [
+      "Normal Activity (post-escalation)"
+    ],
+    "attack_type": "priviledgeescalation",
+    "description": "PAM session closed for user **root** via sudo. Similar to the previous session close, this signifies the attacker exiting their root session after performing actions, likely to avoid detection. However, given the sequence of events, the system is clearly compromised.",
+    "tools": [],
+    "anomaly": "{\"predecoder\": {\"hostname\": \"intranet-server\", \"program_name\": \"sudo\", \"timestamp\": \"Jan 18 13:14:49\"}, \"agent\": {\"ip\": \"10.35.35.206\", \"name\": \"wazuh-client\", \"id\": \"27\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"dstuser\": \"root\"}, \"rule\": {\"firedtimes\": 2, \"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"PAM: Login session closed.\", \"groups\": [\"pam\", \"syslog\"], \"id\": \"5502\", \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gpg13\": [\"7.8\", \"7.9\"], \"gdpr\": [\"IV_32.2\"]}, \"decoder\": {\"parent\": \"pam\", \"name\": \"pam\"}, \"full_log\": \"Jan 18 13:14:49 intranet-server sudo: pam_unix(sudo:session): session closed for user root\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-18T13:14:49.000000Z\", \"location\": \"/var/log/auth.log\", \"id\": \"1686444929.263248970\"}"
+  }
+]

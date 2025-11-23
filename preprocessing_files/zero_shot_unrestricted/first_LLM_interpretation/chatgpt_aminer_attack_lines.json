@@ -1,0 +1,802 @@
+[
+  {
+    "anomaly_timestamp": 1642411593,
+    "attack_type": ["DNS tunneling", "Data exfiltration"],
+    "mitre": ["T1071.004", "T1567.002"],
+    "description": "High entropy detected in DNS domain queries for 'youtu.be', which is unusual and could indicate covert channel or tunneling attempts using DNS requests.",
+    "tools": ["dnsmasq", "AMiner EntropyDetector"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642411593,
+    "attack_type": ["DNS tunneling", "Data exfiltration"],
+    "mitre": ["T1071.004", "T1567.002"],
+    "description": "Forwarded DNS queries with high entropy domain 'youtu.be' suggests possible DNS tunneling or exfiltration attempts using DNS forwarding.",
+    "tools": ["dnsmasq", "AMiner EntropyDetector"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642411593,
+    "attack_type": ["DNS tunneling", "Data exfiltration"],
+    "mitre": ["T1071.004", "T1567.002"],
+    "description": "Query for high entropy domain 'youtu.be' from an internal IP address indicating possible suspicious DNS query generation internally.",
+    "tools": ["dnsmasq", "AMiner EntropyDetector"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642411593,
+    "attack_type": ["DNS tunneling", "Data exfiltration"],
+    "mitre": ["T1071.004", "T1567.002"],
+    "description": "Forwarded query for suspicious high entropy domain 'youtu.be' to another internal IP, indicating lateral movement or internal DNS abuse.",
+    "tools": ["dnsmasq", "AMiner EntropyDetector"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642411594,
+    "attack_type": ["DNS tunneling", "Data exfiltration"],
+    "mitre": ["T1071.004", "T1567.002"],
+    "description": "DNS reply for 'youtu.be' with associated IP address after anomalous high entropy query, potentially completing the suspicious DNS request cycle.",
+    "tools": ["dnsmasq", "AMiner EntropyDetector"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642411594,
+    "attack_type": ["DNS tunneling", "Data exfiltration"],
+    "mitre": ["T1071.004", "T1567.002"],
+    "description": "Additional DNS reply for 'youtu.be' confirming repeated high entropy DNS responses, consistent with abnormal DNS activity.",
+    "tools": ["dnsmasq", "AMiner EntropyDetector"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642413589,
+    "attack_type": ["Reconnaissance", "Anomaly detection"],
+    "mitre": ["T1595"],
+    "description": "Unusually low frequency of DNS A-record queries for 'mail.price.fox.org' compared to expected, indicating possible reconnaissance or evasion behavior.",
+    "tools": ["dnsmasq", "AMiner EventFrequencyDetector"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": 1642508235,
+    "attack_type": ["Credential Access", "Brute Force"],
+    "mitre": ["T1110"],
+    "description": "New event type detected involving IMAP login disconnection with no authentication attempts, possibly indicating automated login attempts or scanning activity.",
+    "tools": ["dovecot", "AMiner NewMatchPathDetector"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642508235,
+    "attack_type": ["Credential Access", "Brute Force"],
+    "mitre": ["T1110"],
+    "description": "Repeated detection of new IMAP login disconnect event with no auth attempts, reinforcing suspicion of brute force or scanning attempts on mail server.",
+    "tools": ["dovecot", "AMiner NewMatchPathDetector"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642508235,
+    "attack_type": ["Credential Access", "Brute Force"],
+    "mitre": ["T1110"],
+    "description": "Additional record of new IMAP login disconnect event without auth attempts, indicating persistent unusual login behavior.",
+    "tools": ["dovecot", "AMiner NewMatchPathDetector"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508235",
+    "attack_type": ["Reconnaissance", "Network Scanning"],
+    "mitre": ["T1046", "T1595"],
+    "description": "Log indicates 'no host name found for IP address 192.168.130.77', which could imply suspicious scanning or reconnaissance activities where reverse DNS lookup fails.",
+    "tools": ["AMiner", "NewMatchPathDetector"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508235",
+    "attack_type": ["Reconnaissance", "Network Scanning"],
+    "mitre": ["T1046", "T1595"],
+    "description": "Repeated log entry with no hostname for IP 192.168.130.77; consistent with scanning or probing attempts without proper DNS resolution.",
+    "tools": ["AMiner", "NewMatchPathDetector"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508247.71",
+    "attack_type": ["Access Denied", "Brute Force or Misconfiguration"],
+    "mitre": ["T1078", "T1190"],
+    "description": "Apache error log shows client denied by server configuration for IP 192.168.130.77 accessing /var/www/html/, indicating possible unauthorized access attempts or reconnaissance.",
+    "tools": ["AMiner", "NewMatchPathDetector"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508247.71",
+    "attack_type": ["Access Denied", "Brute Force or Misconfiguration"],
+    "mitre": ["T1078", "T1190"],
+    "description": "Another client denied error, this time for IP 172.17.130.196, indicating repeated unauthorized access attempts blocked by server.",
+    "tools": ["AMiner", "NewMatchPathDetector"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508248",
+    "attack_type": ["Reconnaissance", "Network Scanning"],
+    "mitre": ["T1046", "T1595"],
+    "description": "No host name found for IP 192.168.130.77 again; strengthens indication of scanning or reconnaissance behavior.",
+    "tools": ["AMiner", "NewMatchPathDetector"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508248",
+    "attack_type": ["TLS Exploitation", "Protocol Manipulation"],
+    "mitre": ["T1557", "T1571"],
+    "description": "TLS handshake error on connection from IP 192.168.130.77 indicates abnormal TLS traffic, possibly due to malformed packets or attempts to exploit TLS vulnerabilities.",
+    "tools": ["AMiner", "NewMatchPathDetector"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508248",
+    "attack_type": ["Reconnaissance", "Network Scanning"],
+    "mitre": ["T1046", "T1595"],
+    "description": "Yet another 'no host name found' event for IP 192.168.130.77; consistent with previous reconnaissance activity.",
+    "tools": ["AMiner", "NewMatchPathDetector"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508249",
+    "attack_type": ["Port Scanning", "Service Enumeration"],
+    "mitre": ["T1046", "T1595"],
+    "description": "Apache access log shows HTTP 403 Forbidden response to GET request with User-Agent referencing Nmap Scripting Engine, indicating active scanning or service enumeration.",
+    "tools": ["AMiner", "NewMatchPathValueDetector"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508249",
+    "attack_type": ["Port Scanning", "Service Enumeration"],
+    "mitre": ["T1046", "T1595"],
+    "description": "HTTP 403 response to POST request to /sdk with Nmap User-Agent suggests a scanning tool probing for services or vulnerabilities.",
+    "tools": ["AMiner", "NewMatchPathValueDetector"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508249",
+    "attack_type": ["Port Scanning", "Service Enumeration"],
+    "mitre": ["T1046", "T1595"],
+    "description": "HTTP 403 response to GET request on root path, also with no User-Agent, aligns with automated scanning activity to enumerate accessible services.",
+    "tools": ["AMiner", "NewMatchPathValueDetector"],
+    "classification": "TP"
+  },
+   {
+    "anomaly_timestamp": "1642508249",
+    "attack_type": ["Reconnaissance", "Web Application Scanning"],
+    "mitre": ["T1595", "T1595.002"],
+    "description": "HTTP 403 response to POST request from Nmap Scripting Engine user-agent; indicates scanning or probing restricted endpoints",
+    "tools": ["Nmap", "Nmap Scripting Engine (NSE)"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508249",
+    "attack_type": ["Reconnaissance", "Web Application Scanning"],
+    "mitre": ["T1595", "T1595.002"],
+    "description": "HTTP 403 response to POST request from Nmap Scripting Engine user-agent; probing blocked resource",
+    "tools": ["Nmap", "Nmap Scripting Engine (NSE)"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508249.87",
+    "attack_type": ["Initial Access", "Web Server Attack"],
+    "mitre": ["T1190", "T1078"],
+    "description": "Apache error log showing 'client denied by server configuration' accessing /HNAP1; typical of attempts to access unauthorized management interfaces",
+    "tools": ["Automated scanners", "Custom HTTP clients"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508249.87",
+    "attack_type": ["Initial Access", "Web Server Attack"],
+    "mitre": ["T1190", "T1078"],
+    "description": "Repeated denial of access to /HNAP1 resource; indicates automated attempts to find vulnerable interfaces",
+    "tools": ["Automated scanners", "Custom HTTP clients"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508249.87",
+    "attack_type": ["Initial Access", "Web Server Attack"],
+    "mitre": ["T1190", "T1078"],
+    "description": "Client denied accessing /HNAP1 directory; likely reconnaissance or exploitation attempts",
+    "tools": ["Automated scanners", "Custom HTTP clients"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508249.87",
+    "attack_type": ["Initial Access", "Web Server Attack"],
+    "mitre": ["T1190", "T1078"],
+    "description": "Access denied to root web directory (/var/www/html); may indicate brute force or probing activity",
+    "tools": ["Automated scanners", "Custom HTTP clients"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508249.87",
+    "attack_type": ["Initial Access", "Web Server Attack"],
+    "mitre": ["T1190", "T1078"],
+    "description": "Access denied to root web directory (/var/www/html) by client; scanning for vulnerabilities or misconfigurations",
+    "tools": ["Automated scanners", "Custom HTTP clients"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508278",
+    "attack_type": ["Reconnaissance", "Vulnerability Scanning"],
+    "mitre": ["T1595.002", "T1595"],
+    "description": "403 Forbidden response on GET to /wp-content/plugins/akismet/, user-agent WPScan scanner; scanning WordPress plugins for vulnerabilities",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508278",
+    "attack_type": ["Reconnaissance", "Vulnerability Scanning"],
+    "mitre": ["T1595.002", "T1595"],
+    "description": "404 response on HEAD request to /wp-content/plugins/analytics-for-wp/, user-agent WPScan; scanning for WordPress plugin existence",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508278",
+    "attack_type": ["Reconnaissance", "Vulnerability Scanning"],
+    "mitre": ["T1595.002", "T1595"],
+    "description": "404 response on HEAD request to /wp-content/plugins/animate-it/, user-agent WPScan; plugin enumeration attempt",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+    {
+    "anomaly_timestamp": "1642508278",
+    "attack_type": ["Reconnaissance", "Vulnerability Scanning"],
+    "mitre": ["T1595", "T1068"],
+    "description": "HEAD requests to various WordPress plugin directories returning 404 suggest automated scanning for vulnerable plugins by WPScan tool.",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508278",
+    "attack_type": ["Reconnaissance", "Vulnerability Scanning"],
+    "mitre": ["T1595", "T1068"],
+    "description": "HEAD request targeting 'analytify-analytics-dashboard-widget' plugin directory with 404 response indicates scanning activity.",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508281",
+    "attack_type": ["Reconnaissance", "Vulnerability Scanning"],
+    "mitre": ["T1595", "T1068"],
+    "description": "HEAD request for 'post-snippets' plugin directory returning 404; typical of scanning for vulnerable WordPress plugins.",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508281",
+    "attack_type": ["Reconnaissance", "Vulnerability Scanning"],
+    "mitre": ["T1595", "T1068"],
+    "description": "HEAD request for 'post-types-order' plugin directory, 404 response; part of automated plugin vulnerability enumeration.",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508281",
+    "attack_type": ["Reconnaissance", "Vulnerability Scanning"],
+    "mitre": ["T1595", "T1068"],
+    "description": "HEAD request to 'post-type-switcher' plugin directory detected; WPScan fingerprinting for potential exploits.",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508281",
+    "attack_type": ["Reconnaissance", "Vulnerability Scanning"],
+    "mitre": ["T1595", "T1068"],
+    "description": "HEAD request aimed at 'postmark-approved-wordpress-plugin' plugin directory with 404, indicating scanning behavior.",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508281",
+    "attack_type": ["Reconnaissance", "Vulnerability Scanning"],
+    "mitre": ["T1595", "T1068"],
+    "description": "HEAD request targeting 'postie' WordPress plugin directory, 404 status implies probe for vulnerable plugins.",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508287",
+    "attack_type": ["Reconnaissance", "File Enumeration"],
+    "mitre": ["T1595", "T1083"],
+    "description": "HEAD request for 'timthumb.php' in WordPress theme directory returning 404; timthumb is known vulnerable file often targeted.",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508287",
+    "attack_type": ["Reconnaissance", "File Enumeration"],
+    "mitre": ["T1595", "T1083"],
+    "description": "HEAD request to malformed path with double slash in theme directory targeting timthumb.php; indicates probing for known vulnerable scripts.",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642508287",
+    "attack_type": ["Reconnaissance", "File Enumeration"],
+    "mitre": ["T1595", "T1083"],
+    "description": "HEAD request to a corrupted filename 'timthumb.phptimthumb.php' suggesting automated scanning for vulnerable scripts in themes.",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642508287,
+    "attack_type": ["Reconnaissance", "WordPress scanning"],
+    "mitre": ["T1595", "T1190"],
+    "description": "Detected HEAD requests targeting WordPress theme files with the WPScan user agent, indicating automated scanning for vulnerabilities.",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642508287,
+    "attack_type": ["Reconnaissance", "WordPress scanning"],
+    "mitre": ["T1595", "T1190"],
+    "description": "Detected HEAD requests targeting WordPress theme PHP files with WPScan user agent, showing automated probing.",
+    "tools": ["WPScan"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642508374,
+    "attack_type": ["Credential Access", "File access probing"],
+    "mitre": ["T1552", "T1216"],
+    "description": "GET requests to .htpasswd file which is a common attempt to access credential files, resulting in 403 Forbidden status.",
+    "tools": ["curl", "custom scripts"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642508374,
+    "attack_type": ["Credential Access", "File access probing"],
+    "mitre": ["T1552", "T1216"],
+    "description": "GET request to a slightly altered .htpasswd_ file likely probing for misconfigurations or backup files, blocked with 403.",
+    "tools": ["curl", "custom scripts"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642508374,
+    "attack_type": ["Injection", "Suspicious request payload"],
+    "mitre": ["T1190", "T1204"],
+    "description": "Request URI contains new characters '@', indicating possible command injection or probing for directory traversal.",
+    "tools": ["custom scripts", "scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642508374,
+    "attack_type": ["Injection", "Suspicious request payload"],
+    "mitre": ["T1190", "T1204"],
+    "description": "Request URI with '~' character suggests probing for admin directories or hidden files, common in attacks against web apps.",
+    "tools": ["custom scripts", "scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642508635.65,
+    "attack_type": ["Exploitation", "File inclusion"],
+    "mitre": ["T1203", "T1190"],
+    "description": "Apache error log shows failed attempts to access WordPress sitemap PHP scripts, indicating possible file inclusion or LFI attempts.",
+    "tools": ["automated exploit tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642508636,
+    "attack_type": ["Injection", "Suspicious request payload"],
+    "mitre": ["T1190", "T1204"],
+    "description": "Request contains '+' character in URI, potentially used to bypass filters or directory traversal in WordPress sitemaps.",
+    "tools": ["custom scripts", "scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642508637.93,
+    "attack_type": ["Exploitation", "File inclusion"],
+    "mitre": ["T1203", "T1190"],
+    "description": "Error log indicates attempted access to 'phpinfo.php' in WordPress sitemaps, a known target for reconnaissance or exploitation.",
+    "tools": ["automated exploit tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642509081,
+    "attack_type": ["Injection", "Suspicious request payload"],
+    "mitre": ["T1190", "T1204"],
+    "description": "Request URI with '~' character in WordPress thickbox JS path, indicating attempts to access hidden or administrative resources.",
+    "tools": ["custom scripts", "scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642509081,
+    "attack_type": ["Reconnaissance", "Path Traversal Attempt"],
+    "mitre": ["T1595", "T1071"],
+    "description": "Detected unusual character (~) in Apache access request targeting /wp-includes/js/thickbox/~www, possibly probing for hidden or sensitive files.",
+    "tools": ["curl", "custom scripts"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642509081.06,
+    "attack_type": ["Reconnaissance", "Directory Enumeration"],
+    "mitre": ["T1595"],
+    "description": "Apache error log shows denial of directory listing for /wp-includes/js/thickbox/, indicating probe attempts on directory contents.",
+    "tools": ["dirbuster", "nikto"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642509081.09,
+    "attack_type": ["Access Denial", "Reconnaissance"],
+    "mitre": ["T1595", "T1201"],
+    "description": "Client denied by server configuration when trying to access /wp-includes/js/thickbox/.hta file, indicating probing for .hta files which can affect server behavior.",
+    "tools": ["manual probing", "scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642509099,
+    "attack_type": ["Reconnaissance", "Redirect Abuse"],
+    "mitre": ["T1595", "T1090"],
+    "description": "New HTTP 301 redirect status code for request to /wp-includes/js/tinymce/langs, indicating potential attempts to bypass or map server redirects.",
+    "tools": ["automated spider", "browser plugin"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": 1642509099,
+    "attack_type": ["Reconnaissance"],
+    "mitre": ["T1595"],
+    "description": "New special character (+) detected in request path /wp-includes/js/tinymce/lost+found, possibly probing for unusual paths or directories.",
+    "tools": ["fuzzing tools"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642509101,
+    "attack_type": ["Reconnaissance", "Redirect Abuse"],
+    "mitre": ["T1595", "T1090"],
+    "description": "HTTP 301 status code detected for access to /wp-includes/js/tinymce/plugins, indicating attempts to follow redirects or discover new plugin paths.",
+    "tools": ["automated scanner"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": 1642509101.08,
+    "attack_type": ["Reconnaissance", "File Inclusion Attempt"],
+    "mitre": ["T1190"],
+    "description": "Error log reports missing phpinfo.php script in /wp-includes/js/tinymce/, which attackers commonly request to gather PHP configuration details.",
+    "tools": ["manual probing", "scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642509103,
+    "attack_type": ["Reconnaissance", "Redirect Abuse"],
+    "mitre": ["T1595", "T1090"],
+    "description": "New 301 redirect status code for /wp-includes/js/tinymce/skins, likely an attempt to enumerate accessible skin files or directories.",
+    "tools": ["automated spider"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": 1642509104,
+    "attack_type": ["Reconnaissance", "Redirect Abuse"],
+    "mitre": ["T1595", "T1090"],
+    "description": "HTTP 301 redirect observed for /wp-includes/js/tinymce/themes, indicating further enumeration of theme directories via redirects.",
+    "tools": ["automated scanner"],
+    "classification": "FP"
+  },
+  {
+    "anomaly_timestamp": 1642509312.99,
+    "attack_type": ["Reconnaissance", "File Inclusion Attempt"],
+    "mitre": ["T1190"],
+    "description": "Error log indicates missing file /wp-content/themes/go/includes/classes/index.php, a common probe for WordPress theme vulnerabilities.",
+    "tools": ["manual probes", "vulnerability scanners"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509313",
+    "attack_type": ["Directory Traversal Attempt", "Reconnaissance"],
+    "mitre": ["T1083", "T1595"],
+    "description": "Request contains unusual '+' character in path '/wp-content/themes/go/includes/classes/lost+found', indicating probing for hidden or backup files.",
+    "tools": ["curl", "custom HTTP scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509313.06",
+    "attack_type": ["File Enumeration", "Reconnaissance"],
+    "mitre": ["T1083", "T1595"],
+    "description": "404 error for PHP file 'info.php' in theme directory indicates attacker scanning for potentially sensitive or exploitable scripts.",
+    "tools": ["automated scanner", "web crawler"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509315.37",
+    "attack_type": ["File Enumeration", "Reconnaissance"],
+    "mitre": ["T1083", "T1595"],
+    "description": "404 error for 'phpinfo.php', a common reconnaissance target, suggests attacker probing for PHP configuration exposure.",
+    "tools": ["automated scanner", "web crawler"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509319",
+    "attack_type": ["Access Control Bypass", "Reconnaissance"],
+    "mitre": ["T1190", "T1595"],
+    "description": "HTTP 403 Forbidden status code on access to '/wp-includes/js/tinymce/plugins/hr/' suggests attacker attempting to access restricted plugin resources.",
+    "tools": ["manual probing", "automated scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509418",
+    "attack_type": ["Directory Traversal", "Reconnaissance"],
+    "mitre": ["T1083", "T1595"],
+    "description": "Requests with unusual '~' character in paths (e.g. '/wp-content/themes/go/dist/images/admin/~logs') likely indicate attacker probing for backup or hidden files.",
+    "tools": ["custom script", "automated scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509418",
+    "attack_type": ["Directory Traversal", "Reconnaissance"],
+    "mitre": ["T1083", "T1595"],
+    "description": "Repeated requests with '~' in paths such as '/wp-content/themes/go/dist/images/admin/~lp' indicate continued probing for hidden resources.",
+    "tools": ["custom script", "automated scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509418",
+    "attack_type": ["Directory Traversal", "Reconnaissance"],
+    "mitre": ["T1083", "T1595"],
+    "description": "Similar requests to '/wp-content/themes/go/dist/images/admin/~mail' with '~' character suggest enumeration of hidden or backup files.",
+    "tools": ["custom script", "automated scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509418",
+    "attack_type": ["Directory Traversal", "Reconnaissance"],
+    "mitre": ["T1083", "T1595"],
+    "description": "Requests for '/wp-content/themes/go/dist/images/admin/~nobody' indicate probing for misconfigured or hidden files.",
+    "tools": ["custom script", "automated scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509418",
+    "attack_type": ["Directory Traversal", "Reconnaissance"],
+    "mitre": ["T1083", "T1595"],
+    "description": "Requests including '~operator' in the path suggest attacker looking for hidden user or operator files.",
+    "tools": ["custom script", "automated scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509423.86",
+    "attack_type": ["File Enumeration", "Reconnaissance"],
+    "mitre": ["T1083", "T1595"],
+    "description": "404 error for '/wp-content/themes/go/dist/images/admin/info.php' confirms repeated attempts to locate potentially exploitable PHP scripts.",
+    "tools": ["automated scanner", "web crawler"],
+    "classification": "TP"
+  }, 
+  {
+    "anomaly_timestamp": 1642509424,
+    "attack_type": ["Reconnaissance", "Path Traversal Attempt"],
+    "mitre": ["T1595", "T1071"],
+    "description": "Request for a suspicious wp-content path containing 'lost+found', which is uncommon and indicates probing for hidden or admin content.",
+    "tools": ["curl", "custom scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642509426.16,
+    "attack_type": ["Reconnaissance", "File Discovery"],
+    "mitre": ["T1595", "T1083"],
+    "description": "Error log shows a request for 'phpinfo.php' which is a common reconnaissance step to gather server configuration details.",
+    "tools": ["curl", "custom scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642509430,
+    "attack_type": ["Access Denied", "Reconnaissance"],
+    "mitre": ["T1595", "T1190"],
+    "description": "Access denied (403) on wp-content themes path, indicating attempt to access restricted resource or directory.",
+    "tools": ["curl", "automated scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642509430,
+    "attack_type": ["Access Denied", "Malicious File Probe"],
+    "mitre": ["T1190", "T1595"],
+    "description": "403 status for '.hta' file in themes directory, likely probing for execution of malicious scripts.",
+    "tools": ["curl", "scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642509443,
+    "attack_type": ["Access Denied", "Credential Access Attempt"],
+    "mitre": ["T1190", "T1552"],
+    "description": "403 on attempt to access '.htpasswd' file, typical attempt to access authentication credentials.",
+    "tools": ["curl", "scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642509443,
+    "attack_type": ["Access Denied", "Credential Access Attempt"],
+    "mitre": ["T1190", "T1552"],
+    "description": "403 for '.htpasswd_' file, variant of credential file probing.",
+    "tools": ["curl", "scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642509443,
+    "attack_type": ["Reconnaissance", "Suspicious Character Usage"],
+    "mitre": ["T1595"],
+    "description": "Request path contains '@' character, which is unusual and may indicate probing or injection attempts.",
+    "tools": ["custom scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642509443,
+    "attack_type": ["Reconnaissance", "Suspicious Character Usage"],
+    "mitre": ["T1595"],
+    "description": "Request path contains '~' character indicating possible attempt to access backup or admin directories.",
+    "tools": ["custom scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642509443,
+    "attack_type": ["Reconnaissance", "Suspicious Character Usage"],
+    "mitre": ["T1595"],
+    "description": "Request for path containing '~admin' which is a known pattern for admin directories, indicating targeted probing.",
+    "tools": ["custom scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": 1642509443.35,
+    "attack_type": ["Access Denied", "Server Misconfiguration Probe"],
+    "mitre": ["T1190"],
+    "description": "Client denied by server configuration for '.htaccess' file, indicating probing for access control files.",
+    "tools": ["curl", "scanner"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509443.35",
+    "attack_type": ["Unauthorized Access Attempt"],
+    "mitre": ["T1190"],
+    "description": "Client denied by server configuration accessing sensitive .htaccess_ file, indicating possible reconnaissance or probing.",
+    "tools": ["Apache HTTP Server"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509443.36",
+    "attack_type": ["Unauthorized Access Attempt"],
+    "mitre": ["T1190"],
+    "description": "Client denied by server configuration accessing .htpasswd file, a common target for attackers trying to gain password hashes.",
+    "tools": ["Apache HTTP Server"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509443.36",
+    "attack_type": ["Unauthorized Access Attempt"],
+    "mitre": ["T1190"],
+    "description": "Client denied by server configuration accessing a disguised .htpasswd_ file, suggesting repeated probing of access controls.",
+    "tools": ["Apache HTTP Server"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509444.09",
+    "attack_type": ["File Enumeration", "Reconnaissance"],
+    "mitre": ["T1595"],
+    "description": "Script file admin.php not found or inaccessible, indicating probing for vulnerable admin scripts.",
+    "tools": ["Apache HTTP Server"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509448.96",
+    "attack_type": ["File Enumeration", "Reconnaissance"],
+    "mitre": ["T1595"],
+    "description": "Script file index.php in admin directory missing or inaccessible, another sign of probing for admin entry points.",
+    "tools": ["Apache HTTP Server"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509505",
+    "attack_type": ["Web Shell Access", "Command and Control"],
+    "mitre": ["T1505.003"],
+    "description": "High entropy URL with suspicious PHP filename and encoded parameters, typical of web shell or malware payload delivery.",
+    "tools": ["Python Requests", "Web Shell"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509509",
+    "attack_type": ["Web Shell Access", "Command and Control"],
+    "mitre": ["T1505.003"],
+    "description": "Encoded request parameter referencing GitHub URLs, likely attempts to download or execute malicious scripts via web shell.",
+    "tools": ["Python Requests", "Web Shell"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509551",
+    "attack_type": ["Web Shell Access", "Command and Control"],
+    "mitre": ["T1505.003"],
+    "description": "Request with encoded parameters suggesting execution of shell scripts and commands remotely via web shell.",
+    "tools": ["Python Requests", "Web Shell"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642509615",
+    "attack_type": ["Anomalous HTTP Method Usage"],
+    "mitre": ["T1071"],
+    "description": "Unusual frequency of POST method on ajax.php service, potentially indicating automated or malicious API calls.",
+    "tools": ["Headless Chrome"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642510794.32",
+    "attack_type": ["Resource Exhaustion", "System Anomaly"],
+    "mitre": ["T1499"],
+    "description": "CPU utilization anomaly with significant deviation from baseline, possibly caused by malicious or faulty processes.",
+    "tools": ["Metricbeat", "Logstash"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642510831",
+    "attack_type": ["Reconnaissance", "DNS Tunneling"],
+    "mitre": ["T1040", "T1071"],
+    "description": "Unusual high-frequency DNS queries from multiple IPs indicate potential DNS reconnaissance or tunneling activity.",
+    "tools": ["dnsmasq"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642511608",
+    "attack_type": ["Web Application Attack", "Reconnaissance"],
+    "mitre": ["T1190", "T1595"],
+    "description": "Anomalous frequency in Apache HTTP request methods suggests unusual or automated scanning activity.",
+    "tools": ["Apache HTTP Server"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642511658",
+    "attack_type": ["Web Shell", "Remote Code Execution"],
+    "mitre": ["T1505", "T1059"],
+    "description": "High entropy value in Apache request indicating obfuscated or encoded payload in a PHP file, typical of web shells or remote code execution attempts.",
+    "tools": ["python-requests", "Apache HTTP Server"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642511671",
+    "attack_type": ["Privilege Escalation", "Credential Access"],
+    "mitre": ["T1055", "T1078"],
+    "description": "New su command event detected for user 'phopkins' by www-data user, indicating potential privilege escalation attempt.",
+    "tools": ["su"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642511671",
+    "attack_type": ["Privilege Escalation", "Credential Access"],
+    "mitre": ["T1055", "T1078"],
+    "description": "New path detection for su session including terminal info, consistent with suspicious user privilege escalation behavior.",
+    "tools": ["su"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642511671",
+    "attack_type": ["Privilege Escalation", "Credential Access"],
+    "mitre": ["T1055", "T1078"],
+    "description": "Session opened for user 'phopkins' by uid=33 (www-data), confirming suspicious privilege escalation activity.",
+    "tools": ["su", "PAM"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642511671.63",
+    "attack_type": ["Credential Access", "Privilege Escalation"],
+    "mitre": ["T1056", "T1550"],
+    "description": "New combination of user authentication audit logs for 'phopkins' via /bin/su detected, indicating credential access.",
+    "tools": ["PAM", "auditd"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642511671.63",
+    "attack_type": ["Credential Access", "Privilege Escalation"],
+    "mitre": ["T1056", "T1550"],
+    "description": "New user accounting audit log for 'phopkins' using /bin/su, further confirming suspicious account activity.",
+    "tools": ["PAM", "auditd"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642511671.66",
+    "attack_type": ["Credential Access"],
+    "mitre": ["T1550"],
+    "description": "New credential acquisition audit log detected for 'phopkins' via /bin/su, indicating possible credential theft or misuse.",
+    "tools": ["PAM", "auditd"],
+    "classification": "TP"
+  },
+  {
+    "anomaly_timestamp": "1642511672.4",
+    "attack_type": ["Privilege Escalation", "Persistence"],
+    "mitre": ["T1055", "T1543"],
+    "description": "New user session start audit log for 'phopkins' through /bin/su, indicating successful privilege escalation and session initiation.",
+    "tools": ["PAM", "auditd"],
+    "classification": "TP"
+  }
+]

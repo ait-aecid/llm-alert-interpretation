@@ -1,0 +1,112 @@
+[
+  {
+    "line_number": 4,
+    "predicted_attack_type": [
+      "T1078"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "Successful login via IMAP using PLAIN authentication method, which is often considered insecure. The log indicates a successful authentication event.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 06:44:51\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 23, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 06:44:51 mail dovecot: imap-login: Login: user=<samantha.thornton>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9278, TLS, session=<2ESpQZnV/LmsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T06:44:51.000000Z\", \"location\": \"/var/log/mail.info\", \"id\": \"1686162330.302471\"}\n"
+  },
+  {
+    "line_number": 31,
+    "predicted_attack_type": [
+      "T1105"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a legitimate download of packages using APT, which is a common and expected behavior for Linux systems. The User-Agent string 'Debian APT-HTTP/1.3' confirms this.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"51264\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"425487131978577.000000\", \"dest_ip\": \"91.189.91.39\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"security.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/pool/main/s/systemd/libsystemd0_237-3ubuntu10.50_amd64.deb\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:01:47.830289+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"433\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:01:48.017549+0000\"}, \"rule\": {\"firedtimes\": 22, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:01:48.017549Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163348.318782\"}\n"
+  },
+  {
+    "line_number": 33,
+    "predicted_attack_type": [
+      "T1105"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a legitimate package management download from Ubuntu repositories using the APT User-Agent, which is a common and expected activity.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"51264\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"514150289354026.000000\", \"dest_ip\": \"91.189.91.39\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"security.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/pool/main/s/systemd/libsystemd0_237-3ubuntu10.50_amd64.deb\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:01:47.830762+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"433\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:01:48.018014+0000\"}, \"rule\": {\"firedtimes\": 24, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:01:48.018014Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163348.323935\"}\n"
+  },
+  {
+    "line_number": 35,
+    "predicted_attack_type": [
+      "T1105"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates that the system is downloading packages using APT, which is a legitimate package manager for GNU/Linux. The User-Agent string 'Debian APT-HTTP/1.3' confirms this. This is a common and expected behavior for system updates and software installations.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"36880\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1349347483566669.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/pool/main/libx/libxml2/libxml2_2.9.4%2bdfsg1-6.1ubuntu1.4_amd64.deb\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:02:07.836173+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"441\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:02:07.889619+0000\"}, \"rule\": {\"firedtimes\": 25, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:02:07.889619Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163368.326945\"}\n"
+  },
+  {
+    "line_number": 37,
+    "predicted_attack_type": [
+      "T1105"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a legitimate download of packages from Ubuntu repositories using the APT package manager, which is a common and expected activity for Linux systems.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"36880\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"560892419752936.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/pool/main/libx/libxml2/libxml2_2.9.4%2bdfsg1-6.1ubuntu1.4_amd64.deb\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:02:07.836584+0000\", \"bytes_toclient\": \"140\", \"bytes_toserver\": \"441\", \"pkts_toclient\": \"2\"}, \"timestamp\": \"2022-01-15T07:02:07.890025+0000\"}, \"rule\": {\"firedtimes\": 26, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:02:07.890025Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163368.329531\"}\n"
+  },
+  {
+    "line_number": 60,
+    "predicted_attack_type": [
+      "T1105"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a GNU/Linux APT User-Agent making an outbound connection, which is a common technique for downloading malicious packages or updates.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"36892\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1177443602084660.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\", \"status\": \"304\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:11:33.275252+0000\", \"bytes_toclient\": \"417\", \"bytes_toserver\": \"488\", \"pkts_toclient\": \"3\"}, \"timestamp\": \"2022-01-15T07:11:33.333703+0000\"}, \"rule\": {\"firedtimes\": 29, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.333703Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.345217\"}\n"
+  },
+  {
+    "line_number": 62,
+    "predicted_attack_type": [
+      "T1105"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a legitimate package management operation (APT) from a GNU/Linux system, which is a common and expected behavior. The signature 'ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management' correctly identifies this as policy-compliant traffic, hence it's a true positive for the IDS rule but not malicious activity.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"0\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"36892\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"990090686183221.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\", \"status\": \"304\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"4\", \"start\": \"2022-01-15T07:11:33.276277+0000\", \"bytes_toclient\": \"417\", \"bytes_toserver\": \"488\", \"pkts_toclient\": \"3\"}, \"timestamp\": \"2022-01-15T07:11:33.334828+0000\"}, \"rule\": {\"firedtimes\": 34, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.334828Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.358322\"}\n"
+  },
+  {
+    "line_number": 68,
+    "predicted_attack_type": [
+      "T1105"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates a \"GNU/Linux APT User-Agent Outbound\" which is a known indicator of package management activity. This is a true positive as it signifies legitimate system updates.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.32.1\", \"name\": \"wazuh-client\", \"id\": \"29\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"2\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"192.168.128.4\", \"src_port\": \"36892\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1177443602084660.000000\", \"dest_ip\": \"91.189.88.142\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"archive.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic-backports/InRelease\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"27\", \"start\": \"2022-01-15T07:11:33.275252+0000\", \"bytes_toclient\": \"7187\", \"bytes_toserver\": \"2456\", \"pkts_toclient\": \"8\"}, \"timestamp\": \"2022-01-15T07:11:33.496520+0000\"}, \"rule\": {\"firedtimes\": 31, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:33.496520Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.349373\"}\n"
+  },
+  {
+    "line_number": 75,
+    "predicted_attack_type": [
+      "T1105"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The alert indicates an APT user-agent from Debian APT, which is a common indicator of package management activity. This is classified as a true positive as it aligns with expected system behavior for software updates.",
+    "anomaly": "{\"agent\": {\"ip\": \"10.35.33.111\", \"name\": \"wazuh-client\", \"id\": \"1\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"data\": {\"tx_id\": \"1\", \"app_proto\": \"http\", \"in_iface\": \"ens3\", \"src_ip\": \"10.35.33.111\", \"src_port\": \"54320\", \"event_type\": \"alert\", \"alert\": {\"severity\": \"3\", \"signature_id\": \"2013504\", \"rev\": \"6\", \"metadata\": {\"updated_at\": [\"2020_04_22\"], \"former_category\": [\"POLICY\"], \"created_at\": [\"2011_08_31\"]}, \"gid\": \"1\", \"signature\": \"ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"action\": \"allowed\", \"category\": \"Not Suspicious Traffic\"}, \"flow_id\": \"1874716510205288.000000\", \"dest_ip\": \"91.189.88.152\", \"proto\": \"TCP\", \"http\": {\"hostname\": \"security.ubuntu.com\", \"protocol\": \"HTTP/1.1\", \"http_method\": \"GET\", \"length\": \"0\", \"url\": \"/ubuntu/dists/bionic-security/universe/binary-amd64/by-hash/SHA256/cfff5d561f5d4daf2639ae53583c8d1b71d217189bc1f5c404fca10f901d3c07\", \"http_user_agent\": \"Debian APT-HTTP/1.3 (1.6.12ubuntu0.2)\"}, \"dest_port\": \"80\", \"flow\": {\"pkts_toserver\": \"31\", \"start\": \"2022-01-15T07:11:33.275816+0000\", \"bytes_toclient\": \"2848\", \"bytes_toserver\": \"2548\", \"pkts_toclient\": \"4\"}, \"timestamp\": \"2022-01-15T07:11:34.003454+0000\"}, \"rule\": {\"firedtimes\": 37, \"mail\": false, \"level\": 3, \"description\": \"Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management\", \"groups\": [\"ids\", \"suricata\"], \"id\": \"86601\"}, \"decoder\": {\"name\": \"json\"}, \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:11:34.003454Z\", \"location\": \"/var/log/suricata/eve.json\", \"id\": \"1686163934.364534\"}\n"
+  },
+  {
+    "line_number": 97,
+    "predicted_attack_type": [
+      "T1078"
+    ],
+    "attack_type": "",
+    "classification_correct": "No classification expected as the alert is a false positive.",
+    "classification": "TP",
+    "description": "The log indicates a successful Dovecot IMAP login for user 'daniel.morgan' from IP address 172.17.131.81. This aligns with the MITRE ATT&CK technique T1078 (Valid Accounts) as it represents a legitimate authentication event.",
+    "anomaly": "{\"predecoder\": {\"hostname\": \"mail\", \"program_name\": \"dovecot\", \"timestamp\": \"Jan 15 07:17:25\"}, \"agent\": {\"ip\": \"172.17.131.81\", \"name\": \"wazuh-client\", \"id\": \"18\"}, \"manager\": {\"name\": \"wazuh.manager\"}, \"rule\": {\"mail\": false, \"level\": 3, \"pci_dss\": [\"10.2.5\"], \"hipaa\": [\"164.312.b\"], \"tsc\": [\"CC6.8\", \"CC7.2\", \"CC7.3\"], \"description\": \"Dovecot Authentication Success.\", \"groups\": [\"dovecot\", \"authentication_success\"], \"nist_800_53\": [\"AU.14\", \"AC.7\"], \"gdpr\": [\"IV_32.2\"], \"firedtimes\": 67, \"mitre\": {\"technique\": [\"Valid Accounts\"], \"id\": [\"T1078\"], \"tactic\": [\"Defense Evasion\", \"Persistence\", \"Privilege Escalation\", \"Initial Access\"]}, \"id\": \"9701\", \"gpg13\": [\"7.1\", \"7.2\"]}, \"decoder\": {\"parent\": \"dovecot\", \"name\": \"dovecot\"}, \"full_log\": \"Jan 15 07:17:25 mail dovecot: imap-login: Login: user=<daniel.morgan>, method=PLAIN, rip=172.17.131.81, lip=172.17.131.81, mpid=9484, TLS, session=<4MUTtpnVHLqsEYNR>\", \"input\": {\"type\": \"log\"}, \"@timestamp\": \"2022-01-15T07:17:25.000000Z\", \"location\": \"/var/log/mail.log\", \"id\": \"1686164284.382202\"}\n"
+  }
+]

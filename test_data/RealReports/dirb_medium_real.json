@@ -1,0 +1,22 @@
+{
+    "attributes": [],
+    "created": "2025-04-23T15:55:00",
+    "id": "real_dirb_medium",
+    "news_items": [
+      {
+        "author": "Vasileiadis A. (Cyberkid)",
+        "content": "Find hidden directories with Dirb\nOften, in order to hack a website, we need to connect and exploit an object. This can be an administrative panel or a subdirectory that is vulnerable to attacks. The key, of course, is to find these items, as they may be hidden.\nDIRB, developed by The Dark Raver, is a tool designed to find these objects, hidden and not. Since it is already included in Kali, if you are working through it there is no need to download and install anything.Table of Contents\n\nStep 1 Open a terminal\nStep 2 Launch DIRB\nStep 3 Using DIRB for a simple hidden object scan\nStep 4 Check for special vulnerable lists\nStep 1: Open a terminal\n\nThe first step, as usual, is to fire up Kali and open a terminal.\nStep 2: Launch DIRB\n\nOnce you open the terminal, type dirb to bring up the help screen.\nkali > dirb\nAs you can see in the screenshot above, writing DIRB is very simple with many options. In its simplest form, we only need to type the command dirb followed by the URL of the website we are testing.\nkali > dirb URL\nStep 3: Using DIRB for a simple hidden object scan\n\nIn its simplest form, DIRB will scan the site looking for 4.612 object types. Let’s test it on our favorite testing site, webscantest.com.\nkali > dirb http://webscantest.com\nDIRB starts the scan by looking for the keywords among the website objects.\nWhen DIRB finds an active directory (Code 200), it then begins searching within that directory for additional hidden objects. Code 503 indicates 'temporarily unavailable'.\nFinally, when DIRB finishes, it reports the number of objects found (113 in this case). Note that in the help screen above, we can use the -o switch to send the results to an output file to save the results to a text file.\nStep 4: Check for special vulnerable lists\n\nWe can use DIRB to check for specific vulnerabilities on specific types of websites. Each page has different vulnerabilities. They are NOT all the same. DIRB can help us look for specific page-specific vulnerabilities.\nIn Kali, DIRB has specific lists of words to search for these vulnerable, often hidden objects. You can find them at:\nkali > cd /usr/share/dirb/wordlists/vuln\nThen list the contents of this directory:\nkali > ls -l\nAs you can see above, there are numerous wordlists in dirb containing keywords of vulnerable objects for various pages, such as Apache, ColdFusion, FatWire, ISS, JBoss, Oracle, SAP, Tomcat, WebLogic and many others. Since I suspect my site is running Apache as a server (I could do a banner grab or use httprint to make sure), it makes sense to test the apache.txt wordlist first.\nWe can now create the command dirb us to use Apache’s list of vulnerable objects by typing:\nkali > dirb http:\/\/webscantest.com \/usr\/share\/dirb\/wordlists\/vulns\/apache.txt\nWhen we press enter, DIRB will scan the site for vulnerable objects from the apache.txt wordlist.\nNow, DIRB will use the Apache list to search for known vulnerable objects. If it finds one, then you can take the next step and search for an exploit to exploit in Exploit-DB, Metasploit, SecurityFocus (www.securityfocus.com), or any of the many other exploit sources on the web. Of course, you must use the vulns word list that is appropriate for the technology used on the site. For example, if it is a Windows IIS server, you should use the iis.txt wordlist.",
+        "hash": "",
+        "id": "real_dirb_medium",
+        "link": "https://medium.com/@redfanatic7/find-hidden-directories-with-dirb-f4411981ebc5",
+        "osint_source_id": "real_dirb_medium",
+        "published": "2024-07-25T00:00:00",
+        "source": "https://medium.com",
+        "story_id": "real_dirb_medium",
+        "title": "Find hidden directories with Dirb"
+      }
+    ],
+    "tags": {},
+    "title": "Find hidden directories with Dirb"
+}
+

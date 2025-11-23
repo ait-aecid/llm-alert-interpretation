@@ -1,0 +1,102 @@
+AT;#;Classification;Attack Line Content;Description;Correct Attack Type?
+DNSteal;4;Valid Account Abuse;"IDS: “Dovecot Authentication Success”
+Raw Data: “dovecot: imap-login: Login: user=<susan.gregory>, method=PLAIN, rip=192.168.128.170”, “dovecot: imap-login: Login: user=<damian.jordan>”";Classification probably based on IDS mitre classification;Alternate explanation for alert
+Network Scans;1;"Protocol Misuse, 
+Encrypted Channel Abuse";IDS: “SURICATA TLS invalid record/traffic”;Classification probably based on malformed TLS packet and protcol name TLS;Too generic
+Network Scans;2;"Protocol Misuse, 
+Encrypted Channel Abuse";IDS: “SURICATA TLS invalid handshake message”;Classification probably based on protcol name TLS;Too generic
+Network Scans;1;Protocol Misuse;IDS: “SURICATA TLS invalid record/traffic”;Classification probably based on malformed TLS packet and protcol name TLS;Too generic
+Network Scans;1;Protocol Misuse;IDS: “SURICATA TLS invalid handshake message”;Classification probably based on protcol name TLS;Too generic
+Network Scans;1;"Protocol Misuse, 
+Encrypted Channel Abuse";IDS: “Suricata: Alert - SURICATA TLS invalid record/traffic”;Classification probably based on protocol name and occurrence of 129 times;Too generic
+Network Scans;1;Protocol Misuse;IDS: “SURICATA TLS invalid handshake message [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP}”;Classification probably based on protocol name ;Too generic
+Network Scans;1;"Protocol Anomaly, 
+TLS Evasion";"IDS: “IDS event.”, firedtimes: 124
+Raw Data: “SURICATA TLS invalid record/traffic [**] [Classification: Generic Protocol Command Decode] [Priority: 3] {TCP}”";Classification probably based on protocol name and occurrence of 124 times;Too generic
+Network Scans;1;"Protocol Anomaly, 
+TLS Evasion";IDS: “SURICATA TLS invalid handshake message”;Classification probably based on protocol name TLS;Alternate explanation for alert
+Network Scans;1;"Protocol Anomaly, 
+TLS Evasion";IDS: “SURICATA TLS invalid invalid record/traffic”;Classification probably based on protocol name TLS;Alternate explanation for alert
+Network Scans;1;"Protocol Anomaly, 
+Suspicious SSL Communication";IDS: “SURICATA TLS invalid handshake message”;Classification probably based on protocol name TLS;Alternate explanation for alert
+Network Scans;2;Valid Account Usage;"IDS: “Dovecot Authentication Success.”
+Raw Data: “taylorcruz-mail dovecot: imap-login: Login: user=<damian.jordan>, method=PLAIN”";Classification probably based on IDS mitre classification;Alternate explanation for alert
+Service Scans;1;Valid Account Usage;"IDS: “Dovecot Authentication Success”
+Raw Data: “dovecot: imap-login: Login: user=<damian.jordan…”";Classification probably based on IDS mitre classification;Alternate explanation for alert
+Service Scans;3;"Reconnaissance, 
+SSH Scan";"IDS: “sshd: insecure connection attempt (scan)”
+Raw Data: “internal-share sshd[28182]: Did not receive identification string from [IP]”";Classification probably based on IDs message;Correct & expressive
+Service Scans;1;"Reconnaissance, 
+Lateral Movement";"IDS: “sshd: insecure connection attempt (scan)” 
+Raw Data: “webserver sshd[25473]: Did not receive identification string from [IP]”";Classification probably based on IDS mitre classification;Too generic
+Service Scans;1;"Command and Control, 
+Protocol Misuse";IDS: “SURICATA SMTP invalid reply”;Classification probably based on protocol name SMTP and invalid reply;Too generic
+Service Scans;1;"Initial Access, 
+Directory Traversal Attempt";"IDS: “Apache: Attempt to access forbidden file or directory.”, 
+Raw Data: “AH01630: client denied by server configuration: /var/www/html/”
+";Classification probably based on tool name apache and attempted access to web root directory;Correct & expressive
+Service Scans;2;"Reconnaissance, 
+Web Application Scanning";"IDS: “Web server 400 error code”
+Raw Data: “GET /nmaplowercheck1642508249 HTTP/1.1 403 3260 - Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)”";Classification probably based on http status code 403 and tool name nmap;Correct & expressive
+Service Scans;2;"Initial Access, 
+Web Application Scanning";"IDS: “Apache: Attempt to access forbidden file or directory.”
+Raw Data: “AH01630: client denied by server configuration: /var/www/html/”";Classification probably based on tool name apache and attempted access to web root directory;Correct & expressive
+WPScan;1;"Reconnaissance, 
+Plugin Enumeration";"IDS: “Web server 400 error code”
+Raw Data: “HEAD /wp-content/plugins/change-wp-admin-login/ HTTP/1.1 404 146 https://intranet.price.fox.org WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)”";Classification probably based on tool name WPScan and http status code 404;Correct & expressive
+WPScan;1;"Reconnaissance, 
+Plugin Enumeration";"IDS: “Multiple web server 400 error codes from same source ip.”
+Raw Data: “HEAD /wp-content/plugins/clean-image-filenames/ HTTP/1.1 404 146 https://intranet.price.fox.org WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)”";Classification probably based on tool name WPScan and http status code 404 and IDS mitre classification;Correct & expressive
+WPScan;6;"Web Plugin Enumeration,
+Reconnaissance";"IDS: “Web server 400 error code”
+Raw Data: “HEAD /wp-content/plugins/click-to-chat-for-whatsapp/ HTTP/1.1 404 146 https://intranet.price.fox.org WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)”";Classification probably based on tool name WPScan and http status code 404;Correct & expressive
+WPScan;4;"Web Plugin Enumeration,
+Reconnaissance";"IDS: “Multiple web server 400 error codes from same source ip.”
+Raw Data: “HEAD /wp-content/plugins/constant-contact-forms/ HTTP/1.1 404 146 https://intranet.price.fox.org WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)”";Classification probably based on tool name WPScan and http status code 404;Correct & expressive
+WPScan;4;Web Application Scanning, File Enumeration;"IDS: “Web server 400 error code”
+Raw Data: “HEAD /wp-content/plugins/regenerate-thumbnails-advanced/ HTTP/1.1 404 146 https://intranet.price.fox.org WPScan v3.8.20 (https://wpscan.com/wordpress-security-scanner)”";Classification probably based on tool name WPScan and http status code 404;Correct & expressive
+Dirb;4;Web Application Scanning;"IDS: “Web server 400 error code.”, “Multiple web server 400 error codes from same source ip”
+Raw Data: “GET /academics HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”, “GET /bea HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on http status code 404 and attempted access to various potential directory names;Correct & expressive
+Dirb;1;"Web Application Scanning, 
+Log File Enumeration";"IDS: “Web server 400 error code.”,
+Raw Data: “GET /access-log.1 HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on http status code 404 and attempted access to access log file;Correct & expressive
+Dirb;2;Web Scanning;"IDS: “Multiple web server 400 error codes from same source ip.”
+Raw Data: “GET /bea HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on repeated http status code 404 requests from same IP ;Correct & expressive
+Dirb;2;Web Scanning;"IDS: “Web server 400 error code.”
+Raw Data: “GET /beheer HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on repeated http status code 404 requests from same IP ;Correct & expressive
+Dirb;1;Web Application Discovery;"IDS: “Web server 400 error code.”,
+Raw Data: “GET /wp-admin/user/webcalendar HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on on 404 http status code and attempted access to wp-admin folders;Correct & expressive
+Dirb;1;Unauthorized Access Attempt;"IDS: “Apache: Attempt to access forbidden file or directory.”
+Raw Data: “AH01630: client denied by server configuration: /var/www/intranet.price.fox.org/wp-content/plugins/.htpasswd_”";Classification probably based on IDS mitre classification;Alternate explanation for alert
+Dirb;1;"Web Application Discovery,
+Vulnerability Scanning";"IDS: “Web server 400 error code.”,
+Raw Data: “GET /wp-content/plugins/_vti_bin/_vti_aut/author.dll HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on on 404 http status code and attempted access to WordPress plugin folder;Correct & expressive
+Dirb;1;Web Application Fingerprinting;"IDS: “Web server 400 error code.”,
+Raw Data: “GET /wp-includes/js/tinymce/skins/wordpress/images/zh_TW HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on on 404 http status code;Alternate explanation for alert
+Dirb;1;"Reconnaissance, 
+Web Scanning";"IDS: “Web server 400 error code.”
+Raw Data: “GET /wp-includes/js/tinymce/skins/wordpress/images/zones HTTP/1.1 404 363 - Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)”";Classification probably based on on 404 http status code and access to WordPress server;Correct & expressive
+Dirb;3;Valid Account Use;"IDS: “Dovecot Authentication Success” 
+Raw Data: “miller-mail dovecot: imap-login: Login: user=<megan.johnson>, method=PLAIN”";Classification probably based on IDS mitre classification;Alternate explanation for alert
+Password Cracking;2;"Protocol Exploitation, 
+Application Layer Anomaly";"IDS: “SURICATA HTTP unable to match response to request”
+Raw Data: “SURICATA HTTP unable to match response to request [**] [Classification: Generic Protocol Command Decode] [Priority: 3]”";Classification probably based on protocol name HTTP;Too generic
+Password Cracking;1;Valid Account Use;"IDS: “Dovecot Authentication Success.”
+Raw Data: “dovecot: imap-login: Login: user=<john.hammond>, method=PLAIN”";Classification probably based on successful imap login;Alternate explanation for alert
+Password Cracking;4;TLS invalid handshake;IDS: “SURICATA TLS invalid handshake message”;Classification probably based on protocol name TLS and IDS message;Alternate explanation for alert
+Password Cracking;4;TLS invalid record;IDS: “SURICATA TLS invalid record/traffic”;Classification probably based on protocol name TLS and IDS message;Alternate explanation for alert
+Password Cracking;1;Brute Force;"IDS: “PAM: User login failed”
+Raw Data: “taylorcruz-mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=christopher.friedman rhost=192.168.128.195  user=christopher.friedman”";Classification probably based on PAM user login;Correct & expressive
+Privilege Escalation;1;"Privilege Escalation, 
+Initial Access";"IDS: “User successfully changed UID”,
+Raw Data: “intranet-server su[28816]: + /dev/pts/1 www-data:phopkins”";Classification probably based on IDS mitre classification;Correct & expressive
+Privilege Escalation;4;"Privilege Escalation, 
+Initial Access";"IDS: “PAM: Login session opened.”,
+Raw Data: “intranet-server systemd: pam_unix(systemd-user:session): session opened for user phopkins by (uid=0)”";Classification probably based on IDS mitre classification;Correct & expressive
+Privilege Escalation;3;"Privilege Escalation,
+Defense Evasion";"IDS: “Successful sudo to ROOT executed.”,
+Raw Data: “intranet-server sudo: phopkins : TTY=pts/1 ; PWD=/var/www/intranet.price.fox.org/wp-content/uploads/2022/01 ; USER=root ; COMMAND=list”";Classification probably based on IDS mitre classification;Correct & expressive
+Privilege Escalation;2;"Privilege Escalation,
+Defense Evasion";"IDS: “PAM: Login session closed.”,
+Raw Data: “intranet-server sudo: pam_unix(sudo:session): session closed for user root”";Classification probably based on IDS mitre classification;Correct & expressive
+;83;;;;
