@@ -71,6 +71,8 @@ Evaluation results are stored in:
 
 ## Publications
 
+* Schärmer, A., Landauer, M., Skopik, F., Wurzenberger, M., & Squarcina, M. (2026, August). [Let the Alerts Speak: LLM-Based IDS Alert Interpretation for SOC Triage](https://doi.org/10.1007/978-3-032-35579-9_19). In International Conference on Availability, Reliability and Security (pp. 346-364). Springer Nature Switzerland.
+
 ---
 
 ## 📄 License
